@@ -1,337 +1,553 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Aayan Ahmed — Computer Science student, researcher, educator, and student leader focused on AI, education, and public impact."
-    />
-    <title>Aayan Ahmed | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <div class="brand-wrap">
-          <div class="brand-mark">AA</div>
-          <div>
-            <div class="eyebrow">Aayan Ahmed</div>
-            <div class="brand-sub">Computer Science • AI • Education</div>
-          </div>
-        </div>
+:root {
+  --bg: #0a0a0a;
+  --bg-soft: #111111;
+  --panel: #171717;
+  --panel-strong: #1d1d1d;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --text: #f4f4f4;
+  --muted: #b5b5b5;
+  --soft: #e7e7e7;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
 
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#awards">Awards</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+* {
+  box-sizing: border-box;
+}
 
-      <main>
-        <section class="hero">
-          <div class="hero-copy">
-            <p class="kicker">Student developer • researcher • public impact builder</p>
-            <h1>
-              I build systems that make knowledge,
-              <span>opportunity, and technology more accessible.</span>
-            </h1>
-            <p class="intro">
-              I’m a Computer Science student with a strong interest in AI, education,
-              research, and leadership. My work focuses on using technology to solve real
-              problems — from educational access to public-interest research and civic impact.
-            </p>
+html {
+  scroll-behavior: smooth;
+}
 
-            <div class="cta-row">
-              <a class="button primary" href="https://github.com/aayanahmed200" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="button secondary" href="https://linkedin.com/aayanahmed20" target="_blank" rel="noreferrer">LinkedIn</a>
-            </div>
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-            <ul class="meta-grid" aria-label="Highlights">
-              <li>
-                <span class="meta-number">1200+</span>
-                <span class="meta-label">students reached</span>
-              </li>
-              <li>
-                <span class="meta-number">80k+</span>
-                <span class="meta-label">global reach</span>
-              </li>
-              <li>
-                <span class="meta-number">4</span>
-                <span class="meta-label">national wins</span>
-              </li>
-            </ul>
-          </div>
+img {
+  display: block;
+  max-width: 100%;
+}
 
-          <aside class="hero-card">
-            <div class="card-head">
-              <span class="dot"></span>
-              <span>Currently</span>
-            </div>
-            <div class="card-body">
-              <p class="card-label">Education</p>
-              <h2>Aitchison College</h2>
-              <p class="card-copy">
-                Major in Computer Science<br />
-                Minor in Artificial Intelligence &amp; Business
-              </p>
-              <p class="card-label">Focus</p>
-              <p class="card-copy tight">
-                AI for education, human-centered research, and public-impact technology.
-              </p>
-            </div>
-          </aside>
-        </section>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-        <section id="about" class="section-block">
-          <div class="section-header">
-            <p class="section-kicker">About</p>
-            <h2>Building with purpose.</h2>
-          </div>
+p,
+li,
+.repo-detail,
+.meta-label,
+.timeline-content p,
+.card-copy,
+.project-card p,
+.cert-item,
+.awards-strip div,
+.statement-box p {
+  color: var(--muted);
+}
 
-          <div class="two-column">
-            <div>
-              <p>
-                I’m driven by the idea that technology should be accessible, useful, and meaningful.
-                My work spans AI, education, research, and community leadership — with a focus on
-                creating tools that help people learn, think critically, and participate in a better future.
-              </p>
-              <p>
-                I have led student initiatives, founded education-focused ventures, worked in public-interest
-                research, and collaborated with institutions to make impact beyond the classroom.
-              </p>
-            </div>
-            <div class="statement-box">
-              <p>
-                “Technology is not only about innovation; it is about access, trust, and human benefit.”
-              </p>
-            </div>
-          </div>
-        </section>
+h1,
+h2,
+h3,
+.meta-number,
+.repo-name,
+.brand-mark,
+.site-footer h3 {
+  color: var(--text);
+}
 
-        <section id="experience" class="section-block">
-          <div class="section-header">
-            <p class="section-kicker">Experience</p>
-            <h2>Leadership, work, and service.</h2>
-          </div>
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
 
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-date">2025</div>
-              <div class="timeline-content">
-                <h3>Intern, National Assembly of Pakistan</h3>
-                <p>Jun 2025 – Jul 2025</p>
-              </div>
-            </article>
+h1 {
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.94;
+  max-width: 760px;
+}
 
-            <article class="timeline-item">
-              <div class="timeline-date">2025</div>
-              <div class="timeline-content">
-                <h3>Intern, Pakistan Institute for Parliamentary Services</h3>
-                <p>Jun 2025</p>
-              </div>
-            </article>
+h2 {
+  font-size: clamp(2.1rem, 3vw, 3.5rem);
+  line-height: 1.05;
+}
 
-            <article class="timeline-item">
-              <div class="timeline-date">2023 – Present</div>
-              <div class="timeline-content">
-                <h3>Founder &amp; President, Pak Vision</h3>
-                <p>Promoting Pakistan’s positive image through social initiatives and educational outreach.</p>
-              </div>
-            </article>
+h3 {
+  font-size: clamp(1.25rem, 1.8vw, 1.8rem);
+  line-height: 1.2;
+}
 
-            <article class="timeline-item">
-              <div class="timeline-date">2023 – Present</div>
-              <div class="timeline-content">
-                <h3>Founder &amp; President, Nishaan Education</h3>
-                <p>Building a free educational platform for students and community learning.</p>
-              </div>
-            </article>
+.page-shell {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 26px 0 90px;
+}
 
-            <article class="timeline-item">
-              <div class="timeline-date">2023 – 2024</div>
-              <div class="timeline-content">
-                <h3>Ambassador, Akhuwat</h3>
-                <p>Aug 2023 – Jan 2024</p>
-              </div>
-            </article>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0 auto 30px;
+  padding: 14px 0 18px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
 
-            <article class="timeline-item">
-              <div class="timeline-date">2022 – Present</div>
-              <div class="timeline-content">
-                <h3>Volunteer, Alkhidmat Foundation</h3>
-                <p>Sep 2022 – Present</p>
-              </div>
-            </article>
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
 
-            <article class="timeline-item">
-              <div class="timeline-date">2021</div>
-              <div class="timeline-content">
-                <h3>Project Intern, WWF Pakistan</h3>
-                <p>Aug 2021</p>
-              </div>
-            </article>
-          </div>
-        </section>
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-strong);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
 
-        <section id="projects" class="section-block">
-          <div class="section-header">
-            <p class="section-kicker">Selected projects</p>
-            <h2>Work with substance.</h2>
-          </div>
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-          <div class="project-grid">
-            <article class="project-card">
-              <div class="project-meta">Education • Community • AI</div>
-              <h3>Nishaan Education</h3>
-              <p>
-                Built a free educational platform for students, serving 1,200+ community members and
-                reaching 80,000+ people globally. Runner-up in the Immerse Business Plan Competition.
-              </p>
-            </article>
+.brand-sub {
+  font-size: 0.76rem;
+  color: var(--soft);
+}
 
-            <article class="project-card">
-              <div class="project-meta">NGO • Outreach • Impact</div>
-              <h3>Pak Vision</h3>
-              <p>
-                A youth-led NGO committed to promoting a positive image of Pakistan through social initiatives
-                and educational outreach. Raised PKR 50,000 in donations and organized two Project Ilm camps.
-              </p>
-            </article>
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-            <article class="project-card">
-              <div class="project-meta">Research • Neurotechnology</div>
-              <h3>New York Academy of Sciences</h3>
-              <p>
-                Investigated how brain signals can be translated into practical applications such as restoring mobility,
-                enabling early disease detection, and addressing privacy, fairness, and informed consent concerns.
-              </p>
-            </article>
+.main-nav a,
+.footer-links a,
+.repo-list a {
+  position: relative;
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: opacity 180ms ease;
+}
 
-            <article class="project-card">
-              <div class="project-meta">Teaching • CS • Access</div>
-              <h3>Harvard CS50 Courses</h3>
-              <p>
-                Taught 25+ underprivileged students the basics of Harvard CS50 in two weeks, covering Scratch,
-                Python, quizzes, and project-based learning.
-              </p>
-            </article>
+.main-nav a::after,
+.footer-links a::after,
+.repo-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: var(--text);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
 
-            <article class="project-card wide">
-              <div class="project-meta">Research • AI literacy</div>
-              <h3>Research Intern at LUMS</h3>
-              <p>
-                Interned under Dr. Ihsan Ayub Qazi researching Quantifying Generative AI Literacy, helping design the
-                data collection instrument, analyze results, and write Python-based collection code.
-              </p>
-            </article>
-          </div>
-        </section>
+.main-nav a:hover::after,
+.footer-links a:hover::after,
+.repo-list a:hover::after {
+  transform: scaleX(1);
+}
 
-        <section class="section-block">
-          <div class="section-header">
-            <p class="section-kicker">GitHub</p>
-            <h2>Recent technical work.</h2>
-          </div>
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(250px, 0.8fr);
+  gap: 48px;
+  align-items: end;
+  padding: 60px 0 28px;
+}
 
-          <div class="repo-list">
-            <a href="https://github.com/aayanahmed200/arthic" target="_blank" rel="noreferrer">
-              <span class="repo-name">arthic</span>
-              <span class="repo-detail">AI-powered bilingual exam-prep platform for Pakistan</span>
-            </a>
-            <a href="https://github.com/aayanahmed200/diabetic-retinopathy-vlm-comparison" target="_blank" rel="noreferrer">
-              <span class="repo-name">diabetic-retinopathy-vlm-comparison</span>
-              <span class="repo-detail">Comparison of multimodal models for medical imaging analysis</span>
-            </a>
-            <a href="https://github.com/aayanahmed200/zariya" target="_blank" rel="noreferrer">
-              <span class="repo-name">zariya</span>
-              <span class="repo-detail">Offline-first AI assistant for Urdu and low-resource languages</span>
-            </a>
-            <a href="https://github.com/aayanahmed200/remichain" target="_blank" rel="noreferrer">
-              <span class="repo-name">remichain</span>
-              <span class="repo-detail">Medical supply matching platform for equitable logistics</span>
-            </a>
-          </div>
-        </section>
+.kicker,
+.section-kicker,
+.footer-label {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
 
-        <section class="section-block">
-          <div class="section-header">
-            <p class="section-kicker">Leadership</p>
-            <h2>Extracurricular roles.</h2>
-          </div>
+.hero-copy {
+  max-width: 760px;
+}
 
-          <ul class="bullets">
-            <li>General Secretary, Computer Society (2026)</li>
-            <li>Editor, Éclat (2026) — Aitchison College’s French magazine</li>
-            <li>Head of Event, ACCX (2026) — the city’s first hackathon</li>
-            <li>Editor, Aitchisonian (2025)</li>
-            <li>Executive Member, Literary Society (2025)</li>
-            <li>Head of English Wing, ACLLCF (2025)</li>
-            <li>Director, Special Effects, Annual English Play (2025)</li>
-            <li>Sub-Editor, Spectrum (2024)</li>
-            <li>Director of Operations, ACLLCF (2024)</li>
-            <li>Student Council (2023)</li>
-            <li>Assistant Event Head, ABC &amp; ACLLF (2023)</li>
-          </ul>
-        </section>
+.hero-copy h1 span {
+  display: block;
+}
 
-        <section class="section-block">
-          <div class="section-header">
-            <p class="section-kicker">Certifications</p>
-            <h2>Learning and credentials.</h2>
-          </div>
+.intro {
+  margin-top: 26px;
+  max-width: 620px;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
 
-          <div class="cert-grid">
-            <div class="cert-item">Tech Bootcamp — The Stanford Daily (Aug 2026)</div>
-            <div class="cert-item">AI Fluency: Framework &amp; Foundations — Anthropic (Oct 2025)</div>
-            <div class="cert-item">Intro to AI Course — Google (Feb 2026)</div>
-            <div class="cert-item">Harvard CS50 — edX (Jan 2025)</div>
-            <div class="cert-item">Elements of AI — University of Helsinki (Sep 2024)</div>
-            <div class="cert-item">Introduction to AI Course — HP (Dec 2024)</div>
-            <div class="cert-item">AI Bootcamp — LUMS (Jun 2023)</div>
-            <div class="cert-item">DELF A1 — France Éducation International (Jan 2023)</div>
-            <div class="cert-item">Immerse Business Plan Competition Runners-Up — Immerse Education (Apr 2025)</div>
-            <div class="cert-item">Immerse Essay Writing Competition — Immerse Education (Feb 2025)</div>
-          </div>
-        </section>
+.cta-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
 
-        <section id="awards" class="section-block">
-          <div class="section-header">
-            <p class="section-kicker">Honors</p>
-            <h2>A record of achievement.</h2>
-          </div>
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  padding: 12px 18px;
+  border: 1px solid var(--line-strong);
+  font-weight: 600;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
 
-          <div class="awards-strip">
-            <div>Represented Team Pakistan at IYNT 2025</div>
-            <div>4 National Business Competition Wins</div>
-            <div>2 National Science Competition Wins</div>
-            <div>2 National Art Competition Wins</div>
-          </div>
-        </section>
-      </main>
+.button:hover {
+  transform: translateY(-1px);
+}
 
-      <footer id="contact" class="site-footer">
-        <div>
-          <p class="footer-label">Aayan Ahmed</p>
-          <h3>Computer Science. AI. Public impact.</h3>
-        </div>
+.button.primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
 
-        <div class="footer-links">
-          <a href="https://github.com/aayanahmed200" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://linkedin.com/aayanahmed20" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:aayanahmed200@gmail.com">Email</a>
-        </div>
-      </footer>
-    </div>
+.button.secondary {
+  background: transparent;
+  color: var(--text);
+}
 
-    <script src="script.js"></script>
-  </body>
-</html>
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(90px, 1fr));
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 40px 0 0;
+}
+
+.meta-grid li {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.meta-number {
+  display: block;
+  font-size: clamp(1.8rem, 2.4vw, 2.35rem);
+  font-weight: 700;
+}
+
+.meta-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 80px var(--shadow);
+  min-height: 330px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--text);
+  display: inline-block;
+}
+
+.card-body {
+  padding: 24px 22px 26px;
+}
+
+.card-label {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.card-copy {
+  margin: 0 0 18px;
+  color: var(--soft);
+}
+
+.card-copy.tight {
+  margin-bottom: 0;
+}
+
+.section-block {
+  padding-top: 84px;
+}
+
+.section-header {
+  margin-bottom: 28px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.8fr);
+  gap: 26px;
+}
+
+.two-column p {
+  margin: 0 0 18px;
+  font-size: 1.02rem;
+}
+
+.statement-box {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 26px 22px;
+  display: flex;
+  align-items: center;
+}
+
+.statement-box p {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.timeline {
+  display: grid;
+  gap: 8px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.timeline-date {
+  color: var(--muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.timeline-content h3 {
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  margin: 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.project-card {
+  padding: 22px 20px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.project-card:hover,
+.cert-item:hover,
+.awards-strip div:hover,
+.repo-list a:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+
+.project-card.wide {
+  grid-column: 1 / -1;
+}
+
+.project-meta {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.project-card p {
+  margin: 0;
+}
+
+.repo-list {
+  display: grid;
+  gap: 14px;
+}
+
+.repo-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 18px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.01);
+}
+
+.repo-name {
+  font-weight: 600;
+}
+
+.repo-detail {
+  text-align: right;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cert-item {
+  padding: 18px 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.01);
+  color: var(--soft);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.awards-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.awards-strip div {
+  display: flex;
+  align-items: center;
+  min-height: 88px;
+  padding: 18px 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.01);
+  color: var(--soft);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.site-footer {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer h3 {
+  margin-top: 12px;
+  font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .two-column,
+  .project-grid,
+  .cert-grid,
+  .awards-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .site-header,
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .repo-list a {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .repo-detail {
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(100% - 22px, 1180px);
+  }
+
+  .meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-nav {
+    gap: 10px 14px;
+  }
+}
