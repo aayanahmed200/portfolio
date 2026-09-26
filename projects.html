@@ -1,112 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projects — Aayan Ahmed">
-  <title>Projects — Aayan Ahmed</title>
-  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects — Aayan Ahmed" />
+  <title>Projects | Aayan Ahmed</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <a href="index.html" class="brand">
-      <div class="brand-mark">A</div>
+    <div class="brand">
+      <div class="brand-mark">AA</div>
       <div class="brand-text">
         <div class="brand-name">Aayan Ahmed</div>
-        <div class="brand-sub">CS • AI • Impact</div>
+        <div class="brand-sub">Computer Science • AI</div>
       </div>
-    </a>
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="experience.html" class="nav-link">Experience</a>
-      <a href="projects.html" class="nav-link active">Projects</a>
-      <a href="leadership.html" class="nav-link">Leadership</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/index.html" class="nav-link" data-page="index">Home</a>
+      <a href="/about.html" class="nav-link" data-page="about">About</a>
+      <a href="/experience.html" class="nav-link" data-page="experience">Experience</a>
+      <a href="/projects.html" class="nav-link" data-page="projects">Projects</a>
+      <a href="/contact.html" class="nav-link" data-page="contact">Contact</a>
     </nav>
   </header>
 
-  <main class="container">
-    <section class="page-header reveal">
-      <h1>Projects</h1>
-      <p class="intro">Selected work across education, research, and technology.</p>
-    </section>
+  <div class="container">
+    <div class="page-header reveal">
+      <h1>Projects & Initiatives.</h1>
+      <p class="intro">Education, AI, healthcare, and research with real-world impact.</p>
+    </div>
 
-    <section class="content reveal">
-      <div class="projects">
+    <section class="content">
+      <h2>Featured Projects</h2>
+      <div class="projects reveal">
         <article class="project-card">
-          <span class="project-tag">Education</span>
+          <span class="project-tag">Education • Community • AI</span>
           <h3>Nishaan Education</h3>
-          <p>Free educational platform serving 1,200+ community members globally. Runner-up in Immerse Business Plan Competition.</p>
-          <a href="#" class="link">Learn more →</a>
+          <p>Built a free educational platform serving 1,200+ community members and reaching 80,000+ people globally. Runner-up in the Immerse Education Business Plan Competition from 1,600+ applicants.</p>
         </article>
 
         <article class="project-card">
-          <span class="project-tag">NGO</span>
+          <span class="project-tag">Exam Prep • AI • Bilingual</span>
+          <h3>Arthic</h3>
+          <p>Built a bilingual (English/Urdu) exam-prep platform for Pakistan's competitive entrance tests. Developed with TypeScript/Vite frontend, Vercel serverless functions, and PostgreSQL backend.</p>
+          <a href="https://arthic.tech" target="_blank" rel="noreferrer" class="link">Visit site →</a>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">Research • Computer Vision</span>
+          <h3>Diabetic Retinopathy Detection</h3>
+          <p>Evaluated three AI models for detecting diabetic retinopathy from retinal images. Analyzed comparative model performance as an introduction to AI-assisted medical image analysis.</p>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">AI • Low-Resource Languages</span>
+          <h3>Zariya</h3>
+          <p>Developed an offline-first AI assistant exploring applications for Urdu and other low-resource languages. Focused on accessibility and reducing dependence on continuous internet connectivity.</p>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">Healthcare • Supply Chain</span>
+          <h3>Remichain</h3>
+          <p>Developed a healthcare technology platform designed to connect surplus medical supplies with organizations and individuals who need them. Explored technology-driven approaches to improving resource allocation.</p>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">NGO • Outreach • Impact</span>
           <h3>Pak Vision</h3>
-          <p>Youth-led NGO promoting Pakistan's positive image. Raised PKR 50,000 and organized two Project Ilm educational camps.</p>
-          <a href="#" class="link">Learn more →</a>
-        </article>
-
-        <article class="project-card">
-          <span class="project-tag">Research</span>
-          <h3>Neurotechnology Research</h3>
-          <p>New York Academy of Sciences. Investigating brain signal translation for mobility restoration and disease detection.</p>
-          <a href="#" class="link">Learn more →</a>
-        </article>
-
-        <article class="project-card">
-          <span class="project-tag">Teaching</span>
-          <h3>Harvard CS50 Courses</h3>
-          <p>Taught 25+ underprivileged students in two weeks. Covered Scratch, Python, projects, and assessments.</p>
-          <a href="#" class="link">Learn more →</a>
-        </article>
-
-        <article class="project-card">
-          <span class="project-tag">Research</span>
-          <h3>AI Literacy Research (LUMS)</h3>
-          <p>Under Dr. Ihsan Ayub Qazi. Quantifying generative AI literacy through data collection and analysis.</p>
-          <a href="#" class="link">Learn more →</a>
+          <p>Co-founded a youth-led NGO promoting a positive image of Pakistan through social initiatives and educational outreach. Raised PKR 50,000 in donations and organized two Project Ilm educational camps.</p>
         </article>
       </div>
 
-      <div class="section-break"></div>
+      <h2 style="margin-top: 56px;">Technical Skills</h2>
+      <div class="roles reveal">
+        <div class="role-group">
+          <h3>Languages</h3>
+          <ul class="role-group">
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>C</li>
+            <li>HTML/CSS</li>
+          </ul>
+        </div>
 
-      <h2>Recent Code</h2>
-      <div class="repos">
-        <a href="https://github.com/aayanahmed200/arthic" class="repo" target="_blank" rel="noreferrer">
-          <h4>arthic</h4>
-          <p>AI-powered bilingual exam-prep platform for Pakistan</p>
-        </a>
-        <a href="https://github.com/aayanahmed200/zariya" class="repo" target="_blank" rel="noreferrer">
-          <h4>zariya</h4>
-          <p>Offline-first AI assistant for Urdu and low-resource languages</p>
-        </a>
-        <a href="https://github.com/aayanahmed200/diabetic-retinopathy-vlm-comparison" class="repo" target="_blank" rel="noreferrer">
-          <h4>diabetic-retinopathy-vlm</h4>
-          <p>Multimodal model comparison for medical imaging</p>
-        </a>
-        <a href="https://github.com/aayanahmed200/remichain" class="repo" target="_blank" rel="noreferrer">
-          <h4>remichain</h4>
-          <p>Medical supply matching platform for logistics</p>
-        </a>
+        <div class="role-group">
+          <h3>AI &amp; Machine Learning</h3>
+          <ul class="role-group">
+            <li>Generative AI</li>
+            <li>Computer Vision</li>
+            <li>Natural Language Processing</li>
+            <li>Machine Learning</li>
+          </ul>
+        </div>
+
+        <div class="role-group">
+          <h3>Tools &amp; Libraries</h3>
+          <ul class="role-group">
+            <li>PyTorch &amp; TensorFlow</li>
+            <li>NumPy &amp; pandas</li>
+            <li>Git &amp; GitHub</li>
+            <li>Vercel &amp; PostgreSQL</li>
+          </ul>
+        </div>
+
+        <div class="role-group">
+          <h3>Languages Spoken</h3>
+          <ul class="role-group">
+            <li>English (Fluent)</li>
+            <li>Urdu (Native)</li>
+            <li>Punjabi (Native)</li>
+            <li>French (Learning)</li>
+            <li>Arabic (Learning)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="certs reveal">
+        <h3>Certifications &amp; Programs</h3>
+        <ul class="cert-list">
+          <li>CS50: Introduction to Computer Science — Harvard University (2025)</li>
+          <li>AI Fluency: Framework &amp; Foundations — Anthropic (2026)</li>
+          <li>Introduction to AI — Google (2026)</li>
+          <li>Introduction to AI — Hewlett-Packard (2026)</li>
+          <li>AI Bootcamp — LUMS (2023)</li>
+          <li>Elements of AI — University of Helsinki (2023)</li>
+          <li>Tech Bootcamp — The Stanford Daily (2026)</li>
+        </ul>
+      </div>
+
+      <div class="awards reveal">
+        <h3>Awards &amp; Achievements</h3>
+        <ul class="award-list">
+          <li>8 National Olympiad Wins (Business, Science, Art)</li>
+          <li>Immerse Education Business Plan Competition Runner-up (2025)</li>
+          <li>International Young Naturalist Tournament — Team Pakistan (2025)</li>
+          <li>Duke of Edinburgh's International Award — Bronze (2026)</li>
+          <li>4 National Business Competition Wins (2023–2025)</li>
+          <li>3 National Art Competition Wins (2023–2025)</li>
+          <li>2 National Science Competition Wins (2024)</li>
+        </ul>
       </div>
     </section>
-  </main>
+  </div>
 
   <footer class="site-footer">
     <div>
       <p class="footer-label">Aayan Ahmed</p>
-      <p class="footer-sub">Computer Science • AI • Public Impact</p>
+      <p class="footer-sub">A-Level at Aitchison College • Lahore, Punjab, Pakistan</p>
     </div>
     <div class="footer-links">
-      <a href="https://github.com/aayanahmed200" target="_blank" rel="noreferrer">GitHub</a>
       <a href="https://linkedin.com/in/aayanahmed20" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href="mailto:aayanahmed200@gmail.com">Email</a>
+      <a href="https://github.com/aayanahmed200" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="mailto:aayanahmed2913@gmail.com">Email</a>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>

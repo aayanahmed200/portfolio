@@ -1,15 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
   setActiveNav();
   initReveal();
-  const footer = document.querySelector('.footer-label');
-  if (footer) footer.textContent = `Aayan Ahmed • ${new Date().getFullYear()}`;
+  updateFooterYear();
 });
 
 function setActiveNav() {
-  const current = window.location.pathname.split('/').pop() || 'index.html';
+  const path = window.location.pathname;
+  const current = path.split('/').pop() || 'index.html';
+  
   document.querySelectorAll('.nav-link').forEach((link) => {
-    const active = link.getAttribute('href') === current || (current === '' && link.getAttribute('href') === 'index.html');
-    link.classList.toggle('active', active);
+    const href = link.getAttribute('href').split('/').pop();
+    const isActive = href === current || (current === '' && href === 'index.html');
+    link.classList.toggle('active', isActive);
+  });
+}
+
+function updateFooterYear() {
+  const labels = document.querySelectorAll('.footer-label');
+  const year = new Date().getFullYear();
+  labels.forEach((label) => {
+    if (label.textContent.includes('Aayan Ahmed')) {
+      label.textContent = `Aayan Ahmed • ${year}`;
+    }
   });
 }
 
@@ -19,6 +31,7 @@ function initReveal() {
     items.forEach((item) => item.classList.add('is-visible'));
     return;
   }
+  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -27,5 +40,6 @@ function initReveal() {
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+  
   items.forEach((item) => observer.observe(item));
 }
