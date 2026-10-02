@@ -20,7 +20,6 @@ body {
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 
-/* Header & Navigation */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -83,7 +82,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 .nav-link {
-  text-decoration: none;
   color: var(--text);
   font-size: 14px;
   font-weight: 500;
@@ -96,13 +94,11 @@ a { text-decoration: none; color: inherit; }
   opacity: 1;
 }
 
-/* Container */
 .container {
   max-width: 100%;
   padding: 0;
 }
 
-/* Hero Section */
 .hero {
   display: flex;
   align-items: center;
@@ -110,7 +106,7 @@ a { text-decoration: none; color: inherit; }
   min-height: 100vh;
   padding: 80px 40px;
   gap: 60px;
-  position: relative;
+  width: 100%;
 }
 
 .hero-content {
@@ -171,7 +167,6 @@ h1 {
   font-weight: 600;
 }
 
-/* Card */
 .card {
   position: relative;
   flex: 0 0 320px;
@@ -179,7 +174,6 @@ h1 {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--line);
   border-radius: 12px;
-  backdrop-filter: blur(8px);
 }
 
 .card-label {
@@ -212,7 +206,6 @@ h1 {
   line-height: 1.6;
 }
 
-/* Reveal Animation */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -224,7 +217,6 @@ h1 {
   transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Footer */
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -264,277 +256,6 @@ h1 {
   opacity: 1;
 }
 
-/* Page Header (About, Projects, etc.) */
-.page-header {
-  margin-bottom: 48px;
-  text-align: center;
-}
-
-.page-header h1 {
-  font-size: 48px;
-  margin: 0 0 20px;
-  font-weight: 800;
-  word-spacing: normal;
-}
-
-.page-header .intro {
-  font-size: 16px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* Content Section */
-.content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 40px;
-  line-height: 1.8;
-}
-
-.content h2 {
-  font-size: 28px;
-  margin: 48px 0 24px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-}
-
-.content h3 {
-  font-size: 18px;
-  margin: 24px 0 12px;
-  font-weight: 700;
-}
-
-.prose {
-  max-width: 760px;
-  line-height: 1.8;
-}
-
-.prose p {
-  margin: 0 0 20px;
-  color: rgba(244, 244, 244, 0.8);
-}
-
-/* Grid Layouts */
-.areas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 24px;
-  margin: 24px 0;
-}
-
-.area h4 {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 8px 0;
-}
-
-.area p {
-  margin: 0;
-  font-size: 16px;
-  color: var(--text);
-}
-
-/* Projects Grid */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  margin: 28px 0;
-}
-
-.project-card {
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.project-card:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--line-strong);
-}
-
-.project-tag {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.project-card h3 {
-  margin: 0 0 12px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.project-card p {
-  margin: 0 0 16px;
-  color: rgba(244, 244, 244, 0.75);
-  line-height: 1.7;
-  font-size: 15px;
-}
-
-.link {
-  display: inline-block;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 14px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.link:hover { opacity: 1; }
-
-/* Timeline */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  margin: 28px 0;
-}
-
-.timeline-item {
-  display: flex;
-  gap: 24px;
-}
-
-.timeline-date {
-  min-width: 80px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--muted);
-}
-
-.timeline-body h3 {
-  margin: 0 0 6px;
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.timeline-body p {
-  margin: 0;
-  color: rgba(244, 244, 244, 0.75);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* Roles Grid */
-.roles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 32px;
-  margin: 28px 0;
-}
-
-.role-group h3 {
-  margin: 0 0 14px;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.role-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.role-list li {
-  margin: 0 0 10px;
-  padding-left: 16px;
-  position: relative;
-  color: rgba(244, 244, 244, 0.75);
-  font-size: 14px;
-}
-
-.role-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--muted);
-  font-weight: bold;
-}
-
-/* Certs & Awards */
-.certs, .awards {
-  margin: 40px 0;
-}
-
-.cert-list, .award-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.cert-list li, .award-list li {
-  margin: 0 0 14px;
-  padding-left: 18px;
-  position: relative;
-  color: rgba(244, 244, 244, 0.75);
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.cert-list li::before, .award-list li::before {
-  content: "◆";
-  position: absolute;
-  left: 0;
-  font-size: 9px;
-  color: var(--muted);
-}
-
-/* Contact */
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px;
-  margin: 32px 0;
-}
-
-.contact-item h3 {
-  margin: 0 0 12px;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.contact-item p, .contact-item a {
-  margin: 0;
-  font-size: 15px;
-  color: rgba(244, 244, 244, 0.8);
-  font-weight: 500;
-}
-
-.contact-link {
-  opacity: 0.75;
-  transition: opacity 0.2s;
-}
-
-.contact-link:hover { opacity: 1; }
-
-.contact-note {
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-}
-
-.contact-note h3 {
-  margin-top: 0;
-}
-
-.contact-note a {
-  color: var(--text);
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-/* Responsive */
 @media (max-width: 1200px) {
   .hero {
     flex-direction: column;
@@ -548,7 +269,6 @@ h1 {
   }
 
   .card {
-    flex: 0 0 auto;
     width: 100%;
     max-width: 500px;
   }
@@ -579,14 +299,6 @@ h1 {
 
   h1 {
     font-size: clamp(32px, 5vw, 52px);
-  }
-
-  .page-header h1 {
-    font-size: 36px;
-  }
-
-  .content h2 {
-    font-size: 24px;
   }
 
   .site-footer {
@@ -632,14 +344,6 @@ h1 {
 
   .intro {
     font-size: 14px;
-  }
-
-  .page-header h1 {
-    font-size: 26px;
-  }
-
-  .projects {
-    grid-template-columns: 1fr;
   }
 
   .footer-links {
