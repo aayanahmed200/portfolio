@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#f4f4f4"/>
-  <text x="16" y="24" font-family="Inter, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#0a0a0a">A</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Aayan Ahmed</title>
+  <desc id="desc">Custom A icon for Aayan Ahmed portfolio</desc>
+  <rect width="128" height="128" rx="20" fill="#F3F2EE"/>
+  <path d="M25 104L53 26h22l28 78H79l-5-15H54l-5 15H25zm28-27h16l-7.5-22L53 77z" fill="#111111"/>
 </svg>
