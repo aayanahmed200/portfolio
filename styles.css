@@ -39,3 +39,5 @@ body,.hero,.work-section,.press-section,.places-section,.section,.page-header,.c
 .site-nav .nav-contact span{font-size:13px}
 @media(max-width:700px){.site-header{top:13px;left:14px}.site-nav{top:13px;right:14px;gap:1px;padding:4px}.site-nav a{padding:9px 8px;font-size:9px}.site-nav a:nth-child(3),.site-nav a:nth-child(4){display:none}.hero-note{min-height:210px;max-width:none;padding:22px 0 18px 22px}.hero-note p{font-size:39px;margin:25px 0}.hero-main{gap:35px}}
 @media(max-width:390px){.site-nav a{padding:9px 7px;font-size:8px}.site-nav .nav-contact{padding-inline:9px}}
+
+@media(max-width:700px){.site-nav{left:70px;right:14px;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}.site-nav::-webkit-scrollbar{display:none}.site-nav a:nth-child(3),.site-nav a:nth-child(4){display:inline-flex}.site-nav a{flex:0 0 auto}}
