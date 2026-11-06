@@ -28,3 +28,9 @@
 .press-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid currentColor;padding-top:14px;font-size:11px;font-weight:600}
 .press-arrow{font-size:20px}
 @media(max-width:580px){.press-grid{grid-template-columns:1fr}.press-card{min-height:200px;padding:22px}.press-title{font-size:38px}}
+
+/* Keyboard accessibility and consistent focus treatment */
+:where(a,button,[tabindex]):focus-visible{outline:2px solid var(--mauve);outline-offset:5px;border-radius:3px}
+.brand:focus-visible{outline-color:var(--ivory);outline-offset:5px}
+@media (hover:hover){.logo-tile:hover .logo-image-wrap{transform:scale(1.04)}}
+.logo-image-wrap{transition:transform .2s ease}
