@@ -963,3 +963,143 @@ html::-webkit-scrollbar-thumb:hover { background: #fff7e7; }
   font-weight: 500 !important;
 }
 .contact-glow { background: rgba(236,223,204,.14) !important; }
+
+
+/* Portfolio redesign pass — deep plum background, quiet details and shared navigation */
+:root {
+  --bg: #362F4F !important;
+  --accent: #ECDFCC !important;
+}
+html { background: #362F4F; }
+body { background: #362F4F !important; }
+body::before {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(236,223,204,.10), transparent 48%),
+    #362F4F !important;
+}
+.site-header { background: rgba(54,47,79,.88); border-bottom-color: rgba(236,223,204,.10); }
+.site-nav {
+  width: min(100% - 48px, 1120px);
+  min-width: 0;
+  justify-content: flex-start;
+  gap: clamp(18px, 3vw, 38px);
+  margin: 0 auto;
+}
+.brand-letter, .nav-divider { display: none !important; }
+.brand-mark-link { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 32px; flex: 0 0 28px; }
+.brand-mark { display: block; width: 27px; height: 27px; object-fit: contain; }
+.nav-link { color: #f4f1e9 !important; font-size: 12px; font-weight: 500; }
+.nav-link:hover, .nav-link.is-active { color: #ECDFCC !important; }
+.project-brand, .project-brand-letter, .project-letter-preview { display: none !important; }
+.project-detail-head { gap: 0; }
+.project-detail-grid.text-only { grid-template-columns: minmax(0,1fr); }
+.project-detail-grid.text-only .project-detail-copy { max-width: 850px; }
+.project-card-small .project-meta-row { min-height: 20px; }
+.nishaan-preview { cursor: default; }
+.nishaan-preview img { object-fit: contain; object-position: center; background: #fff; }
+.nishaan-detail-image { cursor: default; background: #fff; }
+.nishaan-detail-image img { object-fit: contain; background: #fff; }
+.article-mark-crest {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  padding: 3px;
+  background: rgba(255,255,255,.96);
+  border-radius: 50%;
+}
+.featured-card-top { align-items: center; }
+.featured-card { border-color: rgba(236,223,204,.12); }
+.featured-card:hover { border-color: rgba(236,223,204,.30); }
+.avatar-card { background: #2d2742 !important; }
+.notion-avatar { mix-blend-mode: normal !important; }
+.interest-list { grid-template-columns: repeat(4, minmax(0,1fr)); }
+.barca-interest { cursor: default; }
+.barca-mark { width: 30px; height: 30px; display: inline-flex; overflow: hidden; border-radius: 50%; border: 1px solid rgba(236,223,204,.45); flex: 0 0 30px; }
+.barca-mark i { display: block; width: 50%; height: 100%; }
+.barca-mark i:first-child { background: #17408b; }
+.barca-mark i:last-child { background: #a50044; }
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #ECDFCC transparent;
+}
+html::-webkit-scrollbar { width: 9px; }
+html::-webkit-scrollbar-track { background: transparent !important; border: 0 !important; }
+html::-webkit-scrollbar-thumb {
+  background: #ECDFCC;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+}
+html::-webkit-scrollbar-thumb:hover { background: #fff7e7; background-clip: padding-box; }
+.section, .content, .project-detail, .featured-section { border-color: rgba(236,223,204,.10) !important; }
+.section-break, .education-line, .experience-track, .project-metrics, .error-bottom { border-color: rgba(236,223,204,.12) !important; }
+.nav-link::after { background: #ECDFCC; }
+@media (max-width: 640px) {
+  .site-nav { width: calc(100% - 30px); gap: 15px; justify-content: space-between; }
+  .brand-mark-link { width: 23px; height: 27px; flex-basis: 23px; }
+  .brand-mark { width: 23px; height: 23px; }
+  .nav-link { font-size: 10px; }
+  .interest-list { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* Miscellaneous experiments */
+.misc-page::before {
+  background: radial-gradient(ellipse at 50% 12%, rgba(236,223,204,.10), transparent 46%), #362F4F !important;
+}
+.misc-header { padding: 145px 0 62px; }
+.misc-header h1 { max-width: 900px; margin: 18px 0; font: 400 clamp(58px,9vw,108px)/.92 var(--serif); letter-spacing: -.055em; color: #f4f1e9; }
+.misc-header h1 em { color: var(--accent); font-style: italic; }
+.misc-header .intro { max-width: 600px; }
+.misc-experiments { padding: 25px 0 100px; }
+.experiment-card {
+  position: relative; overflow: hidden; margin: 0 0 24px; padding: clamp(24px,4vw,42px);
+  border: 1px solid rgba(236,223,204,.15); border-radius: 25px;
+  background: linear-gradient(145deg, rgba(236,223,204,.075), rgba(19,16,30,.25));
+}
+.experiment-topline { display:flex; justify-content:space-between; gap:18px; color:#d5ccdd; font-size:9px; letter-spacing:.16em; text-transform:uppercase; }
+.experiment-card h2 { margin:24px 0 12px; color:#f4f1e9; font:400 clamp(34px,5vw,54px)/1 var(--serif); letter-spacing:-.03em; }
+.experiment-card > p { max-width:650px; color:#e8e3ee; font-size:13px; line-height:1.9; }
+.cursor-stage {
+  position:relative; display:grid; place-items:center; min-height:230px; margin-top:28px; overflow:hidden;
+  border:1px solid rgba(236,223,204,.18); border-radius:18px;
+  background: radial-gradient(circle at 50% 50%, rgba(236,223,204,.09), transparent 55%), rgba(12,10,22,.25);
+}
+.cursor-stage span { color:rgba(244,241,249,.58); font:400 clamp(20px,4vw,38px)/1 var(--serif); letter-spacing:-.03em; }
+.cursor-stage small { position:absolute; bottom:18px; color:#cfc6dc; font-size:8px; letter-spacing:.18em; }
+.cursor-arrow {
+  position:fixed; z-index:99; top:0; left:0; width:34px; height:34px; display:grid; place-items:center;
+  color:#ECDFCC; font:400 32px/1 var(--serif); pointer-events:none; opacity:0;
+  transform:translate3d(var(--cursor-x,-60px),var(--cursor-y,-60px),0) translate(-50%,-50%);
+  transition:opacity .18s ease;
+}
+.cursor-arrow.is-following { opacity:1; }
+.wiki-game {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(220px,.72fr); gap:28px; align-items:start;
+  margin-top:28px; padding:24px; border:1px solid rgba(236,223,204,.16); border-radius:18px;
+  background:rgba(15,12,25,.28);
+}
+.wiki-game-main { min-width:0; }
+.wiki-overline { color:#cfc6dc; font-size:8px; letter-spacing:.17em; text-transform:uppercase; }
+.wiki-current { margin:14px 0 8px; color:#f4f1e9; font:400 clamp(27px,4vw,42px)/1 var(--serif); }
+.wiki-prompt { color:#e8e3ee; font-size:12px; line-height:1.7; }
+.wiki-choices { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+.wiki-choice, .wiki-reset {
+  border:1px solid rgba(236,223,204,.30); border-radius:999px; padding:11px 16px;
+  color:#f4f1e9; background:rgba(236,223,204,.07); font:500 11px var(--sans); cursor:pointer;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.wiki-choice:hover, .wiki-reset:hover { background:rgba(236,223,204,.16); border-color:#ECDFCC; transform:translateY(-2px); }
+.wiki-trail-panel { padding:18px; border-radius:14px; background:rgba(236,223,204,.06); }
+.wiki-trail-panel strong { display:block; margin-bottom:10px; color:#ECDFCC; font-size:9px; letter-spacing:.14em; text-transform:uppercase; }
+.wiki-trail { color:#e8e3ee; font-size:11px; line-height:1.9; overflow-wrap:anywhere; }
+.wiki-reset { margin-top:16px; padding:9px 13px; font-size:10px; }
+.wiki-success { color:#d7f0d6 !important; font-size:12px !important; }
+.wiki-dead-end { color:#e9c6c6 !important; font-size:12px !important; }
+.wiki-footnote { margin-top:16px; color:#cfc6dc !important; font-size:10px !important; }
+.misc-footer { display:flex; justify-content:space-between; gap:18px; padding:25px 0 38px; border-top:1px solid rgba(236,223,204,.12); color:#d6cede; font-size:9px; letter-spacing:.1em; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .cursor-arrow { display:none; } }
+@media (max-width: 760px) {
+  .wiki-game { grid-template-columns:1fr; }
+  .misc-header { padding-top:125px; }
+}
