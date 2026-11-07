@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('[data-section]');
 
   const setActiveNav = (name) => {
-    if (name === "featured") name = "work";
+    if (name === "featured" || name === "work") name = "projects";
+    if (name === "about" || name === "contact") name = "home";
     navLinks.forEach((link) => {
       const active = link.dataset.nav === name;
       link.classList.toggle('is-active', active);
@@ -40,14 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     const path = window.location.pathname;
     if (path.includes('experience')) setActiveNav('resume');
-    else if (path.includes('contact')) setActiveNav('contact');
-    else if (path.includes('about')) setActiveNav('about');
-    else if (path.includes('projects')) setActiveNav('work');
+    else if (path.includes('miscellaneous')) setActiveNav('miscellaneous');
+    else if (path.includes('projects')) setActiveNav('projects');
+    else setActiveNav('home');
   }
 
   const currentPath = window.location.pathname;
   if (currentPath.includes('experience')) setActiveNav('resume');
-  else if (!sections.length && currentPath.includes('about')) setActiveNav('about');
-  else if (!sections.length && currentPath.includes('projects')) setActiveNav('work');
-  else if (!sections.length && currentPath.includes('contact')) setActiveNav('contact');
+  else if (currentPath.includes('miscellaneous')) setActiveNav('miscellaneous');
+  else if (currentPath.includes('projects')) setActiveNav('projects');
+  else if (!sections.length) setActiveNav('home');
 });
