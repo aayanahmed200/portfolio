@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+
 Disallow: /404.html
 
 Sitemap: https://aayanahmed200.vercel.app/sitemap.xml

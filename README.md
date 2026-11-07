@@ -1,30 +1,31 @@
 # Aayan Ahmed — Portfolio
 
-A personal portfolio for Muhammad Aayan Ahmed, built with semantic HTML, custom CSS and lightweight JavaScript.
-
-## Overview
-
-The homepage is a long-form portfolio inspired by a dark editorial / studio aesthetic: oversized serif typography, a floating pill navigation, charcoal project cards, a restrained burgundy glow, and a contact-focused closing section. It keeps the original portfolio content and links, with supporting detail pages for projects, background, experience, leadership and contact.
+Personal portfolio for Aayan Ahmed, built with semantic HTML, CSS and lightweight JavaScript.
 
 ## Pages
 
-- `index.html` — portfolio home, selected projects, about, experience highlights and contact
-- `about.html` — background, interests and education
-- `projects.html` — selected projects and technical toolkit
-- `experience.html` — research, professional experience, leadership, service and awards
-- `leadership.html` — student leadership, editorial work and community initiatives
-- `contact.html` — email and social links
-- `404.html` — branded not-found page
+- `index.html` — introduction, selected projects, featured articles, about and contact
+- `projects.html` — individual project summaries and source links
+- `about.html` — background and education
+- `experience.html` — concise research, experience, leadership and awards
+- `leadership.html` — student leadership and community work
+- `contact.html` — contact details
+- `404.html` — custom not-found page
 
-## Tech stack
+## Design
 
-- HTML5 with semantic page structure
-- CSS3 with responsive layouts, custom properties and fluid typography
-- Vanilla JavaScript for scroll reveals and active navigation states
-- Google Fonts: DM Sans and Instrument Serif
-- Deployed as a static site on Vercel
+A dark editorial layout with a warm cream accent (`#ECDFCC`), a letter-only A mark, consistent pill navigation, readable high-contrast text and a custom scrollbar. The supplied Nishaan homepage screenshot is the only project preview image; the About avatar is a separate profile illustration.
 
-## Running locally
+## SEO
+
+- Page-specific titles, descriptions and canonical URLs
+- Open Graph and Twitter metadata
+- Person and WebSite JSON-LD on the homepage
+- `robots.txt` and an XML sitemap at `/sitemap.xml`
+
+## Local development
+
+Run a static server from the repository root:
 
 ```bash
 python3 -m http.server 8000
@@ -32,14 +33,6 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000.
 
-## Deploying
+## Deployment
 
-The repository is configured for Vercel static hosting. There is no application build step.
-
-## Design notes
-
-The visual direction uses near-black backgrounds, subtle grid and grain texture, muted charcoal surfaces, burgundy light accents, rounded cards and editorial serif display type. Motion respects the user's reduced-motion preference.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+The site is hosted on Vercel. There is no build step.
