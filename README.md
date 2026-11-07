@@ -1,48 +1,44 @@
-# portfolio
+# Aayan Ahmed — Portfolio
 
-A minimal, personal portfolio showcasing work in computer science, AI, education, and public impact.
+A personal portfolio for Muhammad Aayan Ahmed, built with semantic HTML, custom CSS and lightweight JavaScript.
 
 ## Overview
 
-A static, multi-page portfolio site built with HTML, CSS, and vanilla JavaScript. No frameworks, no dependencies, no build step. Each section — about, experience, projects, leadership, contact — is its own page with a consistent design system.
-
-Designed for clarity and speed. Deployed on Vercel.
+The homepage is a long-form portfolio inspired by a dark editorial / studio aesthetic: oversized serif typography, a floating pill navigation, charcoal project cards, a restrained burgundy glow, and a contact-focused closing section. It keeps the original portfolio content and links, with supporting detail pages for projects, background, experience, leadership and contact.
 
 ## Pages
 
-- **`index.html`** — home, with key metrics and current role
-- **`about.html`** — background, philosophy, and approach
-- **`experience.html`** — timeline of work, internships, and volunteering
-- **`projects.html`** — selected work across education, research, and technology
-- **`leadership.html`** — extracurricular roles and student organizations
-- **`contact.html`** — links and ways to connect
+- `index.html` — portfolio home, selected projects, about, experience highlights and contact
+- `about.html` — background, interests and education
+- `projects.html` — selected projects and technical toolkit
+- `experience.html` — research, professional experience, leadership, service and awards
+- `leadership.html` — student leadership, editorial work and community initiatives
+- `contact.html` — email and social links
+- `404.html` — branded not-found page
 
 ## Tech stack
 
-- HTML5, semantic markup
-- CSS3 with custom properties and fluid typography
-- Vanilla JavaScript (scroll-reveal, navigation, year update)
-- Deployed on Vercel
+- HTML5 with semantic page structure
+- CSS3 with responsive layouts, custom properties and fluid typography
+- Vanilla JavaScript for scroll reveals and active navigation states
+- Google Fonts: DM Sans and Instrument Serif
+- Deployed as a static site on Vercel
 
 ## Running locally
 
 ```bash
-# Python 3
 python3 -m http.server 8000
-
-# or Node.js
-npx http-server
 ```
 
-Then open `http://localhost:8000`.
+Then open http://localhost:8000.
 
 ## Deploying
 
-This repo is already configured for Vercel. Push to GitHub and import the repository in Vercel — no build command needed, it's all static.
+The repository is configured for Vercel static hosting. There is no application build step.
 
-## Design
+## Design notes
 
-Black and white, minimal aesthetic. No gradients, no shadows, just clear typography and intentional whitespace. Custom properties for colors, spacing, and type scale.
+The visual direction uses near-black backgrounds, subtle grid and grain texture, muted charcoal surfaces, burgundy light accents, rounded cards and editorial serif display type. Motion respects the user's reduced-motion preference.
 
 ## License
 
