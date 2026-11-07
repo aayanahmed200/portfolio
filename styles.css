@@ -963,3 +963,69 @@ html::-webkit-scrollbar-thumb:hover { background: #fff7e7; }
   font-weight: 500 !important;
 }
 .contact-glow { background: rgba(236,223,204,.14) !important; }
+
+
+/* Requested refinements — scoped overrides only */
+.brand-mark-link {
+  width: 24px;
+  height: 28px;
+  flex: 0 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-mark { width: 24px; height: 28px; object-fit: contain; }
+.site-nav { min-width: min(650px, calc(100vw - 24px)); gap: clamp(16px, 2.35vw, 34px); }
+@media (max-width: 640px) {
+  .brand-mark-link { width: 21px; height: 25px; flex-basis: 21px; }
+  .brand-mark { width: 21px; height: 25px; }
+  .site-nav { gap: 10px; }
+}
+.project-brand-letter { display: none !important; }
+.project-detail-grid.text-only { grid-template-columns: minmax(0,1fr); }
+.project-detail-grid.text-only .project-detail-copy { max-width: 900px; }
+.article-mark-crest {
+  width: 38px;
+  height: 38px;
+  display: block;
+  object-fit: contain;
+  padding: 3px;
+  border-radius: 50%;
+  background: #fff;
+}
+.notion-avatar { mix-blend-mode: normal !important; filter: none !important; object-fit: contain; }
+.avatar-card { background: #121212 !important; }
+.nishaan-project-art { height: 330px; min-height: 330px; padding: 12px; }
+.nishaan-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: #fff !important;
+}
+.nishaan-preview img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+}
+.nishaan-detail-image { background: #fff !important; }
+.nishaan-detail-image img { object-fit: contain; background: #fff; }
+.barcelona-interest { cursor: default; }
+.barcelona-interest:hover { transform: none; }
+html { scrollbar-color: #ECDFCC transparent !important; }
+html::-webkit-scrollbar-track { background: transparent !important; border: 0 !important; }
+html::-webkit-scrollbar-thumb { border-color: transparent !important; }
+body::before {
+  background:
+    radial-gradient(ellipse at 50% 2%, rgba(236,223,204,.10), transparent 42%),
+    #050505 !important;
+}
+.education-line, .section-break, .timeline, .timeline-item, .project-detail,
+.project-metrics, .featured-card, .info-card, .contact-card, .skill-card {
+  border-color: rgba(255,255,255,.045) !important;
+}
