@@ -1,6 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
-  <title id="title">A — Aayan Ahmed</title>
-  <rect x="3" y="3" width="42" height="42" rx="11" fill="#F3EFF0"/>
-  <path d="M13 34V14h8.5a10 10 0 1 1 0 20H13Zm6.4-5.5h2.1a4.5 4.5 0 1 0 0-9h-2.1v9Z" fill="#111010"/>
-  <path d="M27 14v20" stroke="#C11C4E" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="A">
+  <path fill="#ECDFCC" d="M22.1 5.5h3.8L44 42h-7.4l-4.2-8.6H15.6L11.4 42H4L22.1 5.5Zm-3.7 22h11.1L24 16.1l-5.6 11.4Z"/>
 </svg>
