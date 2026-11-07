@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#362F4F">
+  <title>Miscellaneous | Aayan Ahmed</title>
+  <meta name="description" content="Small interactive experiments by Aayan Ahmed: a pointer study and a Wikipedia-style link-hop puzzle.">
+  <meta name="author" content="Aayan Ahmed">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://aayanahmed200.vercel.app/miscellaneous.html">
+  <link rel="icon" href="/favicon.svg?v=20261107-purple-misc1" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20261107-purple-misc1">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aayan Ahmed">
+  <meta property="og:title" content="Miscellaneous | Aayan Ahmed">
+  <meta property="og:description" content="Small interactive experiments by Aayan Ahmed.">
+  <meta property="og:url" content="https://aayanahmed200.vercel.app/miscellaneous.html">
+</head>
+<body data-page="miscellaneous">
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand-mark" href="/" aria-label="Aayan Ahmed home"><img src="/favicon.svg?v=20261107-purple-misc1" alt=""></a>
+    <span class="nav-divider" aria-hidden="true"></span>
+    <a class="nav-link" href="/" data-nav="home">Home</a>
+    <a class="nav-link" href="/experience.html" data-nav="resume">Resume</a>
+    <a class="nav-link" href="/projects.html" data-nav="projects">Projects</a>
+    <a class="nav-link" href="/miscellaneous.html" data-nav="miscellaneous">Miscellaneous</a>
+  </nav>
+</header>
+<main class="container misc-page">
+  <section class="page-header reveal">
+    <p class="eyebrow">Side projects &amp; small experiments</p>
+    <h1>A little <em>elsewhere.</em></h1>
+    <p class="intro">A couple of small things to play with. No accounts, no downloads, just curiosity.</p>
+  </section>
+
+  <section class="misc-experiment reveal" aria-labelledby="pointer-title">
+    <div class="misc-heading">
+      <div><p class="misc-index">01 / POINTER STUDY</p><h2 id="pointer-title">A little motion.</h2></div>
+      <p>Move your mouse around the stage. A small arrow follows with a soft delay. Your regular cursor stays in place.</p>
+    </div>
+    <div class="pointer-stage" id="pointer-stage">
+      <div class="pointer-stage-copy"><span>MOVE THROUGH THE FIELD</span><strong>There’s no wrong direction.</strong></div>
+      <div class="pointer-follower" id="pointer-follower" aria-hidden="true"><span>↗</span></div>
+      <div class="pointer-stage-coordinates" id="pointer-coordinates">X 000 · Y 000</div>
+    </div>
+  </section>
+
+  <section class="misc-experiment reveal" aria-labelledby="wiki-title">
+    <div class="misc-heading">
+      <div><p class="misc-index">02 / WIKI HOP</p><h2 id="wiki-title">Follow the links.</h2></div>
+      <p>Start at Aitchison College and reach Neural Networks by hopping between connected ideas. Can you do it in four steps?</p>
+    </div>
+    <div class="wiki-card" id="wiki-hop">
+      <div class="wiki-topline"><span>START</span><span class="wiki-target-label">TARGET · NEURAL NETWORKS</span></div>
+      <div class="wiki-state">
+        <div><span class="wiki-small-label">YOU ARE READING</span><h3 id="wiki-current">Aitchison College</h3></div>
+        <div class="wiki-step-count"><strong id="wiki-step-count">0</strong><span>HOPS</span></div>
+      </div>
+      <div class="wiki-path" id="wiki-path" aria-label="Your route so far"><span class="wiki-path-node is-current">Aitchison College</span></div>
+      <p class="wiki-status" id="wiki-status" role="status" aria-live="polite">Choose one of the connected topics to follow a link.</p>
+      <div class="wiki-choices" id="wiki-choices" role="group" aria-label="Available wiki links"></div>
+      <div class="wiki-footer"><span>THE ROUTE IS YOURS TO DISCOVER</span><button type="button" class="wiki-reset" id="wiki-reset">Restart ↺</button></div>
+    </div>
+  </section>
+</main>
+<script src="/script.js?v=20261107-purple-misc1"></script>
+</body>
+</html>
