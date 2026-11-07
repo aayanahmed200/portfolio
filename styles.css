@@ -931,3 +931,35 @@ html::-webkit-scrollbar-thumb:hover { background: #fff7e7; }
   .error-code { font-size: clamp(140px, 35vw, 220px); }
   .error-bottom { margin-top: 55px; font-size: 8px; }
 }
+
+
+/* Hard override for the current cream design; this rule is versioned by the HTML asset URL. */
+:root { --accent: #ECDFCC !important; }
+.hero-orb {
+  background: #ECDFCC !important;
+  opacity: .88;
+}
+.hero::before {
+  background: radial-gradient(ellipse at 50% 39%, rgba(236,223,204,.10), transparent 48%) !important;
+}
+.hero-copy,
+.section-note,
+.intro,
+.context-card p,
+.project-feature p,
+.small-card-content p,
+.project-detail-copy p,
+.timeline-body p,
+.featured-card p:not(.article-kicker),
+.experience-item p,
+.education-card p,
+.info-card p,
+.skill-card p {
+  color: #F4F1E9 !important;
+}
+.nav-link,
+.nav-link.is-active {
+  color: #F4F1E9 !important;
+  font-weight: 500 !important;
+}
+.contact-glow { background: rgba(236,223,204,.14) !important; }
