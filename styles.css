@@ -698,3 +698,236 @@ body::before {
   .project-detail-copy p { font-size:11px; }
   .project-metrics { gap:18px; }
 }
+
+
+/* Final readability pass: high-contrast supporting copy on every page */
+:root {
+  --muted: #f4f1e9;
+  --muted-soft: #e8e3d9;
+}
+body, .nav-link, .nav-link:hover, .nav-link.is-active {
+  color: #f5f2eb;
+}
+.nav-link, .nav-link:hover, .nav-link.is-active {
+  font-weight: 500;
+  text-decoration: none;
+}
+p, .intro, .section-note, .hero-copy, .context-card p,
+.education-card p, .experience-item p, .small-card-content p,
+.project-feature p, .project-detail-copy p, .timeline-body p,
+.prose p, .info-card p, .contact-card p, .featured-card p:not(.article-kicker),
+.skill-card p, .repo-links span, .project-note, .error-page .intro {
+  color: #f4f1e9 !important;
+  font-size: 13.5px !important;
+  line-height: 1.85 !important;
+}
+.page-header .intro, .hero-copy, .section-note {
+  font-size: 15px !important;
+}
+.project-tag, .project-year, .article-kicker, .article-date,
+.eyebrow, .section-label, .card-kicker, .experience-date,
+.timeline-date, .education-year, .project-foot {
+  color: #f1ece2 !important;
+}
+.project-tag, .project-year, .article-date, .timeline-date, .experience-date {
+  font-size: 10px !important;
+}
+.section-label, .card-kicker, .eyebrow, .article-kicker {
+  font-size: 10px !important;
+}
+.hero-kicker, .context-signoff, .education-subjects, .mark-caption,
+.mark-bottom, .contact-foot, .footer-sub {
+  color: #f4f1e9 !important;
+}
+.nav-link.is-active { color: #f5f2eb !important; font-weight: 500 !important; }
+
+/* One fixed menu signature on every page */
+.brand-letter {
+  width: 24px;
+  height: 28px;
+  flex: 0 0 24px;
+  display: inline-grid;
+  place-items: center;
+  color: #ECDFCC;
+  font: 400 28px/.9 var(--serif);
+  letter-spacing: -.08em;
+  text-decoration: none;
+}
+.brand-letter:hover { color: #ECDFCC; }
+.site-nav { min-width: min(480px, calc(100vw - 24px)); justify-content: center; }
+.site-nav .nav-link { white-space: nowrap; }
+
+/* Warm custom vertical page scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #ECDFCC #11110f;
+}
+html::-webkit-scrollbar { width: 10px; }
+html::-webkit-scrollbar-track {
+  background: #11110f;
+  border-left: 1px solid rgba(236,223,204,.08);
+}
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f3ead9, #c8baa5);
+  border: 2px solid #11110f;
+  border-radius: 999px;
+}
+html::-webkit-scrollbar-thumb:hover { background: #fff7e7; }
+
+/* Make the supplied avatar clearly visible in its About card */
+.avatar-card {
+  min-height: 315px;
+  align-items: stretch;
+  justify-content: space-between;
+  background: #121212 !important;
+  border: 1px solid rgba(236,223,204,.28);
+}
+.avatar-card .mark-backdrop { display: none; }
+.avatar-card .mark-caption, .avatar-card .mark-bottom {
+  color: #ECDFCC !important;
+}
+.avatar-card .mark-bottom { font-size: 8px; }
+.notion-avatar {
+  display: block;
+  width: 100%;
+  height: 250px;
+  min-height: 220px;
+  margin: auto;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+/* The supplied Nishaan screenshot is the only project thumbnail */
+.nishaan-project-art { min-height: 290px; padding: 12px; }
+.nishaan-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  overflow: hidden;
+  border: 1px solid rgba(236,223,204,.25);
+  border-radius: 17px;
+  background: #142b1a;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+}
+.nishaan-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: contain;
+  object-position: center;
+}
+.nishaan-detail-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 330px;
+  padding: 8px;
+  background: #142b1a;
+}
+.nishaan-detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.project-letter-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: radial-gradient(circle at 50% 45%, rgba(236,223,204,.11), transparent 50%), #11110f;
+}
+.project-letter-preview > span {
+  color: #ECDFCC;
+  font: 400 clamp(90px, 12vw, 150px)/.85 var(--serif);
+  letter-spacing: -.08em;
+}
+.project-letter-preview > small {
+  color: #f4f1e9;
+  font: 600 9px/1.5 var(--sans);
+  letter-spacing: .16em;
+  text-align: center;
+}
+.project-detail-head .project-brand { font-size: 19px; }
+
+/* Featured-in section: stronger hierarchy and roomier cards */
+.featured-section { padding-top: 86px; padding-bottom: 94px; }
+.featured-section .section-heading { margin-bottom: 38px; }
+.featured-section .section-heading h2 { font-size: clamp(48px, 6vw, 72px); }
+.featured-grid { gap: 20px; }
+.featured-card { min-height: 285px; padding: 32px; }
+.featured-card h3 { font-size: clamp(36px, 4vw, 46px); }
+.featured-card > a { color: #ECDFCC; font-size: 12px; }
+.article-kicker { color: #f4f1e9 !important; }
+
+/* Shorter, easier-to-scan résumé layout */
+.compact-resume .timeline-item { padding: 16px 0; }
+.compact-resume .timeline-body h3 { font-size: 24px; }
+.compact-resume .timeline-body p { max-width: 900px; }
+.compact-resume .section-break { margin: 30px 0; }
+.compact-resume .info-card { padding: 22px 24px; }
+.compact-resume .two-col { gap: 12px; }
+
+/* Purpose-built not-found screen */
+.not-found-page::before {
+  background:
+    radial-gradient(ellipse at 50% 55%, rgba(236,223,204,.08), transparent 44%),
+    #050505;
+}
+.error-page {
+  min-height: calc(100svh - 90px);
+  padding-top: 150px;
+  padding-bottom: 75px;
+}
+.error-kicker {
+  color: #ECDFCC;
+  font-size: 10px;
+  letter-spacing: .2em;
+}
+.error-code {
+  margin: 28px 0 20px;
+  color: #f4f1e9;
+  font: 400 clamp(160px, 28vw, 300px)/.72 var(--serif);
+  letter-spacing: -.08em;
+}
+.error-code span { color: #ECDFCC; }
+.error-page h1 {
+  max-width: 760px;
+  font-size: clamp(48px, 7vw, 82px);
+}
+.error-bottom {
+  display: flex;
+  justify-content: space-between;
+  max-width: 650px;
+  margin-top: 85px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(236,223,204,.18);
+  color: #f4f1e9;
+  font-size: 9px;
+  letter-spacing: .15em;
+}
+
+@media (max-width: 640px) {
+  .site-nav { min-width: 0; gap: 13px; padding: 0 15px; }
+  .brand-letter { width: 21px; height: 25px; flex-basis: 21px; font-size: 25px; }
+  .nav-link { font-size: 10px; }
+  p, .intro, .section-note, .hero-copy, .context-card p,
+  .education-card p, .experience-item p, .small-card-content p,
+  .project-feature p, .project-detail-copy p, .timeline-body p,
+  .prose p, .info-card p, .contact-card p, .featured-card p:not(.article-kicker),
+  .skill-card p, .repo-links span, .project-note, .error-page .intro {
+    font-size: 13px !important;
+  }
+  .notion-avatar { height: 230px; min-height: 210px; }
+  .avatar-card { min-height: 285px; }
+  .nishaan-project-art, .nishaan-preview, .nishaan-preview img { min-height: 225px; }
+  .nishaan-detail-image { height: 240px; }
+  .featured-card { min-height: 275px; padding: 24px; }
+  .error-code { font-size: clamp(140px, 35vw, 220px); }
+  .error-bottom { margin-top: 55px; font-size: 8px; }
+}
