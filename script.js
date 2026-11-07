@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('[data-section]');
 
   const setActiveNav = (name) => {
+    if (name === "featured") name = "work";
     navLinks.forEach((link) => {
       const active = link.dataset.nav === name;
       link.classList.toggle('is-active', active);
