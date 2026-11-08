@@ -1,3 +1,24 @@
+/* Minimal navigation progress indicator. */
+document.addEventListener('DOMContentLoaded', () => {
+  const bar=document.createElement('div');
+  bar.id='page-loading-bar';
+  bar.setAttribute('aria-hidden','true');
+  document.body.appendChild(bar);
+  document.querySelectorAll('a[href]').forEach(link=>{
+    link.addEventListener('click',event=>{
+      const url=new URL(link.href,window.location.href);
+      if(event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if(url.origin!==window.location.origin || url.pathname===window.location.pathname && url.hash) return;
+      bar.classList.remove('is-finishing');
+      bar.classList.add('is-loading');
+    });
+  });
+  window.addEventListener('pageshow',()=>{
+    bar.classList.remove('is-loading');
+    bar.classList.add('is-finishing');
+  });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems = document.querySelectorAll('.reveal');
