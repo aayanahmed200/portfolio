@@ -1243,3 +1243,138 @@ body::before { background: radial-gradient(ellipse at 50% 2%, rgba(54,65,90,.16)
   .pixel-mouse,.mouse-lab-mouse { display:none !important;animation:none !important; }
   .memory-tile,.game-reset,.reaction-pad { transition:none !important; }
 }
+
+
+/* 08 Nov: consistent typography, balanced page widths, corrected project artwork and restrained portrait sizing. */
+:root { --accent:#36415A !important; }
+body, body * { font-family: var(--sans) !important; }
+.container { width:min(1120px,calc(100% - 64px)) !important; margin-inline:auto !important; }
+.page-header, .resume-content, .project-detail-list { max-width:1120px; margin-inline:auto; }
+.resume-section > h2 { color:#8794b2 !important; letter-spacing:.035em; font-weight:700 !important; }
+.resume-entry h3, .resume-entry p, .resume-entry time { font-family:var(--sans) !important; }
+.resume-section { padding-block:20px 14px !important; }
+.resume-entries { gap:15px !important; }
+.resume-entry + .resume-entry { margin-top:0 !important; }
+.resume-entry p { line-height:1.65 !important; }
+
+/* The screenshot is cropped to the actual page content, not framed by a coloured mat. */
+.nishaan-project-art {
+  padding:0 !important; min-height:0 !important; height:auto !important;
+  aspect-ratio:16 / 9; overflow:hidden !important; background:transparent !important;
+  border:0 !important; border-radius:14px !important;
+}
+.nishaan-preview, .nishaan-detail-image {
+  width:100% !important; height:100% !important; min-height:0 !important;
+  padding:0 !important; overflow:hidden !important; background:transparent !important;
+  border:0 !important;
+}
+.nishaan-preview img, .nishaan-detail-image img {
+  display:block !important; width:100% !important; height:100% !important;
+  min-height:0 !important; object-fit:cover !important; object-position:50% 23% !important;
+  transform:scale(1.12); transform-origin:center top; background:transparent !important;
+  image-rendering:auto; border:0 !important;
+}
+.project-detail-visual.nishaan-detail-image { aspect-ratio:16 / 9; height:auto !important; }
+
+/* Correct crest path is /public/Aitchison_College_logo.svg. Keep the actual crest on a clean transparent field. */
+.article-mark-crest {
+  width:52px !important; height:52px !important; min-width:52px !important;
+  padding:0 !important; border:0 !important; border-radius:0 !important;
+  object-fit:contain !important; background:transparent !important;
+  filter:none !important; mix-blend-mode:normal !important;
+}
+.featured-card-top { align-items:center; }
+
+/* The uploaded avatar is a small, transparent illustration—not a large panel. */
+.avatar-card {
+  min-height:0 !important; padding:22px 26px 16px !important;
+  background:transparent !important; border:1px solid rgba(255,255,255,.10) !important;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.notion-avatar {
+  width:150px !important; height:150px !important; min-height:0 !important;
+  max-width:150px !important; object-fit:contain !important; object-position:center !important;
+  background:transparent !important; border:0 !important; border-radius:0 !important;
+  padding:0 !important; box-shadow:none !important;
+}
+.avatar-card .mark-caption { align-self:flex-start; }
+.avatar-card .mark-bottom { width:100%; }
+
+/* One shared content rhythm across every page. */
+.section, .content, .resume-content, .arcade-page { max-width:1120px; margin-inline:auto; }
+.project-detail { padding-block:32px !important; }
+.project-detail + .project-detail { border-top:1px solid rgba(255,255,255,.07) !important; }
+.project-detail-grid { gap:28px !important; }
+.section-break { display:none !important; }
+.project-detail-list > h2 { margin-top:34px !important; }
+
+/* A deliberately hand-crafted mini arcade. */
+.arcade-page { padding-bottom:100px; }
+.arcade-intro { padding:150px 0 48px; max-width:900px; }
+.arcade-intro h1 { max-width:850px; margin:12px 0 18px; font-size:clamp(48px,7vw,82px); line-height:1.02; letter-spacing:-.055em; font-weight:700; }
+.arcade-intro h1 span, .mouse-lab h2 span { color:#8794b2; }
+.arcade-intro .intro { max-width:620px; color:#b8bbc4; line-height:1.8; }
+.arcade-status { display:flex; align-items:center; gap:10px; margin-top:24px; color:#a1a5b1; font-size:9px; letter-spacing:.14em; }
+.status-dot { width:7px;height:7px;border-radius:50%;background:#91a98c;box-shadow:0 0 10px rgba(145,169,140,.35); }
+.mouse-lab { display:grid; grid-template-columns:1fr .8fr; align-items:center; gap:34px; padding:30px 0 46px; border-top:1px solid rgba(255,255,255,.08); }
+.mouse-lab h2 { margin:9px 0 12px; font-size:clamp(30px,4vw,44px); font-weight:700; }
+.mouse-lab-copy > p:last-child { max-width:480px; color:#aeb1bb; line-height:1.8; font-size:13px; }
+.mouse-lab-art { position:relative; min-height:160px; display:grid; place-items:center; overflow:hidden; border:1px solid rgba(255,255,255,.09); border-radius:15px; background:linear-gradient(135deg,#0d0e12,#151a27); }
+.mouse-lab-mouse { color:#c7cedb; font-size:32px; animation:mouse-idle 2s ease-in-out infinite; }
+.mouse-lab-caption,.mouse-lab-coordinate { position:absolute; bottom:13px; color:#858c9c; font-size:8px; letter-spacing:.16em; }
+.mouse-lab-caption { left:15px; }.mouse-lab-coordinate { right:15px; }
+.arcade-games { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.game-card { min-width:0; padding:24px; border:1px solid rgba(255,255,255,.09); border-radius:16px; background:#0d0e12; }
+.game-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.game-heading h2 { margin:7px 0 0; font-size:clamp(24px,3vw,32px); line-height:1.1; font-weight:700; }
+.game-number { padding-top:5px; color:#7f8798; font-size:8px; letter-spacing:.14em; white-space:nowrap; }
+.game-description { min-height:58px; margin:13px 0 18px; color:#aeb1bb; font-size:12px; line-height:1.7; }
+.maze-hud,.typing-stats { display:flex; align-items:center; gap:18px; margin-bottom:13px; color:#9299a8; font-size:9px; letter-spacing:.1em; }
+.maze-hud strong { color:#eef0f5; margin-left:5px; }
+.maze-hud .game-reset { margin-left:auto; }
+.game-reset { border:1px solid rgba(255,255,255,.15); border-radius:7px; padding:8px 12px; background:transparent; color:#e5e8ef; font:600 10px var(--sans); cursor:pointer; transition:background .18s,border-color .18s; }
+.game-reset:hover { background:#36415A; border-color:#36415A; }
+.maze-board { display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:3px; width:min(100%,390px); margin-inline:auto; padding:9px; border-radius:9px; background:#08090d; border:1px solid rgba(255,255,255,.06); }
+.maze-cell { aspect-ratio:1; display:grid; place-items:center; min-width:0; border-radius:3px; background:#20232c; color:#dfe4ed; font-size:clamp(10px,2vw,17px); }
+.maze-cell.is-wall { background:#36415A; }
+.maze-cell.is-player { background:#d8deea; color:#10131b; }
+.maze-cell.is-cheese { color:#f1d78b; }
+.maze-cell.is-exit { color:#9bc39e; }
+.maze-controls { display:flex; flex-direction:column; align-items:center; gap:5px; margin:13px auto 0; }
+.maze-controls div { display:flex; gap:5px; }
+.maze-controls button { width:34px;height:30px;border:1px solid rgba(255,255,255,.12);border-radius:6px;background:#171a22;color:#e5e8ef;cursor:pointer; }
+.maze-controls button:hover { background:#36415A; }
+.game-status { min-height:20px; margin:12px 0 0; color:#9da3b1; font-size:10px; line-height:1.6; }
+.typing-stats { justify-content:space-between; padding:10px 12px; border:1px solid rgba(255,255,255,.07); border-radius:8px; }
+.typing-stats div { display:flex; flex-direction:column; gap:3px; }
+.typing-stats span { color:#818a9b; font-size:8px; }
+.typing-stats strong { color:#f0f2f6; font-size:18px; font-weight:700; letter-spacing:0; }
+.typing-quote { min-height:80px; padding:15px; border-radius:8px; background:#151821; color:#e4e7ee; font-size:16px; line-height:1.65; }
+.typing-input { display:block; width:100%; margin-top:9px; padding:12px; resize:vertical; border:1px solid rgba(255,255,255,.12); border-radius:8px; outline:none; background:#090a0e; color:#f0f2f6; font:13px/1.6 var(--sans); }
+.typing-input:focus { border-color:#65718a; }
+.typing-input:disabled { opacity:.55; cursor:not-allowed; }
+.typing-footer { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px; }
+.typing-footer .game-status { flex:1; }
+.arcade-footer-note { display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:35px; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); }
+.arcade-footer-note > span { color:#858c9c; font-size:8px; letter-spacing:.15em; }
+.arcade-footer-note p { margin:0; color:#858c9c; font-size:11px; }
+.arcade-back-link { margin-left:auto; color:#e3e6ed; font-size:11px; }
+.pixel-mouse { position:fixed; top:0;left:0;z-index:9999;pointer-events:none;opacity:0;will-change:transform;transition:opacity .16s;filter:drop-shadow(0 2px 3px rgba(0,0,0,.65)); }
+.pixel-mouse.is-visible { opacity:1; }
+.pixel-mouse svg { display:block;image-rendering:pixelated; }
+@keyframes mouse-idle { 0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)} }
+@media(max-width:760px) {
+  .container { width:min(100% - 36px,1120px) !important; }
+  .mouse-lab,.arcade-games { grid-template-columns:1fr; }
+  .arcade-intro { padding-top:125px; }
+  .game-description { min-height:0; }
+  .pixel-mouse { display:none !important; }
+  .arcade-footer-note { align-items:flex-start;flex-direction:column; }
+  .arcade-back-link { margin-left:0; }
+  .nishaan-project-art { aspect-ratio:4 / 3; }
+  .notion-avatar { width:126px !important;height:126px !important;max-width:126px !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .pixel-mouse,.mouse-lab-mouse { display:none !important;animation:none !important; }
+  .maze-cell,.game-reset { transition:none !important; }
+}
