@@ -298,7 +298,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .mark-bottom { display: flex; justify-content: space-between; gap: 12px; font-size: 6px; }
 .about-details-grid { display: grid; grid-template-columns: minmax(235px, .72fr) minmax(0, 1.7fr); gap: 20px; margin-top: 20px; }
 .education-card { min-height: 320px; padding: 30px; position: relative; overflow: hidden; }
-.education-card h3, .experience-heading h3, .interests-heading h3 { margin: 11px 0 0; font: 400 38px/.98 var(--serif); letter-spacing: -.025em; }
 .education-year { margin-top: 32px; color: #9b9295; font-size: 10px; }
 .timeline-dot { position: relative; z-index: 1; width: 9px; height: 9px; margin-top: 14px; border-radius: 50%; background: #f2e9ec; box-shadow: 0 0 0 5px rgba(255,255,255,.06); }
 .education-line { height: 1px; margin: -5px 0 26px 12px; background: rgba(255,255,255,.12); }
@@ -315,12 +314,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .experience-point { position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: #eee7e9; box-shadow: 0 0 0 4px var(--surface); }
 .experience-item h4 { margin: 0 0 7px; color: #e9e2e5; font: 400 22px/1 var(--serif); }
 .experience-item p { margin: 0; color: #8e8589; font-size: 9px; line-height: 1.75; }
-.interests-block { margin-top: 65px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.07); }
-.interests-heading h3 { font-size: 34px; }
-.interest-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin-top: 24px; }
-.interest-tile { min-height: 98px; display: flex; align-items: center; gap: 14px; padding: 17px; border: 1px solid rgba(255,255,255,.07); border-radius: 18px; background: #121212; color: #c5bdc0; font-size: 11px; transition: .2s ease; }
-.interest-tile:hover { border-color: rgba(54,65,90,.5); background: #1a1916; }
-.interest-icon { width: 36px; height: 36px; flex: 0 0 36px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; color: #8794B2; font-size: 16px; }
 
 /* Contact */
 .contact-section {
@@ -429,7 +422,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .experience-item:nth-child(3), .experience-item:nth-child(4) { margin-top: 0; }
   .education-card { padding: 27px; }
   .experience-card { padding: 27px; }
-  .interest-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 640px) {
   .container { width: calc(100% - 36px); }
@@ -474,11 +466,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .experience-track { grid-template-columns: 1fr 1fr; gap: 37px 15px; margin-top: 42px; }
   .experience-item h4 { font-size: 19px; }
   .experience-item p { font-size: 8px; }
-  .interests-block { margin-top: 43px; }
-  .interests-heading h3 { font-size: 29px; }
-  .interest-list { gap: 8px; }
-  .interest-tile { min-height: 80px; padding: 11px; gap: 9px; font-size: 9px; }
-  .interest-icon { width: 30px; height: 30px; flex-basis: 30px; font-size: 13px; }
   .section-end-link { gap: 14px 22px; }
   .contact-section { min-height: 545px; padding: 85px 0 58px; }
   .contact-inner > p { font-size: 11px; }
@@ -531,7 +518,6 @@ body::before {
 .project-feature h3 em, .context-card h3 em, .page-header h1 em { color: var(--accent); }
 .project-arrow-link:hover { color: var(--accent); }
 .project-foot a:hover { color: #090909; background: var(--accent); border-color: var(--accent); }
-.interest-tile:hover { border-color: rgba(54,65,90,.48); background: #1b1915; }
 .contact-glow { background: rgba(54,65,90,.14); }
 .contact-inner > .section-label { color: #8794B2; }
 
@@ -1434,7 +1420,6 @@ h1, h2, h3 { max-width:100%; }
 p, li { max-width:100%; }
 .container, .hero, .section, .project-feature, .project-detail,
 .about-grid, .education-card, .experience-card, .resume-section,
-.resume-entry, .project-card, .interest-tile, .contact-inner {
   min-width:0;
 }
 .hero h1 { font-size:clamp(42px,8.5vw,104px) !important; line-height:1.02 !important; letter-spacing:-.045em !important; }
@@ -1542,7 +1527,6 @@ html::-webkit-scrollbar-track { background:transparent !important; }
 .about-principles { margin-top:26px; padding-top:18px; border-top:1px solid var(--line); }
 .about-principles span { color:#8794B2; font:9px ui-monospace,monospace; letter-spacing:.14em; }
 .about-principles p { margin:9px 0 0; color:#d5d9e1; }
-.interest-tile { border:1px solid var(--line) !important; border-radius:2px !important; background:#0b0d12 !important; }
 .contact-section { background:#080a0f !important; }
 .contact-inner h2 { letter-spacing:-.045em !important; }
 .page-header { padding-top:160px !important; padding-bottom:55px !important; }
@@ -1667,7 +1651,6 @@ em, .heading-accent, .project-feature h3 em, .context-card h3 em,
   font-weight:600 !important;
 }
 .resume-intro > p:last-of-type { font-size:15px !important; line-height:1.75 !important; }
-.education-card h3, .experience-heading h3, .interests-heading h3 {
   font-family:'Manrope',Arial,sans-serif !important;
   font-size:clamp(24px,2.5vw,30px) !important;
   line-height:1.15 !important;
