@@ -1419,3 +1419,40 @@ section, .resume-section { scroll-margin-top:100px; }
 @media(prefers-reduced-motion:reduce) {
   #page-loading-bar { transition:none !important; }
 }
+
+
+/* Final typography and fit pass: prevent clipping, awkward wraps and narrow-screen overflow. */
+html, body { max-width:100%; overflow-x:clip; }
+body, body * { font-family:var(--sans) !important; }
+h1, h2, h3, h4, p, li, a, span, time, small, strong, em {
+  min-width:0;
+  overflow-wrap:break-word;
+  word-break:normal;
+  text-wrap:pretty;
+}
+h1, h2, h3 { max-width:100%; }
+p, li { max-width:100%; }
+.container, .hero, .section, .project-feature, .project-detail,
+.about-grid, .education-card, .experience-card, .resume-section,
+.resume-entry, .project-card, .interest-tile, .contact-inner {
+  min-width:0;
+}
+.hero h1 { font-size:clamp(42px,8.5vw,104px) !important; line-height:1.02 !important; letter-spacing:-.045em !important; }
+.page-hero h1, .page-header h1 { font-size:clamp(38px,6.2vw,76px) !important; line-height:1.08 !important; letter-spacing:-.035em !important; }
+.section h2, .contact-inner h2 { font-size:clamp(28px,4.2vw,48px) !important; line-height:1.14 !important; letter-spacing:-.025em !important; }
+.resume-entry h3, .project-card h3, .project-detail h2 { font-size:clamp(16px,2vw,21px) !important; line-height:1.35 !important; }
+.resume-entry p, .project-card p, .project-detail p, .contact-inner p { font-size:clamp(13px,1.2vw,15px) !important; line-height:1.75 !important; }
+button, .hero-button, .nav-link, .social-circle { max-width:100%; }
+.site-nav { flex-wrap:wrap; justify-content:center; }
+img { height:auto; }
+@media(max-width:600px) {
+  .hero h1 { font-size:clamp(39px,12vw,64px) !important; }
+  .page-hero h1, .page-header h1 { font-size:clamp(34px,10vw,52px) !important; }
+  .section h2, .contact-inner h2 { font-size:clamp(26px,8vw,36px) !important; }
+  .container { width:calc(100% - 36px) !important; }
+  .site-nav { gap:clamp(12px,4vw,20px); padding-inline:16px; }
+  .nav-link { font-size:12px !important; }
+  .project-feature, .about-grid { grid-template-columns:minmax(0,1fr) !important; }
+  .project-art { min-height:220px; }
+  .resume-entry { grid-template-columns:minmax(0,1fr) !important; }
+}
