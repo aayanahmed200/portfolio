@@ -1029,3 +1029,118 @@ body::before {
 .project-metrics, .featured-card, .info-card, .contact-card, .skill-card {
   border-color: rgba(255,255,255,.045) !important;
 }
+
+
+/* November 8 refinements */
+:root {
+  --bg: #36415A;
+  --surface: #414D68;
+  --surface-soft: #46536F;
+  --line: rgba(255,255,255,.10);
+}
+html, body { background-color: #36415A !important; }
+body::before {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(236,223,204,.10), transparent 48%),
+    #36415A !important;
+}
+.site-header {
+  width: fit-content !important;
+  max-width: calc(100% - 28px) !important;
+  margin: 14px auto 0 !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%);
+}
+.site-nav {
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  justify-content: center !important;
+  gap: clamp(18px, 3vw, 38px) !important;
+  padding: 0 24px !important;
+}
+@media (max-width: 640px) {
+  .site-header { max-width: calc(100% - 16px) !important; }
+  .site-nav { gap: clamp(10px, 3vw, 18px) !important; padding: 0 13px !important; }
+  .nav-link { font-size: 10px !important; white-space: nowrap; }
+}
+/* Force the three requested image assets to render visibly. */
+.nishaan-project-art, .nishaan-preview, .nishaan-detail-image {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: #f5f3ed !important;
+  overflow: hidden !important;
+}
+.nishaan-project-art { height: 330px !important; min-height: 330px !important; }
+.nishaan-preview { width: 100% !important; height: 100% !important; min-height: 0 !important; }
+.nishaan-preview img, .nishaan-detail-image img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #f5f3ed !important;
+}
+.article-mark-crest {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px;
+  object-fit: contain !important;
+  background: #f5f3ed !important;
+  padding: 4px !important;
+  border-radius: 50%;
+}
+.notion-avatar {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: min(100%, 320px) !important;
+  height: 320px !important;
+  min-height: 260px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  background: #f5f3ed !important;
+  border-radius: 18px;
+}
+/* A cleaner, text-first resume with no drawn timeline rails or dividers. */
+.resume-page { padding-bottom: 100px; }
+.resume-intro { padding-bottom: 28px; }
+.resume-content { max-width: 960px; margin: 0 auto; }
+.resume-section { padding: 30px 0 24px; border: 0 !important; }
+.resume-section + .resume-section { border-top: 1px solid rgba(255,255,255,.10) !important; }
+.resume-section > h2 {
+  margin: 0 0 22px;
+  color: #f4f1e9;
+  font-size: clamp(19px, 2vw, 25px);
+  letter-spacing: .02em;
+}
+.resume-entries { display: grid; gap: 22px; }
+.resume-entry { padding: 0 !important; margin: 0; border: 0 !important; background: transparent !important; }
+.resume-entry-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.resume-entry h3 { margin: 0; font-size: 16px; line-height: 1.45; font-weight: 600; color: #fff; }
+.resume-entry time { flex: 0 0 auto; color: #d5d9e2; font-size: 13px; white-space: nowrap; }
+.resume-entry p { margin: 7px 0 0; max-width: 900px; color: #d4d8e1; font-size: 14px; line-height: 1.75; }
+@media (max-width: 640px) {
+  .resume-entry-head { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .resume-entry h3 { font-size: 15px; }
+  .resume-entry p { font-size: 13px; }
+}
+/* Consistent, subtle page-to-page motion. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: page-out .16s ease both; }
+::view-transition-new(root) { animation: page-in .28s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes page-out { to { opacity: 0; transform: translateY(-4px); } }
+@keyframes page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+}
