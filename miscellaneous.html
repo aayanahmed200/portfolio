@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050505">
   <title>Miscellaneous | Aayan Ahmed</title>
-  <meta name="description" content="Interests beyond Aayan Ahmed's projects and experience.">
+  <meta name="description" content="A small arcade of browser games and experiments by Aayan Ahmed.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css?v=20261108-slate">
+  <link rel="stylesheet" href="/styles.css?v=20261108-arcade">
 </head>
-<body>
+<body data-page="miscellaneous">
 <header class="site-header">
   <nav class="site-nav" aria-label="Main navigation">
     <a class="nav-link" href="/" data-nav="home">Home</a>
@@ -18,21 +18,47 @@
     <a class="nav-link" href="/miscellaneous.html" data-nav="miscellaneous">Miscellaneous</a>
   </nav>
 </header>
-<main class="container misc-page">
-  <section class="page-header reveal">
-    <p class="eyebrow">04 / OUTSIDE THE WORK</p>
-    <h1>A few other <em>interests.</em></h1>
-    <p class="intro">Things I enjoy exploring outside of building projects, research and school.</p>
+<div class="pixel-mouse" aria-hidden="true">
+  <svg viewBox="0 0 32 28" width="32" height="28" shape-rendering="crispEdges">
+    <path fill="#d8dce8" d="M15 1h5v3h4v3h4v5h3v7h-3v4h-4v3h-7v-3h-4v-4h-3v-5H7v-5h4V5h4z"/>
+    <path fill="#36415A" d="M15 4h5v4h4v4h3v7h-4v4h-6v-4h-4v-6h-3V9h5z"/>
+    <path fill="#111827" d="M18 8h3v3h-3zM23 14h3v3h-3zM13 18h3v3h-3z"/>
+    <path fill="#d8dce8" d="M5 8h5v3H7v4H4v-4H2V8h3zM4 17h4v3H5v3H2v-3h2z"/>
+    <path fill="#9ba8c2" d="M19 2h3v2h-3zM27 10h2v3h-2z"/>
+  </svg>
+</div>
+<main class="container arcade-page">
+  <section class="arcade-intro">
+    <p class="eyebrow">04 / THE ARCADE</p>
+    <h1>Just here to <em>play.</em></h1>
+    <p class="intro">Tiny browser games, little experiments, and a pixel mouse that follows your cursor around. No downloads, no sign-ins — just a few minutes of fun.</p>
+    <div class="arcade-status"><span class="status-dot"></span> THE ARCADE IS OPEN <span>·</span> 3 EXPERIMENTS</div>
   </section>
-  <section class="misc-grid">
-    <article class="misc-card"><p class="eyebrow">01 / FOOTBALL</p><h2>FC Barcelona</h2><p>Following Barça, the game, its history and the culture around the club.</p></article>
-    <article class="misc-card"><p class="eyebrow">02 / MUSIC</p><h2>Classical piano</h2><p>Classical piano, continuing independent practice after formal training at the National Music Academy Pakistan.</p></article>
-    <article class="misc-card"><p class="eyebrow">03 / EDITORIAL</p><h2>Writing &amp; publishing</h2><p>Editing, literary magazines, language and making ideas clearer through good writing.</p></article>
-    <article class="misc-card"><p class="eyebrow">04 / TECHNOLOGY</p><h2>AI &amp; emerging tech</h2><p>Exploring artificial intelligence, computer science, and how technology can solve practical problems.</p></article>
-    <article class="misc-card"><p class="eyebrow">05 / RESEARCH</p><h2>Data &amp; ideas</h2><p>Data journalism, research questions, visualising information and understanding the stories behind data.</p></article>
-    <article class="misc-card"><p class="eyebrow">06 / COMMUNITY</p><h2>Education &amp; service</h2><p>Interested in accessible education, youth initiatives and projects that create useful community impact.</p></article>
+
+  <section class="mouse-lab">
+    <div class="mouse-lab-copy"><p class="eyebrow">01 / DESKTOP COMPANION</p><h2>Meet the little <em>mouse.</em></h2><p>Move your cursor around the page. The tiny pixel mouse follows a beat behind, like it’s exploring your screen. It politely disappears on touch devices and when reduced motion is enabled.</p></div>
+    <div class="mouse-lab-art" aria-hidden="true"><span class="mouse-spark spark-one">✦</span><span class="mouse-spark spark-two">✧</span><span class="mouse-lab-mouse">🐭</span><span class="mouse-lab-caption">FOLLOW THE CURSOR ↗</span></div>
   </section>
+
+  <section class="arcade-games">
+    <article class="game-card memory-game">
+      <div class="game-heading"><div><p class="eyebrow">02 / MEMORY</p><h2>Pair up.</h2></div><span class="game-number">08 PAIRS</span></div>
+      <p class="game-description">Flip two tiles at a time and find all eight matching symbols. Fewer moves = sharper memory.</p>
+      <div class="memory-meta"><span>MOVES <strong data-memory-moves>0</strong></span><button class="game-reset" type="button" data-memory-reset>New board ↻</button></div>
+      <div class="memory-grid" data-memory-grid aria-label="Memory matching game"></div>
+      <p class="game-status" data-memory-status aria-live="polite">Find all eight pairs.</p>
+    </article>
+
+    <article class="game-card reaction-game">
+      <div class="game-heading"><div><p class="eyebrow">03 / REFLEXES</p><h2>Quick draw.</h2></div><span class="game-number">REACTION TEST</span></div>
+      <p class="game-description">Wait for the panel to turn slate blue, then tap it as quickly as you can. Click too early and you’ll have to try again.</p>
+      <div class="reaction-pad" data-reaction role="button" tabindex="0" aria-label="Reaction timer target">Ready when you are</div>
+      <div class="reaction-footer"><p class="game-status" data-reaction-result aria-live="polite">Press start, wait for blue, then tap the panel.</p><button class="game-reset" type="button" data-reaction-start>Start test</button></div>
+    </article>
+  </section>
+
+  <section class="arcade-footer-note"><span>MORE LITTLE THINGS, LESS SCROLLING.</span><p>Built for the occasional break between bigger projects.</p><a href="/" class="arcade-back-link">Back to the portfolio ↗</a></section>
 </main>
-<script src="/script.js?v=20261108-slate"></script>
+<script src="/script.js?v=20261108-arcade"></script>
 </body>
 </html>
