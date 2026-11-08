@@ -1144,3 +1144,16 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
 }
+
+
+/* Palette correction: retain pure black backgrounds and use slate instead of cream accents. */
+:root { --bg:#050505 !important; --accent:#36415A !important; --surface:#111111 !important; --surface-soft:#171717 !important; }
+html, body { background:#050505 !important; }
+body::before { background: radial-gradient(ellipse at 50% 2%, rgba(54,65,90,.16), transparent 42%), #050505 !important; }
+.hero-orb { background:#36415A !important; }
+.hero::before { background:radial-gradient(ellipse at 50% 39%, rgba(54,65,90,.18), transparent 48%) !important; }
+.contact-glow { background:rgba(54,65,90,.18) !important; }
+.nishaan-project-art, .nishaan-preview, .nishaan-detail-image,
+.nishaan-preview img, .nishaan-detail-image img, .article-mark-crest, .notion-avatar {
+  background-color:#36415A !important;
+}
