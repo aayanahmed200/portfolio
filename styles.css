@@ -3940,3 +3940,36 @@ details.resume-section {
 .project-grid > .project-card-small:nth-child(4) .project-tag,
 .project-grid > .project-card-small:nth-child(4) .project-foot,
 .project-detail:nth-of-type(4) .project-tag { color:#F5F4EF !important; }
+
+
+/* Use Aayan's uploaded "woooahh" artwork as the homepage hero visual. */
+.home-page .hero .hero-orb {
+  background-image:url('/assets/woooahh.webp') !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  background-color:#063526 !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:1200 / 630 !important;
+  border:12px solid #BCE8ED !important;
+  border-radius:34px !important;
+  box-shadow:14px 14px 0 #E9673B !important;
+  transform:rotate(-.7deg) !important;
+}
+.home-page .hero .hero-orb::after { display:none !important; }
+@media(max-width:850px) {
+  .home-page .hero .hero-orb {
+    height:auto !important;
+    aspect-ratio:1200 / 630 !important;
+    margin:28px 0 12px !important;
+    box-shadow:10px 10px 0 #E9673B !important;
+  }
+}
+@media(max-width:640px) {
+  .home-page .hero .hero-orb {
+    border-width:9px !important;
+    border-radius:24px !important;
+  }
+}
