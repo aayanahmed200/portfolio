@@ -3,13 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const bar=document.createElement('div');
   bar.id='page-loading-bar';
   bar.setAttribute('aria-hidden','true');
+  bar.appendChild(document.createElement('span'));
   document.body.appendChild(bar);
   document.querySelectorAll('a[href]').forEach(link=>{
     link.addEventListener('click',event=>{
       const url=new URL(link.href,window.location.href);
-      if(event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if(event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target==='_blank' || link.hasAttribute('download')) return;
       if(url.origin!==window.location.origin || url.pathname===window.location.pathname && url.hash) return;
-      bar.classList.remove('is-finishing');
+      bar.classList.remove('is-finishing','is-loading');
+      void bar.offsetWidth;
       bar.classList.add('is-loading');
     });
   });
