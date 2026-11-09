@@ -538,6 +538,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!enabled) return;
     const patterns = {
       select: () => note(520,.07,0,'sine',.025,650),
+      jump: () => { note(392,.13,0,'triangle',.028,659); note(784,.16,.08,'sine',.022); },
+      trick: () => { note(523,.12,0,'sine',.028,784); note(784,.16,.08,'sine',.026,988); },
+      wind: () => { note(196,.35,0,'sine',.025,330); note(262,.42,.08,'sine',.019,392); },
+      splash: () => { note(330,.10,0,'triangle',.025,220); note(523,.17,.07,'sine',.022,392); },
+      bird: () => { note(784,.14,0,'sine',.028,988); note(1175,.19,.09,'sine',.025,1318); },
+      bump: () => { note(220,.12,0,'triangle',.025,165); note(174,.16,.08,'triangle',.018,130); },
       start: () => { note(392,.18,0,'sine',.035,523); note(587,.22,.12,'sine',.032,784); },
       echo: () => { note(659,.23,0,'sine',.04,784); note(988,.28,.07,'sine',.032,1175); },
       call: () => { note(392,.32,0,'sine',.04,523); note(659,.36,.10,'sine',.032,784); note(988,.42,.22,'sine',.026,1175); },
