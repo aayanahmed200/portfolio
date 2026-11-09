@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="A">
-  <path fill="#36415A" d="M22.1 5.5h3.8L44 42h-7.4l-4.2-8.6H15.6L11.4 42H4L22.1 5.5Zm-3.7 22h11.1L24 16.1l-5.6 11.4Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aayan Ahmed">
+  <rect width="64" height="64" rx="19" fill="#E9673B"/>
+  <path d="M32 10.5 13.5 52h11.1l3.7-9.1h7.5l3.7 9.1h11.1L32 10.5Zm0 15.4 3.9 9.5h-7.8l3.9-9.5Z" fill="#111214"/>
+  <circle cx="50.5" cy="13.5" r="5.5" fill="#BCE8ED"/>
 </svg>
