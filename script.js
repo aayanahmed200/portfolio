@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if(spawnClock>.57){spawnClock=0;stars.push({x:32+Math.random()*(W-64),y:-15,r:9+Math.random()*5,speed:175+Math.random()*95,drift:(Math.random()-.5)*28,spin:0});}
       stars=stars.filter(item=>{
         item.y+=item.speed*dt; item.x+=Math.sin(item.y/46)*item.drift*dt; item.spin+=dt*1.7;
-        if(item.y>345&&item.y<420&&Math.abs(item.x-basketX)<56){score++;hud();if(score>=12)finish('You caught all 12 stars. That was lovely.');return false;}
+        if(item.y>345&&item.y<420&&Math.abs(item.x-basketX)<56){window.playGameSound?.('echo');score++;hud();if(score>=12)finish('You caught all 12 stars. That was lovely.');return false;}
         return item.y<H+20;
       });
       if(!running)return;
@@ -339,16 +339,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const status=document.querySelector('[data-mouse-status]'),cheeseHud=document.querySelector('[data-mouse-cheese]');
     const keyHud=document.querySelector('[data-mouse-key]'),alertHud=document.querySelector('[data-mouse-alerts]'),moveHud=document.querySelector('[data-mouse-moves]');
     function guardPositions(){return patrols.map((route,i)=>route[guardIndexes[i]%route.length]);}
+    const mouseSprite = '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 39C2 44 4 29 10 28" fill="none" stroke="#6C625D" stroke-width="4" stroke-linecap="round"/><ellipse cx="33" cy="39" rx="19" ry="15" fill="#B7B9B1"/><circle cx="20" cy="19" r="11" fill="#C6BFB1"/><circle cx="42" cy="18" r="10" fill="#C6BFB1"/><circle cx="20" cy="19" r="5" fill="#D78D82"/><circle cx="42" cy="18" r="5" fill="#D78D82"/><ellipse cx="34" cy="30" rx="16" ry="13" fill="#D8D5C9"/><circle cx="29" cy="29" r="2.5" fill="#282B2D"/><circle cx="40" cy="29" r="2.5" fill="#282B2D"/><path d="M31 35q4 4 8 0" fill="none" stroke="#665B55" stroke-width="2" stroke-linecap="round"/><path d="M18 46q15 9 29-1l-3 9q-12 6-23-1Z" fill="#C8755D"/></svg>';
+    const catSprite = '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 26 11 8l16 10q7-3 14 0L55 8l-4 20q7 12-2 23-8 9-20 8-15-1-20-14-3-10 5-19Z" fill="#536B69"/><path d="M19 30q6-7 13 0M34 30q6-7 12 0" fill="none" stroke="#E9D9A5" stroke-width="4" stroke-linecap="round"/><circle cx="25" cy="32" r="2" fill="#182B2B"/><circle cx="41" cy="32" r="2" fill="#182B2B"/><path d="M28 41q5 5 10 0" fill="none" stroke="#E9D9A5" stroke-width="2" stroke-linecap="round"/><path d="M13 46q-8 8-2 13" fill="none" stroke="#C8755D" stroke-width="4" stroke-linecap="round"/></svg>';
+    const cheeseSprite = '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 26 53 11l5 31-43 13Z" fill="#EEC96F" stroke="#A57D45" stroke-width="3" stroke-linejoin="round"/><circle cx="25" cy="34" r="5" fill="#D5A64E"/><circle cx="42" cy="26" r="4" fill="#D5A64E"/><circle cx="34" cy="47" r="3" fill="#D5A64E"/></svg>';
+    const keySprite = '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="24" r="12" fill="none" stroke="#D8B65D" stroke-width="7"/><path d="M32 32 52 52m-7-7 6-6m-12 0 6-6" fill="none" stroke="#B58B4B" stroke-width="7" stroke-linecap="round"/></svg>';
+    const doorSprite = '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 55V13q20-12 40 0v42Z" fill="#A95F49" stroke="#69483F" stroke-width="3"/><path d="M20 55V20q12-8 24 0v35Z" fill="#E3C291"/><circle cx="38" cy="39" r="3" fill="#6C5648"/></svg>';
     function renderMouse(){
       const guards=guardPositions();mouseBoard.innerHTML='';
       map.forEach((row,y)=>[...row].forEach((cell,x)=>{
         const tile=document.createElement('div');tile.className='spy-cell';tile.setAttribute('role','gridcell');
-        if(cell==='#'){tile.classList.add('spy-wall');tile.textContent='▦';}
-        else if(player.x===x&&player.y===y){tile.classList.add('spy-player');tile.textContent='🐭';tile.setAttribute('aria-label','Mouse');}
-        else if(guards.some(pos=>pos[0]===x&&pos[1]===y)){tile.classList.add('spy-guard');tile.textContent='🐈';tile.setAttribute('aria-label','Patrolling cat');}
-        else if(cell==='C'&&!cheese){tile.classList.add('spy-cheese');tile.textContent='🧀';}
-        else if(cell==='K'&&!key){tile.classList.add('spy-key');tile.textContent='🗝️';}
-        else if(cell==='E'){tile.classList.add('spy-exit');tile.textContent='🚪';}
+        if(cell==='#'){tile.classList.add('spy-wall');tile.innerHTML='<span class="spy-stone-mark"></span>';}
+        else if(player.x===x&&player.y===y){tile.classList.add('spy-player');tile.innerHTML=mouseSprite;tile.setAttribute('aria-label','Pip the mouse');}
+        else if(guards.some(pos=>pos[0]===x&&pos[1]===y)){tile.classList.add('spy-guard');tile.innerHTML=catSprite;tile.setAttribute('aria-label','Lantern watcher');}
+        else if(cell==='C'&&!cheese){tile.classList.add('spy-cheese');tile.innerHTML=cheeseSprite;}
+        else if(cell==='K'&&!key){tile.classList.add('spy-key');tile.innerHTML=keySprite;}
+        else if(cell==='E'){tile.classList.add('spy-exit');tile.innerHTML=doorSprite;}
         else{tile.classList.add('spy-floor');}
         mouseBoard.appendChild(tile);
       }));
@@ -359,18 +364,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if(finished)return;const nx=player.x+dx,ny=player.y+dy,cell=map[ny]?.[nx];
       if(!cell||cell==='#'){status.textContent='A wall! Try another corridor.';return;}
       if(cell==='E'&&(!cheese||!key)){status.textContent='The exit needs both the cheese and the little key.';return;}
-      player={x:nx,y:ny};moves++;
-      if(cell==='C'){cheese=true;status.textContent='Cheese secured. One more thing to find.';}
-      if(cell==='K'){key=true;status.textContent='Key collected. Find the exit at the top-right.';}
+      player={x:nx,y:ny};moves++;window.playGameSound?.('step');
+      if(cell==='C'){cheese=true;window.playGameSound?.('collect');status.textContent='Cheese secured. One more thing to find.';}
+      if(cell==='K'){key=true;window.playGameSound?.('collect');status.textContent='Key collected. Find the exit at the top-right.';}
       if(moves%2===0){
         guardIndexes=guardIndexes.map((n,i)=>(n+1)%patrols[i].length);
         if(guardPositions().some(pos=>pos[0]===player.x&&pos[1]===player.y)){
-          alerts--;
+          alerts--;window.playGameSound?.('alert');
           if(alerts<=0){finished=true;status.textContent='The pantry patrol caught up. Start a fresh run and try a different route.';}
           else{player={...start};status.textContent='Spotted! You slipped back to the start. Alerts remaining: '+alerts+'.';}
         }
       }
-      if(player.x===9&&player.y===1&&cheese&&key){finished=true;status.textContent='Perfect getaway! You found both treasures in '+moves+' moves.';}
+      if(player.x===9&&player.y===1&&cheese&&key){finished=true;window.playGameSound?.('win');status.textContent='Perfect getaway! You found both treasures in '+moves+' moves.';}
       renderMouse();
     }
     document.querySelector('[data-mouse-reset]').addEventListener('click',resetMouse);
@@ -389,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Garden Lanes: place helpers, earn sunshine, and protect three garden lanes. */
   const gardenBoard=document.querySelector('[data-garden-board]');
   if(gardenBoard){
-    const costs={bee:2,dew:3,sun:4},icons={bee:'🐝',dew:'💧',sun:'🌻'},names={bee:'Bee Beacon',dew:'Dew Fountain',sun:'Sunflower'};
+    const costs={bee:2,dew:3,sun:4},icons={bee:'<svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="26" rx="13" ry="10" fill="#E8B64F"/><path d="M16 18 13 34m11-18-2 20m11-17 3 13" stroke="#4A4940" stroke-width="4" stroke-linecap="round"/><path d="M18 15q-8-13-12-2 4 9 12 5m12-3q8-13 12-2-4 9-12 5" fill="#D7E5D9"/></svg>',dew:'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4Q9 25 12 32a12 12 0 0 0 24 0Q39 24 24 4Z" fill="#82B8C1" stroke="#456D73" stroke-width="2"/><path d="M19 29q0 6 5 7" fill="none" stroke="#EAF7EC" stroke-width="3" stroke-linecap="round"/></svg>',sun:'<svg viewBox="0 0 48 48" aria-hidden="true"><g stroke="#CDA24D" stroke-width="3"><path d="M24 3v8m0 26v8M3 24h8m26 0h8M9 9l6 6m18 18 6 6m0-30-6 6M15 33l-6 6"/></g><circle cx="24" cy="24" r="11" fill="#E9C66A"/><circle cx="24" cy="24" r="5" fill="#F6E3A0"/></svg>'},names={bee:'Bee Beacon',dew:'Dew Fountain',sun:'Sunflower'};
     let sun=8,turn=0,hearts=3,petals=0,selected='bee',helpers={},weeds=[],over=false;
     const sunHud=document.querySelector('[data-garden-sun]'),heartsHud=document.querySelector('[data-garden-hearts]');
     const turnHud=document.querySelector('[data-garden-turn]'),petalsHud=document.querySelector('[data-garden-petals]');
@@ -406,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const button=document.createElement('button');button.type='button';button.className='garden-cell';button.dataset.row=row;button.dataset.col=col;
           const helper=helpers[key(row,col)],hasWeed=weeds.some(w=>w.row===row&&w.col===col);
           if(helper)button.classList.add('has-helper');if(hasWeed)button.classList.add('has-weed');
-          button.innerHTML='<span class="garden-helper-icon">'+(helper?icons[helper.type]:'')+'</span><span class="garden-weed-icon">'+(hasWeed?'🌱':'')+'</span>';
+          button.innerHTML='<span class="garden-helper-icon">'+(helper?icons[helper.type]:'')+'</span><span class="garden-weed-icon">'+(hasWeed?'<svg viewBox="0 0 36 36" aria-hidden="true"><path d="M18 33V15m0 10Q2 23 5 9q12-1 13 16m0-5Q17 7 31 5q4 13-13 18Z" fill="#7D9A6F" stroke="#42694E" stroke-width="2" stroke-linejoin="round"/></svg>':'')+'</span>';
           button.setAttribute('aria-label',labels[row]+' lane, tile '+(col+1)+(helper?', '+names[helper.type]:', empty')+(hasWeed?', weed':''));
           button.addEventListener('click',()=>buildGarden(row,col));cells.appendChild(button);
         }
@@ -419,11 +424,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if(over)return;const slot=key(row,col);
       if(helpers[slot]){status.textContent='That tile already has a helper. Pick an empty one.';return;}
       if(sun<costs[selected]){status.textContent='Not enough sunshine for that helper yet.';return;}
-      helpers[slot]={type:selected};sun-=costs[selected];status.textContent=names[selected]+' planted in the '+['upper','middle','lower'][row]+' lane.';
+      helpers[slot]={type:selected};sun-=costs[selected];window.playGameSound?.('plant');status.textContent=names[selected]+' planted in the '+['upper','middle','lower'][row]+' lane.';
       hint.textContent='Good placement. Plant another helper or advance the season.';renderGarden();
     }
     function advanceGarden(){
-      if(over)return;turn++;sun+=1+Object.values(helpers).filter(h=>h.type==='sun').length;
+      if(over)return;window.playGameSound?.('season');turn++;sun+=1+Object.values(helpers).filter(h=>h.type==='sun').length;
       const moved=[];
       weeds.forEach(w=>{const col=w.col-1;if(col<0)hearts--;else moved.push({row:w.row,col});});
       const cleared=new Set();
@@ -439,7 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if(spawn&&(spawn.type==='bee'||spawn.type==='dew')){petals++;sun++;}
       else weeds.push({row:lane,col:4});
       if(hearts<=0){hearts=0;over=true;status.textContent='The garden needs a rest. Reset and try a different helper layout.';}
-      else if(turn>=8){over=true;status.textContent='Eight turns complete — your garden is still blooming. Lovely strategy!';}
+      else if(turn>=8){over=true;window.playGameSound?.('win');status.textContent='Eight turns complete — your garden is still blooming. Lovely strategy!';}
       else status.textContent='Season '+turn+' complete. Choose your next helper, then advance again.';
       renderGarden();
     }
@@ -457,6 +462,65 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Resume chapter shortcuts open the relevant disclosure before scrolling. */
   document.querySelectorAll('[data-resume-jump]').forEach(link=>link.addEventListener('click',event=>{
     const id=link.getAttribute('href'),section=id?document.querySelector(id):null;if(!section)return;
-    event.preventDefault();section.open=true;section.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'',id);
+    event.preventDefault();section.open=true;window.requestAnimationFrame(()=>section.scrollIntoView({behavior:'smooth',block:'start'}));history.replaceState(null,'',id);
   }));
+});
+
+
+/* The Wayfinder Atlas sound palette: soft wind-chimes, footsteps and garden notes. */
+document.addEventListener('DOMContentLoaded', () => {
+  const toggles = [...document.querySelectorAll('[data-sound-toggle]')];
+  if (!toggles.length) return;
+  let enabled = true, audio = null;
+  const getAudio = () => {
+    if (!audio) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) audio = new AudioContext();
+    }
+    if (audio && audio.state === 'suspended') audio.resume();
+    return audio;
+  };
+  const note = (frequency, duration=.16, delay=0, waveform='sine', volume=.04, slide=null) => {
+    if (!enabled) return;
+    const ctx = getAudio(); if (!ctx) return;
+    const now = ctx.currentTime + delay;
+    const oscillator = ctx.createOscillator();
+    const gain = ctx.createGain();
+    oscillator.type = waveform;
+    oscillator.frequency.setValueAtTime(frequency, now);
+    if (slide) oscillator.frequency.exponentialRampToValueAtTime(slide, now + duration);
+    gain.gain.setValueAtTime(.0001, now);
+    gain.gain.exponentialRampToValueAtTime(volume, now + .018);
+    gain.gain.exponentialRampToValueAtTime(.0001, now + duration);
+    oscillator.connect(gain); gain.connect(ctx.destination);
+    oscillator.start(now); oscillator.stop(now + duration + .03);
+  };
+  window.playGameSound = name => {
+    if (!enabled) return;
+    const patterns = {
+      select: () => note(520,.07,0,'sine',.025,650),
+      start: () => { note(392,.18,0,'sine',.035,523); note(587,.22,.12,'sine',.032,784); },
+      echo: () => { note(659,.23,0,'sine',.04,784); note(988,.28,.07,'sine',.032,1175); },
+      step: () => note(245,.055,0,'triangle',.018,195),
+      collect: () => { note(587,.13,0,'sine',.035); note(784,.18,.09,'sine',.03); },
+      alert: () => { note(330,.12,0,'triangle',.025,260); note(246,.16,.10,'triangle',.022,196); },
+      plant: () => { note(392,.16,0,'sine',.026); note(523,.2,.08,'sine',.025); note(659,.2,.16,'sine',.022); },
+      season: () => { note(392,.17,0,'sine',.028); note(494,.17,.10,'sine',.026); note(587,.2,.20,'sine',.024); },
+      win: () => { note(523,.25,0,'sine',.04); note(659,.25,.12,'sine',.035); note(784,.34,.24,'sine',.032); note(1046,.42,.38,'sine',.026); },
+      back: () => { note(587,.08,0,'sine',.02,440); }
+    };
+    (patterns[name] || patterns.select)();
+  };
+  const refresh = () => toggles.forEach(button => {
+    button.textContent = enabled ? 'Sound: On ♪' : 'Sound: Off';
+    button.setAttribute('aria-pressed', String(enabled));
+  });
+  toggles.forEach(button => button.addEventListener('click', () => {
+    enabled = !enabled; refresh();
+    if (enabled) window.playGameSound('select');
+  }));
+  document.querySelectorAll('[data-open-game]').forEach(button => button.addEventListener('click', () => window.playGameSound('start')));
+  document.querySelectorAll('[data-arcade-back]').forEach(button => button.addEventListener('click', () => window.playGameSound('back')));
+  document.querySelectorAll('[data-garden-unit]').forEach(button => button.addEventListener('click', () => window.playGameSound('select')));
+  refresh();
 });
