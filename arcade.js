@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
       state.distance+=state.speed*dt*.25;
       state.spawn-=dt;state.shardSpawn-=dt;spawnDuneItems();
       const offset=state.distance*1.55;
-      state.vy+=1120*dt;
+      state.vy+=(1120/stats[character].glide)*dt;
       state.playerY+=state.vy*dt;
       const floor=groundY(playerX,offset)-22;
       if(state.playerY>=floor){
@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
       button.classList.toggle('is-held',on);
       if(on&&running)window.playGameSound?.('splash');
     }
-    function spawnSeaItems(){
+    function spawnSeaItems(dt){
       if(state.spawn<=0){
         state.obstacles.push({x:W+50,type:Math.random()<.55?'reef':'driftwood'});
         state.spawn=random(1.45,2.2);
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
         state.items.push({x:W+40,y:bird?random(135,190):random(326,360),type:bird?'bird':'fish',taken:false});
         state.itemSpawn=random(.78,1.25);
       }
-      state.itemSpawn-=1/60;
+      state.itemSpawn-=dt;
     }
     function drawSea(){
       if(!ctx||!state)return;
@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if(state.speed<135)state.slowTime+=dt;else state.slowTime=Math.max(0,state.slowTime-dt*.7);
       state.distance+=state.speed*dt*.27;
       state.offset+=state.speed*dt;
-      state.spawn-=dt;spawnSeaItems();
+      state.spawn-=dt;spawnSeaItems(dt);
       const surface=waveY(boatX,state.offset);
       if(state.air){
         state.vy+=(sailHeld?380-upgrades.glide*35:850)*dt;
@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if(shells<5||upgrades[type]>=2)return;
       shells-=5;upgrades[type]++;save(shellKey,shells);save(upgradeKey,upgrades);
       status.textContent=type==='sail'?'The sail catches the wind a little faster.':type==='glide'?'Your glide lasts a little longer.':'The deeper current reveals more fish.';
-      button.disabled=upgrades[type]>=2||shells<5;
+      upgradesButtons.forEach(b=>{b.disabled=upgrades[b.dataset.sailyUpgrade]>=2||shells<5;});
     }));
     document.addEventListener('keydown',e=>{
       const stage=document.querySelector('[data-arcade-stage="saily"]');
