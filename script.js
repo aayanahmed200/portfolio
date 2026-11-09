@@ -352,6 +352,10 @@ document.addEventListener('DOMContentLoaded', () => {
       startButton.textContent='Start game ↗';statusEl.textContent='Ready when you are.';hud();drawOrbit();
     }
     startButton.addEventListener('click',startOrbit); resetButton.addEventListener('click',resetOrbit);
+    const callButton=document.querySelector('[data-orbit-call]');
+    const callEcho=()=>{if(!running)return;callPulse=1.1;window.playGameSound?.('call');};
+    if(callButton)callButton.addEventListener('click',callEcho);
+    document.addEventListener('keydown',event=>{if(event.code==='Space'&&running){event.preventDefault();callEcho();}});
     orbitCanvas.addEventListener('pointermove',event=>{
       if(!running)return;const rect=orbitCanvas.getBoundingClientRect();
       basketX=Math.max(58,Math.min(W-58,((event.clientX-rect.left)/rect.width)*W));
@@ -555,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
     enabled = !enabled; refresh();
     if (enabled) window.playGameSound('select');
   }));
-  document.querySelectorAll('[data-open-game]').forEach(button => button.addEventListener('click', () => window.playGameSound('start')));
+  document.querySelectorAll('[data-open-game]').forEach(button => button.addEventListener('click', () => window.playGameSound('select')));
   document.querySelectorAll('[data-arcade-back]').forEach(button => button.addEventListener('click', () => window.playGameSound('back')));
   document.querySelectorAll('[data-garden-unit]').forEach(button => button.addEventListener('click', () => window.playGameSound('select')));
   refresh();
