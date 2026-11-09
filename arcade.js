@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const waveY=(x,offset)=>267+Math.sin((x+offset)/75)*18+Math.sin((x+offset)/151)*12+Math.sin((x+offset)/35)*4;
     function newSeaRun(){
       state={distance:0,finds:0,fish:0,birds:0,speed:195,boatY:waveY(boatX,0)-14,vy:0,
-        air:false,diving:false,elapsed:0,offset:0,spawn:0,items:[],obstacles:[],
+        air:false,diving:false,elapsed:0,offset:0,spawn:0,items:[],obstacles:[],itemSpawn:0,
         slowTime:0,finished:false,biome:'OPEN SEA',wind:0,sailOn:false};
       updateSeaHud();drawSea();
     }
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function setDive(on){
       diveHeld=on;
-      if(state){state.diving=on&&!state.air; if(on&&state.air){state.vy=Math.max(state.vy,80);}}
+      if(state){if(on){state.diving=true;state.air=false;state.vy=0;}else{state.diving=false;}}
       const button=document.querySelector('[data-saily-dive]');
       button.setAttribute('aria-pressed',String(on));
       button.classList.toggle('is-held',on);
@@ -356,10 +356,12 @@ document.addEventListener('DOMContentLoaded', () => {
         state.obstacles.push({x:W+50,type:Math.random()<.55?'reef':'driftwood'});
         state.spawn=random(1.45,2.2);
       }
-      if(Math.random()<.055){
+      if(state.itemSpawn<=0){
         const bird=Math.random()<.42;
-        state.items.push({x:W+40,y:bird?random(130,185):random(320,360),type:bird?'bird':'fish',taken:false});
+        state.items.push({x:W+40,y:bird?random(135,190):random(326,360),type:bird?'bird':'fish',taken:false});
+        state.itemSpawn=random(.78,1.25);
       }
+      state.itemSpawn-=1/60;
     }
     function drawSea(){
       if(!ctx||!state)return;
@@ -441,6 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
       copy.textContent=message+' You sailed '+distance+' m and found '+state.finds+' little treasures.';
       startBtn.textContent='Sail again ↗';
       upgradesPanel.hidden=shells<5;
+      upgradesButtons.forEach(button=>{button.disabled=shells<5||upgrades[button.dataset.sailyUpgrade]>=2;});
       status.textContent=message;
       window.playGameSound?.('bump');
       updateSeaHud();drawSea();
@@ -451,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dt=Math.min(.04,Math.max(.001,(now-lastTime)/1000));lastTime=now;
       state.elapsed+=dt;
       const windBonus=sailHeld?(58+upgrades.sail*22):0;
-      const desired=195+windBonus+(state.air&&sailHeld?25+upgrades.glide*15:0);
+      const desired=(sailHeld?260+windBonus+upgrades.sail*14:112)+(state.air&&sailHeld?25+upgrades.glide*15:0);
       state.speed+=(desired-state.speed)*Math.min(1,dt*1.4);
       if(state.speed<135)state.slowTime+=dt;else state.slowTime=Math.max(0,state.slowTime-dt*.7);
       state.distance+=state.speed*dt*.27;
