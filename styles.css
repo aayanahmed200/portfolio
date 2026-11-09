@@ -4145,3 +4145,388 @@ details.resume-section {
 .arcade-call-button:hover { background:#E9673B; transform:translate(-1px,-1px); box-shadow:4px 4px 0 #111214; }
 .arcade-call-button:active { transform:translate(2px,2px); box-shadow:1px 1px 0 #111214; }
 @media(max-width:640px) { .arcade-call-button { min-height:40px; padding:0 12px; } }
+
+
+/* Final visual pass — reliable preview, deliberate button states, and two game worlds. */
+.home-page .hero .hero-orb {
+  position:relative !important;
+  display:block !important;
+  overflow:hidden !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:16 / 9 !important;
+  padding:0 !important;
+  border:11px solid #BCE8ED !important;
+  border-radius:34px !important;
+  background:#dce9e2 !important;
+  background-image:none !important;
+  box-shadow:13px 13px 0 #E9673B !important;
+  filter:none !important;
+  transform:rotate(-.7deg) !important;
+}
+.home-page .hero .hero-orb::before,
+.home-page .hero .hero-orb::after { display:none !important; }
+.home-page .hero .hero-orb img {
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+  border-radius:21px !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  opacity:1 !important;
+}
+@media(max-width:850px) {
+  .home-page .hero .hero-orb { aspect-ratio:16 / 9 !important; }
+}
+@media(max-width:640px) {
+  .home-page .hero .hero-orb { border-width:8px !important; border-radius:24px !important; box-shadow:8px 8px 0 #E9673B !important; }
+  .home-page .hero .hero-orb img { border-radius:15px !important; }
+}
+
+/* Resume: no category chips; the openable title strip is visibly separate from its body. */
+.resume-chapter-nav { display:none !important; }
+.resume-page-heading { padding-bottom:31px !important; }
+details.resume-section { background:#fff !important; border-radius:22px !important; overflow:hidden; }
+.resume-section-summary {
+  min-height:72px !important;
+  background:#BCE8ED !important;
+  border:0 !important;
+  border-radius:0 !important;
+  transition:background .2s ease !important;
+}
+.resume-section-summary:hover,
+.resume-section-summary:focus-visible {
+  background:#F1D77F !important;
+}
+.resume-section-summary h2,
+.resume-section-summary:hover h2,
+.resume-section-summary:focus-visible h2 {
+  color:#111214 !important;
+  opacity:1 !important;
+}
+.resume-section-toggle { background:#E9673B !important; color:#111214 !important; }
+.resume-section[open] .resume-section-toggle { background:#111214 !important; color:#fff !important; }
+.resume-section-body {
+  padding:27px 25px 28px 82px !important;
+  background:#fff !important;
+}
+.resume-section-body .resume-entry p { margin-top:10px !important; }
+@media(max-width:640px) {
+  .resume-section-summary { min-height:64px !important; }
+  .resume-section-body { padding:21px 17px 23px 56px !important; }
+}
+
+/* Buttons: orange/cyan faces always contrast with the black cartoon offset shadow. */
+.hero-button,
+.button-primary,
+.project-detail .button-primary,
+.project-actions > a.button-primary,
+.project-arrow-link,
+.error-home-link,
+.error-project-link,
+.arcade-sound-toggle,
+.arcade-back,
+.arcade-secondary,
+.arcade-call-button,
+.game-action,
+.runner-overlay button,
+.dune-character,
+.saily-upgrade-buttons button {
+  border:0 !important;
+  background:#E9673B !important;
+  color:#111214 !important;
+  text-decoration:none !important;
+  box-shadow:3px 3px 0 #111214 !important;
+  transition:background-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease !important;
+}
+.project-actions > a.text-link,
+.arcade-sound-toggle,
+.arcade-secondary,
+.arcade-back,
+.game-action-soft,
+.game-action-muted {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+}
+.hero-button:hover,
+.button-primary:hover,
+.project-detail .button-primary:hover,
+.project-actions > a.button-primary:hover,
+.project-arrow-link:hover,
+.error-home-link:hover,
+.error-project-link:hover,
+.arcade-sound-toggle:hover,
+.arcade-back:hover,
+.arcade-secondary:hover,
+.arcade-call-button:hover,
+.game-action:hover,
+.runner-overlay button:hover,
+.dune-character:hover,
+.saily-upgrade-buttons button:hover {
+  background:#F1D77F !important;
+  color:#111214 !important;
+  box-shadow:4px 4px 0 #111214 !important;
+  transform:translate(-1px,-1px) !important;
+}
+.project-actions > a.text-link:hover,
+.arcade-sound-toggle:hover,
+.arcade-back:hover,
+.arcade-secondary:hover,
+.game-action-soft:hover,
+.game-action-muted:hover {
+  background:#E9673B !important;
+  color:#111214 !important;
+}
+.hero-button:active,
+.button-primary:active,
+.project-actions > a:active,
+.project-arrow-link:active,
+.error-home-link:active,
+.error-project-link:active,
+.arcade-sound-toggle:active,
+.arcade-back:active,
+.arcade-secondary:active,
+.arcade-call-button:active,
+.game-action:active,
+.runner-overlay button:active {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+  box-shadow:1px 1px 0 #111214 !important;
+  transform:translate(2px,2px) !important;
+}
+.nav-link:hover,
+.nav-link.is-active:hover {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+  box-shadow:0 2px 0 rgba(17,18,20,.22) !important;
+}
+.nav-link:focus-visible,
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline:3px solid #111214 !important;
+  outline-offset:3px !important;
+}
+
+/* Two-game arcade layout. */
+.arcade-two-games { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+.arcade-two-games .arcade-game-card { min-height:365px !important; }
+.arcade-two-games .arcade-card-art { height:190px !important; }
+.arcade-two-games .arcade-card-copy { min-height:56px !important; }
+.dune-card-art img,.saily-card-art img { object-fit:cover !important; }
+.dune-card-art { background:#e9b781 !important; }
+.saily-card-art { background:#8ebdc0 !important; }
+.runner-canvas-wrap {
+  position:relative !important;
+  overflow:hidden !important;
+  width:100% !important;
+  border-radius:22px !important;
+  background:#d8d9c3 !important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.35) !important;
+}
+.runner-canvas-wrap canvas {
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:960 / 440 !important;
+  touch-action:pan-y !important;
+  cursor:crosshair !important;
+}
+.runner-overlay {
+  position:absolute !important;
+  inset:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap:12px !important;
+  padding:24px !important;
+  text-align:center !important;
+  color:#111214 !important;
+  background:rgba(245,238,216,.76) !important;
+  backdrop-filter:blur(5px) !important;
+}
+.runner-overlay[hidden] { display:none !important; }
+.runner-overlay-kicker {
+  color:#4e655a !important;
+  font-size:9px !important;
+  font-weight:900 !important;
+  letter-spacing:.17em !important;
+}
+.runner-overlay strong {
+  color:#172c2a !important;
+  font-size:clamp(28px,5vw,48px) !important;
+  line-height:1 !important;
+  letter-spacing:-.06em !important;
+  font-weight:900 !important;
+}
+.runner-overlay p {
+  max-width:430px !important;
+  margin:0 !important;
+  color:#344640 !important;
+  font-size:12px !important;
+  line-height:1.75 !important;
+}
+.runner-overlay button {
+  min-height:47px !important;
+  padding:0 22px !important;
+  border-radius:999px !important;
+  font-size:11px !important;
+  font-weight:900 !important;
+  cursor:pointer !important;
+}
+.dune-panel,.saily-panel {
+  padding:20px !important;
+  border-radius:28px !important;
+  background:#fffdf6 !important;
+  box-shadow:0 8px 30px rgba(17,18,20,.055) !important;
+}
+.dune-hud,.saily-hud {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  margin-bottom:15px !important;
+  color:#58645e !important;
+  font-size:8px !important;
+  font-weight:900 !important;
+  letter-spacing:.13em !important;
+}
+.dune-hud strong,.saily-hud strong {
+  color:#152821 !important;
+  font-size:14px !important;
+  margin-left:4px !important;
+}
+.dune-characters {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:9px !important;
+  margin:0 0 15px !important;
+}
+.dune-character {
+  display:flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  padding:8px 15px 8px 9px !important;
+  border-radius:15px !important;
+  background:#BCE8ED !important;
+  cursor:pointer !important;
+}
+.dune-character.is-selected {
+  background:#F1D77F !important;
+  box-shadow:3px 3px 0 #111214,inset 0 0 0 2px #E9673B !important;
+}
+.dune-character strong,.dune-character small { display:block !important; text-align:left !important; }
+.dune-character strong { color:#111214 !important; font-size:10px !important; font-weight:900 !important; }
+.dune-character small { margin-top:3px !important; color:#47524c !important; font-size:8px !important; }
+.character-mark {
+  width:31px !important;height:31px !important;display:block !important;
+  border-radius:50% !important;background:#b96d54 !important;
+  border:3px solid rgba(17,18,20,.12) !important;
+}
+.character-mira { background:#d2a45d !important; }
+.character-tavi { background:#71877f !important; }
+.runner-controls,.saily-controls {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:13px !important;
+  padding:15px 2px 2px !important;
+}
+.runner-controls p,.saily-controls p {
+  flex:1 1 240px !important;
+  margin:0 !important;
+  color:#424d47 !important;
+  font-size:11px !important;
+  line-height:1.7 !important;
+}
+.runner-control-buttons { display:flex !important; flex-wrap:wrap !important; gap:9px !important; }
+.game-action {
+  min-height:43px !important;
+  padding:0 15px !important;
+  border-radius:999px !important;
+  background:#E9673B !important;
+  color:#111214 !important;
+  font-size:10px !important;
+  font-weight:900 !important;
+  cursor:pointer !important;
+  white-space:nowrap !important;
+}
+.game-action-soft { background:#BCE8ED !important; }
+.game-action-muted { background:#F1D77F !important; }
+.game-action.is-held { background:#BCE8ED !important; }
+.game-action kbd {
+  margin-left:6px !important;
+  padding:2px 5px !important;
+  border-radius:5px !important;
+  background:rgba(17,18,20,.12) !important;
+  color:#111214 !important;
+  font:800 8px 'DM Sans',Arial,sans-serif !important;
+}
+.dune-progression {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:10px !important;
+  margin-top:15px !important;
+  padding-top:13px !important;
+  border-top:1px solid rgba(17,18,20,.1) !important;
+  color:#56655d !important;
+  font-size:9px !important;
+  line-height:1.6 !important;
+}
+.dune-progression span:first-child { color:#b84c2c !important; font-weight:900 !important; letter-spacing:.1em !important; }
+.saily-upgrades {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:16px !important;
+  margin-top:14px !important;
+  padding:17px !important;
+  border-radius:17px !important;
+  background:#e4f0e9 !important;
+}
+.saily-upgrades[hidden] { display:none !important; }
+.saily-upgrades > div:first-child { max-width:230px !important; }
+.saily-upgrades > div:first-child span {
+  color:#355d4e !important;font-size:9px !important;font-weight:900 !important;letter-spacing:.12em !important;
+}
+.saily-upgrades p { margin:5px 0 0 !important;color:#3e5148 !important;font-size:10px !important;line-height:1.6 !important; }
+.saily-upgrade-buttons { display:flex !important;flex-wrap:wrap !important;gap:8px !important; }
+.saily-upgrade-buttons button {
+  min-height:43px !important;
+  padding:7px 12px !important;
+  border-radius:12px !important;
+  cursor:pointer !important;
+  text-align:left !important;
+  font-size:9px !important;
+  font-weight:900 !important;
+}
+.saily-upgrade-buttons small { display:block !important;margin-top:3px !important;font-size:8px !important;font-weight:600 !important; }
+.saily-upgrade-buttons button:disabled { opacity:.43 !important;cursor:not-allowed !important;box-shadow:none !important;transform:none !important; }
+@media(max-width:850px) {
+  .arcade-two-games { grid-template-columns:1fr 1fr !important; }
+}
+@media(max-width:640px) {
+  .arcade-two-games { grid-template-columns:1fr !important; }
+  .arcade-two-games .arcade-game-card { min-height:320px !important; }
+  .arcade-two-games .arcade-card-art { height:160px !important; }
+  .dune-panel,.saily-panel { padding:12px !important; border-radius:22px !important; }
+  .dune-hud,.saily-hud { gap:8px !important; font-size:7px !important; }
+  .dune-characters { gap:6px !important; }
+  .dune-character { flex:1 1 28% !important; padding:7px !important; gap:6px !important; }
+  .character-mark { width:25px !important;height:25px !important; }
+  .runner-control-buttons { width:100% !important; }
+  .game-action { flex:1 1 auto !important; padding:0 11px !important; }
+  .runner-overlay { padding:14px !important; gap:8px !important; }
+  .runner-overlay p { font-size:10px !important; }
+  .saily-upgrades { padding:12px !important; }
+  .saily-upgrade-buttons { width:100% !important; }
+  .saily-upgrade-buttons button { flex:1 1 28% !important; }
+}
