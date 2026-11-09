@@ -4133,3 +4133,15 @@ details.resume-section {
   .arcade-stage-actions { gap:7px; }
   .arcade-sound-toggle { min-height:36px; padding:0 10px; font-size:8px; }
 }
+
+/* Echo-call interaction: the shared musical mechanic across the Atlas. */
+.arcade-call-button {
+  min-height:42px; padding:0 15px; border:0; border-radius:999px;
+  background:#BCE8ED; color:#111214; font:900 10px 'DM Sans',Arial,sans-serif;
+  box-shadow:3px 3px 0 #111214; cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.arcade-call-button small { margin-left:7px; opacity:.65; font-size:8px; }
+.arcade-call-button:hover { background:#E9673B; transform:translate(-1px,-1px); box-shadow:4px 4px 0 #111214; }
+.arcade-call-button:active { transform:translate(2px,2px); box-shadow:1px 1px 0 #111214; }
+@media(max-width:640px) { .arcade-call-button { min-height:40px; padding:0 12px; } }
