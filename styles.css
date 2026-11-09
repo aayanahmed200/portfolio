@@ -3012,3 +3012,71 @@ p { color: #37393d; }
     animation-duration:.01ms !important;
   }
 }
+
+
+/* 09 Nov 2026 — compact capsule actions and matching project-page controls. */
+.project-detail .button-primary,
+.project-detail .project-actions > a,
+.project-actions > a {
+  min-height:50px !important;
+  height:50px !important;
+  width:max-content !important;
+  max-width:100% !important;
+  display:inline-flex !important;
+  flex:0 1 auto !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 23px !important;
+  border:0 !important;
+  border-radius:999px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  text-align:center !important;
+  vertical-align:middle !important;
+  box-sizing:border-box !important;
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  letter-spacing:-.01em !important;
+}
+.project-detail .project-actions {
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  gap:11px !important;
+}
+.project-detail .project-actions .button-primary {
+  background:#111214 !important;
+  color:#fff !important;
+}
+.project-detail .project-actions .text-link {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+  text-decoration:none !important;
+  border:0 !important;
+}
+.project-detail .button-primary:hover,
+.project-detail .project-actions .button-primary:hover {
+  transform:translateY(-2px);
+  background:#303238 !important;
+}
+.project-detail .project-actions .text-link:hover {
+  transform:translateY(-2px);
+  background:#fff !important;
+}
+.project-detail:nth-of-type(4) .project-actions .button-primary {
+  background:#E9673B !important;
+  color:#111214 !important;
+}
+@media(max-width:640px) {
+  .project-detail .button-primary,
+  .project-detail .project-actions > a,
+  .project-actions > a {
+    min-height:46px !important;
+    height:46px !important;
+    padding:0 17px !important;
+    font-size:10px !important;
+  }
+  .project-detail .project-actions { gap:9px !important; }
+}
