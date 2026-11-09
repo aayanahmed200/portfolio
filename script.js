@@ -161,3 +161,50 @@ document.addEventListener('DOMContentLoaded', () => {
     start.addEventListener('click',begin);
   }
 });
+
+/* Miscellaneous page: accessible topic filters and a tiny rabbit-hole generator. */
+document.addEventListener('DOMContentLoaded', () => {
+  const filters = [...document.querySelectorAll('[data-misc-filter]')];
+  const cards = [...document.querySelectorAll('[data-misc-category]')];
+  const empty = document.querySelector('.misc-empty');
+  if (filters.length && cards.length) {
+    filters.forEach(button => button.addEventListener('click', () => {
+      const selected = button.dataset.miscFilter;
+      filters.forEach(item => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      let visible = 0;
+      cards.forEach(card => {
+        const show = selected === 'all' || card.dataset.miscCategory === selected;
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      if (empty) empty.hidden = visible !== 0;
+    }));
+  }
+
+  const prompt = document.querySelector('[data-rabbit-hole]');
+  const next = document.querySelector('[data-rabbit-hole-next]');
+  if (prompt && next) {
+    const ideas = [
+      'What would a school look like if it were designed around curiosity instead of a timetable?',
+      'Could an offline-first assistant make useful AI available in places with unreliable internet?',
+      'What can piano practice teach us about learning any difficult skill?',
+      'How might brain-computer interfaces change accessibility over the next decade?',
+      'Why do some interfaces feel human while others feel like filling out a form?',
+      'What gets lost when a language has almost no digital footprint?'
+    ];
+    let previous = -1;
+    next.addEventListener('click', () => {
+      let choice = Math.floor(Math.random() * ideas.length);
+      if (ideas.length > 1) while (choice === previous) choice = Math.floor(Math.random() * ideas.length);
+      previous = choice;
+      prompt.classList.remove('is-changing');
+      void prompt.offsetWidth;
+      prompt.classList.add('is-changing');
+      prompt.textContent = ideas[choice];
+    });
+  }
+});
