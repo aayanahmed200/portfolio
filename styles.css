@@ -4530,3 +4530,31 @@ summary:focus-visible {
   .saily-upgrade-buttons { width:100% !important; }
   .saily-upgrade-buttons button { flex:1 1 28% !important; }
 }
+
+
+/* Small round/icon actions use the same orange/cyan face and visible black offset. */
+.project-foot a,
+.social-circle,
+.experience-heading > a {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+  border:0 !important;
+  box-shadow:3px 3px 0 #111214 !important;
+  transition:background-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease !important;
+}
+.project-foot a:hover,
+.social-circle:hover,
+.experience-heading > a:hover {
+  background:#F1D77F !important;
+  color:#111214 !important;
+  box-shadow:4px 4px 0 #111214 !important;
+  transform:translate(-1px,-1px) !important;
+}
+.hero-button span,.email-pill span,.project-arrow-link span,.error-home-link span {
+  color:#111214 !important;
+}
+.project-actions > a.text-link:hover {
+  background:#F1D77F !important;
+  color:#111214 !important;
+  box-shadow:4px 4px 0 #111214 !important;
+}
