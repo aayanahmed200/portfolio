@@ -4558,3 +4558,55 @@ summary:focus-visible {
   color:#111214 !important;
   box-shadow:4px 4px 0 #111214 !important;
 }
+
+
+/* Email CTA: a consistent, visible face in every interaction state. */
+.email-pill,
+.email-pill:link,
+.email-pill:visited {
+  background:#BCE8ED !important;
+  background-color:#BCE8ED !important;
+  color:#111214 !important;
+  border:1px solid #111214 !important;
+  border-radius:999px !important;
+  box-shadow:3px 3px 0 #111214 !important;
+  opacity:1 !important;
+  transition:background-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease !important;
+}
+.email-pill span { color:#111214 !important; }
+.email-pill:hover,
+.email-pill:focus-visible {
+  background:#F1D77F !important;
+  background-color:#F1D77F !important;
+  color:#111214 !important;
+  border-color:#111214 !important;
+  box-shadow:4px 4px 0 #111214 !important;
+  transform:translate(-1px,-1px) !important;
+}
+.email-pill:hover span,
+.email-pill:focus-visible span { color:#111214 !important; }
+.email-pill:active {
+  background:#E9673B !important;
+  color:#111214 !important;
+  box-shadow:1px 1px 0 #111214 !important;
+  transform:translate(2px,2px) !important;
+}
+
+/* Three.js canvas treatment: preserve the existing card, frame and page layout. */
+.dune-canvas-wrap canvas,
+.saily-canvas-wrap canvas {
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:960 / 440 !important;
+  border-radius:20px !important;
+  outline:0 !important;
+  touch-action:pan-y !important;
+  cursor:grab !important;
+}
+.dune-canvas-wrap canvas:active,
+.saily-canvas-wrap canvas:active { cursor:grabbing !important; }
+.dune-canvas-wrap,.saily-canvas-wrap {
+  background:#afc8c1 !important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.42),0 8px 22px rgba(27,45,42,.1) !important;
+}
