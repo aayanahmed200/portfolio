@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.querySelector('[data-orbit-start]');
     const resetButton = document.querySelector('[data-orbit-reset]');
     const W = 960, H = 440, bestKey = 'aayan-star-catcher-best';
-    let running = false, score = 0, timeLeft = 45, basketX = W / 2, stars = [], spawnClock = 0, lastFrame = 0, raf = 0;
+    let running = false, score = 0, timeLeft = 45, basketX = W / 2, stars = [], spawnClock = 0, lastFrame = 0, raf = 0, callPulse = 0;
     const getBest = () => { try { return Number(localStorage.getItem(bestKey) || 0); } catch (_) { return 0; } };
     const setBest = value => { try { localStorage.setItem(bestKey, String(value)); } catch (_) {} };
 
@@ -255,6 +255,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const atlasScene = new Image();
     atlasScene.src = '/assets/wayfinder-dunes.svg';
     atlasScene.onload = () => { if (!running) drawOrbit(); };
+    function drawEcho(x,y,r,phase) {
+      ctx.save(); ctx.translate(x,y); ctx.rotate(Math.sin(phase)*.14);
+      ctx.fillStyle='rgba(255,246,195,.23)';
+      ctx.beginPath(); ctx.arc(0,0,r*2.8,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='#fff0ae';
+      ctx.beginPath(); ctx.ellipse(-2,2,r*.76,r*.55,-.34,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle='#fff5cf'; ctx.lineWidth=Math.max(2,r*.22); ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(r*.5,1); ctx.lineTo(r*.5,-r*2.1); ctx.quadraticCurveTo(r*1.8,-r*2.2,r*1.6,-r*1.1); ctx.stroke();
+      ctx.restore();
+    }
     function drawOrbit() {
       if (!ctx) return;
       if (atlasScene.complete && atlasScene.naturalWidth) {
@@ -273,11 +283,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fillStyle = '#fff4bd';
         ctx.beginPath(); ctx.arc(item.x,item.y,item.r*2.7*pulse,0,Math.PI*2); ctx.fill();
         ctx.restore();
-        starShape(item.x,item.y,item.r*pulse,item.r*.48,item.spin,'#fff0ae');
+        drawEcho(item.x,item.y,item.r*pulse,item.spin);
         ctx.strokeStyle='rgba(255,247,207,.65)';
         ctx.lineWidth=2;
         ctx.beginPath(); ctx.moveTo(item.x,item.y+item.r); ctx.lineTo(item.x-2,item.y+item.r+12); ctx.stroke();
       });
+      if(callPulse>0){ctx.save();ctx.globalAlpha=Math.min(.6,callPulse*.55);ctx.strokeStyle='#d7f5e8';ctx.lineWidth=5;ctx.beginPath();ctx.ellipse(basketX,385,38+(1-callPulse)*70,18+(1-callPulse)*30,0,0,Math.PI*2);ctx.stroke();ctx.restore();}
       // A small original hooded wayfinder replaces the old basket catcher.
       ctx.save();
       ctx.translate(basketX, 371);
@@ -319,10 +330,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function tick(now){
       if(!running)return;
       const dt=Math.min(.04,Math.max(.001,(now-lastFrame)/1000)); lastFrame=now;
-      timeLeft=Math.max(0,timeLeft-dt); spawnClock+=dt;
+      timeLeft=Math.max(0,timeLeft-dt); callPulse=Math.max(0,callPulse-dt); spawnClock+=dt;
       if(spawnClock>.57){spawnClock=0;stars.push({x:32+Math.random()*(W-64),y:-15,r:9+Math.random()*5,speed:175+Math.random()*95,drift:(Math.random()-.5)*28,spin:0});}
       stars=stars.filter(item=>{
-        item.y+=item.speed*dt; item.x+=Math.sin(item.y/46)*item.drift*dt; item.spin+=dt*1.7;
+        item.y+=item.speed*dt; item.x+=Math.sin(item.y/46)*item.drift*dt; item.spin+=dt*1.7; if(callPulse>0&&Math.abs(item.x-basketX)<300)item.x+=(basketX-item.x)*Math.min(.08,dt*.7);
         if(item.y>345&&item.y<420&&Math.abs(item.x-basketX)<56){window.playGameSound?.('echo');score++;hud();if(score>=12)finish('You caught all 12 stars. That was lovely.');return false;}
         return item.y<H+20;
       });
@@ -331,12 +342,12 @@ document.addEventListener('DOMContentLoaded', () => {
       hud(); drawOrbit(); raf=requestAnimationFrame(tick);
     }
     function startOrbit(){
-      if(running)return; window.playGameSound?.('start'); score=0;timeLeft=45;basketX=W/2;stars=[];spawnClock=0;running=true;overlay.hidden=true;
+      if(running)return; window.playGameSound?.('start'); score=0;timeLeft=45;basketX=W/2;stars=[];spawnClock=0;callPulse=0;running=true;overlay.hidden=true;
       statusEl.textContent='Go! Catch the falling stars.';hud();lastFrame=performance.now();raf=requestAnimationFrame(tick);
     }
     function pauseOrbit(){running=false;if(raf)cancelAnimationFrame(raf);raf=0;}
     function resetOrbit(){
-      pauseOrbit();score=0;timeLeft=45;stars=[];basketX=W/2;overlay.hidden=false;
+      pauseOrbit();score=0;timeLeft=45;stars=[];basketX=W/2;callPulse=0;overlay.hidden=false;
       overlay.querySelector('strong').textContent='Ready?';overlay.querySelector('span').textContent='Catch 12 stars before the clock runs out.';
       startButton.textContent='Start game ↗';statusEl.textContent='Ready when you are.';hud();drawOrbit();
     }
@@ -525,6 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
       select: () => note(520,.07,0,'sine',.025,650),
       start: () => { note(392,.18,0,'sine',.035,523); note(587,.22,.12,'sine',.032,784); },
       echo: () => { note(659,.23,0,'sine',.04,784); note(988,.28,.07,'sine',.032,1175); },
+      call: () => { note(392,.32,0,'sine',.04,523); note(659,.36,.10,'sine',.032,784); note(988,.42,.22,'sine',.026,1175); },
       step: () => note(245,.055,0,'triangle',.018,195),
       collect: () => { note(587,.13,0,'sine',.035); note(784,.18,.09,'sine',.03); },
       alert: () => { note(330,.12,0,'triangle',.025,260); note(246,.16,.10,'triangle',.022,196); },
