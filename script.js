@@ -252,39 +252,63 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i=0;i<10;i++) { const r=i%2?inner:outer; const a=-Math.PI/2+i*Math.PI/5; ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r); }
       ctx.closePath(); ctx.fillStyle=color; ctx.shadowColor=color; ctx.shadowBlur=15; ctx.fill(); ctx.restore();
     }
+    const atlasScene = new Image();
+    atlasScene.src = '/assets/wayfinder-dunes.svg';
+    atlasScene.onload = () => { if (!running) drawOrbit(); };
     function drawOrbit() {
       if (!ctx) return;
-      const bg=ctx.createLinearGradient(0,0,W,H);
-      bg.addColorStop(0,'#142b45'); bg.addColorStop(.55,'#253b68'); bg.addColorStop(1,'#533d71');
-      ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
-      const glow=ctx.createRadialGradient(730,95,10,730,95,300);
-      glow.addColorStop(0,'rgba(112,219,216,.25)'); glow.addColorStop(1,'rgba(112,219,216,0)');
-      ctx.fillStyle=glow; ctx.fillRect(0,0,W,H);
-      for(let i=0;i<54;i++){
-        const x=(i*173+47)%W, y=(i*89+31)%300;
-        ctx.globalAlpha=.35+((i*7)%6)/10; ctx.fillStyle='#fff5d8';
-        ctx.beginPath(); ctx.arc(x,y,i%7===0?2:1.1,0,Math.PI*2); ctx.fill();
+      if (atlasScene.complete && atlasScene.naturalWidth) {
+        ctx.drawImage(atlasScene, 0, 0, W, H);
+      } else {
+        const bg=ctx.createLinearGradient(0,0,W,H);
+        bg.addColorStop(0,'#91b8c0'); bg.addColorStop(.6,'#e6d9b9'); bg.addColorStop(1,'#c98f76');
+        ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+        ctx.fillStyle='#a3ae91'; ctx.beginPath(); ctx.moveTo(0,280); ctx.lineTo(150,170); ctx.lineTo(300,275); ctx.lineTo(470,140); ctx.lineTo(640,285); ctx.lineTo(800,185); ctx.lineTo(960,260); ctx.lineTo(960,440); ctx.lineTo(0,440); ctx.fill();
       }
-      ctx.globalAlpha=1;
-      ctx.fillStyle='#203955'; ctx.beginPath(); ctx.moveTo(0,335);
-      ctx.quadraticCurveTo(165,265,310,340); ctx.quadraticCurveTo(470,395,615,320);
-      ctx.quadraticCurveTo(800,255,960,330); ctx.lineTo(960,440); ctx.lineTo(0,440); ctx.closePath(); ctx.fill();
-      ctx.fillStyle='#2c5360'; ctx.beginPath(); ctx.moveTo(0,380); ctx.quadraticCurveTo(205,325,400,377);
-      ctx.quadraticCurveTo(650,420,960,360); ctx.lineTo(960,440); ctx.lineTo(0,440); ctx.closePath(); ctx.fill();
-      ctx.strokeStyle='rgba(188,232,237,.22)'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,397); ctx.lineTo(W,397); ctx.stroke();
-      ctx.lineWidth=5; ctx.strokeStyle='#9ce1df'; ctx.beginPath(); ctx.ellipse(772,128,43,24,-.25,0,Math.PI*2); ctx.stroke();
-      ctx.strokeStyle='rgba(241,215,127,.85)'; ctx.beginPath(); ctx.ellipse(772,128,26,14,-.25,0,Math.PI*2); ctx.stroke();
-      ctx.fillStyle='rgba(255,255,255,.14)';
-      [[180,155,30],[215,153,23],[196,138,25],[545,238,23],[571,239,31],[599,233,22]].forEach(([x,y,r])=>{ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();});
-      stars.forEach(item=>starShape(item.x,item.y,item.r,item.r*.48,item.spin,'#f7dc83'));
-      ctx.save(); ctx.translate(basketX,382); ctx.shadowColor='rgba(0,0,0,.25)'; ctx.shadowBlur=16;
-      const basket=ctx.createLinearGradient(0,0,0,54); basket.addColorStop(0,'#ffd985'); basket.addColorStop(1,'#e9673b');
-      ctx.fillStyle=basket; ctx.beginPath(); ctx.moveTo(-53,0); ctx.quadraticCurveTo(0,15,53,0); ctx.lineTo(42,46); ctx.quadraticCurveTo(0,58,-42,46); ctx.closePath(); ctx.fill();
-      ctx.shadowBlur=0; ctx.strokeStyle='#fff2c7'; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(-55,0); ctx.quadraticCurveTo(0,17,55,0); ctx.stroke();
-      ctx.fillStyle='#633c4c'; for(let i=-2;i<=2;i++){ctx.beginPath();ctx.arc(i*18,29,3,0,Math.PI*2);ctx.fill();} ctx.restore();
-      ctx.fillStyle='rgba(255,255,255,.72)'; ctx.font='700 13px DM Sans,Arial'; ctx.fillText('MOVE TO CATCH THE GLOW',25,30);
+      // Echo motes drift across the valley like tiny notes in the wind.
+      stars.forEach(item => {
+        const pulse = 1 + Math.sin(item.spin * 2) * .12;
+        ctx.save();
+        ctx.globalAlpha = .28;
+        ctx.fillStyle = '#fff4bd';
+        ctx.beginPath(); ctx.arc(item.x,item.y,item.r*2.7*pulse,0,Math.PI*2); ctx.fill();
+        ctx.restore();
+        starShape(item.x,item.y,item.r*pulse,item.r*.48,item.spin,'#fff0ae');
+        ctx.strokeStyle='rgba(255,247,207,.65)';
+        ctx.lineWidth=2;
+        ctx.beginPath(); ctx.moveTo(item.x,item.y+item.r); ctx.lineTo(item.x-2,item.y+item.r+12); ctx.stroke();
+      });
+      // A small original hooded wayfinder replaces the old basket catcher.
+      ctx.save();
+      ctx.translate(basketX, 371);
+      ctx.fillStyle='rgba(71,62,54,.2)';
+      ctx.beginPath(); ctx.ellipse(0,54,32,8,0,0,Math.PI*2); ctx.fill();
+      ctx.shadowColor='rgba(49,53,42,.2)'; ctx.shadowBlur=12;
+      ctx.fillStyle='#B66E58';
+      ctx.beginPath();
+      ctx.moveTo(-10,-56); ctx.quadraticCurveTo(-28,-31,-27,22);
+      ctx.quadraticCurveTo(0,39,27,22); ctx.quadraticCurveTo(28,-31,10,-56);
+      ctx.quadraticCurveTo(0,-68,-10,-56); ctx.closePath(); ctx.fill();
+      ctx.shadowBlur=0;
+      ctx.fillStyle='#D99B72';
+      ctx.beginPath(); ctx.ellipse(0,-49,13,14,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='#586D68';
+      ctx.beginPath(); ctx.moveTo(-13,-47); ctx.quadraticCurveTo(-15,-73,0,-77);
+      ctx.quadraticCurveTo(17,-73,14,-47); ctx.quadraticCurveTo(0,-57,-13,-47); ctx.fill();
+      ctx.fillStyle='#F5E2B5';
+      ctx.beginPath(); ctx.arc(4,-49,2,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle='#D8B76B'; ctx.lineWidth=5; ctx.lineCap='round';
+      ctx.beginPath(); ctx.moveTo(-4,-35); ctx.quadraticCurveTo(-32,-22,-39,-4); ctx.stroke();
+      ctx.strokeStyle='#84B5B0'; ctx.lineWidth=4;
+      ctx.beginPath(); ctx.moveTo(-19,-16); ctx.quadraticCurveTo(-43,-8,-46,9); ctx.stroke();
+      ctx.fillStyle='#F2D77F';
+      ctx.beginPath(); ctx.arc(0,4,5,0,Math.PI*2); ctx.fill();
+      ctx.restore();
+      ctx.fillStyle='rgba(255,250,225,.9)';
+      ctx.font='800 13px DM Sans,Arial';
+      ctx.fillText('FOLLOW THE ECHOES',25,30);
     }
-    function hud(){scoreEl.textContent=String(score);timeEl.textContent=String(Math.ceil(timeLeft));bestEl.textContent=String(getBest());}
+        function hud(){scoreEl.textContent=String(score);timeEl.textContent=String(Math.ceil(timeLeft));bestEl.textContent=String(getBest());}
     function finish(message){
       running=false; if(raf)cancelAnimationFrame(raf); raf=0;
       if(score>getBest())setBest(score); hud(); overlay.hidden=false;
@@ -307,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
       hud(); drawOrbit(); raf=requestAnimationFrame(tick);
     }
     function startOrbit(){
-      if(running)return; score=0;timeLeft=45;basketX=W/2;stars=[];spawnClock=0;running=true;overlay.hidden=true;
+      if(running)return; window.playGameSound?.('start'); score=0;timeLeft=45;basketX=W/2;stars=[];spawnClock=0;running=true;overlay.hidden=true;
       statusEl.textContent='Go! Catch the falling stars.';hud();lastFrame=performance.now();raf=requestAnimationFrame(tick);
     }
     function pauseOrbit(){running=false;if(raf)cancelAnimationFrame(raf);raf=0;}
