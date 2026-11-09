@@ -3973,3 +3973,163 @@ details.resume-section {
     border-radius:24px !important;
   }
 }
+
+
+/* 09 Nov 2026 — small résumé clarity fixes; preserve the site's existing page layout. */
+.resume-page-heading { padding-bottom:34px !important; }
+.resume-chapter-nav { margin-bottom:29px !important; }
+.resume-section { scroll-margin-top:24px; }
+.resume-section-summary:hover,
+.resume-section-summary:focus-visible { background:#FFF0E8 !important; }
+.resume-section-summary h2,
+.resume-section-summary:hover h2,
+.resume-section-summary:focus-visible h2 {
+  color:#111214 !important;
+  opacity:1 !important;
+}
+.resume-section-number,
+.resume-section-summary:hover .resume-section-number { color:#B84C2C !important; }
+.resume-section-body {
+  padding-top:19px !important;
+  color:#272C31 !important;
+}
+.resume-section-body .resume-entry h3 { color:#111214 !important; }
+.resume-section-body .resume-entry p {
+  margin-top:8px !important;
+  color:#353A40 !important;
+  line-height:1.85 !important;
+}
+.resume-section-body .resume-entry time { color:#52575E !important; }
+
+/* Tactile black-offset button shadow, without changing button dimensions or layout. */
+.hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+.email-pill,.error-home-link,.error-project-link,.resume-chapter-nav a,
+.arcade-sound-toggle,.arcade-back,.arcade-secondary,.orbit-overlay button,
+.mouse-dpad button,.garden-unit,.garden-turn-button {
+  box-shadow:3px 3px 0 #111214 !important;
+  transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease !important;
+}
+.hero-button:hover,.button-primary:hover,.project-actions > a:hover,
+.project-arrow-link:hover,.email-pill:hover,.error-home-link:hover,
+.error-project-link:hover,.resume-chapter-nav a:hover,.arcade-sound-toggle:hover,
+.arcade-back:hover,.arcade-secondary:hover,.orbit-overlay button:hover,
+.mouse-dpad button:hover,.garden-unit:hover,.garden-turn-button:hover {
+  transform:translate(-1px,-1px) !important;
+  box-shadow:4px 4px 0 #111214 !important;
+}
+.hero-button:active,.button-primary:active,.project-actions > a:active,
+.project-arrow-link:active,.email-pill:active,.error-home-link:active,
+.error-project-link:active,.resume-chapter-nav a:active,.arcade-sound-toggle:active,
+.arcade-back:active,.arcade-secondary:active,.orbit-overlay button:active,
+.mouse-dpad button:active,.garden-unit:active,.garden-turn-button:active {
+  transform:translate(2px,2px) !important;
+  box-shadow:1px 1px 0 #111214 !important;
+}
+
+/* Shared Wayfinder Atlas art belongs to the games, not the surrounding website. */
+.arcade-card-art {
+  position:relative !important;
+  overflow:hidden !important;
+  isolation:isolate;
+}
+.arcade-card-art img {
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .35s ease;
+}
+.arcade-game-card:hover .arcade-card-art img { transform:scale(1.045); filter:saturate(1.06); }
+.orbit-art,.mouse-art,.garden-art { background:#b7c6b0 !important; }
+.orbit-game-panel {
+  background:#f5ead2 !important;
+  border:1px solid rgba(116,108,81,.14);
+}
+.orbit-canvas-wrap {
+  background:#9bb7b5 url('/assets/wayfinder-dunes.svg') center / cover no-repeat !important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);
+}
+#orbit-canvas { border-radius:20px; }
+.orbit-overlay { background:rgba(48,64,57,.38) !important; }
+.orbit-overlay strong { color:#fff6d8 !important; }
+.orbit-overlay span { color:#fff4df !important; }
+.orbit-overlay button { background:#e9673b !important; color:#111214 !important; }
+.mouse-game-panel {
+  background:#f4ead7 url('/assets/wayfinder-ruins.svg') center bottom / cover no-repeat !important;
+}
+.mouse-board {
+  background:rgba(222,207,177,.82) url('/assets/wayfinder-ruins.svg') center / cover no-repeat !important;
+  border:7px solid rgba(249,239,214,.8);
+  box-shadow:0 9px 0 rgba(62,68,57,.16);
+}
+.spy-cell { overflow:hidden; }
+.spy-wall {
+  background:linear-gradient(145deg,#9a927c,#7c816e) !important;
+  border:1px solid rgba(81,81,66,.25);
+}
+.spy-stone-mark {
+  width:72%; height:68%; display:block; border-radius:7px;
+  background:linear-gradient(135deg,#b2a58a,#827e69);
+  box-shadow:inset -4px -4px 0 rgba(56,59,49,.12),inset 3px 3px 0 rgba(255,255,255,.18);
+}
+.spy-floor { background:rgba(247,235,209,.76) !important; }
+.spy-player { background:rgba(247,235,209,.45) !important; }
+.spy-player svg,.spy-guard svg,.spy-cheese svg,.spy-key svg,.spy-exit svg {
+  display:block; width:92%; height:92%; filter:drop-shadow(0 3px 2px rgba(36,38,30,.2));
+}
+.spy-guard { background:rgba(177,185,160,.48) !important; }
+.spy-cheese,.spy-key { background:rgba(247,223,146,.72) !important; }
+.spy-exit { background:rgba(201,139,112,.8) !important; }
+.garden-game-panel {
+  background:#f4ead7 url('/assets/wayfinder-garden.svg') center / cover no-repeat !important;
+}
+.garden-board {
+  background:linear-gradient(rgba(47,86,66,.72),rgba(47,86,66,.82)),url('/assets/wayfinder-garden.svg') center / cover no-repeat !important;
+  border:6px solid rgba(238,229,197,.78);
+  box-shadow:0 8px 0 rgba(34,52,39,.16);
+}
+.garden-lane {
+  padding:5px 6px;
+  border-radius:13px;
+  background:rgba(20,52,41,.28);
+}
+.garden-cell {
+  box-shadow:0 3px 0 rgba(15,42,32,.26);
+}
+.garden-cell:active { transform:translateY(2px); box-shadow:0 1px 0 rgba(15,42,32,.26); }
+.garden-helper-icon svg { display:block; width:34px; height:34px; }
+.garden-weed-icon svg { display:block; width:25px; height:25px; }
+.garden-unit.is-selected {
+  box-shadow:3px 3px 0 #111214, inset 0 0 0 2px #E9673B !important;
+}
+.arcade-sound-toggle {
+  min-height:38px;
+  padding:0 14px;
+  border:0;
+  border-radius:999px;
+  background:#BCE8ED;
+  color:#111214;
+  font:800 9px 'DM Sans',Arial,sans-serif;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.arcade-stage-actions {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex:0 0 auto;
+}
+.arcade-back { background:#111214 !important; color:#fff !important; }
+.arcade-back:hover { background:#E9673B !important; color:#111214 !important; }
+.arcade-secondary { background:#F1D77F !important; color:#111214 !important; }
+.garden-turn-button { background:#E9673B !important; color:#111214 !important; }
+@media(max-width:640px) {
+  .resume-page-heading { padding-bottom:25px !important; }
+  .resume-chapter-nav { margin-bottom:23px !important; }
+  .resume-section-body { padding-top:15px !important; }
+  .arcade-stage-actions { gap:7px; }
+  .arcade-sound-toggle { min-height:36px; padding:0 10px; font-size:8px; }
+}
