@@ -1,145 +1,137 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f4f2ed">
-<title>Arcade | Aayan Ahmed, Aitchison College</title>
-<meta name="description" content="Two original endless-runner games by Aayan Ahmed: Dune Drift, a desert sandboarding adventure, and Saily Seas, a little sailing voyage.">
-<meta name="author" content="Aayan Ahmed"><meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://aayanahmed200.vercel.app/miscellaneous.html">
-<link rel="icon" href="/favicon.svg?v=20261109-clean" type="image/svg+xml">
-<link rel="stylesheet" href="/styles.css?v=20261109-three-d">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Aayan Ahmed">
-<meta property="og:title" content="Arcade | Aayan Ahmed">
-<meta property="og:description" content="Two original endless-runner games: sandboard the dunes or sail the open sea.">
-<meta property="og:url" content="https://aayanahmed200.vercel.app/miscellaneous.html">
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Arcade | Aayan Ahmed">
-<meta name="twitter:description" content="Two original endless-runner games by Aayan Ahmed.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4F2ED">
+  <title>Fun facts | Aayan Ahmed</title>
+  <meta name="description" content="A few fun facts about Aayan Ahmed: favourites, places visited, music, games, collectibles, first Arduino builds and karate.">
+  <meta name="author" content="Aayan Ahmed">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://aayanahmed200.vercel.app/miscellaneous.html">
+  <link rel="icon" href="/favicon.svg?v=20261109-clean" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20261109-fun-facts">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aayan Ahmed">
+  <meta property="og:title" content="Fun facts | Aayan Ahmed">
+  <meta property="og:description" content="A few favourites, first builds, places visited and other little facts about Aayan.">
+  <meta property="og:url" content="https://aayanahmed200.vercel.app/miscellaneous.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fun facts | Aayan Ahmed">
+  <meta name="twitter:description" content="A few little facts about Aayan Ahmed.">
 </head>
 <body data-page="miscellaneous">
-<header class="site-header"><nav class="site-nav" aria-label="Main navigation">
-<a class="nav-link" href="/" data-nav="home">Home</a>
-<a class="nav-link" href="/experience.html" data-nav="resume">Resume</a>
-<a class="nav-link" href="/projects.html" data-nav="projects">Projects</a>
-<a class="nav-link" href="/miscellaneous.html" data-nav="miscellaneous">Miscellaneous</a>
-</nav></header>
-
-<main class="arcade-page container">
-<section class="arcade-intro">
-  <div>
-    <p class="arcade-eyebrow">A SMALL ARCADE · TWO BIG HORIZONS</p>
-    <h1>Find your<br><span>own way out.</span></h1>
-    <p class="arcade-lede">One board, one boat, and a whole lot of horizon. Take the long way through the dunes, or see where the wind takes you.</p>
-  </div>
-  <div class="arcade-stamp" aria-hidden="true"><span>PRESS</span><strong>PLAY</strong><i>↘</i></div>
-</section>
-
-<section class="arcade-lobby" data-arcade-lobby>
-  <div class="arcade-section-heading">
-    <div><p class="arcade-eyebrow">CHOOSE YOUR JOURNEY</p><h2>Two little worlds.</h2></div>
-    <button class="arcade-sound-toggle" type="button" data-sound-toggle aria-pressed="true">Sound: On ♪</button>
-  </div>
-  <div class="arcade-game-grid arcade-two-games">
-    <button class="arcade-game-card arcade-card-orbit" type="button" data-open-game="dune">
-      <span class="arcade-card-top"><span>01 / SAND &amp; SUN</span><span class="arcade-card-arrow">↗</span></span>
-      <span class="arcade-card-art dune-card-art" aria-hidden="true"><img src="/assets/dune-drift-scene.svg" alt="" loading="eager"></span>
-      <span class="arcade-card-title">Dune Drift</span>
-      <span class="arcade-card-copy">Pick a traveller, carve across rolling dunes, leap over stone, and hold a trick through the golden light.</span>
-      <span class="arcade-card-bottom"><span>ENDLESS SAND-RUNNER</span><span>RIDE NOW ↗</span></span>
-    </button>
-    <button class="arcade-game-card arcade-card-mouse" type="button" data-open-game="saily">
-      <span class="arcade-card-top"><span>02 / WIND &amp; WATER</span><span class="arcade-card-arrow">↗</span></span>
-      <span class="arcade-card-art saily-card-art" aria-hidden="true"><img src="/assets/saily-seas-scene.svg" alt="" loading="eager"></span>
-      <span class="arcade-card-title">Saily Seas</span>
-      <span class="arcade-card-copy">Unfurl your sail, catch a wave, glide above the water, and dive for little sea treasures.</span>
-      <span class="arcade-card-bottom"><span>ENDLESS SAILING-RUNNER</span><span>SET SAIL ↗</span></span>
-    </button>
-  </div>
-</section>
-
-<section class="arcade-stage" data-arcade-stage="dune" hidden>
-  <div class="arcade-stage-head">
-    <div><p class="arcade-eyebrow">01 / SAND &amp; SUN</p><h2>Dune Drift</h2><p>Tap or press Space to jump. Hold Trick or ↓ while airborne to spin. Land cleanly for a score boost.</p></div>
-    <div class="arcade-stage-actions"><button class="arcade-sound-toggle" type="button" data-sound-toggle aria-pressed="true">Sound: On ♪</button><button class="arcade-back" type="button" data-arcade-back>← All journeys</button></div>
-  </div>
-  <div class="dune-panel">
-    <div class="dune-hud">
-      <span>DISTANCE <strong data-dune-distance>0 m</strong></span>
-      <span>SHARDS <strong data-dune-shards>0</strong></span>
-      <span>BEST <strong data-dune-best>0 m</strong></span>
-      <span>BIOME <strong data-dune-biome>DUNES</strong></span>
-    </div>
-    <div class="dune-characters" role="group" aria-label="Choose your traveller">
-      <button class="dune-character is-selected" type="button" data-dune-character="sol"><span class="character-mark character-sol"></span><span><strong>Sol</strong><small>Balanced rider</small></span></button>
-      <button class="dune-character" type="button" data-dune-character="mira"><span class="character-mark character-mira"></span><span><strong>Mira</strong><small>Longer glide</small></span></button>
-      <button class="dune-character" type="button" data-dune-character="tavi"><span class="character-mark character-tavi"></span><span><strong>Tavi</strong><small>Quick and nimble</small></span></button>
-    </div>
-    <div class="runner-canvas-wrap dune-canvas-wrap">
-      <canvas id="dune-canvas" width="960" height="440" aria-label="Dune Drift. Jump over rocks, collect sunshards and hold trick while in the air.">Dune Drift requires a canvas-enabled browser.</canvas>
-      <div class="runner-overlay" data-dune-overlay>
-        <span class="runner-overlay-kicker">THE DUNES ARE CALLING</span>
-        <strong data-dune-overlay-title>Take the long way.</strong>
-        <p data-dune-overlay-copy>Collect sunshards, jump the rocks and keep your board flowing.</p>
-        <button type="button" data-dune-start>Start riding ↗</button>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-link" href="/" data-nav="home">Home</a>
+      <a class="nav-link" href="/experience.html" data-nav="resume">Resume</a>
+      <a class="nav-link" href="/projects.html" data-nav="projects">Projects</a>
+      <a class="nav-link is-active" href="/miscellaneous.html" data-nav="miscellaneous" aria-current="page">Miscellaneous</a>
+    </nav>
+  </header>
+  <main class="container misc-page">
+    <section class="misc-hero">
+      <p class="misc-eyebrow">A FEW THINGS THAT MAKE ME, ME</p>
+      <h1>Fun facts <span>&amp; favourites.</span></h1>
+      <p class="misc-intro">A collection of favourites, little milestones, places and things I’m oddly attached to.</p>
+      <div class="misc-hero-sticker" aria-hidden="true"><span>NOTES</span><strong>12</strong></div>
+    </section>
+    <section class="misc-explorer">
+      <div class="misc-explorer-head">
+        <div><p class="misc-count">01 / OUTSIDE THE PROJECTS</p><h2>The personal side.</h2></div>
+        <p class="misc-count">12 LITTLE FACTS</p>
       </div>
-    </div>
-    <div class="runner-controls">
-      <p data-dune-status>Choose a traveller, then start your ride.</p>
-      <div class="runner-control-buttons">
-        <button class="game-action game-action-primary" type="button" data-dune-jump>Jump <kbd>Space</kbd></button>
-        <button class="game-action game-action-soft" type="button" data-dune-trick>Hold trick <kbd>↓</kbd></button>
-        <button class="game-action game-action-muted" type="button" data-dune-reset>Reset run</button>
+      <div class="misc-card-grid">
+      <article class="misc-card misc-card-cyan">
+        <span class="misc-card-index">01 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">✳</span>
+        <h3>Favourite anime</h3>
+        <p>Blue Box</p>
+        <span class="misc-card-foot">ON MY WATCHLIST</span>
+      </article>
+      <article class="misc-card misc-card-yellow">
+        <span class="misc-card-index">02 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">▣</span>
+        <h3>Favourite series</h3>
+        <p>One Tree Hill</p>
+        <span class="misc-card-foot">AFTER THE EPISODES</span>
+      </article>
+      <article class="misc-card misc-card-orange">
+        <span class="misc-card-index">03 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">⚽</span>
+        <h3>Favourite club</h3>
+        <p>Barcelona</p>
+        <span class="misc-card-foot">MATCH DAY</span>
+      </article>
+      <article class="misc-card misc-card-dark">
+        <span class="misc-card-index">04 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">✦</span>
+        <h3>Favourite movie</h3>
+        <p>Gladiator (2000)</p>
+        <span class="misc-card-foot">ON THE BIG SCREEN</span>
+      </article>
+      <article class="misc-card misc-card-cyan">
+        <span class="misc-card-index">05 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">⌁</span>
+        <h3>Favourite games</h3>
+        <p>Call of Duty: Modern Warfare · FIFA 09</p>
+        <span class="misc-card-foot">PLAYER TWO</span>
+      </article>
+      <article class="misc-card misc-card-orange">
+        <span class="misc-card-index">06 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">◉</span>
+        <h3>Favourite apps</h3>
+        <p>Instagram · Claude</p>
+        <span class="misc-card-foot">HOME SCREEN</span>
+      </article>
+      <article class="misc-card misc-card-dark">
+        <span class="misc-card-index">07 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">♫</span>
+        <h3>Favourite artists</h3>
+        <p>The Chainsmokers · NF · Halsey · One Direction</p>
+        <span class="misc-card-foot">ALWAYS IN THE HEADPHONES</span>
+      </article>
+      <article class="misc-card misc-card-yellow">
+        <span class="misc-card-index">08 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">↗</span>
+        <h3>Places I've visited</h3>
+        <p>Pakistan · Malaysia · Kazakhstan · UAE · Qatar · Thailand</p>
+        <span class="misc-card-foot">PASSPORT STAMPS</span>
+      </article>
+      <article class="misc-card misc-card-cyan">
+        <span class="misc-card-index">09 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">✧</span>
+        <h3>Most prized object</h3>
+        <p>Popfunk Batman — 1 in 50 made</p>
+        <span class="misc-card-foot">SHELF FAVOURITE</span>
+      </article>
+      <article class="misc-card misc-card-orange">
+        <span class="misc-card-index">10 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">✿</span>
+        <h3>Favourite ice cream</h3>
+        <p>Love Potion #31® Ice Cream</p>
+        <span class="misc-card-foot">PERMANENT FLAVOR</span>
+      </article>
+      <article class="misc-card misc-card-yellow">
+        <span class="misc-card-index">11 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">⌘</span>
+        <h3>First builds</h3>
+        <p>Built my first Arduino calculator and T-Rex Arduino game at age 11.</p>
+        <span class="misc-card-foot">BUILT BEFORE MIDDLE SCHOOL</span>
+      </article>
+      <article class="misc-card misc-card-dark">
+        <span class="misc-card-index">12 / A LITTLE FACT</span>
+        <span class="misc-card-symbol" aria-hidden="true">◈</span>
+        <h3>Karate</h3>
+        <p>Green belt in karate</p>
+        <span class="misc-card-foot">OUTSIDE THE SCREEN</span>
+      </article>
       </div>
-    </div>
-    <div class="dune-progression"><span>BIOME JOURNAL</span><span data-dune-journal>Dunes → Canyon → Oasis. Keep travelling to discover each landscape.</span></div>
-  </div>
-</section>
-
-<section class="arcade-stage" data-arcade-stage="saily" hidden>
-  <div class="arcade-stage-head">
-    <div><p class="arcade-eyebrow">02 / WIND &amp; WATER</p><h2>Saily Seas</h2><p>Hold Sail to catch the wind. Tap Jump to rise, then hold Dive to slip below the surface for fish.</p></div>
-    <div class="arcade-stage-actions"><button class="arcade-sound-toggle" type="button" data-sound-toggle aria-pressed="true">Sound: On ♪</button><button class="arcade-back" type="button" data-arcade-back>← All journeys</button></div>
-  </div>
-  <div class="saily-panel">
-    <div class="saily-hud">
-      <span>VOYAGE <strong data-saily-distance>0 m</strong></span>
-      <span>FINDS <strong data-saily-finds>0</strong></span>
-      <span>BEST <strong data-saily-best>0 m</strong></span>
-      <span>WIND <strong data-saily-wind>CALM</strong></span>
-    </div>
-    <div class="runner-canvas-wrap saily-canvas-wrap">
-      <canvas id="saily-canvas" width="960" height="440" aria-label="Saily Seas. Hold Sail to catch the wind, jump and glide, and dive below the water to collect fish.">Saily Seas requires a canvas-enabled browser.</canvas>
-      <div class="runner-overlay" data-saily-overlay>
-        <span class="runner-overlay-kicker">THE TIDE IS YOURS</span>
-        <strong data-saily-overlay-title>Follow the wind.</strong>
-        <p data-saily-overlay-copy>Raise your sail, ride the waves, and see how far the little boat can go.</p>
-        <button type="button" data-saily-start>Set sail ↗</button>
-      </div>
-    </div>
-    <div class="saily-controls">
-      <p data-saily-status>Keep your sail full and your eyes on the water.</p>
-      <div class="runner-control-buttons">
-        <button class="game-action game-action-primary" type="button" data-saily-sail>Hold sail <kbd>W</kbd></button>
-        <button class="game-action game-action-soft" type="button" data-saily-jump>Jump <kbd>Space</kbd></button>
-        <button class="game-action game-action-muted" type="button" data-saily-dive>Hold dive <kbd>↓</kbd></button>
-        <button class="game-action game-action-muted" type="button" data-saily-reset>Reset voyage</button>
-      </div>
-    </div>
-    <div class="saily-upgrades" data-saily-upgrades hidden>
-      <div><span>VOYAGE WORKSHOP</span><p>Trade five finds for a small upgrade before your next voyage.</p></div>
-      <div class="saily-upgrade-buttons">
-        <button type="button" data-saily-upgrade="sail">Stronger sail <small>Faster wind</small></button>
-        <button type="button" data-saily-upgrade="glide">Soft glide <small>Longer jumps</small></button>
-        <button type="button" data-saily-upgrade="dive">Deep dive <small>More fish</small></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="arcade-footnote"><span>MADE FOR THE FUN OF IT</span><span>TWO GAMES · LOCAL HIGH SCORES · SOUND OPTIONAL</span></footer>
-</main>
-<script src="/script.js?v=20261109-two-runners"></script>
-<script type="module" src="/arcade3d.js?v=20261109-three-d"></script>
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
-<script defer src="/_vercel/insights/script.js"></script>
-</body></html>
+    </section>
+    <footer class="misc-footer"><span>AAYAN AHMED</span><span>THE LITTLE THINGS COUNT TOO.</span></footer>
+  </main>
+  <script src="/script.js?v=20261109-two-runners"></script>
+  <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
