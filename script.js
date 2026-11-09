@@ -208,3 +208,255 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+/* Side-quest arcade: three original, non-violent mini-games. */
+document.addEventListener('DOMContentLoaded', () => {
+  const lobby = document.querySelector('[data-arcade-lobby]');
+  const stages = [...document.querySelectorAll('[data-arcade-stage]')];
+  if (!lobby || !stages.length) return;
+
+  const showGame = id => {
+    lobby.hidden = true;
+    stages.forEach(stage => { stage.hidden = stage.dataset.arcadeStage !== id; });
+    if (id === 'orbit') drawOrbit();
+    if (id === 'mouse') renderMouse();
+    if (id === 'garden') renderGarden();
+  };
+  const showLobby = () => {
+    stages.forEach(stage => { stage.hidden = true; });
+    lobby.hidden = false;
+    pauseOrbit();
+  };
+  document.querySelectorAll('[data-open-game]').forEach(button => button.addEventListener('click', () => showGame(button.dataset.openGame)));
+  document.querySelectorAll('[data-arcade-back]').forEach(button => button.addEventListener('click', showLobby));
+
+  /* Star Catcher: collect 12 falling stars in 45 seconds. */
+  const orbitCanvas = document.getElementById('orbit-canvas');
+  if (orbitCanvas) {
+    const ctx = orbitCanvas.getContext('2d');
+    const overlay = document.querySelector('[data-orbit-overlay]');
+    const scoreEl = document.querySelector('[data-orbit-score]');
+    const timeEl = document.querySelector('[data-orbit-time]');
+    const bestEl = document.querySelector('[data-orbit-best]');
+    const statusEl = document.querySelector('[data-orbit-status]');
+    const startButton = document.querySelector('[data-orbit-start]');
+    const resetButton = document.querySelector('[data-orbit-reset]');
+    const W = 960, H = 440, bestKey = 'aayan-star-catcher-best';
+    let running = false, score = 0, timeLeft = 45, basketX = W / 2, stars = [], spawnClock = 0, lastFrame = 0, raf = 0;
+    const getBest = () => { try { return Number(localStorage.getItem(bestKey) || 0); } catch (_) { return 0; } };
+    const setBest = value => { try { localStorage.setItem(bestKey, String(value)); } catch (_) {} };
+
+    function starShape(x,y,outer,inner,rotation,color) {
+      ctx.save(); ctx.translate(x,y); ctx.rotate(rotation); ctx.beginPath();
+      for (let i=0;i<10;i++) { const r=i%2?inner:outer; const a=-Math.PI/2+i*Math.PI/5; ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r); }
+      ctx.closePath(); ctx.fillStyle=color; ctx.shadowColor=color; ctx.shadowBlur=15; ctx.fill(); ctx.restore();
+    }
+    function drawOrbit() {
+      if (!ctx) return;
+      const bg=ctx.createLinearGradient(0,0,W,H);
+      bg.addColorStop(0,'#142b45'); bg.addColorStop(.55,'#253b68'); bg.addColorStop(1,'#533d71');
+      ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+      const glow=ctx.createRadialGradient(730,95,10,730,95,300);
+      glow.addColorStop(0,'rgba(112,219,216,.25)'); glow.addColorStop(1,'rgba(112,219,216,0)');
+      ctx.fillStyle=glow; ctx.fillRect(0,0,W,H);
+      for(let i=0;i<54;i++){
+        const x=(i*173+47)%W, y=(i*89+31)%300;
+        ctx.globalAlpha=.35+((i*7)%6)/10; ctx.fillStyle='#fff5d8';
+        ctx.beginPath(); ctx.arc(x,y,i%7===0?2:1.1,0,Math.PI*2); ctx.fill();
+      }
+      ctx.globalAlpha=1;
+      ctx.fillStyle='#203955'; ctx.beginPath(); ctx.moveTo(0,335);
+      ctx.quadraticCurveTo(165,265,310,340); ctx.quadraticCurveTo(470,395,615,320);
+      ctx.quadraticCurveTo(800,255,960,330); ctx.lineTo(960,440); ctx.lineTo(0,440); ctx.closePath(); ctx.fill();
+      ctx.fillStyle='#2c5360'; ctx.beginPath(); ctx.moveTo(0,380); ctx.quadraticCurveTo(205,325,400,377);
+      ctx.quadraticCurveTo(650,420,960,360); ctx.lineTo(960,440); ctx.lineTo(0,440); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle='rgba(188,232,237,.22)'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,397); ctx.lineTo(W,397); ctx.stroke();
+      ctx.lineWidth=5; ctx.strokeStyle='#9ce1df'; ctx.beginPath(); ctx.ellipse(772,128,43,24,-.25,0,Math.PI*2); ctx.stroke();
+      ctx.strokeStyle='rgba(241,215,127,.85)'; ctx.beginPath(); ctx.ellipse(772,128,26,14,-.25,0,Math.PI*2); ctx.stroke();
+      ctx.fillStyle='rgba(255,255,255,.14)';
+      [[180,155,30],[215,153,23],[196,138,25],[545,238,23],[571,239,31],[599,233,22]].forEach(([x,y,r])=>{ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();});
+      stars.forEach(item=>starShape(item.x,item.y,item.r,item.r*.48,item.spin,'#f7dc83'));
+      ctx.save(); ctx.translate(basketX,382); ctx.shadowColor='rgba(0,0,0,.25)'; ctx.shadowBlur=16;
+      const basket=ctx.createLinearGradient(0,0,0,54); basket.addColorStop(0,'#ffd985'); basket.addColorStop(1,'#e9673b');
+      ctx.fillStyle=basket; ctx.beginPath(); ctx.moveTo(-53,0); ctx.quadraticCurveTo(0,15,53,0); ctx.lineTo(42,46); ctx.quadraticCurveTo(0,58,-42,46); ctx.closePath(); ctx.fill();
+      ctx.shadowBlur=0; ctx.strokeStyle='#fff2c7'; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(-55,0); ctx.quadraticCurveTo(0,17,55,0); ctx.stroke();
+      ctx.fillStyle='#633c4c'; for(let i=-2;i<=2;i++){ctx.beginPath();ctx.arc(i*18,29,3,0,Math.PI*2);ctx.fill();} ctx.restore();
+      ctx.fillStyle='rgba(255,255,255,.72)'; ctx.font='700 13px DM Sans,Arial'; ctx.fillText('MOVE TO CATCH THE GLOW',25,30);
+    }
+    function hud(){scoreEl.textContent=String(score);timeEl.textContent=String(Math.ceil(timeLeft));bestEl.textContent=String(getBest());}
+    function finish(message){
+      running=false; if(raf)cancelAnimationFrame(raf); raf=0;
+      if(score>getBest())setBest(score); hud(); overlay.hidden=false;
+      overlay.querySelector('strong').textContent=score>=12?'Star collector!':'Nice little run.';
+      overlay.querySelector('span').textContent=message; startButton.textContent='Play again ↗';
+      statusEl.textContent=message; drawOrbit();
+    }
+    function tick(now){
+      if(!running)return;
+      const dt=Math.min(.04,Math.max(.001,(now-lastFrame)/1000)); lastFrame=now;
+      timeLeft=Math.max(0,timeLeft-dt); spawnClock+=dt;
+      if(spawnClock>.57){spawnClock=0;stars.push({x:32+Math.random()*(W-64),y:-15,r:9+Math.random()*5,speed:175+Math.random()*95,drift:(Math.random()-.5)*28,spin:0});}
+      stars=stars.filter(item=>{
+        item.y+=item.speed*dt; item.x+=Math.sin(item.y/46)*item.drift*dt; item.spin+=dt*1.7;
+        if(item.y>345&&item.y<420&&Math.abs(item.x-basketX)<56){score++;hud();if(score>=12)finish('You caught all 12 stars. That was lovely.');return false;}
+        return item.y<H+20;
+      });
+      if(!running)return;
+      if(timeLeft<=0){finish('Time is up. Try another run and beat your score.');return;}
+      hud(); drawOrbit(); raf=requestAnimationFrame(tick);
+    }
+    function startOrbit(){
+      if(running)return; score=0;timeLeft=45;basketX=W/2;stars=[];spawnClock=0;running=true;overlay.hidden=true;
+      statusEl.textContent='Go! Catch the falling stars.';hud();lastFrame=performance.now();raf=requestAnimationFrame(tick);
+    }
+    function pauseOrbit(){running=false;if(raf)cancelAnimationFrame(raf);raf=0;}
+    function resetOrbit(){
+      pauseOrbit();score=0;timeLeft=45;stars=[];basketX=W/2;overlay.hidden=false;
+      overlay.querySelector('strong').textContent='Ready?';overlay.querySelector('span').textContent='Catch 12 stars before the clock runs out.';
+      startButton.textContent='Start game ↗';statusEl.textContent='Ready when you are.';hud();drawOrbit();
+    }
+    startButton.addEventListener('click',startOrbit); resetButton.addEventListener('click',resetOrbit);
+    orbitCanvas.addEventListener('pointermove',event=>{
+      if(!running)return;const rect=orbitCanvas.getBoundingClientRect();
+      basketX=Math.max(58,Math.min(W-58,((event.clientX-rect.left)/rect.width)*W));
+    });
+    document.addEventListener('keydown',event=>{
+      if(!running)return;
+      if(event.key==='ArrowLeft'||event.key.toLowerCase()==='a'){basketX=Math.max(58,basketX-32);event.preventDefault();}
+      else if(event.key==='ArrowRight'||event.key.toLowerCase()==='d'){basketX=Math.min(W-58,basketX+32);event.preventDefault();}
+    });
+    resetOrbit();
+  }
+
+  /* SpyMouse: collect the cheese and key, then reach the exit. */
+  const mouseBoard=document.querySelector('[data-mouse-board]');
+  if(mouseBoard){
+    const map=['###########','#S..#....E#','#.#.#.##..#','#.#...#...#','#.###...###','#C....#..K#','###########'];
+    const start={x:1,y:1};
+    const patrols=[[[7,1],[8,1],[9,1],[9,2],[8,2],[7,2],[7,1]],[[5,3],[5,4],[5,5],[4,5],[3,5],[4,5],[5,5],[5,4]]];
+    let player={...start},cheese=false,key=false,alerts=3,moves=0,guardIndexes=[0,0],finished=false;
+    const status=document.querySelector('[data-mouse-status]'),cheeseHud=document.querySelector('[data-mouse-cheese]');
+    const keyHud=document.querySelector('[data-mouse-key]'),alertHud=document.querySelector('[data-mouse-alerts]'),moveHud=document.querySelector('[data-mouse-moves]');
+    function guardPositions(){return patrols.map((route,i)=>route[guardIndexes[i]%route.length]);}
+    function renderMouse(){
+      const guards=guardPositions();mouseBoard.innerHTML='';
+      map.forEach((row,y)=>[...row].forEach((cell,x)=>{
+        const tile=document.createElement('div');tile.className='spy-cell';tile.setAttribute('role','gridcell');
+        if(cell==='#'){tile.classList.add('spy-wall');tile.textContent='▦';}
+        else if(player.x===x&&player.y===y){tile.classList.add('spy-player');tile.textContent='🐭';tile.setAttribute('aria-label','Mouse');}
+        else if(guards.some(pos=>pos[0]===x&&pos[1]===y)){tile.classList.add('spy-guard');tile.textContent='🐈';tile.setAttribute('aria-label','Patrolling cat');}
+        else if(cell==='C'&&!cheese){tile.classList.add('spy-cheese');tile.textContent='🧀';}
+        else if(cell==='K'&&!key){tile.classList.add('spy-key');tile.textContent='🗝️';}
+        else if(cell==='E'){tile.classList.add('spy-exit');tile.textContent='🚪';}
+        else{tile.classList.add('spy-floor');}
+        mouseBoard.appendChild(tile);
+      }));
+      cheeseHud.textContent=cheese?'COLLECTED':'MISSING';keyHud.textContent=key?'COLLECTED':'MISSING';alertHud.textContent=String(alerts);moveHud.textContent=String(moves);
+    }
+    function resetMouse(){player={...start};cheese=false;key=false;alerts=3;moves=0;guardIndexes=[0,0];finished=false;status.textContent='Find the cheese and key. Avoid the patrols, then make it to the red exit.';renderMouse();}
+    function moveMouse(dx,dy){
+      if(finished)return;const nx=player.x+dx,ny=player.y+dy,cell=map[ny]?.[nx];
+      if(!cell||cell==='#'){status.textContent='A wall! Try another corridor.';return;}
+      if(cell==='E'&&(!cheese||!key)){status.textContent='The exit needs both the cheese and the little key.';return;}
+      player={x:nx,y:ny};moves++;
+      if(cell==='C'){cheese=true;status.textContent='Cheese secured. One more thing to find.';}
+      if(cell==='K'){key=true;status.textContent='Key collected. Find the exit at the top-right.';}
+      if(moves%2===0){
+        guardIndexes=guardIndexes.map((n,i)=>(n+1)%patrols[i].length);
+        if(guardPositions().some(pos=>pos[0]===player.x&&pos[1]===player.y)){
+          alerts--;
+          if(alerts<=0){finished=true;status.textContent='The pantry patrol caught up. Start a fresh run and try a different route.';}
+          else{player={...start};status.textContent='Spotted! You slipped back to the start. Alerts remaining: '+alerts+'.';}
+        }
+      }
+      if(player.x===9&&player.y===1&&cheese&&key){finished=true;status.textContent='Perfect getaway! You found both treasures in '+moves+' moves.';}
+      renderMouse();
+    }
+    document.querySelector('[data-mouse-reset]').addEventListener('click',resetMouse);
+    document.querySelectorAll('[data-mouse-move]').forEach(button=>{
+      const dirs={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
+      button.addEventListener('click',()=>moveMouse(...dirs[button.dataset.mouseMove]));
+    });
+    document.addEventListener('keydown',event=>{
+      const stage=document.querySelector('[data-arcade-stage="mouse"]');if(!stage||stage.hidden)return;
+      const dirs={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]};
+      if(dirs[event.key]){event.preventDefault();moveMouse(...dirs[event.key]);}
+    });
+    resetMouse();
+  }
+
+  /* Garden Lanes: place helpers, earn sunshine, and protect three garden lanes. */
+  const gardenBoard=document.querySelector('[data-garden-board]');
+  if(gardenBoard){
+    const costs={bee:2,dew:3,sun:4},icons={bee:'🐝',dew:'💧',sun:'🌻'},names={bee:'Bee Beacon',dew:'Dew Fountain',sun:'Sunflower'};
+    let sun=8,turn=0,hearts=3,petals=0,selected='bee',helpers={},weeds=[],over=false;
+    const sunHud=document.querySelector('[data-garden-sun]'),heartsHud=document.querySelector('[data-garden-hearts]');
+    const turnHud=document.querySelector('[data-garden-turn]'),petalsHud=document.querySelector('[data-garden-petals]');
+    const hint=document.querySelector('[data-garden-hint]'),status=document.querySelector('[data-garden-status]');
+    const nextButton=document.querySelector('[data-garden-next]'),unitButtons=[...document.querySelectorAll('[data-garden-unit]')];
+    const key=(row,col)=>row+'-'+col;
+    function renderGarden(){
+      gardenBoard.innerHTML='';const labels=['UPPER','MIDDLE','LOWER'];
+      for(let row=0;row<3;row++){
+        const lane=document.createElement('div');lane.className='garden-lane';
+        const label=document.createElement('span');label.className='garden-lane-label';label.textContent=labels[row];lane.appendChild(label);
+        const cells=document.createElement('div');cells.className='garden-lane-cells';
+        for(let col=0;col<5;col++){
+          const button=document.createElement('button');button.type='button';button.className='garden-cell';button.dataset.row=row;button.dataset.col=col;
+          const helper=helpers[key(row,col)],hasWeed=weeds.some(w=>w.row===row&&w.col===col);
+          if(helper)button.classList.add('has-helper');if(hasWeed)button.classList.add('has-weed');
+          button.innerHTML='<span class="garden-helper-icon">'+(helper?icons[helper.type]:'')+'</span><span class="garden-weed-icon">'+(hasWeed?'🌱':'')+'</span>';
+          button.setAttribute('aria-label',labels[row]+' lane, tile '+(col+1)+(helper?', '+names[helper.type]:', empty')+(hasWeed?', weed':''));
+          button.addEventListener('click',()=>buildGarden(row,col));cells.appendChild(button);
+        }
+        lane.appendChild(cells);gardenBoard.appendChild(lane);
+      }
+      sunHud.textContent=String(sun);heartsHud.textContent='♥ '.repeat(hearts).trim()||'0';turnHud.textContent=turn+' / 8';petalsHud.textContent=String(petals);
+      nextButton.disabled=over;unitButtons.forEach(b=>{b.classList.toggle('is-selected',b.dataset.gardenUnit===selected);b.disabled=over;});
+    }
+    function buildGarden(row,col){
+      if(over)return;const slot=key(row,col);
+      if(helpers[slot]){status.textContent='That tile already has a helper. Pick an empty one.';return;}
+      if(sun<costs[selected]){status.textContent='Not enough sunshine for that helper yet.';return;}
+      helpers[slot]={type:selected};sun-=costs[selected];status.textContent=names[selected]+' planted in the '+['upper','middle','lower'][row]+' lane.';
+      hint.textContent='Good placement. Plant another helper or advance the season.';renderGarden();
+    }
+    function advanceGarden(){
+      if(over)return;turn++;sun+=1+Object.values(helpers).filter(h=>h.type==='sun').length;
+      const moved=[];
+      weeds.forEach(w=>{const col=w.col-1;if(col<0)hearts--;else moved.push({row:w.row,col});});
+      const cleared=new Set();
+      moved.forEach((w,i)=>{
+        const helper=helpers[key(w.row,w.col)];if(!helper)return;
+        if(helper.type==='bee')cleared.add(i);
+        if(helper.type==='dew')moved.forEach((other,j)=>{if(other.row===w.row&&Math.abs(other.col-w.col)<=1)cleared.add(j);});
+      });
+      petals+=cleared.size;sun+=cleared.size;
+      weeds=moved.filter((w,i)=>!cleared.has(i)&&w.col>0);
+      hearts-=moved.filter((w,i)=>w.col===0&&!cleared.has(i)).length;
+      const lane=Math.floor(Math.random()*3),spawn=helpers[key(lane,4)];
+      if(spawn&&(spawn.type==='bee'||spawn.type==='dew')){petals++;sun++;}
+      else weeds.push({row:lane,col:4});
+      if(hearts<=0){hearts=0;over=true;status.textContent='The garden needs a rest. Reset and try a different helper layout.';}
+      else if(turn>=8){over=true;status.textContent='Eight turns complete — your garden is still blooming. Lovely strategy!';}
+      else status.textContent='Season '+turn+' complete. Choose your next helper, then advance again.';
+      renderGarden();
+    }
+    function resetGarden(){
+      sun=8;turn=0;hearts=3;petals=0;selected='bee';helpers={};weeds=[];over=false;
+      hint.textContent='Select a helper, then choose an empty tile. Helpers work automatically as weeds drift in.';
+      status.textContent='Plant your first helper to get started.';renderGarden();
+    }
+    unitButtons.forEach(button=>button.addEventListener('click',()=>{
+      if(over)return;selected=button.dataset.gardenUnit;hint.textContent=names[selected]+' costs '+costs[selected]+' sunshine. Choose an empty tile.';renderGarden();
+    }));
+    nextButton.addEventListener('click',advanceGarden);document.querySelector('[data-garden-reset]').addEventListener('click',resetGarden);resetGarden();
+  }
+
+  /* Resume chapter shortcuts open the relevant disclosure before scrolling. */
+  document.querySelectorAll('[data-resume-jump]').forEach(link=>link.addEventListener('click',event=>{
+    const id=link.getAttribute('href'),section=id?document.querySelector(id):null;if(!section)return;
+    event.preventDefault();section.open=true;section.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'',id);
+  }));
+});
