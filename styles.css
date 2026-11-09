@@ -3928,3 +3928,15 @@ details.resume-section {
 @media(prefers-reduced-motion:reduce) {
   .arcade-game-card,.arcade-filter,.arcade-back,.arcade-secondary,.garden-unit,.garden-cell { transition:none !important; }
 }
+
+
+/* Contrast pass: make secondary labels and meta text crisp on the light canvas. */
+.section-label,.card-kicker,.section-heading .section-label,.article-date,.article-kicker,
+.project-tag,.project-year,.project-foot,.education-subjects,.eyebrow,.resume-page-eyebrow,
+.misc-eyebrow,.arcade-eyebrow,.misc-count,.arcade-section-heading > p,.arcade-footnote {
+  color:#4B5057 !important;
+  opacity:1 !important;
+}
+.project-grid > .project-card-small:nth-child(4) .project-tag,
+.project-grid > .project-card-small:nth-child(4) .project-foot,
+.project-detail:nth-of-type(4) .project-tag { color:#F5F4EF !important; }
