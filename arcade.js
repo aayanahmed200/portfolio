@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         state.spawn=random(1.45,2.2);
       }
       if(state.itemSpawn<=0){
-        const bird=Math.random()<.42;
+        const bird=Math.random()<(.42-upgrades.dive*.06);
         state.items.push({x:W+40,y:bird?random(135,190):random(326,360),type:bird?'bird':'fish',taken:false});
         state.itemSpawn=random(.78,1.25);
       }
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
       state.spawn-=dt;spawnSeaItems();
       const surface=waveY(boatX,state.offset);
       if(state.air){
-        state.vy+=(sailHeld?-350:850)*dt;
+        state.vy+=(sailHeld?380-upgrades.glide*35:850)*dt;
         state.boatY+=state.vy*dt;
         if(state.boatY>=surface-14){state.boatY=surface-14;state.vy=0;state.air=false;status.textContent='Nice landing. Catch the next wave.';}
       }else if(state.diving){
