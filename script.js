@@ -261,3 +261,89 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
   refresh();
 });
+
+/* Site-wide theme switch + abstract page entrance. */
+document.addEventListener('DOMContentLoaded', () => {
+  const root=document.documentElement;
+  const getTheme=()=>{
+    try{return localStorage.getItem('aayan-site-theme')==='light'?'light':'dark';}
+    catch(_){return root.dataset.siteTheme==='light'?'light':'dark';}
+  };
+  let theme=getTheme();
+  root.dataset.siteTheme=theme;
+
+  const loader=document.createElement('div');
+  loader.className='site-page-loader';
+  loader.id='site-page-loader';
+  loader.setAttribute('aria-hidden','true');
+  loader.innerHTML='<div class="page-loader-orbit page-loader-orbit-one"></div><div class="page-loader-orbit page-loader-orbit-two"></div><div class="page-loader-mark">AA</div><div class="page-loader-name">AAYAN AHMED</div><div class="page-loader-caption">A LITTLE CURIOSITY GOES A LONG WAY</div><div class="page-loader-line"><span></span></div>';
+  document.body.appendChild(loader);
+  let hideTimer=0;
+  const showLoader=(shouldHide=true)=>{
+    clearTimeout(hideTimer);
+    loader.classList.add('is-visible');
+    if(shouldHide) hideTimer=setTimeout(()=>loader.classList.remove('is-visible'),520);
+  };
+  requestAnimationFrame(()=>showLoader(true));
+
+  // Keep the transition consistent for internal page changes, including the 404 route.
+  document.addEventListener('click',event=>{
+    const link=event.target.closest?.('a[href]');
+    if(!link||event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||
+       link.target==='_blank'||link.hasAttribute('download'))return;
+    let url;
+    try{url=new URL(link.href,location.href);}catch(_){return;}
+    if(url.origin!==location.origin)return;
+    if(url.pathname===location.pathname&&url.search===location.search)return;
+    event.preventDefault();
+    showLoader(false);
+    setTimeout(()=>location.assign(url.href),115);
+  });
+
+  const toggle=document.createElement('button');
+  toggle.type='button';
+  toggle.className='site-theme-toggle';
+  toggle.setAttribute('aria-live','polite');
+  toggle.innerHTML='<span class="site-theme-icon" aria-hidden="true">☼</span><span class="site-theme-label">Light mode</span>';
+  document.body.appendChild(toggle);
+  const syncToggle=()=>{
+    const next=theme==='dark'?'Light mode':'Dark mode';
+    toggle.querySelector('.site-theme-label').textContent=next;
+    toggle.querySelector('.site-theme-icon').textContent=theme==='dark'?'☼':'☾';
+    toggle.setAttribute('aria-label','Switch to '+next.toLowerCase());
+    toggle.setAttribute('aria-pressed',String(theme==='light'));
+    root.dataset.siteTheme=theme;
+  };
+  syncToggle();
+
+  let transition=null;
+  toggle.addEventListener('click',()=>{
+    const next=theme==='dark'?'light':'dark';
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduced){
+      theme=next;
+      try{localStorage.setItem('aayan-site-theme',theme);}catch(_){}
+      syncToggle();
+      return;
+    }
+    if(transition)transition.remove();
+    transition=document.createElement('div');
+    transition.className='site-theme-wipe';
+    transition.setAttribute('aria-hidden','true');
+    const rect=toggle.getBoundingClientRect();
+    transition.style.setProperty('--wipe-x',(rect.left+rect.width/2)+'px');
+    transition.style.setProperty('--wipe-y',(rect.top+rect.height/2)+'px');
+    transition.style.background=next==='light'?'#F4F2ED':'#050505';
+    document.body.appendChild(transition);
+    requestAnimationFrame(()=>transition.classList.add('is-expanding'));
+    setTimeout(()=>{
+      theme=next;
+      try{localStorage.setItem('aayan-site-theme',theme);}catch(_){}
+      syncToggle();
+    },360);
+    setTimeout(()=>{
+      transition?.remove();
+      transition=null;
+    },940);
+  });
+});
