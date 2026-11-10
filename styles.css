@@ -5688,3 +5688,33 @@ html[data-site-theme="dark"] .site-theme-toggle:hover {
   font-style:normal !important;
   line-height:1 !important;
 }
+
+
+/* Text-bearing controls and technical copy are included in the dark contrast pass. */
+html[data-site-theme="dark"] body :is(
+  button,input,textarea,select,option,code,pre,address,abbr,mark,kbd,
+  legend,output,figcaption,caption,th,td
+) {
+  color:#F5F7F4 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="dark"] body button:not(.site-theme-toggle):not(.resume-section-toggle) {
+  background:#BCE8ED !important;
+  color:#111A18 !important;
+  border-color:#111A18 !important;
+}
+html[data-site-theme="dark"] body button:not(.site-theme-toggle):not(.resume-section-toggle) * {
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body :is(.error-art-caption,.error-art-number,.error-description,.error-kicker) {
+  color:#D6E2DC !important;
+}
+html[data-site-theme="dark"] body :is(.project-detail-head,.project-detail-copy,.project-detail-list,.project-metrics,.project-note,.context-signoff) {
+  color:#F5F7F4 !important;
+}
+html[data-site-theme="dark"] body :is(.project-detail-head,.project-detail-copy,.project-detail-list,.project-metrics,.project-note,.context-signoff) * {
+  color:#F5F7F4 !important;
+}
+html[data-site-theme="dark"] body :is(.project-detail-head,.project-detail-copy,.project-detail-list,.project-metrics,.project-note,.context-signoff) a {
+  color:#BCE8ED !important;
+}
