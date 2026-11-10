@@ -5718,3 +5718,33 @@ html[data-site-theme="dark"] body :is(.project-detail-head,.project-detail-copy,
 html[data-site-theme="dark"] body :is(.project-detail-head,.project-detail-copy,.project-detail-list,.project-metrics,.project-note,.context-signoff) a {
   color:#BCE8ED !important;
 }
+
+
+/* High-priority exceptions: keep dark ink on the sun/cyan and resume controls. */
+html[data-site-theme="dark"] body button.site-theme-toggle {
+  background:#E9673B !important;
+  color:#111A18 !important;
+  border-color:#111A18 !important;
+}
+html[data-site-theme="dark"] body button.site-theme-toggle svg {
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body button.resume-section-toggle {
+  background:#E9673B !important;
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body details[open] button.resume-section-toggle {
+  background:#111A18 !important;
+  color:#F5F7F4 !important;
+}
+html[data-site-theme="dark"] body summary.resume-section-summary,
+html[data-site-theme="dark"] body summary.resume-section-summary * {
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body summary.resume-section-summary {
+  background:#BCE8ED !important;
+}
+html[data-site-theme="dark"] body summary.resume-section-summary:hover,
+html[data-site-theme="dark"] body summary.resume-section-summary:focus-visible {
+  background:#F1D77F !important;
+}
