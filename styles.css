@@ -4975,3 +4975,309 @@ html[data-site-theme="light"] .page-loader-caption { color:#5a5b61; }
     animation:none !important;
   }
 }
+
+
+/* ---------------------------------------------------------------
+   10 Nov — simplified loader, light-first themes, visible portrait.
+---------------------------------------------------------------- */
+
+/* A visitor with no saved preference gets the warm light theme. */
+html[data-site-theme="light"] {
+  color-scheme:light;
+  --site-bg:#F4F2ED;
+  --site-surface:#FFFDF8;
+  --site-surface-raised:#EAE7DF;
+  --site-text:#151515;
+  --site-muted:#50535A;
+  --site-line:rgba(17,18,20,.14);
+}
+html[data-site-theme="dark"] {
+  color-scheme:dark;
+  --site-bg:#080A0A;
+  --site-surface:#151817;
+  --site-surface-raised:#1D2220;
+  --site-text:#F8F7F2;
+  --site-muted:#C1C7C2;
+  --site-line:rgba(255,255,255,.14);
+}
+html[data-site-theme="light"] body {
+  background:#F4F2ED !important;
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(188,232,237,.23),transparent 38%),
+    #F4F2ED !important;
+}
+html[data-site-theme="dark"] body {
+  background:#080A0A !important;
+  color:#F8F7F2 !important;
+}
+html[data-site-theme="dark"] body::before {
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(188,232,237,.07),transparent 40%),
+    radial-gradient(ellipse at 90% 85%,rgba(233,103,59,.055),transparent 35%),
+    #080A0A !important;
+}
+
+/* Light-theme surfaces and readable text across every page. */
+html[data-site-theme="light"] .site-nav {
+  background:rgba(255,253,248,.94) !important;
+  border-color:rgba(17,18,20,.13) !important;
+  box-shadow:0 10px 35px rgba(17,18,20,.11) !important;
+}
+html[data-site-theme="light"] .nav-link { color:#45474B !important; }
+html[data-site-theme="light"] .nav-link:hover,
+html[data-site-theme="light"] .nav-link.is-active {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+}
+html[data-site-theme="light"] .hero h1,
+html[data-site-theme="light"] .section-heading h2,
+html[data-site-theme="light"] .contact-inner h2,
+html[data-site-theme="light"] .project-feature h3,
+html[data-site-theme="light"] .small-card-content h3,
+html[data-site-theme="light"] .featured-card h3,
+html[data-site-theme="light"] .context-card h3,
+html[data-site-theme="light"] .resume-page h1,
+html[data-site-theme="light"] .resume-page h2,
+html[data-site-theme="light"] .resume-page h3,
+html[data-site-theme="light"] .misc-hero h1,
+html[data-site-theme="light"] .misc-explorer-head h2,
+html[data-site-theme="light"] .not-found-page h1 {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] .hero-copy,
+html[data-site-theme="light"] .section-note,
+html[data-site-theme="light"] .project-feature p,
+html[data-site-theme="light"] .small-card-content p,
+html[data-site-theme="light"] .featured-card p,
+html[data-site-theme="light"] .context-card p,
+html[data-site-theme="light"] .resume-section-body,
+html[data-site-theme="light"] .resume-section-body p,
+html[data-site-theme="light"] .misc-intro,
+html[data-site-theme="light"] .misc-count,
+html[data-site-theme="light"] .misc-eyebrow {
+  color:#444950 !important;
+}
+html[data-site-theme="light"] .hero-kicker,
+html[data-site-theme="light"] .section-label,
+html[data-site-theme="light"] .card-kicker { color:#585B62 !important; }
+html[data-site-theme="light"] .project-card,
+html[data-site-theme="light"] .project-feature,
+html[data-site-theme="light"] .featured-card,
+html[data-site-theme="light"] .context-card,
+html[data-site-theme="light"] .interest-tile {
+  background:#FFFDF8 !important;
+  color:#151515 !important;
+  border-color:rgba(17,18,20,.13) !important;
+}
+html[data-site-theme="light"] .feature-stats strong,
+html[data-site-theme="light"] .project-feature h3,
+html[data-site-theme="light"] .small-card-content h3 { color:#151515 !important; }
+html[data-site-theme="light"] .feature-stats span,
+html[data-site-theme="light"] .project-tag,
+html[data-site-theme="light"] .project-year,
+html[data-site-theme="light"] .article-date,
+html[data-site-theme="light"] .article-kicker { color:#555A60 !important; }
+html[data-site-theme="light"] .resume-section-body .resume-entry h3 { color:#151515 !important; }
+html[data-site-theme="light"] .resume-section-body .resume-entry p { color:#3F444A !important; }
+html[data-site-theme="light"] .resume-section-body .resume-entry time { color:#62676D !important; }
+html[data-site-theme="light"] .misc-page { color:#151515 !important; }
+html[data-site-theme="light"] .misc-card p { opacity:1 !important; font-weight:600 !important; }
+html[data-site-theme="light"] .misc-card-cyan p,
+html[data-site-theme="light"] .misc-card-yellow p,
+html[data-site-theme="light"] .misc-card-orange p { color:#111214 !important; }
+html[data-site-theme="light"] .misc-card-dark p { color:#F8F5EF !important; }
+
+/* Dark theme means dark surfaces and genuinely white/light typography. */
+html[data-site-theme="dark"] .site-nav {
+  background:rgba(18,22,21,.92) !important;
+  border-color:rgba(255,255,255,.13) !important;
+  box-shadow:0 10px 40px rgba(0,0,0,.38) !important;
+}
+html[data-site-theme="dark"] .nav-link { color:#C2C8C4 !important; }
+html[data-site-theme="dark"] .nav-link:hover,
+html[data-site-theme="dark"] .nav-link.is-active {
+  background:#BCE8ED !important;
+  color:#101514 !important;
+}
+html[data-site-theme="dark"] .hero h1,
+html[data-site-theme="dark"] .section-heading h2,
+html[data-site-theme="dark"] .contact-inner h2,
+html[data-site-theme="dark"] .project-feature h3,
+html[data-site-theme="dark"] .small-card-content h3,
+html[data-site-theme="dark"] .featured-card h3,
+html[data-site-theme="dark"] .context-card h3,
+html[data-site-theme="dark"] .resume-page h1,
+html[data-site-theme="dark"] .resume-page h2,
+html[data-site-theme="dark"] .resume-page h3,
+html[data-site-theme="dark"] .misc-hero h1,
+html[data-site-theme="dark"] .misc-explorer-head h2,
+html[data-site-theme="dark"] .not-found-page h1 {
+  color:#FFFFFF !important;
+}
+html[data-site-theme="dark"] .hero-copy,
+html[data-site-theme="dark"] .section-note,
+html[data-site-theme="dark"] .project-feature p,
+html[data-site-theme="dark"] .small-card-content p,
+html[data-site-theme="dark"] .featured-card p,
+html[data-site-theme="dark"] .context-card p,
+html[data-site-theme="dark"] .resume-section-body,
+html[data-site-theme="dark"] .resume-section-body p,
+html[data-site-theme="dark"] .misc-intro,
+html[data-site-theme="dark"] .misc-count,
+html[data-site-theme="dark"] .misc-eyebrow,
+html[data-site-theme="dark"] .section-label,
+html[data-site-theme="dark"] .card-kicker {
+  color:#D7DDD8 !important;
+}
+html[data-site-theme="dark"] .project-card,
+html[data-site-theme="dark"] .project-feature,
+html[data-site-theme="dark"] .featured-card,
+html[data-site-theme="dark"] .context-card,
+html[data-site-theme="dark"] .interest-tile {
+  background:#151A18 !important;
+  color:#FFFFFF !important;
+  border-color:rgba(255,255,255,.12) !important;
+}
+html[data-site-theme="dark"] .project-card:hover { background:#1B211F !important; }
+html[data-site-theme="dark"] .feature-stats strong,
+html[data-site-theme="dark"] .project-feature h3,
+html[data-site-theme="dark"] .small-card-content h3 { color:#FFFFFF !important; }
+html[data-site-theme="dark"] .feature-stats span,
+html[data-site-theme="dark"] .project-tag,
+html[data-site-theme="dark"] .project-year,
+html[data-site-theme="dark"] .article-date,
+html[data-site-theme="dark"] .article-kicker { color:#C3CCC6 !important; }
+html[data-site-theme="dark"] .resume-section-body { background:#151A18 !important; color:#F4F5F2 !important; }
+html[data-site-theme="dark"] .resume-section-body .resume-entry h3,
+html[data-site-theme="dark"] .resume-section-body .resume-entry p,
+html[data-site-theme="dark"] .resume-section-body .resume-entry time { color:#F2F4F1 !important; }
+html[data-site-theme="dark"] .misc-page { color:#FFFFFF !important; }
+html[data-site-theme="dark"] .misc-hero h1 span { color:#FF936E !important; }
+html[data-site-theme="dark"] .misc-footer { color:#D7DDD8 !important; border-color:rgba(255,255,255,.16) !important; }
+/* On the dark theme, use dark cards for all 12 facts: no pale cards with white text. */
+html[data-site-theme="dark"] .misc-card-cyan,
+html[data-site-theme="dark"] .misc-card-yellow,
+html[data-site-theme="dark"] .misc-card-orange,
+html[data-site-theme="dark"] .misc-card-dark {
+  background:#171D1B !important;
+  color:#FFFFFF !important;
+  border:1px solid rgba(188,232,237,.18) !important;
+  box-shadow:0 8px 28px rgba(0,0,0,.18) !important;
+}
+html[data-site-theme="dark"] .misc-card h3,
+html[data-site-theme="dark"] .misc-card p { color:#FFFFFF !important; opacity:1 !important; }
+html[data-site-theme="dark"] .misc-card-index,
+html[data-site-theme="dark"] .misc-card-foot { color:#BCE8ED !important; opacity:1 !important; }
+html[data-site-theme="dark"] .misc-card-symbol {
+  background:#E9673B !important;
+  color:#111214 !important;
+}
+
+/* Image is a normal, in-flow portrait — never hidden behind the hero text. */
+.home-page .hero .hero-orb {
+  position:relative !important;
+  z-index:1 !important;
+  display:block !important;
+  flex:0 0 auto !important;
+  width:min(330px,72vw) !important;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  margin:0 auto 28px !important;
+  padding:8px !important;
+  overflow:hidden !important;
+  border:8px solid #BCE8ED !important;
+  border-radius:30px !important;
+  background:#FFFDF8 !important;
+  background-image:none !important;
+  box-shadow:12px 12px 0 #E9673B !important;
+  transform:rotate(-.55deg) !important;
+  opacity:1 !important;
+  filter:none !important;
+}
+.home-page .hero .hero-orb::before,
+.home-page .hero .hero-orb::after { display:none !important; content:none !important; }
+.home-page .hero .hero-orb img {
+  position:static !important;
+  inset:auto !important;
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:701 / 984 !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  border:0 !important;
+  border-radius:18px !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+  filter:none !important;
+}
+@media(max-width:640px) {
+  .home-page .hero .hero-orb {
+    width:min(290px,76vw) !important;
+    margin:0 auto 24px !important;
+    border-width:7px !important;
+    border-radius:24px !important;
+    box-shadow:8px 8px 0 #E9673B !important;
+  }
+  .home-page .hero .hero-orb img { border-radius:14px !important; }
+}
+
+/* A single clean loader ring — no orbit artwork, slogans, or extra panels. */
+.site-page-loader {
+  background:var(--site-bg,#F4F2ED) !important;
+  color:var(--site-text,#151515) !important;
+  gap:13px !important;
+}
+.page-loader-orbit,
+.page-loader-mark,
+.page-loader-caption,
+.page-loader-line { display:none !important; }
+.page-loader-spinner {
+  display:block !important;
+  width:46px !important;
+  height:46px !important;
+  border:3px solid rgba(120,130,126,.2) !important;
+  border-top-color:#E9673B !important;
+  border-right-color:#BCE8ED !important;
+  border-radius:50% !important;
+  animation:site-simple-spin .78s linear infinite !important;
+}
+.page-loader-name {
+  margin:0 !important;
+  color:var(--site-text,#151515) !important;
+  font-size:9px !important;
+  font-weight:800 !important;
+  letter-spacing:.2em !important;
+}
+html[data-site-theme="light"] .site-page-loader { background:#F4F2ED !important; color:#151515 !important; }
+html[data-site-theme="dark"] .site-page-loader { background:#080A0A !important; color:#FFFFFF !important; }
+html[data-site-theme="dark"] .page-loader-name { color:#FFFFFF !important; }
+@keyframes site-simple-spin { to { transform:rotate(360deg); } }
+
+/* Emoji badges: readable emoji tile instead of abstract placeholder glyphs. */
+.misc-card-symbol {
+  display:grid !important;
+  place-items:center !important;
+  width:48px !important;
+  height:48px !important;
+  top:20px !important;
+  right:22px !important;
+  border-radius:15px !important;
+  background:rgba(255,255,255,.5) !important;
+  font-family:'DM Sans',Arial,sans-serif !important;
+  font-size:25px !important;
+  line-height:1 !important;
+}
+html[data-site-theme="dark"] .misc-card-symbol {
+  background:#E9673B !important;
+  color:#111214 !important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .page-loader-spinner { animation:none !important; }
+}
