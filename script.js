@@ -266,8 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const root=document.documentElement;
   const getTheme=()=>{
-    try{return localStorage.getItem('aayan-site-theme')==='light'?'light':'dark';}
-    catch(_){return root.dataset.siteTheme==='light'?'light':'dark';}
+    try{return localStorage.getItem('aayan-site-theme')==='dark'?'dark':'light';}
+    catch(_){return root.dataset.siteTheme==='dark'?'dark':'light';}
   };
   let theme=getTheme();
   root.dataset.siteTheme=theme;
@@ -276,13 +276,13 @@ document.addEventListener('DOMContentLoaded', () => {
   loader.className='site-page-loader';
   loader.id='site-page-loader';
   loader.setAttribute('aria-hidden','true');
-  loader.innerHTML='<div class="page-loader-orbit page-loader-orbit-one"></div><div class="page-loader-orbit page-loader-orbit-two"></div><div class="page-loader-mark">AA</div><div class="page-loader-name">AAYAN AHMED</div><div class="page-loader-caption">A LITTLE CURIOSITY GOES A LONG WAY</div><div class="page-loader-line"><span></span></div>';
+  loader.innerHTML='<span class="page-loader-spinner" aria-hidden="true"></span><span class="page-loader-name">LOADING</span>';
   document.body.appendChild(loader);
   let hideTimer=0;
   const showLoader=(shouldHide=true)=>{
     clearTimeout(hideTimer);
     loader.classList.add('is-visible');
-    if(shouldHide) hideTimer=setTimeout(()=>loader.classList.remove('is-visible'),520);
+    if(shouldHide) hideTimer=setTimeout(()=>loader.classList.remove('is-visible'),420);
   };
   requestAnimationFrame(()=>showLoader(true));
 
