@@ -262,88 +262,122 @@ document.addEventListener('DOMContentLoaded', () => {
   refresh();
 });
 
-/* Site-wide theme switch + abstract page entrance. */
+/* Site-wide theme switch + asset-aware page transitions. */
 document.addEventListener('DOMContentLoaded', () => {
-  const root=document.documentElement;
-  const getTheme=()=>{
-    try{return localStorage.getItem('aayan-site-theme')==='dark'?'dark':'light';}
-    catch(_){return root.dataset.siteTheme==='dark'?'dark':'light';}
+  const root = document.documentElement;
+  const readTheme = () => {
+    try { return localStorage.getItem('aayan-site-theme') === 'dark' ? 'dark' : 'light'; }
+    catch (_) { return root.dataset.siteTheme === 'dark' ? 'dark' : 'light'; }
   };
-  let theme=getTheme();
-  root.dataset.siteTheme=theme;
+  let theme = readTheme();
+  root.dataset.siteTheme = theme;
 
-  const loader=document.createElement('div');
-  loader.className='site-page-loader';
-  loader.id='site-page-loader';
-  loader.setAttribute('aria-hidden','true');
-  loader.innerHTML='<span class="page-loader-spinner" aria-hidden="true"></span><span class="page-loader-name">LOADING</span>';
+  const loader = document.createElement('div');
+  loader.className = 'site-page-loader';
+  loader.id = 'site-page-loader';
+  loader.setAttribute('aria-hidden', 'true');
+  loader.innerHTML = '<span class="page-loader-spinner" aria-hidden="true"></span>';
   document.body.appendChild(loader);
-  let hideTimer=0;
-  const showLoader=(shouldHide=true)=>{
-    clearTimeout(hideTimer);
-    loader.classList.add('is-visible');
-    if(shouldHide) hideTimer=setTimeout(()=>loader.classList.remove('is-visible'),420);
-  };
-  requestAnimationFrame(()=>showLoader(true));
 
-  // Keep the transition consistent for internal page changes, including the 404 route.
-  document.addEventListener('click',event=>{
-    const link=event.target.closest?.('a[href]');
-    if(!link||event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||
-       link.target==='_blank'||link.hasAttribute('download'))return;
+  const showLoader = () => loader.classList.add('is-visible');
+  const hideLoader = () => loader.classList.remove('is-visible');
+
+  // The first paint waits for document load, fonts and every eager image to decode.
+  const waitForAssets = async () => {
+    const windowLoaded = document.readyState === 'complete'
+      ? Promise.resolve()
+      : new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
+
+    const fontsReady = document.fonts && document.fonts.ready
+      ? document.fonts.ready.catch(() => {})
+      : Promise.resolve();
+
+    const eagerImages = Array.from(document.images).filter(img =>
+      img.loading !== 'lazy' || img.fetchPriority === 'high' || img.hasAttribute('fetchpriority')
+    );
+    const imagesReady = Promise.all(eagerImages.map(img => new Promise(resolve => {
+      const finish = async () => {
+        try { if (img.decode) await img.decode(); } catch (_) {}
+        resolve();
+      };
+      if (img.complete) { finish(); return; }
+      img.addEventListener('load', finish, { once: true });
+      img.addEventListener('error', resolve, { once: true });
+      if (img.complete) finish();
+    })));
+
+    await Promise.all([windowLoaded, fontsReady, imagesReady]);
+    hideLoader();
+  };
+
+  showLoader();
+  waitForAssets();
+
+  // Internal links keep the spinner visible while the browser loads the next page.
+  document.addEventListener('click', event => {
+    const link = event.target.closest && event.target.closest('a[href]');
+    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey ||
+        event.shiftKey || event.altKey || link.target === '_blank' ||
+        link.hasAttribute('download')) return;
+
     let url;
-    try{url=new URL(link.href,location.href);}catch(_){return;}
-    if(url.origin!==location.origin)return;
-    if(url.pathname===location.pathname&&url.search===location.search)return;
+    try { url = new URL(link.href, window.location.href); } catch (_) { return; }
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname &&
+        url.search === window.location.search) return;
+
     event.preventDefault();
-    showLoader(false);
-    setTimeout(()=>location.assign(url.href),115);
+    showLoader();
+    window.setTimeout(() => window.location.assign(url.href), 100);
   });
 
-  const toggle=document.createElement('button');
-  toggle.type='button';
-  toggle.className='site-theme-toggle';
-  toggle.setAttribute('aria-live','polite');
-  toggle.innerHTML='<span class="site-theme-icon" aria-hidden="true">☼</span><span class="site-theme-label">Light mode</span>';
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'site-theme-toggle';
+  toggle.setAttribute('aria-live', 'polite');
   document.body.appendChild(toggle);
-  const syncToggle=()=>{
-    const next=theme==='dark'?'Light mode':'Dark mode';
-    toggle.querySelector('.site-theme-label').textContent=next;
-    toggle.querySelector('.site-theme-icon').textContent=theme==='dark'?'☼':'☾';
-    toggle.setAttribute('aria-label','Switch to '+next.toLowerCase());
-    toggle.setAttribute('aria-pressed',String(theme==='light'));
-    root.dataset.siteTheme=theme;
-  };
-  syncToggle();
 
-  let transition=null;
-  toggle.addEventListener('click',()=>{
-    const next=theme==='dark'?'light':'dark';
-    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduced){
-      theme=next;
-      try{localStorage.setItem('aayan-site-theme',theme);}catch(_){}
-      syncToggle();
+  const sunIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.1v2.2M12 19.7v2.2M4.9 4.9l1.55 1.55m11.1 11.1 1.55 1.55M2.1 12h2.2m15.4 0h2.2M4.9 19.1l1.55-1.55m11.1-11.1L19.1 4.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.9"/></svg>';
+  const moonIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.8 15.1A8.4 8.4 0 0 1 8.9 4.2 8.9 8.9 0 1 0 19.8 15.1Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"/><path d="m17.5 3 .55 1.35L19.4 5l-1.35.55L17.5 6.9l-.55-1.35L15.6 5l1.35-.65L17.5 3Z" fill="currentColor"/></svg>';
+
+  const syncThemeButton = () => {
+    toggle.innerHTML = theme === 'light' ? sunIcon : moonIcon;
+    const target = theme === 'light' ? 'dark' : 'light';
+    toggle.setAttribute('aria-label', 'Switch to ' + target + ' theme');
+    toggle.setAttribute('title', 'Switch to ' + target + ' theme');
+    toggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    root.dataset.siteTheme = theme;
+  };
+  syncThemeButton();
+
+  let wipe = null;
+  toggle.addEventListener('click', () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      theme = next;
+      try { localStorage.setItem('aayan-site-theme', theme); } catch (_) {}
+      syncThemeButton();
       return;
     }
-    if(transition)transition.remove();
-    transition=document.createElement('div');
-    transition.className='site-theme-wipe';
-    transition.setAttribute('aria-hidden','true');
-    const rect=toggle.getBoundingClientRect();
-    transition.style.setProperty('--wipe-x',(rect.left+rect.width/2)+'px');
-    transition.style.setProperty('--wipe-y',(rect.top+rect.height/2)+'px');
-    transition.style.background=next==='light'?'#F4F2ED':'#050505';
-    document.body.appendChild(transition);
-    requestAnimationFrame(()=>transition.classList.add('is-expanding'));
-    setTimeout(()=>{
-      theme=next;
-      try{localStorage.setItem('aayan-site-theme',theme);}catch(_){}
-      syncToggle();
-    },360);
-    setTimeout(()=>{
-      transition?.remove();
-      transition=null;
-    },940);
+    if (wipe) wipe.remove();
+    wipe = document.createElement('div');
+    wipe.className = 'site-theme-wipe';
+    wipe.setAttribute('aria-hidden', 'true');
+    const rect = toggle.getBoundingClientRect();
+    wipe.style.setProperty('--wipe-x', (rect.left + rect.width / 2) + 'px');
+    wipe.style.setProperty('--wipe-y', (rect.top + rect.height / 2) + 'px');
+    wipe.style.background = next === 'light' ? '#F4F2ED' : '#080A0A';
+    document.body.appendChild(wipe);
+    requestAnimationFrame(() => wipe.classList.add('is-expanding'));
+    window.setTimeout(() => {
+      theme = next;
+      try { localStorage.setItem('aayan-site-theme', theme); } catch (_) {}
+      syncThemeButton();
+    }, 360);
+    window.setTimeout(() => {
+      if (wipe) wipe.remove();
+      wipe = null;
+    }, 940);
   });
 });
