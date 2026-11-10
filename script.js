@@ -272,12 +272,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let theme = readTheme();
   root.dataset.siteTheme = theme;
 
-  const loader = document.createElement('div');
-  loader.className = 'site-page-loader';
+  const loader = document.getElementById('site-page-loader') || document.createElement('div');
+  loader.className = 'site-page-loader is-visible';
   loader.id = 'site-page-loader';
   loader.setAttribute('aria-hidden', 'true');
   loader.innerHTML = '<span class="page-loader-spinner" aria-hidden="true"></span>';
-  document.body.appendChild(loader);
+  if (!loader.isConnected) document.body.appendChild(loader);
 
   const showLoader = () => loader.classList.add('is-visible');
   const hideLoader = () => loader.classList.remove('is-visible');
