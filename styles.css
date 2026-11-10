@@ -5281,3 +5281,185 @@ html[data-site-theme="dark"] .misc-card-symbol {
 @media(prefers-reduced-motion:reduce) {
   .page-loader-spinner { animation:none !important; }
 }
+
+
+/* Final visual pass — single-source portrait, icon-only theme control, simple loader. */
+
+/* The homepage portrait must be in normal document flow, not a background/decorative orb. */
+.home-page .hero .hero-orb {
+  position:relative !important;
+  inset:auto !important;
+  z-index:1 !important;
+  display:block !important;
+  flex:0 0 auto !important;
+  width:min(330px,76vw) !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:auto !important;
+  margin:0 auto 30px !important;
+  padding:8px !important;
+  overflow:hidden !important;
+  border:8px solid #BCE8ED !important;
+  border-radius:30px !important;
+  background:#FFFDF8 !important;
+  background-image:none !important;
+  box-shadow:12px 12px 0 #E9673B !important;
+  transform:rotate(-.45deg) !important;
+  opacity:1 !important;
+  filter:none !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+}
+.home-page .hero .hero-orb::before,
+.home-page .hero .hero-orb::after {
+  display:none !important;
+  content:none !important;
+}
+.home-page .hero .hero-orb img {
+  position:relative !important;
+  inset:auto !important;
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:701 / 984 !important;
+  object-fit:contain !important;
+  object-position:center top !important;
+  border:0 !important;
+  border-radius:18px !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+  filter:none !important;
+}
+@media(max-width:640px) {
+  .home-page .hero .hero-orb {
+    width:min(290px,76vw) !important;
+    margin:0 auto 24px !important;
+    border-width:7px !important;
+    border-radius:24px !important;
+    box-shadow:8px 8px 0 #E9673B !important;
+  }
+  .home-page .hero .hero-orb img { border-radius:14px !important; }
+}
+
+/* Sun / moon button: only the icon, drawn with the site's simple line language. */
+.site-theme-toggle {
+  position:fixed !important;
+  right:22px !important;
+  bottom:22px !important;
+  z-index:10020 !important;
+  display:grid !important;
+  place-items:center !important;
+  width:50px !important;
+  height:50px !important;
+  min-width:50px !important;
+  min-height:50px !important;
+  padding:0 !important;
+  border:1.5px solid #111214 !important;
+  border-radius:50% !important;
+  background:#BCE8ED !important;
+  color:#111214 !important;
+  box-shadow:4px 4px 0 #111214 !important;
+  cursor:pointer !important;
+  transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease !important;
+}
+.site-theme-toggle svg {
+  display:block !important;
+  width:23px !important;
+  height:23px !important;
+}
+.site-theme-toggle:hover {
+  background:#F1D77F !important;
+  color:#111214 !important;
+  transform:translate(-2px,-2px) !important;
+  box-shadow:6px 6px 0 #111214 !important;
+}
+.site-theme-toggle:active {
+  transform:translate(2px,2px) !important;
+  box-shadow:1px 1px 0 #111214 !important;
+}
+html[data-site-theme="dark"] .site-theme-toggle {
+  background:#E9673B !important;
+  color:#111214 !important;
+}
+@media(max-width:640px) {
+  .site-theme-toggle {
+    right:13px !important;
+    bottom:13px !important;
+    width:46px !important;
+    height:46px !important;
+    min-width:46px !important;
+    min-height:46px !important;
+  }
+}
+
+/* Only a thicker animated ring. There is intentionally no label or decorative art. */
+.site-page-loader {
+  position:fixed !important;
+  inset:0 !important;
+  z-index:10015 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:0 !important;
+  pointer-events:none !important;
+  background:#F4F2ED !important;
+  color:#151515 !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  transition:opacity .2s ease,visibility .2s ease,background-color .35s ease !important;
+}
+.site-page-loader.is-visible {
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+}
+.page-loader-orbit,
+.page-loader-mark,
+.page-loader-name,
+.page-loader-caption,
+.page-loader-line { display:none !important; }
+.page-loader-spinner {
+  display:block !important;
+  width:48px !important;
+  height:48px !important;
+  box-sizing:border-box !important;
+  border:5px solid rgba(17,18,20,.13) !important;
+  border-top-color:#E9673B !important;
+  border-right-color:#BCE8ED !important;
+  border-radius:50% !important;
+  animation:site-simple-spin .72s linear infinite !important;
+}
+html[data-site-theme="dark"] .site-page-loader {
+  background:#080A0A !important;
+  color:#FFFFFF !important;
+}
+html[data-site-theme="dark"] .page-loader-spinner {
+  border-color:rgba(255,255,255,.18) !important;
+  border-top-color:#E9673B !important;
+  border-right-color:#BCE8ED !important;
+}
+.site-page-loader.is-visible ~ .site-theme-toggle {
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+@keyframes site-simple-spin { to { transform:rotate(360deg); } }
+
+/* Use each device's native emoji artwork (Apple Color Emoji on Apple devices). */
+.misc-card-symbol {
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
+  font-style:normal !important;
+  font-variant-emoji:emoji !important;
+  font-size:25px !important;
+  line-height:1 !important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .page-loader-spinner { animation:none !important; }
+  .site-page-loader,.site-theme-toggle { transition:none !important; }
+}
