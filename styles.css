@@ -5748,3 +5748,292 @@ html[data-site-theme="dark"] body summary.resume-section-summary:hover,
 html[data-site-theme="dark"] body summary.resume-section-summary:focus-visible {
   background:#F1D77F !important;
 }
+
+
+/* Final cross-site theme and page polish — 10 Nov 2026. */
+
+/* A transparent scrollbar track works on both paper and charcoal surfaces. */
+html {
+  scrollbar-color:#E9673B transparent;
+  scrollbar-width:thin;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width:10px; height:10px; }
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track { background:transparent; }
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background:#E9673B;
+  border:3px solid transparent;
+  border-radius:999px;
+  background-clip:padding-box;
+}
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover { background:#F28A61; background-clip:padding-box; }
+
+/* Dark theme: establish one reliable readable foreground first, then apply
+   intentional exceptions for links, labels, icon controls and CTA surfaces. */
+html[data-site-theme="dark"] body,
+html[data-site-theme="dark"] body * {
+  color:#F5F4EF !important;
+  text-shadow:none !important;
+}
+html[data-site-theme="dark"] body {
+  background:#080A0A !important;
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body::before {
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(188,232,237,.055),transparent 42%),
+    #080A0A !important;
+}
+
+/* The contact panel is part of the footer area; it should not turn orange
+   when the rest of the site switches to charcoal. */
+html[data-site-theme="dark"] body .contact-section,
+html[data-site-theme="dark"] body .site-footer,
+html[data-site-theme="dark"] body .misc-footer {
+  background:#151A18 !important;
+  color:#F5F4EF !important;
+  border-color:rgba(245,244,239,.16) !important;
+}
+html[data-site-theme="dark"] body .contact-section::before,
+html[data-site-theme="dark"] body .contact-section::after {
+  background:transparent !important;
+}
+html[data-site-theme="dark"] body .contact-glow {
+  background:radial-gradient(circle,rgba(188,232,237,.08),transparent 68%) !important;
+}
+html[data-site-theme="dark"] body .contact-section :is(h1,h2,h3,p,span,small) {
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body .contact-section :is(.card-kicker,.contact-foot,.footer-sub) {
+  color:#CAD2CC !important;
+}
+
+/* Muted text stays muted without collapsing into the background. */
+html[data-site-theme="dark"] body :is(
+  .hero-kicker,.section-label,.card-kicker,.section-note,.article-date,
+  .article-kicker,.project-tag,.project-year,.project-meta-row,
+  .resume-page-eyebrow,.resume-count,.resume-page-heading p,
+  .resume-section-number,.resume-entry time,.experience-date,
+  .education-year,.education-subjects,.misc-eyebrow,.misc-count,
+  .misc-intro,.misc-card-index,.misc-card-foot,.error-kicker,
+  .error-code,.error-description,.project-note,.project-metrics,
+  .timeline-date,.eyebrow,.intro,.footer-sub,.contact-foot
+) {
+  color:#CAD2CC !important;
+}
+html[data-site-theme="dark"] body :is(
+  .accent-period,.heading-accent,.kicker-separator
+) {
+  color:#FF9A75 !important;
+}
+
+/* Text links, not button links. */
+html[data-site-theme="dark"] body a:not(
+  .hero-button,.button-primary,.project-arrow-link,.email-pill,
+  .error-home-link,.error-project-link,.resume-section-summary,
+  .resume-section-toggle,.social-circle,.site-theme-toggle,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link
+) {
+  color:#BCE8ED !important;
+}
+html[data-site-theme="dark"] body a:not(
+  .hero-button,.button-primary,.project-arrow-link,.email-pill,
+  .error-home-link,.error-project-link,.resume-section-summary,
+  .resume-section-toggle,.social-circle,.site-theme-toggle,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link
+):hover {
+  color:#FFB092 !important;
+}
+
+/* Dark surfaces only: no leftover cream/white cards with white copy. */
+html[data-site-theme="dark"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line,
+  .misc-card,.project-remichain,.project-research,.project-zariya,
+  .error-composition,.error-art
+) {
+  background:#151A18 !important;
+  border-color:rgba(188,232,237,.18) !important;
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line,
+  .misc-card,.error-composition,.error-art
+) * {
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body :is(
+  .project-tag,.project-year,.project-meta-row,.article-date,
+  .article-kicker,.misc-card-index,.misc-card-foot,.education-year,
+  .education-subjects,.experience-date,.resume-section-number
+) {
+  color:#CAD2CC !important;
+}
+
+/* Resume chapter headers deliberately use a pale face with dark ink. */
+html[data-site-theme="dark"] body .resume-section-summary,
+html[data-site-theme="dark"] body .resume-section-summary * {
+  background:#BCE8ED !important;
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body .resume-section-summary:hover,
+html[data-site-theme="dark"] body .resume-section-summary:hover * {
+  background:#F1D77F !important;
+  color:#111A18 !important;
+}
+
+/* Every CTA keeps dark lettering on its bright face, including nested spans. */
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .email-pill,.error-home-link,.error-project-link,.social-circle,
+  .site-theme-toggle,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link
+) {
+  background:#E9673B !important;
+  color:#111214 !important;
+  border-color:transparent !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .email-pill,.error-home-link,.error-project-link,.social-circle,
+  .site-theme-toggle,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link
+) :is(span,svg,path) {
+  color:#111214 !important;
+}
+html[data-site-theme="dark"] body .nav-link { color:#F5F4EF !important; }
+html[data-site-theme="dark"] body .nav-link:hover,
+html[data-site-theme="dark"] body .nav-link:hover *,
+html[data-site-theme="dark"] body .nav-link.is-active,
+html[data-site-theme="dark"] body .nav-link.is-active * {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+}
+html[data-site-theme="dark"] body .site-nav {
+  background:rgba(21,26,24,.97) !important;
+  border-color:rgba(245,244,239,.16) !important;
+}
+
+/* Tactile shadows invert with the theme: soft paper-grey in dark mode,
+   black in light mode. Preserve the familiar pressed-button movement. */
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .email-pill,.error-home-link,.error-project-link,.resume-chapter-nav a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .social-circle,.site-theme-toggle
+) {
+  box-shadow:3px 3px 0 #E7E9E3 !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .email-pill,.error-home-link,.error-project-link,.resume-chapter-nav a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .social-circle,.site-theme-toggle
+):hover {
+  box-shadow:4px 4px 0 #E7E9E3 !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .email-pill,.error-home-link,.error-project-link,.resume-chapter-nav a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .social-circle,.site-theme-toggle
+):active {
+  box-shadow:1px 1px 0 #E7E9E3 !important;
+}
+html[data-site-theme="dark"] body details[open] .resume-section-toggle {
+  background:#111A18 !important;
+  color:#F5F4EF !important;
+  box-shadow:3px 3px 0 #E7E9E3 !important;
+}
+
+/* Explicit light 404 palette: readable ink, warm paper and clear controls. */
+html[data-site-theme="light"] body.not-found-page {
+  background:#F4F2ED !important;
+  color:#111214 !important;
+}
+html[data-site-theme="light"] body.not-found-page::before {
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(188,232,237,.22),transparent 40%),
+    #F4F2ED !important;
+}
+html[data-site-theme="light"] body.not-found-page :is(
+  .error-composition,.error-copy,.error-code,.error-copy h1,
+  .error-description,.error-kicker
+) {
+  color:#111214 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-composition {
+  background:#BCE8ED !important;
+  border:1px solid rgba(17,18,20,.1) !important;
+  box-shadow:8px 8px 0 #E9673B !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-code {
+  color:#111214 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-description {
+  color:#34383D !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-art {
+  background:#F4F2ED !important;
+  border-color:#E9673B !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-art-number {
+  color:#111214 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-art-caption {
+  color:#41464B !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-home-link,
+html[data-site-theme="light"] body.not-found-page .error-project-link {
+  background:#E9673B !important;
+  color:#111214 !important;
+  box-shadow:3px 3px 0 #111214 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-project-link {
+  background:#BCE8ED !important;
+}
+
+/* Dark 404 follows the same palette rather than retaining light-page colours. */
+html[data-site-theme="dark"] body.not-found-page .error-composition {
+  background:#151A18 !important;
+  border-color:rgba(188,232,237,.2) !important;
+  box-shadow:8px 8px 0 #E9673B !important;
+}
+html[data-site-theme="dark"] body.not-found-page .error-art {
+  background:#1C2420 !important;
+  border-color:#BCE8ED !important;
+}
+html[data-site-theme="dark"] body.not-found-page .error-art-number {
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body.not-found-page .error-art-caption {
+  color:#CAD2CC !important;
+}
+
+/* All page footers are transparent; only their text and top rule remain. */
+html[data-site-theme="light"] body :is(.site-footer,.misc-footer) {
+  background:transparent !important;
+  color:#34383D !important;
+}
+html[data-site-theme="dark"] body :is(.site-footer,.misc-footer) {
+  background:transparent !important;
+  color:#D6DFD9 !important;
+}
+html[data-site-theme="dark"] body .misc-card-symbol {
+  color:inherit !important;
+}
+
+/* Scrollbar stays theme-coloured without an opaque gutter. */
+html[data-site-theme="light"],html[data-site-theme="dark"] {
+  scrollbar-color:#E9673B transparent;
+}
+html[data-site-theme="light"]::-webkit-scrollbar-track,
+html[data-site-theme="dark"]::-webkit-scrollbar-track { background:transparent; }
