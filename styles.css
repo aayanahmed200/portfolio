@@ -5463,3 +5463,228 @@ html[data-site-theme="dark"] .page-loader-spinner {
   .page-loader-spinner { animation:none !important; }
   .site-page-loader,.site-theme-toggle { transition:none !important; }
 }
+
+
+/* 10 Nov 2026 — complete dark-theme contrast audit across all five pages. */
+html[data-site-theme="dark"] {
+  color-scheme:dark;
+  --site-bg:#080A0A;
+  --site-surface:#151A18;
+  --site-surface-raised:#1C2420;
+  --site-text:#F5F7F4;
+  --site-muted:#CAD2CC;
+  --site-accent-cyan:#BCE8ED;
+  --site-accent-orange:#FF9A75;
+}
+html[data-site-theme="dark"] body {
+  background:#080A0A !important;
+  color:#F5F7F4 !important;
+}
+html[data-site-theme="dark"] body::before {
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(188,232,237,.07),transparent 40%),
+    radial-gradient(ellipse at 90% 85%,rgba(233,103,59,.06),transparent 35%),
+    #080A0A !important;
+}
+
+/* One dependable foreground for every normal text element, even where old
+   page-specific light-theme declarations used dark grey or near-black. */
+html[data-site-theme="dark"] body :is(
+  .dark-contrast,h1,h2,h3,h4,h5,h6,p,span,a,li,dt,dd,blockquote,
+  figcaption,caption,time,small,strong,em,label,summary,cite
+) {
+  color:#F5F7F4 !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
+
+/* Muted metadata and decorative accents remain colourful but still pass
+   contrast on the near-black page surface. */
+html[data-site-theme="dark"] body :is(
+  .hero-kicker,.section-label,.card-kicker,.section-note,.article-date,
+  .article-kicker,.project-tag,.project-year,.project-meta-row,
+  .resume-page-eyebrow,.resume-count,.resume-page-heading p,
+  .resume-section-number,.resume-entry time,.experience-date,
+  .education-year,.education-subjects,.misc-eyebrow,.misc-count,
+  .misc-intro,.misc-card-index,.misc-card-foot,.error-kicker,
+  .error-code,.error-description,.project-note,.project-metrics
+) {
+  color:#C6D5CE !important;
+}
+html[data-site-theme="dark"] body :is(
+  .accent-period,.heading-accent,.kicker-separator,
+  .misc-hero h1 span,.resume-page-heading h1 span
+) {
+  color:#FF9A75 !important;
+}
+html[data-site-theme="dark"] body a:not(
+  .hero-button,.button-primary,.project-arrow-link,.email-pill,
+  .error-home-link,.error-project-link,.resume-section-summary,
+  .resume-section-toggle,.social-circle,.site-theme-toggle
+) {
+  color:#BCE8ED !important;
+}
+html[data-site-theme="dark"] body a:not(
+  .hero-button,.button-primary,.project-arrow-link,.email-pill,
+  .error-home-link,.error-project-link,.resume-section-summary,
+  .resume-section-toggle,.social-circle,.site-theme-toggle
+):hover {
+  color:#FFB092 !important;
+}
+
+/* Convert legacy pale cards, detail panels and resume surfaces into deep
+   surfaces before setting their text. This prevents white text on white/yellow. */
+html[data-site-theme="dark"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .contact-section,.about-details-grid,.about-section,.experience-item,
+  .education-line,.misc-card,.error-art,.error-composition,.error-bottom,
+  .project-remichain,.project-research,.project-zariya
+) {
+  background:#151A18 !important;
+  color:#F5F7F4 !important;
+  border-color:rgba(188,232,237,.18) !important;
+}
+html[data-site-theme="dark"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .contact-section,.about-details-grid,.about-section,.experience-item,
+  .education-line,.misc-card,.error-art,.error-composition,.error-bottom,
+  .project-remichain,.project-research,.project-zariya
+) :is(h1,h2,h3,h4,h5,h6,p,span,li,strong,em,time,small,label) {
+  color:#F5F7F4 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="dark"] .misc-card-cyan,
+html[data-site-theme="dark"] .misc-card-yellow,
+html[data-site-theme="dark"] .misc-card-orange,
+html[data-site-theme="dark"] .misc-card-dark {
+  background:#151A18 !important;
+  color:#F5F7F4 !important;
+  border:1px solid rgba(188,232,237,.2) !important;
+}
+html[data-site-theme="dark"] .misc-card h3,
+html[data-site-theme="dark"] .misc-card p {
+  color:#F5F7F4 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="dark"] .misc-card-index,
+html[data-site-theme="dark"] .misc-card-foot {
+  color:#BCE8ED !important;
+}
+
+/* Resume: the cyan chapter strip deliberately uses dark type; the expanded
+   content is a dark panel with light copy. */
+html[data-site-theme="dark"] details.resume-section {
+  background:#151A18 !important;
+  border:1px solid rgba(188,232,237,.18) !important;
+}
+html[data-site-theme="dark"] .resume-section-summary {
+  background:#BCE8ED !important;
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] .resume-section-summary h2,
+html[data-site-theme="dark"] .resume-section-summary:hover h2,
+html[data-site-theme="dark"] .resume-section-summary:focus-visible h2 {
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] .resume-section-number {
+  color:#263B37 !important;
+}
+html[data-site-theme="dark"] .resume-section-body,
+html[data-site-theme="dark"] .resume-section-body .resume-entry,
+html[data-site-theme="dark"] .resume-section-body .resume-entry h3,
+html[data-site-theme="dark"] .resume-section-body .resume-entry p,
+html[data-site-theme="dark"] .resume-section-body .resume-entry time {
+  background:transparent !important;
+  color:#F5F7F4 !important;
+}
+html[data-site-theme="dark"] .resume-page-eyebrow,
+html[data-site-theme="dark"] .resume-count strong,
+html[data-site-theme="dark"] .resume-count span,
+html[data-site-theme="dark"] .resume-page-heading p {
+  color:#D6E2DC !important;
+}
+
+/* High-contrast label colours on the dark panels. */
+html[data-site-theme="dark"] .project-meta-row,
+html[data-site-theme="dark"] .project-tag,
+html[data-site-theme="dark"] .project-year,
+html[data-site-theme="dark"] .feature-stats span,
+html[data-site-theme="dark"] .article-date,
+html[data-site-theme="dark"] .article-kicker,
+html[data-site-theme="dark"] .experience-date,
+html[data-site-theme="dark"] .education-year,
+html[data-site-theme="dark"] .education-subjects {
+  color:#C6D5CE !important;
+}
+
+/* Brand buttons use a light cyan/orange face with ink-dark labels. */
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a.button-primary,
+  .project-actions > a.text-link,.project-arrow-link,.email-pill,
+  .error-home-link,.error-project-link,.project-foot a,.social-circle,
+  .experience-heading > a,.resume-section-toggle
+) {
+  background:#BCE8ED !important;
+  color:#111A18 !important;
+  border-color:#111A18 !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a.button-primary,
+  .email-pill,.error-home-link,.error-project-link,.experience-heading > a,
+  .resume-section-toggle
+) {
+  background:#E9673B !important;
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a.button-primary,
+  .project-actions > a.text-link,.project-arrow-link,.email-pill,
+  .error-home-link,.error-project-link,.project-foot a,.social-circle,
+  .experience-heading > a,.resume-section-toggle
+) span {
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] .resume-section[open] .resume-section-toggle {
+  background:#111A18 !important;
+  color:#FFFFFF !important;
+}
+html[data-site-theme="dark"] .resume-section[open] .resume-section-toggle svg {
+  color:#FFFFFF !important;
+}
+html[data-site-theme="dark"] .nav-link { color:#F5F7F4 !important; }
+html[data-site-theme="dark"] .nav-link:hover,
+html[data-site-theme="dark"] .nav-link.is-active {
+  background:#BCE8ED !important;
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] .nav-link:hover *,
+html[data-site-theme="dark"] .nav-link.is-active * { color:#111A18 !important; }
+html[data-site-theme="dark"] .site-nav {
+  background:rgba(18,22,21,.96) !important;
+  border-color:rgba(255,255,255,.15) !important;
+}
+
+/* The icon-only sun/moon control stays crisp in both modes. */
+html[data-site-theme="dark"] .site-theme-toggle {
+  background:#E9673B !important;
+  color:#111A18 !important;
+  border-color:#111A18 !important;
+}
+html[data-site-theme="dark"] .site-theme-toggle svg { color:#111A18 !important; }
+html[data-site-theme="dark"] .site-theme-toggle:hover {
+  background:#F1D77F !important;
+  color:#111A18 !important;
+}
+
+/* Use native platform emoji artwork: Apple Color Emoji on Apple systems,
+   Windows Segoe UI Emoji on Windows, Noto Color Emoji elsewhere. */
+.misc-card-symbol {
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
+  font-variant-emoji:emoji !important;
+  font-style:normal !important;
+  line-height:1 !important;
+}
