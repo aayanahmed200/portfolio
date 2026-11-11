@@ -4633,11 +4633,6 @@ html[data-site-theme] body::before {
 html[data-site-theme] .site-nav {
   transition:background .5s ease,border-color .5s ease,box-shadow .5s ease !important;
 }
-html[data-site-theme] .site-theme-toggle,
-html[data-site-theme] .site-page-loader,
-html[data-site-theme] .site-theme-wipe {
-  font-family:'DM Sans',Arial,sans-serif !important;
-}
 
 /* Light theme: retain the same structure while giving every page a warm paper surface. */
 html[data-site-theme="light"] .site-nav {
@@ -4795,52 +4790,10 @@ html[data-site-theme="light"] .misc-card-dark .misc-card-foot { color:#BCE8ED !i
 }
 .misc-card-cyan p,.misc-card-yellow p,.misc-card-orange p { color:#111214 !important; }
 .misc-card-dark p { color:#F8F5EF !important; }
-
-/* Bottom-right, persistent theme control. */
-.site-theme-toggle {
-  position:fixed !important;
-  right:22px !important;
-  bottom:22px !important;
-  z-index:10020 !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:10px !important;
-  min-height:48px !important;
-  padding:0 17px !important;
-  border:1px solid #111214 !important;
-  border-radius:999px !important;
-  background:#BCE8ED !important;
-  color:#111214 !important;
-  box-shadow:4px 4px 0 #111214 !important;
-  font:800 10px 'DM Sans',Arial,sans-serif !important;
-  letter-spacing:.02em !important;
-  cursor:pointer !important;
-  transition:transform .2s ease,box-shadow .2s ease,background .2s ease !important;
-}
-.site-theme-toggle:hover {
-  background:#F1D77F !important;
-  color:#111214 !important;
-  transform:translate(-2px,-2px) !important;
-  box-shadow:6px 6px 0 #111214 !important;
-}
-.site-theme-toggle:active { transform:translate(2px,2px) !important; box-shadow:1px 1px 0 #111214 !important; }
 .site-theme-icon { font-size:17px !important; line-height:1 !important; }
-html[data-site-theme="light"] .site-theme-toggle { background:#E9673B !important; }
 @media(max-width:640px) {
   .site-theme-toggle { right:13px !important; bottom:13px !important; min-height:43px !important; padding:0 14px !important; }
 }
-
-/* Abstract iris wipe that blooms from the theme button. */
-.site-theme-wipe {
-  position:fixed;
-  inset:0;
-  z-index:10010;
-  pointer-events:none;
-  clip-path:circle(0 at var(--wipe-x) var(--wipe-y));
-  opacity:1;
-}
-.site-theme-wipe.is-expanding { animation:site-theme-iris .86s cubic-bezier(.72,0,.18,1) forwards; }
 @keyframes site-theme-iris {
   0% { clip-path:circle(0 at var(--wipe-x) var(--wipe-y)); }
   55% { clip-path:circle(75vmax at var(--wipe-x) var(--wipe-y)); }
@@ -5200,43 +5153,6 @@ html[data-site-theme="light"] .site-page-loader { background:#F4F2ED !important;
   }
   .home-page .hero .hero-orb img { border-radius:14px !important; }
 }
-
-/* Sun / moon button: only the icon, drawn with the site's simple line language. */
-.site-theme-toggle {
-  position:fixed !important;
-  right:22px !important;
-  bottom:22px !important;
-  z-index:10020 !important;
-  display:grid !important;
-  place-items:center !important;
-  width:50px !important;
-  height:50px !important;
-  min-width:50px !important;
-  min-height:50px !important;
-  padding:0 !important;
-  border:1.5px solid #111214 !important;
-  border-radius:50% !important;
-  background:#BCE8ED !important;
-  color:#111214 !important;
-  box-shadow:4px 4px 0 #111214 !important;
-  cursor:pointer !important;
-  transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease !important;
-}
-.site-theme-toggle svg {
-  display:block !important;
-  width:23px !important;
-  height:23px !important;
-}
-.site-theme-toggle:hover {
-  background:#F1D77F !important;
-  color:#111214 !important;
-  transform:translate(-2px,-2px) !important;
-  box-shadow:6px 6px 0 #111214 !important;
-}
-.site-theme-toggle:active {
-  transform:translate(2px,2px) !important;
-  box-shadow:1px 1px 0 #111214 !important;
-}
 @media(max-width:640px) {
   .site-theme-toggle {
     right:13px !important;
@@ -5284,10 +5200,6 @@ html[data-site-theme="light"] .site-page-loader { background:#F4F2ED !important;
   border-right-color:#BCE8ED !important;
   border-radius:50% !important;
   animation:site-simple-spin .72s linear infinite !important;
-}
-.site-page-loader.is-visible ~ .site-theme-toggle {
-  opacity:0 !important;
-  pointer-events:none !important;
 }
 @keyframes site-simple-spin { to { transform:rotate(360deg); } }
 
@@ -5597,24 +5509,6 @@ html[data-site-theme="light"] body .nav-link.is-active {
 html[data-site-theme="light"] body .nav-link:hover *,
 html[data-site-theme="light"] body .nav-link.is-active * {
   color:#111214 !important;
-}
-html[data-site-theme="light"] body :is(
-  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
-  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
-  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
-  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
-  .site-theme-toggle
-) {
-  box-shadow:4px 4px 0 #111214 !important;
-}
-html[data-site-theme="light"] body :is(
-  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
-  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
-  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
-  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
-  .site-theme-toggle
-):hover {
-  box-shadow:5px 5px 0 #111214 !important;
 }
 
 /* 404: warm paper in light mode, dark ink, no illustration/footer/type boxes. */
@@ -6216,11 +6110,6 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,*::-webk
   line-height:1 !important;
 }
 
-/* The light-only site has no theme toggle. */
-.site-theme-toggle,.site-theme-wipe {
-  display:none !important;
-}
-
 
 /* SINGLE LIGHT THEME — final palette, shared by every page. */
 :root,
@@ -6570,9 +6459,6 @@ html::-webkit-scrollbar-thumb,body::-webkit-scrollbar-thumb,*::-webkit-scrollbar
 html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,*::-webkit-scrollbar-thumb:hover {
   background:#C75230 !important;background-clip:padding-box !important;
 }
-
-/* No switch, wipe or progress bar in the light-only version. */
-.site-theme-toggle,.site-theme-wipe,#page-loading-bar {display:none !important;}
 .misc-card-symbol {font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;font-style:normal !important;line-height:1 !important;}
 
 @media(prefers-reduced-motion:reduce){
