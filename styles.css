@@ -4791,7 +4791,6 @@ html[data-site-theme="light"] .misc-card-dark .misc-card-foot { color:#BCE8ED !i
 .misc-card-cyan p,.misc-card-yellow p,.misc-card-orange p { color:#111214 !important; }
 .misc-card-dark p { color:#F8F5EF !important; }
 @media(max-width:640px) {
-  .site-theme-toggle { right:13px !important; bottom:13px !important; min-height:43px !important; padding:0 14px !important; }
 }
 
 /* Theme-aware full-page entrance for internal navigation. */
@@ -4880,11 +4879,6 @@ html[data-site-theme="light"] .page-loader-caption { color:#5a5b61; }
 @keyframes loader-line { from { transform:translateX(-110%); } to { transform:translateX(370%); } }
 
 @media(prefers-reduced-motion:reduce) {
-  html[data-site-theme] body,
-  .site-theme-toggle,.site-page-loader,.page-loader-mark,.page-loader-line span,.page-loader-orbit,.site-theme-wipe {
-    transition:none !important;
-    animation:none !important;
-  }
 }
 
 
@@ -5148,14 +5142,6 @@ html[data-site-theme="light"] .site-page-loader { background:#F4F2ED !important;
   .home-page .hero .hero-orb img { border-radius:14px !important; }
 }
 @media(max-width:640px) {
-  .site-theme-toggle {
-    right:13px !important;
-    bottom:13px !important;
-    width:46px !important;
-    height:46px !important;
-    min-width:46px !important;
-    min-height:46px !important;
-  }
 }
 
 /* Only a thicker animated ring. There is intentionally no label or decorative art. */
@@ -5207,7 +5193,6 @@ html[data-site-theme="light"] .site-page-loader { background:#F4F2ED !important;
 }
 @media(prefers-reduced-motion:reduce) {
   .page-loader-spinner { animation:none !important; }
-  .site-page-loader,.site-theme-toggle { transition:none !important; }
 }
 
 /* Use native platform emoji artwork: Apple Color Emoji on Apple systems,
