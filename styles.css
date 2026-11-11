@@ -6651,3 +6651,25 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover {
   background:#F28A61 !important;
   background-clip:padding-box !important;
 }
+
+
+/* Light-mode navigation is intentionally orange, not a white/cream pill. */
+html[data-site-theme="light"] body .site-nav {
+  background:#E9673B !important;
+  background-color:#E9673B !important;
+  border:1px solid #C95430 !important;
+  box-shadow:0 9px 0 rgba(17,18,20,.1) !important;
+}
+html[data-site-theme="light"] body .nav-link {
+  color:#111214 !important;
+  background:transparent !important;
+}
+html[data-site-theme="light"] body .nav-link:hover,
+html[data-site-theme="light"] body .nav-link.is-active {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+}
+html[data-site-theme="light"] body .nav-link:hover *,
+html[data-site-theme="light"] body .nav-link.is-active * {
+  color:#111214 !important;
+}
