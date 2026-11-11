@@ -4790,14 +4790,8 @@ html[data-site-theme="light"] .misc-card-dark .misc-card-foot { color:#BCE8ED !i
 }
 .misc-card-cyan p,.misc-card-yellow p,.misc-card-orange p { color:#111214 !important; }
 .misc-card-dark p { color:#F8F5EF !important; }
-.site-theme-icon { font-size:17px !important; line-height:1 !important; }
 @media(max-width:640px) {
   .site-theme-toggle { right:13px !important; bottom:13px !important; min-height:43px !important; padding:0 14px !important; }
-}
-@keyframes site-theme-iris {
-  0% { clip-path:circle(0 at var(--wipe-x) var(--wipe-y)); }
-  55% { clip-path:circle(75vmax at var(--wipe-x) var(--wipe-y)); }
-  100% { clip-path:circle(150vmax at var(--wipe-x) var(--wipe-y)); }
 }
 
 /* Theme-aware full-page entrance for internal navigation. */
