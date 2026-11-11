@@ -11,6 +11,58 @@
   <link rel="canonical" href="https://aayanahmed200.vercel.app/">
   <link rel="icon" href="/favicon.svg?v=20261109-clean" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css?v=20261111-component-hover-v5">
+
+  <style id="homepage-final-visual-fixes">
+    /* Keep the About section's page background exactly the same on hover. */
+    #about.about-section,
+    #about.about-section:hover,
+    #about.about-section:focus-within,
+    #about .about-grid,
+    #about .about-grid:hover {
+      background: #F5F3EE !important;
+      background-color: #F5F3EE !important;
+      background-image: none !important;
+      box-shadow: none !important;
+    }
+    #about .about-details-grid,
+    #about .about-details-grid:hover,
+    #about .about-details-grid:focus-within {
+      background: #FFFEFA !important;
+      background-color: #FFFEFA !important;
+      color: #171815 !important;
+    }
+    #about .about-details-grid:hover :is(h1,h2,h3,h4,h5,h6,p,span,small,strong,em,a,li) {
+      color: inherit !important;
+    }
+    /* Remove the decorative frame around the homepage portrait. */
+    body.home-page .hero .hero-orb,
+    html[data-site-theme="light"] body.home-page .hero .hero-orb {
+      width: min(310px, 76vw) !important;
+      height: auto !important;
+      min-height: 0 !important;
+      aspect-ratio: auto !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      transform: none !important;
+      overflow: visible !important;
+    }
+    body.home-page .hero .hero-orb img,
+    html[data-site-theme="light"] body.home-page .hero .hero-orb img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: auto !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      object-fit: contain !important;
+    }
+  </style>
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aayan Ahmed">
   <meta property="og:title" content="Aayan Ahmed | Aitchison College">
