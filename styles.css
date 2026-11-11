@@ -6443,3 +6443,89 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,*::-webk
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after {scroll-behavior:auto !important;transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important;}
 }
+
+
+/* FINAL LIGHT-ONLY HOVER AUDIT — never switch light text onto a light surface. */
+html[data-site-theme="light"] body :is(
+  a,button,[role="button"],summary,.misc-filter,.resume-section-summary
+):is(:hover,:focus-visible) {
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body :is(
+  a,button,[role="button"],summary,.misc-filter,.resume-section-summary
+):is(:hover,:focus-visible) :is(span,strong,em,small,i,svg,path) {
+  color:#171815 !important;
+  fill:currentColor !important;
+}
+html[data-site-theme="light"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line
+):is(:hover,:focus-within) {
+  background:#F1F0EA !important;
+  background-color:#F1F0EA !important;
+  color:#171815 !important;
+  border-color:rgba(23,24,21,.22) !important;
+}
+html[data-site-theme="light"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line
+):is(:hover,:focus-within) :is(h1,h2,h3,h4,h5,h6,p,span,li,strong,em,time,small,label,a) {
+  color:#171815 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body .project-detail .project-actions .text-link:is(:hover,:focus-visible),
+html[data-site-theme="light"] body .project-actions .text-link:is(:hover,:focus-visible) {
+  background:#F1D77F !important;
+  background-color:#F1D77F !important;
+  color:#171815 !important;
+  border-color:#171815 !important;
+  box-shadow:4px 4px 0 #171815 !important;
+  transform:translate(-1px,-1px) !important;
+}
+html[data-site-theme="light"] body .project-detail .project-actions .text-link:is(:hover,:focus-visible) * {
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body .nav-link:is(:hover,:focus-visible),
+html[data-site-theme="light"] body .nav-link.is-active:is(:hover,:focus-visible) {
+  background:#F1D77F !important;
+  color:#171815 !important;
+  box-shadow:2px 2px 0 #171815 !important;
+}
+html[data-site-theme="light"] body .nav-link:is(:hover,:focus-visible) * {
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body .resume-section-summary:is(:hover,:focus-visible) {
+  background:#DDF0EF !important;
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body .resume-section-summary:is(:hover,:focus-visible) * {
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body .misc-filter:is(:hover,:focus-visible),
+html[data-site-theme="light"] body .misc-filter.is-active:is(:hover,:focus-visible) {
+  background:#F1D77F !important;
+  color:#171815 !important;
+  border-color:#171815 !important;
+}
+html[data-site-theme="light"] body a:not(.hero-button):not(.button-primary):not(.project-arrow-link):not(.email-pill):not(.error-home-link):not(.error-project-link):not(.project-foot a):not(.social-circle):hover {
+  color:#B84C2C !important;
+}
+html[data-site-theme="light"] body :is(.hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link):is(:hover,:focus-visible) {
+  background:#F1D77F !important;
+  color:#171815 !important;
+  box-shadow:4px 4px 0 #171815 !important;
+}
+html[data-site-theme="light"] body :is(.hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link):is(:hover,:focus-visible) * {
+  color:#171815 !important;
+  fill:currentColor !important;
+}
