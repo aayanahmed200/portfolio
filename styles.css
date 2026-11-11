@@ -6673,3 +6673,361 @@ html[data-site-theme="light"] body .nav-link:hover *,
 html[data-site-theme="light"] body .nav-link.is-active * {
   color:#111214 !important;
 }
+
+
+/* FINAL PASS — dark/light readability, footer, 404 and scrollbar consistency. */
+
+/* Dark pages use ivory for every text-bearing element; muted labels are reset
+   below with explicit contrast-safe colours. */
+html[data-site-theme="dark"] body :is(
+  h1,h2,h3,h4,h5,h6,p,span,a,li,dt,dd,blockquote,figcaption,
+  caption,small,time,label,summary,strong,em,mark,code,pre,address
+) {
+  color:#F5F4EF !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-kicker,.section-label,.card-kicker,.section-note,.article-date,
+  .article-kicker,.project-tag,.project-year,.project-meta-row,
+  .resume-page-eyebrow,.resume-count,.resume-section-number,
+  .resume-entry time,.experience-date,.education-year,.education-subjects,
+  .misc-eyebrow,.misc-count,.misc-intro,.misc-card-index,.misc-card-foot,
+  .error-kicker,.error-description,.context-signoff span,.contact-foot,
+  .footer-sub,.project-note-label
+) {
+  color:#CAD2CC !important;
+}
+html[data-site-theme="dark"] body :is(
+  .accent-period,.heading-accent,.kicker-separator,
+  .misc-hero h1 span,.resume-page-heading h1 span,.error-code
+) {
+  color:#FF9A75 !important;
+}
+html[data-site-theme="dark"] body a:not(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .social-circle,.site-theme-toggle,.arcade-sound-toggle,.arcade-back,
+  .arcade-secondary,.arcade-card-link
+) {
+  color:#BCE8ED !important;
+}
+html[data-site-theme="dark"] body a:not(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .social-circle,.site-theme-toggle,.arcade-sound-toggle,.arcade-back,
+  .arcade-secondary,.arcade-card-link
+):hover {
+  color:#FFB092 !important;
+}
+
+/* All content panels stay dark in dark mode, including older light-theme cards. */
+html[data-site-theme="dark"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line,
+  .misc-card,.project-remichain,.project-research,.project-zariya
+) {
+  background:#151A18 !important;
+  background-color:#151A18 !important;
+  color:#F5F4EF !important;
+  border-color:rgba(188,232,237,.18) !important;
+}
+html[data-site-theme="dark"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line,
+  .misc-card,.project-remichain,.project-research,.project-zariya
+) :is(h1,h2,h3,h4,h5,h6,p,span,li,strong,em,time,small,label) {
+  color:#F5F4EF !important;
+  opacity:1 !important;
+}
+html[data-site-theme="dark"] body :is(.misc-card-cyan,.misc-card-yellow,.misc-card-orange,.misc-card-dark) {
+  background:#151A18 !important;
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body .misc-card :is(h3,p) {
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body .misc-card :is(.misc-card-index,.misc-card-foot) {
+  color:#BCE8ED !important;
+}
+
+/* Résumé accordion headers are intentionally pale with dark ink; the expanded
+   copy remains ivory on a dark panel. */
+html[data-site-theme="dark"] body .resume-section-summary,
+html[data-site-theme="dark"] body .resume-section-summary * {
+  background:#BCE8ED !important;
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body .resume-section-summary:hover,
+html[data-site-theme="dark"] body .resume-section-summary:hover * {
+  background:#F1D77F !important;
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body .resume-section-body,
+html[data-site-theme="dark"] body .resume-section-body .resume-entry,
+html[data-site-theme="dark"] body .resume-section-body .resume-entry :is(h3,p,time) {
+  background:transparent !important;
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body .resume-section-body .resume-entry p {
+  color:#E2E7E2 !important;
+}
+html[data-site-theme="dark"] body .resume-section-body .resume-entry time {
+  color:#CAD2CC !important;
+}
+
+/* The footer/contact area is charcoal in dark mode, never a full orange slab. */
+html[data-site-theme="dark"] body :is(.contact-section,.site-footer,.misc-footer) {
+  background:#101714 !important;
+  background-color:#101714 !important;
+  background-image:none !important;
+  color:#F5F4EF !important;
+  border-color:rgba(188,232,237,.16) !important;
+}
+html[data-site-theme="dark"] body .contact-section :is(h1,h2,h3,p,span,small) {
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body .contact-section .social-circle {
+  background:#1C2420 !important;
+  color:#F5F4EF !important;
+  border:1px solid rgba(188,232,237,.35) !important;
+}
+html[data-site-theme="dark"] body .contact-section .social-circle :is(svg,path) {
+  color:#F5F4EF !important;
+  fill:currentColor !important;
+}
+html[data-site-theme="dark"] body .contact-section .email-pill {
+  background:#BCE8ED !important;
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body .contact-section .email-pill * {
+  color:#111A18 !important;
+}
+html[data-site-theme="dark"] body .contact-section::before,
+html[data-site-theme="dark"] body .contact-section::after,
+html[data-site-theme="dark"] body .contact-glow {
+  background:transparent !important;
+  opacity:0 !important;
+}
+
+/* Bright button faces use dark lettering; dark-theme shadows are light paper,
+   mirroring the black button shadows in the light theme. */
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .site-theme-toggle
+) {
+  background:#E9673B !important;
+  color:#111214 !important;
+  border-color:transparent !important;
+  box-shadow:4px 4px 0 #F4F2ED !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .site-theme-toggle
+) :is(span,svg,path,circle) {
+  color:#111214 !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .site-theme-toggle
+):hover,
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .site-theme-toggle
+):hover * {
+  background:#F1D77F !important;
+  color:#111214 !important;
+  box-shadow:5px 5px 0 #F4F2ED !important;
+}
+html[data-site-theme="dark"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .site-theme-toggle
+):active {
+  box-shadow:1px 1px 0 #F4F2ED !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .site-theme-toggle
+) {
+  box-shadow:4px 4px 0 #111214 !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link,
+  .site-theme-toggle
+):hover {
+  box-shadow:5px 5px 0 #111214 !important;
+}
+
+/* 404: warm paper in light mode, dark ink, no illustration/footer/type boxes. */
+html[data-site-theme="light"] body.not-found-page {
+  background:#F4F2ED !important;
+  background-color:#F4F2ED !important;
+  color:#111214 !important;
+}
+html[data-site-theme="light"] body.not-found-page :is(
+  .error-kicker,.error-description,.error-copy h1,.error-code
+) {
+  color:#111214 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-kicker {
+  color:#54575D !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-code {
+  color:#E9673B !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-code span {
+  color:#111214 !important;
+}
+body.not-found-page .error-container {
+  width:min(calc(100% - 72px),900px) !important;
+  max-width:900px !important;
+  padding-top:155px !important;
+  padding-bottom:90px !important;
+}
+body.not-found-page .error-composition {
+  display:block !important;
+  min-height:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+}
+body.not-found-page .error-copy { max-width:760px !important; }
+body.not-found-page .error-code {
+  margin:0 0 22px !important;
+  font-size:clamp(116px,19vw,210px) !important;
+  line-height:.78 !important;
+  letter-spacing:-.095em !important;
+}
+body.not-found-page .error-copy h1 {
+  margin:0 0 14px !important;
+  font-size:clamp(40px,5.5vw,68px) !important;
+  line-height:.98 !important;
+}
+body.not-found-page .error-description {
+  max-width:470px !important;
+  color:#34383D !important;
+}
+body.not-found-page :is(
+  footer,.site-footer,.misc-footer,.error-art,.error-art-number,
+  .error-art-sticker,.error-art-caption,.error-spark,.error-bottom,
+  .error-footer,.error-footer-card,.error-type-card,[class*="footer-type"],
+  [class*="footer-card"],[class*="type-card"]
+) {
+  display:none !important;
+}
+body.not-found-page::before,
+body.not-found-page::after,
+body.not-found-page .error-composition::before,
+body.not-found-page .error-composition::after {
+  display:none !important;
+  content:none !important;
+}
+body.not-found-page .error-actions {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  gap:14px !important;
+  margin-top:30px !important;
+}
+body.not-found-page .error-home-link,
+body.not-found-page .error-project-link {
+  min-height:50px !important;
+  border-radius:999px !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-home-link {
+  background:#E9673B !important;
+  color:#111214 !important;
+  box-shadow:4px 4px 0 #111214 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-project-link {
+  background:#BCE8ED !important;
+  color:#111214 !important;
+  box-shadow:4px 4px 0 #111214 !important;
+}
+html[data-site-theme="dark"] body.not-found-page {
+  background:#080A0A !important;
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body.not-found-page .error-kicker,
+html[data-site-theme="dark"] body.not-found-page .error-description {
+  color:#CAD2CC !important;
+}
+html[data-site-theme="dark"] body.not-found-page .error-copy h1 {
+  color:#F5F4EF !important;
+}
+html[data-site-theme="dark"] body.not-found-page .error-code {
+  color:#FF9A75 !important;
+}
+html[data-site-theme="dark"] body.not-found-page .error-code span {
+  color:#BCE8ED !important;
+}
+@media(max-width:640px) {
+  body.not-found-page .error-container {
+    width:calc(100% - 36px) !important;
+    padding-top:130px !important;
+    padding-bottom:65px !important;
+  }
+  body.not-found-page .error-code { font-size:clamp(112px,28vw,150px) !important; }
+  body.not-found-page .error-copy h1 { font-size:42px !important; }
+}
+
+/* Transparent scrollbar track in both themes; use the site's orange thumb. */
+html,body,* {
+  scrollbar-color:#E9673B transparent !important;
+  scrollbar-width:thin !important;
+}
+html::-webkit-scrollbar,body::-webkit-scrollbar,*::-webkit-scrollbar {
+  width:10px !important;
+  height:10px !important;
+}
+html::-webkit-scrollbar-track,body::-webkit-scrollbar-track,*::-webkit-scrollbar-track {
+  background:transparent !important;
+}
+html::-webkit-scrollbar-thumb,body::-webkit-scrollbar-thumb,*::-webkit-scrollbar-thumb {
+  background:#E9673B !important;
+  border:3px solid transparent !important;
+  border-radius:999px !important;
+  background-clip:padding-box !important;
+}
+html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,*::-webkit-scrollbar-thumb:hover {
+  background:#F28A61 !important;
+  background-clip:padding-box !important;
+}
+
+/* Emoji font order follows Apple devices first; other systems use their native emoji font. */
+.misc-card-symbol {
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
+  font-variant-emoji:emoji !important;
+}
