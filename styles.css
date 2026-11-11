@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 
 :root {
-  color-scheme: dark;
-  --bg: #050505;
-  --surface: #141414;
-  --surface-soft: #191718;
-  --text: #FFFFFF;
-  --muted: #969092;
-  --muted-soft: #6e686b;
-  --accent: #8794B2;
-  --accent-soft: #8794B2;
-  --line: rgba(255,255,255,.09);
-  --serif: 'Manrope', Arial, sans-serif;
-  --sans: 'Manrope', Arial, sans-serif;
+  color-scheme: light;
+  --bg: #F4F2ED;
+  --surface: #FFFDF8;
+  --surface-soft: #EEEAE1;
+  --text: #151515;
+  --muted: #56534E;
+  --muted-soft: #77736D;
+  --accent: #E9673B;
+  --accent-soft: #BCE8ED;
+  --line: rgba(17,18,20,.13);
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', Arial, sans-serif;
   --max: 1180px;
 }
 
@@ -7030,4 +7030,478 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,*::-webk
 .misc-card-symbol {
   font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
   font-variant-emoji:emoji !important;
+}
+
+
+/* LIGHT-ONLY DESIGN SYSTEM — one palette, no theme switching. */
+html[data-site-theme="light"],
+html[data-site-theme="light"] body {
+  color-scheme:light !important;
+  background:#F4F2ED !important;
+  color:#151515 !important;
+}
+html[data-site-theme="light"] {
+  --bg:#F4F2ED;
+  --surface:#FFFDF8;
+  --surface-soft:#EEEAE1;
+  --text:#151515;
+  --muted:#56534E;
+  --muted-soft:#77736D;
+  --accent:#E9673B;
+  --accent-soft:#BCE8ED;
+  --line:rgba(17,18,20,.13);
+  background:#F4F2ED !important;
+}
+html[data-site-theme="light"] body {
+  background:#F4F2ED !important;
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse at 96% 1%,rgba(188,232,237,.28),transparent 34%),
+    radial-gradient(ellipse at 5% 95%,rgba(233,103,59,.07),transparent 32%),
+    #F4F2ED !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body::after {
+  opacity:.018 !important;
+}
+html[data-site-theme="light"] ::selection {
+  background:#E9673B !important;
+  color:#151515 !important;
+}
+
+/* One readable type palette across Home, Projects, Resume, Miscellaneous and 404. */
+html[data-site-theme="light"] body :is(
+  h1,h2,h3,h4,h5,h6,p,span,a,li,dt,dd,blockquote,figcaption,caption,
+  time,small,strong,em,label,summary,cite,th,td,button
+) {
+  color:#151515 !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-kicker,.scroll-cue,.section-label,.section-note,.card-kicker,
+  .project-tag,.project-year,.project-meta-row,.article-date,.article-kicker,
+  .experience-date,.education-year,.education-subjects,.resume-page-eyebrow,
+  .resume-count,.resume-section-number,.resume-entry time,.misc-eyebrow,
+  .misc-count,.misc-card-index,.misc-card-foot,.error-kicker,.footer-sub,
+  .contact-foot,.timeline-date,.eyebrow,.intro,.feature-stats span
+) {
+  color:#5B5751 !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-copy,.section-note,.project-copy,.project-detail-copy,
+  .resume-section-body,.resume-entry p,.misc-card p,.contact-inner > p,
+  .error-description,.featured-card p,.context-card p,.education-card p,
+  .experience-item p,.small-card-content p
+) {
+  color:#46433E !important;
+}
+html[data-site-theme="light"] body a {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body a:hover {
+  color:#B84C2C !important;
+}
+html[data-site-theme="light"] body :is(
+  h1,h2,h3,h4,.hero h1,.section-heading h2,.contact-inner h2,
+  .resume-page-heading h1,.misc-hero h1,.error-copy h1
+) {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body :is(
+  .accent-period,.heading-accent,.misc-hero h1 span,
+  .resume-page-heading h1 span,.error-code
+) {
+  color:#D95F35 !important;
+}
+
+/* Floating navigation: cyan paper-chip, charcoal border and a quiet offset. */
+html[data-site-theme="light"] body .site-nav {
+  background:#BCE8ED !important;
+  background-color:#BCE8ED !important;
+  background-image:none !important;
+  border:1.5px solid #151515 !important;
+  border-radius:18px !important;
+  box-shadow:4px 4px 0 #151515 !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+html[data-site-theme="light"] body .nav-link {
+  color:#151515 !important;
+  background:transparent !important;
+  border-radius:12px !important;
+}
+html[data-site-theme="light"] body .nav-link:hover,
+html[data-site-theme="light"] body .nav-link.is-active {
+  background:#FFFDF8 !important;
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body .nav-link:hover *,
+html[data-site-theme="light"] body .nav-link.is-active * {
+  color:#151515 !important;
+}
+
+/* Real Aitchison portrait: image stays in normal flow and is never a background. */
+html[data-site-theme="light"] body.home-page .hero {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body.home-page .hero .hero-orb {
+  grid-area:visual !important;
+  position:relative !important;
+  inset:auto !important;
+  z-index:1 !important;
+  display:block !important;
+  flex:0 0 auto !important;
+  width:min(370px,76vw) !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:701 / 984 !important;
+  margin:0 auto 28px !important;
+  padding:8px !important;
+  overflow:hidden !important;
+  border:8px solid #BCE8ED !important;
+  border-radius:28px !important;
+  background:#FFFDF8 !important;
+  background-image:none !important;
+  box-shadow:12px 12px 0 #E9673B !important;
+  transform:rotate(-.45deg) !important;
+  opacity:1 !important;
+  filter:none !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+}
+html[data-site-theme="light"] body.home-page .hero .hero-orb::before,
+html[data-site-theme="light"] body.home-page .hero .hero-orb::after {
+  display:none !important;
+  content:none !important;
+}
+html[data-site-theme="light"] body.home-page .hero .hero-orb img {
+  position:static !important;
+  inset:auto !important;
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:701 / 984 !important;
+  object-fit:contain !important;
+  object-position:center top !important;
+  border:0 !important;
+  border-radius:18px !important;
+  margin:0 !important;
+  padding:0 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+  filter:none !important;
+}
+html[data-site-theme="light"] body.home-page .hero .hero-copy {
+  color:#46433E !important;
+}
+@media(max-width:760px) {
+  html[data-site-theme="light"] body.home-page .hero .hero-orb {
+    width:min(310px,76vw) !important;
+    margin:0 auto 24px !important;
+    border-width:7px !important;
+    border-radius:24px !important;
+    box-shadow:9px 9px 0 #E9673B !important;
+  }
+  html[data-site-theme="light"] body.home-page .hero .hero-orb img {
+    border-radius:15px !important;
+  }
+}
+
+/* Panels use paper or soft neutral surfaces, not conflicting saturated blocks. */
+html[data-site-theme="light"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line,
+  .project-remichain,.project-research,.project-zariya
+) {
+  background:#FFFDF8 !important;
+  background-image:none !important;
+  color:#151515 !important;
+  border-color:rgba(17,18,20,.13) !important;
+  box-shadow:0 8px 24px rgba(17,18,20,.045) !important;
+}
+html[data-site-theme="light"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line
+) :is(h1,h2,h3,h4,h5,h6,p,span,li,strong,em,time,small,label) {
+  color:#151515 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.skill-card,.resume-section,.resume-section-body,
+  .about-details-grid,.about-section,.experience-item,.education-line
+) :is(p,small,time,.project-tag,.project-year,.project-meta-row) {
+  color:#55514B !important;
+}
+
+/* Featured work and project metadata keep one consistent ink/accent system. */
+html[data-site-theme="light"] body :is(.feature-stats strong,.project-meta-row strong) {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body :is(.project-tag,.project-year,.article-date,.article-kicker) {
+  color:#5B5751 !important;
+}
+html[data-site-theme="light"] body :is(.project-detail-head,.project-detail-copy,.project-detail-list,.project-note,.project-metrics) {
+  color:#46433E !important;
+}
+html[data-site-theme="light"] body .project-detail-head :is(h2,h3),
+html[data-site-theme="light"] body .project-detail-copy :is(h2,h3) {
+  color:#151515 !important;
+}
+
+/* Resume accordion: warm neutral header, white content, clear hover. */
+html[data-site-theme="light"] body .resume-section {
+  overflow:hidden !important;
+  border:1px solid rgba(17,18,20,.13) !important;
+  border-radius:18px !important;
+}
+html[data-site-theme="light"] body .resume-section-summary {
+  background:#EAE5DA !important;
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body .resume-section-summary :is(h2,span,svg,path) {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body .resume-section-summary:hover,
+html[data-site-theme="light"] body .resume-section-summary:focus-visible {
+  background:#DDF0EF !important;
+}
+html[data-site-theme="light"] body .resume-section-body {
+  background:#FFFDF8 !important;
+  color:#46433E !important;
+}
+html[data-site-theme="light"] body .resume-section-body .resume-entry :is(h3,strong) {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body .resume-section-body .resume-entry p {
+  color:#46433E !important;
+}
+html[data-site-theme="light"] body .resume-section-body .resume-entry time {
+  color:#5B5751 !important;
+}
+
+/* Fun-fact cards: four coordinated light tones, all with dark text. */
+html[data-site-theme="light"] body .misc-card {
+  border:1px solid rgba(17,18,20,.12) !important;
+  border-radius:24px !important;
+  box-shadow:0 8px 22px rgba(17,18,20,.05) !important;
+}
+html[data-site-theme="light"] body .misc-card-cyan {
+  background:#DDF0EF !important;
+}
+html[data-site-theme="light"] body .misc-card-yellow {
+  background:#F7EBC7 !important;
+}
+html[data-site-theme="light"] body .misc-card-orange {
+  background:#F8DCCF !important;
+}
+html[data-site-theme="light"] body .misc-card-dark {
+  background:#E6E8DF !important;
+}
+html[data-site-theme="light"] body .misc-card :is(h3,p,span,strong,small) {
+  color:#151515 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body .misc-card-index,
+html[data-site-theme="light"] body .misc-card-foot {
+  color:#5B5751 !important;
+}
+
+/* Contact is a calm neutral closing section, not a bright orange footer slab. */
+html[data-site-theme="light"] body .contact-section {
+  width:min(1120px,calc(100% - 72px)) !important;
+  min-height:0 !important;
+  margin:64px auto 38px !important;
+  padding:66px 38px !important;
+  border:1px solid rgba(17,18,20,.12) !important;
+  border-radius:32px !important;
+  background:#EAE5DA !important;
+  background-image:none !important;
+  color:#151515 !important;
+  box-shadow:none !important;
+}
+html[data-site-theme="light"] body .contact-section::before,
+html[data-site-theme="light"] body .contact-section::after,
+html[data-site-theme="light"] body .contact-glow {
+  background:transparent !important;
+  opacity:0 !important;
+}
+html[data-site-theme="light"] body .contact-inner :is(h1,h2,h3,p,span,small) {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body .contact-inner > p {
+  color:#46433E !important;
+}
+html[data-site-theme="light"] body .contact-inner > .section-label,
+html[data-site-theme="light"] body .contact-foot {
+  color:#5B5751 !important;
+}
+html[data-site-theme="light"] body .contact-section .social-circle {
+  background:#FFFDF8 !important;
+  color:#151515 !important;
+  border:1px solid rgba(17,18,20,.17) !important;
+}
+html[data-site-theme="light"] body .contact-section .social-circle :is(svg,path) {
+  color:#151515 !important;
+  fill:currentColor !important;
+}
+html[data-site-theme="light"] body .contact-section .email-pill {
+  background:#E9673B !important;
+  color:#151515 !important;
+  border-color:#151515 !important;
+}
+
+/* Footers stay transparent and typographic with a soft top rule. */
+html[data-site-theme="light"] body :is(.site-footer,.misc-footer) {
+  background:transparent !important;
+  background-image:none !important;
+  color:#5B5751 !important;
+  border-color:rgba(17,18,20,.13) !important;
+}
+html[data-site-theme="light"] body :is(.footer-label,.footer-sub,.footer-links a,.back-to-top,.misc-footer span) {
+  color:#55514B !important;
+}
+html[data-site-theme="light"] body .footer-links a:hover,
+html[data-site-theme="light"] body .back-to-top:hover {
+  color:#B84C2C !important;
+}
+
+/* Buttons use orange/cyan faces, dark lettering and the requested cartoon offset. */
+html[data-site-theme="light"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link
+) {
+  background:#E9673B !important;
+  color:#151515 !important;
+  border:1px solid #151515 !important;
+  border-radius:16px !important;
+  box-shadow:4px 4px 0 #151515 !important;
+  text-decoration:none !important;
+  transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link
+) :is(span,svg,path) {
+  color:#151515 !important;
+  fill:currentColor !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link
+):hover {
+  background:#F1D77F !important;
+  color:#151515 !important;
+  transform:translate(-2px,-2px) !important;
+  box-shadow:6px 6px 0 #151515 !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,.button-primary,.project-actions > a,.project-arrow-link,
+  .project-foot a,.text-link,.email-pill,.error-home-link,.error-project-link,
+  .resume-chapter-nav a,.resume-section-toggle,.experience-heading > a,
+  .arcade-sound-toggle,.arcade-back,.arcade-secondary,.arcade-card-link
+):active {
+  background:#BCE8ED !important;
+  transform:translate(2px,2px) !important;
+  box-shadow:1px 1px 0 #151515 !important;
+}
+html[data-site-theme="light"] body .hero-button {
+  min-height:56px !important;
+}
+html[data-site-theme="light"] body .hero-button span {
+  background:#BCE8ED !important;
+}
+
+/* 404 is clean paper with dark copy, restrained coral type and no footer/art boxes. */
+html[data-site-theme="light"] body.not-found-page {
+  background:#F4F2ED !important;
+  background-color:#F4F2ED !important;
+  background-image:none !important;
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body.not-found-page::before,
+html[data-site-theme="light"] body.not-found-page::after,
+html[data-site-theme="light"] body.not-found-page .error-composition::before,
+html[data-site-theme="light"] body.not-found-page .error-composition::after {
+  display:none !important;
+  content:none !important;
+}
+html[data-site-theme="light"] body.not-found-page :is(.error-kicker,.error-description,.error-copy h1) {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-description {
+  color:#46433E !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-code {
+  color:#E9673B !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-code span {
+  color:#151515 !important;
+}
+html[data-site-theme="light"] body.not-found-page :is(
+  footer,.site-footer,.misc-footer,.error-art,.error-art-number,.error-art-sticker,
+  .error-art-caption,.error-spark,.error-bottom,.error-footer,.error-footer-card,
+  .error-type-card,[class*="footer-type"],[class*="footer-card"],[class*="type-card"]
+) {
+  display:none !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-home-link {
+  background:#E9673B !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-project-link {
+  background:#BCE8ED !important;
+}
+
+/* Transparent scrollbar channel; coral thumb remains visible on warm paper. */
+html,html body,* {
+  scrollbar-color:#E9673B transparent !important;
+  scrollbar-width:thin !important;
+}
+html::-webkit-scrollbar,body::-webkit-scrollbar,*::-webkit-scrollbar {
+  width:10px !important;
+  height:10px !important;
+}
+html::-webkit-scrollbar-track,body::-webkit-scrollbar-track,*::-webkit-scrollbar-track {
+  background:transparent !important;
+}
+html::-webkit-scrollbar-thumb,body::-webkit-scrollbar-thumb,*::-webkit-scrollbar-thumb {
+  background:#E9673B !important;
+  border:3px solid transparent !important;
+  border-radius:999px !important;
+  background-clip:padding-box !important;
+}
+html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,*::-webkit-scrollbar-thumb:hover {
+  background:#C95430 !important;
+  background-clip:padding-box !important;
+}
+
+/* Native emoji rendering; Apple Color Emoji on Apple devices and native equivalents elsewhere. */
+.misc-card-symbol {
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
+  font-style:normal !important;
+  line-height:1 !important;
+}
+
+/* The light-only site has no theme toggle. */
+.site-theme-toggle,.site-theme-wipe {
+  display:none !important;
 }
