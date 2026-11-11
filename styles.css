@@ -6685,3 +6685,44 @@ html[data-site-theme="light"] body .misc-footer {
   display:none !important;
   border:0 !important;
 }
+
+
+/* Project action buttons — one shared style, matching the Nishaan button. */
+html[data-site-theme="light"] body :is(.project-card,.project-card-small,.project-feature,.project-detail) .project-actions > a,
+html[data-site-theme="light"] body .project-actions > a.button-primary,
+html[data-site-theme="light"] body .project-actions > a.text-link {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  min-height:46px !important;
+  padding:12px 19px !important;
+  border:1px solid #E9673B !important;
+  border-radius:999px !important;
+  background:#E9673B !important;
+  background-color:#E9673B !important;
+  color:#171815 !important;
+  font-weight:700 !important;
+  text-decoration:none !important;
+  box-shadow:3px 3px 0 #171815 !important;
+  transform:none !important;
+  transition:background-color .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease !important;
+}
+html[data-site-theme="light"] body :is(.project-card,.project-card-small,.project-feature,.project-detail) .project-actions > a:is(:hover,:focus-visible,:active),
+html[data-site-theme="light"] body .project-actions > a.button-primary:is(:hover,:focus-visible,:active),
+html[data-site-theme="light"] body .project-actions > a.text-link:is(:hover,:focus-visible,:active) {
+  background:#F1D77F !important;
+  background-color:#F1D77F !important;
+  color:#171815 !important;
+  border-color:#171815 !important;
+  box-shadow:4px 4px 0 #171815 !important;
+  transform:translate(-1px,-1px) !important;
+  outline:none !important;
+}
+html[data-site-theme="light"] body .project-actions > a:is(:hover,:focus-visible,:active) *,
+html[data-site-theme="light"] body .project-actions > a:is(:hover,:focus-visible,:active) svg,
+html[data-site-theme="light"] body .project-actions > a:is(:hover,:focus-visible,:active) svg * {
+  color:#171815 !important;
+  fill:currentColor !important;
+  stroke:currentColor !important;
+}
