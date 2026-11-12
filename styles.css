@@ -6726,3 +6726,118 @@ html[data-site-theme="light"] body .project-actions > a:is(:hover,:focus-visible
   fill:currentColor !important;
   stroke:currentColor !important;
 }
+
+
+/* Keep the About section and its content cards still; only controls get hover feedback. */
+html[data-site-theme="light"] body #about.about-section,
+html[data-site-theme="light"] body #about.about-section:hover,
+html[data-site-theme="light"] body #about.about-section:focus-within,
+html[data-site-theme="light"] body #about .about-grid,
+html[data-site-theme="light"] body #about .about-grid:hover,
+html[data-site-theme="light"] body #about .about-details-grid,
+html[data-site-theme="light"] body #about .about-details-grid:hover,
+html[data-site-theme="light"] body #about .about-details-grid:focus-within {
+  background:#F5F3EE !important;
+  background-color:#F5F3EE !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+}
+html[data-site-theme="light"] body #about :is(.context-card,.education-card,.experience-card),
+html[data-site-theme="light"] body #about :is(.context-card,.education-card,.experience-card):hover,
+html[data-site-theme="light"] body #about :is(.context-card,.education-card,.experience-card):focus-within {
+  background:#FFFEFA !important;
+  background-color:#FFFEFA !important;
+  color:#171815 !important;
+  transform:none !important;
+  box-shadow:none !important;
+  filter:none !important;
+  border-color:rgba(23,24,21,.15) !important;
+}
+html[data-site-theme="light"] body #about :is(.context-card,.education-card,.experience-card):hover :is(h1,h2,h3,h4,h5,h6,p,span,small,strong,em,a,time,li),
+html[data-site-theme="light"] body #about :is(.context-card,.education-card,.experience-card):focus-within :is(h1,h2,h3,h4,h5,h6,p,span,small,strong,em,a,time,li) {
+  color:inherit !important;
+}
+html[data-site-theme="light"] body #about :is(.context-card,.education-card,.experience-card) :is(p,.card-kicker,.experience-date,.education-year,.education-subjects) {
+  color:#55534D !important;
+}
+/* Resume accordion headers expand on click but do not change appearance on hover. */
+html[data-site-theme="light"] body .resume-section,
+html[data-site-theme="light"] body .resume-section:hover,
+html[data-site-theme="light"] body .resume-section:focus-within {
+  transform:none !important;
+  filter:none !important;
+}
+html[data-site-theme="light"] body .resume-section-summary,
+html[data-site-theme="light"] body .resume-section-summary:hover,
+html[data-site-theme="light"] body .resume-section-summary:focus,
+html[data-site-theme="light"] body .resume-section-summary:focus-visible {
+  background:#EAE5DA !important;
+  background-color:#EAE5DA !important;
+  color:#171815 !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  border-color:transparent !important;
+  outline:0 !important;
+}
+html[data-site-theme="light"] body .resume-section-summary :is(h2,h3,span,.resume-section-number,.resume-section-toggle),
+html[data-site-theme="light"] body .resume-section-summary:hover :is(h2,h3,span,.resume-section-number,.resume-section-toggle),
+html[data-site-theme="light"] body .resume-section-summary:focus-visible :is(h2,h3,span,.resume-section-number,.resume-section-toggle) {
+  color:#171815 !important;
+  background:transparent !important;
+}
+html[data-site-theme="light"] body .resume-section-summary .resume-section-toggle {
+  box-shadow:none !important;
+  transform:none !important;
+}
+/* Homepage portrait: show the uploaded photo itself, with no frame or decoration. */
+body.home-page .hero .hero-orb,
+html[data-site-theme="light"] body.home-page .hero .hero-orb {
+  position:relative !important;
+  width:min(310px,76vw) !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:auto !important;
+  margin:0 auto 28px !important;
+  padding:0 !important;
+  overflow:visible !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+}
+body.home-page .hero .hero-orb img,
+html[data-site-theme="light"] body.home-page .hero .hero-orb img {
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center top !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+}
+@media(max-width:760px) {
+  body.home-page .hero .hero-orb,
+  html[data-site-theme="light"] body.home-page .hero .hero-orb {
+    width:min(310px,76vw) !important;
+    padding:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+}
