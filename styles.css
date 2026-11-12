@@ -7422,3 +7422,87 @@ html[data-site-theme="light"] body[data-page="work"] .project-detail:hover > a.b
     border-radius:15px !important;
   }
 }
+
+
+/* 12 Nov 2026 — three-up editorial row and distinct whole-project hover colours. */
+
+/* The three Featured items form one balanced row on desktop. */
+.featured-grid {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:18px !important;
+  align-items:stretch !important;
+}
+.featured-grid > .featured-card {
+  min-width:0 !important;
+  min-height:300px !important;
+}
+.featured-grid > .featured-card h3 {
+  font-size:clamp(27px,2.5vw,36px) !important;
+  overflow-wrap:anywhere;
+}
+@media(max-width:900px) {
+  .featured-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:620px) {
+  .featured-grid {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+}
+
+/* Give each project its own muted colour from the site's orange / blue / yellow palette. */
+html[data-site-theme="light"] body[data-page="work"] .project-detail#nishaan:hover {
+  background:#FBE1D7 !important;
+  background-color:#FBE1D7 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic:hover {
+  background:#DCEAF8 !important;
+  background-color:#DCEAF8 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail#zariya:hover {
+  background:#F6EBC9 !important;
+  background-color:#F6EBC9 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail#remichain:hover {
+  background:#DDEBE4 !important;
+  background-color:#DDEBE4 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail#retinopathy:hover {
+  background:#E8E2F4 !important;
+  background-color:#E8E2F4 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .project-detail-head :is(h2,h3,.project-tag),
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .project-detail-copy :is(p,.project-note),
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .project-metrics :is(strong,span) {
+  color:#171815 !important;
+  opacity:1 !important;
+}
+
+/* Swap the two Arthic CTA hover treatments: the website button gets the GitHub style,
+   and the GitHub button gets the orange website-button style. */
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a.button-primary:hover {
+  background:#171815 !important;
+  background-color:#171815 !important;
+  color:#FFFFFF !important;
+  border-color:#171815 !important;
+  box-shadow:3px 3px 0 #E9673B !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a.text-link:hover {
+  background:#E9673B !important;
+  background-color:#E9673B !important;
+  color:#171815 !important;
+  border-color:#171815 !important;
+  box-shadow:3px 3px 0 #171815 !important;
+}
+
+/* Pointer hover on Resume headings never draws an outline. */
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:hover,
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:focus:hover,
+html[data-site-theme="light"] body[data-page="resume"] .resume-section:hover > .resume-section-summary {
+  outline:0 !important;
+  outline:none !important;
+  outline-offset:0 !important;
+  box-shadow:none !important;
+}

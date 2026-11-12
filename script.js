@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navLinks = document.querySelectorAll('[data-nav]');
   const path = window.location.pathname;
-  const current = path.includes('experience') ? 'resume' : path.includes('miscellaneous') ? 'miscellaneous' : path.includes('projects') ? 'projects' : 'home';
+  const current = path.includes('experience') ? 'resume' : path.includes('facts') ? 'facts' : path.includes('projects') ? 'projects' : 'home';
   navLinks.forEach(link => {
     const active = link.dataset.nav === current;
     link.classList.toggle('is-active', active);
