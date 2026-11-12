@@ -283,13 +283,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* Theme-coloured cursor: mouse/trackpad only, no interception of normal clicks. */
+/* 2D orange cartoon pointer cursor for mouse/trackpad users. */
 document.addEventListener('DOMContentLoaded', () => {
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
   const cursor = document.createElement('div');
   cursor.className = 'site-cursor';
   cursor.setAttribute('aria-hidden', 'true');
+  cursor.innerHTML = '<svg viewBox="0 0 52 60" focusable="false" aria-hidden="true"><path d="M5 4 L5 45 L17 34 L25 52 Q27 57 32 54 L36 52 Q39 50 37 46 L28 31 L45 30 Q51 29 46 24 L11 3 Q5 0 5 4Z" fill="#E9673B" stroke="#171815" stroke-width="2.8" stroke-linejoin="round"/><path d="M10 9 L10 36 L17 29" fill="none" stroke="#F1D77F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 9 L39 25" fill="none" stroke="#FFB287" stroke-width="2" stroke-linecap="round"/><path d="M39 5 L40.5 9 L44.5 10.5 L40.5 12 L39 16 L37.5 12 L33.5 10.5 L37.5 9Z" fill="#BCE8ED" stroke="#171815" stroke-width="1.2" stroke-linejoin="round"/></svg>';
   document.body.appendChild(cursor);
   document.body.classList.add('has-custom-cursor');
 
