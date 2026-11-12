@@ -37,7 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const movesEl=document.querySelector('[data-maze-moves]');
     const bestEl=document.querySelector('[data-maze-best]');
     const status=document.querySelector('[data-maze-status]');
-    let best=Number(sessionStorage.getItem('night-shift-best')||0);
+    const readBest=()=>{
+      try {
+        const value=Number(window.sessionStorage.getItem('night-shift-best')||0);
+        return Number.isFinite(value)&&value>0?value:0;
+      } catch (_) {
+        return 0;
+      }
+    };
+    const saveBest=value=>{
+      try { window.sessionStorage.setItem('night-shift-best',String(value)); } catch (_) {}
+    };
+    let best=readBest();
     bestEl.textContent=best?String(best):'—';
     const draw=()=>{
       maze.innerHTML='';
@@ -55,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const move=(dx,dy)=>{
       if(done)return;
       const nx=player.x+dx,ny=player.y+dy;
-      if(layout[ny]?.[nx]!==' .'.trim() && layout[ny]?.[nx]!=='.') return;
+      if(layout[ny]?.[nx]!=='.') return;
       player={x:nx,y:ny};moves++;
       if(player.x===7&&player.y===1&&!cheese){cheese=true;status.textContent='Cheese collected. Now find the exit in the bottom-right corner.';}
       if(player.x===7&&player.y===7){
