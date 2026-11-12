@@ -7923,3 +7923,51 @@ html[data-site-theme="light"] body[data-page="resume"] .resume-content > .resume
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce) {
   .site-cursor {display:none !important;}
 }
+
+
+/* Cursor cleanup: one plain sketch pointer only, with no circles or extra marks. */
+.site-cursor {
+  width:25px !important;
+  height:32px !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+  filter:none !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  transform:translate(-2px,-2px) !important;
+  transition:opacity .08s linear !important;
+}
+.site-cursor::before,
+.site-cursor::after {
+  content:none !important;
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+.site-cursor-sketch {
+  display:block !important;
+  width:25px !important;
+  height:32px !important;
+  overflow:visible !important;
+  filter:none !important;
+}
+.site-cursor.is-visible {opacity:1 !important;}
+.site-cursor.is-hover,
+.site-cursor.is-down {
+  transform:translate(-2px,-2px) !important;
+  filter:none !important;
+}
+.site-cursor.is-down .site-cursor-sketch {
+  transform:scale(.96);
+  transform-origin:12% 10%;
+}
+@media(hover:hover) and (pointer:fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor * {cursor:none !important;}
+  body.has-custom-cursor :is(input,textarea,[contenteditable="true"]) {cursor:text !important;}
+}
