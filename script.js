@@ -302,8 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const interactive = 'a,button,[role="button"],summary,input,textarea,select';
     const move = (x, y) => {
-      cursor.style.left = x + 'px';
-      cursor.style.top = y + 'px';
+      cursor.style.setProperty('left', x + 'px', 'important');
+      cursor.style.setProperty('top', y + 'px', 'important');
       cursor.classList.add('is-visible');
       document.body.classList.add('has-custom-cursor');
     };
