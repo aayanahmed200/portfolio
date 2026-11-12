@@ -7506,3 +7506,212 @@ html[data-site-theme="light"] body[data-page="resume"] .resume-section:hover > .
   outline-offset:0 !important;
   box-shadow:none !important;
 }
+
+
+/* 12 Nov 2026 — homepage project cards, 404 polish and a theme-aware custom cursor. */
+
+/* Homepage project cards get the same whole-card hover treatment as the Projects page. */
+html[data-site-theme="light"] body.home-page .project-grid > .project-card {
+  box-sizing:border-box !important;
+  border:1px solid var(--line) !important;
+  border-radius:20px !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  transition:background-color .18s ease,border-color .18s ease !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:hover,
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:focus-within {
+  border-color:rgba(23,24,21,.22) !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-feature:hover,
+html[data-site-theme="light"] body.home-page .project-grid > .project-feature:focus-within {
+  background:#FBE1D7 !important;
+  background-color:#FBE1D7 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small:nth-child(2):is(:hover,:focus-within) {
+  background:#DCEAF8 !important;
+  background-color:#DCEAF8 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-zariya:is(:hover,:focus-within) {
+  background:#F6EBC9 !important;
+  background-color:#F6EBC9 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-remichain:is(:hover,:focus-within) {
+  background:#DDEBE4 !important;
+  background-color:#DDEBE4 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-research:is(:hover,:focus-within) {
+  background:#E8E2F4 !important;
+  background-color:#E8E2F4 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover,:focus-within) :is(
+  h1,h2,h3,h4,p,span,small,strong,time,.project-tag,.project-year,.feature-stats,.feature-stats *,
+  .project-meta-row,.project-foot,.project-foot span
+) {
+  color:#171815 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover,:focus-within) .heading-accent {
+  color:#B45132 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover,:focus-within) .project-arrow-link,
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover,:focus-within) .project-foot a {
+  background:#E9673B !important;
+  background-color:#E9673B !important;
+  color:#171815 !important;
+  border-color:#171815 !important;
+  box-shadow:3px 3px 0 #171815 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover,:focus-within) .project-arrow-link :is(span,svg,path),
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover,:focus-within) .project-foot a :is(span,svg,path) {
+  color:#171815 !important;
+  fill:currentColor !important;
+  stroke:currentColor !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover,:focus-within) .project-foot {
+  border-color:rgba(23,24,21,.18) !important;
+}
+
+/* 404 page: same warm paper, clean typography and tactile buttons as the rest of the site. */
+html[data-site-theme="light"] body.not-found-page {
+  min-height:100vh !important;
+  background:#F4F2ED !important;
+  background-image:none !important;
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-container {
+  width:min(calc(100% - 72px),980px) !important;
+  max-width:980px !important;
+  min-height:calc(100vh - 100px) !important;
+  display:flex !important;
+  align-items:center !important;
+  padding:120px 0 80px !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-composition {
+  width:100% !important;
+  min-height:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-copy {max-width:740px !important;}
+html[data-site-theme="light"] body.not-found-page .error-kicker {
+  color:#6A655D !important;
+  letter-spacing:.16em !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-code {
+  margin:12px 0 24px !important;
+  color:#E9673B !important;
+  font-size:clamp(130px,21vw,230px) !important;
+  line-height:.75 !important;
+  letter-spacing:-.09em !important;
+  text-shadow:5px 5px 0 #171815 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-code span {color:#E9673B !important;}
+html[data-site-theme="light"] body.not-found-page .error-copy h1 {
+  margin:0 0 16px !important;
+  color:#171815 !important;
+  font-size:clamp(42px,6vw,72px) !important;
+  line-height:.98 !important;
+  letter-spacing:-.055em !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-description {
+  max-width:460px !important;
+  color:#555149 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-actions {
+  display:flex !important;
+  align-items:center !important;
+  flex-wrap:wrap !important;
+  gap:14px !important;
+  margin-top:32px !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-home-link,
+html[data-site-theme="light"] body.not-found-page .error-project-link {
+  min-height:50px !important;
+  padding:13px 20px !important;
+  border:1px solid #171815 !important;
+  border-radius:999px !important;
+  box-shadow:4px 4px 0 #171815 !important;
+  transition:transform .16s ease,box-shadow .16s ease,background-color .16s ease !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-home-link {
+  background:#E9673B !important;
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-project-link {
+  background:#BCE8ED !important;
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body.not-found-page .error-home-link:hover,
+html[data-site-theme="light"] body.not-found-page .error-project-link:hover {
+  background:#F1D77F !important;
+  color:#171815 !important;
+  transform:translate(-2px,-2px) !important;
+  box-shadow:6px 6px 0 #171815 !important;
+}
+@media(max-width:640px) {
+  html[data-site-theme="light"] body.not-found-page .error-container {
+    width:calc(100% - 36px) !important;
+    min-height:calc(100vh - 70px) !important;
+    padding:110px 0 58px !important;
+  }
+  html[data-site-theme="light"] body.not-found-page .error-code {
+    font-size:clamp(112px,30vw,160px) !important;
+  }
+  html[data-site-theme="light"] body.not-found-page .error-copy h1 {font-size:42px !important;}
+}
+
+/* Small orange-and-blue custom cursor, enabled only for a precise mouse/trackpad. */
+.site-cursor {
+  position:fixed;
+  z-index:100000;
+  top:0;
+  left:0;
+  width:22px;
+  height:22px;
+  border:1.5px solid #E9673B;
+  border-radius:50%;
+  background:rgba(233,103,59,.07);
+  box-shadow:0 0 0 3px rgba(233,103,59,.08);
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-50%,-50%);
+  transition:width .16s ease,height .16s ease,background-color .16s ease,border-color .16s ease,
+    box-shadow .16s ease,opacity .12s ease;
+  will-change:left,top;
+}
+.site-cursor::after {
+  content:"";
+  position:absolute;
+  width:5px;
+  height:5px;
+  left:50%;
+  top:50%;
+  border-radius:50%;
+  background:#BCE8ED;
+  border:1px solid #171815;
+  transform:translate(-50%,-50%);
+}
+.site-cursor.is-visible {opacity:1;}
+.site-cursor.is-hover {
+  width:38px;
+  height:38px;
+  border-color:#171815;
+  background:rgba(188,232,237,.45);
+  box-shadow:0 0 0 4px rgba(188,232,237,.2);
+}
+.site-cursor.is-hover::after {width:7px;height:7px;background:#E9673B;}
+.site-cursor.is-down {width:14px;height:14px;background:#E9673B;}
+.site-cursor.is-text-entry {opacity:0 !important;}
+@media(hover:hover) and (pointer:fine) {
+  body.has-custom-cursor,body.has-custom-cursor * {cursor:none !important;}
+  body.has-custom-cursor :is(input,textarea,[contenteditable="true"]) {cursor:text !important;}
+}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce) {
+  .site-cursor {display:none !important;}
+}

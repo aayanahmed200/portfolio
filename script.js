@@ -281,3 +281,48 @@ document.addEventListener('DOMContentLoaded', () => {
     window.setTimeout(() => window.location.assign(url.href), 45);
   });
 });
+
+
+/* Theme-coloured cursor: mouse/trackpad only, no interception of normal clicks. */
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  const cursor = document.createElement('div');
+  cursor.className = 'site-cursor';
+  cursor.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(cursor);
+  document.body.classList.add('has-custom-cursor');
+
+  const selector = [
+    'a','button','[role="button"]','.project-card','.project-card-small',
+    '.project-detail','.featured-card','.resume-section-summary',
+    '.error-home-link','.error-project-link'
+  ].join(',');
+
+  document.addEventListener('pointermove', event => {
+    if (event.pointerType !== 'mouse') return;
+    cursor.style.left = event.clientX + 'px';
+    cursor.style.top = event.clientY + 'px';
+    cursor.classList.add('is-visible');
+  }, { passive:true });
+
+  document.addEventListener('pointerover', event => {
+    if (event.pointerType && event.pointerType !== 'mouse') return;
+    const target = event.target && event.target.closest ? event.target : null;
+    cursor.classList.toggle('is-hover', Boolean(target && target.closest(selector)));
+    cursor.classList.toggle('is-text-entry', Boolean(target && target.closest('input,textarea,[contenteditable="true"]')));
+  });
+
+  document.addEventListener('pointerout', event => {
+    const next = event.relatedTarget && event.relatedTarget.closest ? event.relatedTarget : null;
+    cursor.classList.toggle('is-hover', Boolean(next && next.closest(selector)));
+    cursor.classList.toggle('is-text-entry', Boolean(next && next.closest('input,textarea,[contenteditable="true"]')));
+    if (!event.relatedTarget) cursor.classList.remove('is-visible','is-hover','is-down','is-text-entry');
+  });
+
+  document.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'mouse') cursor.classList.add('is-down');
+  });
+  document.addEventListener('pointerup', () => cursor.classList.remove('is-down'));
+  document.addEventListener('pointercancel', () => cursor.classList.remove('is-down'));
+});
