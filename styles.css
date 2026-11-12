@@ -6978,3 +6978,97 @@ html[data-site-theme="light"] body .resume-section-summary:is(:hover,:focus,:foc
   color:#171815 !important;
   background:transparent !important;
 }
+
+
+/* Homepage portrait: assign it to the visual cell of the hero grid. */
+html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+  grid-area:visual !important;
+  justify-self:center !important;
+  align-self:center !important;
+  display:block !important;
+  width:min(380px,100%) !important;
+  max-width:100% !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  outline:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  clip-path:none !important;
+  object-fit:contain !important;
+  object-position:center top !important;
+}
+@media(max-width:850px) {
+  html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+    grid-area:visual !important;
+    width:min(310px,76vw) !important;
+    justify-self:center !important;
+    margin:0 auto 26px !important;
+  }
+}
+
+/* Featured-in cards keep their normal surface; no lift or recolour on hover. */
+html[data-site-theme="light"] body.home-page .featured-section .featured-card,
+html[data-site-theme="light"] body.home-page .featured-section .featured-card:hover,
+html[data-site-theme="light"] body.home-page .featured-section .featured-card:focus-within {
+  background:#FFFCF7 !important;
+  background-color:#FFFCF7 !important;
+  background-image:none !important;
+  color:#171815 !important;
+  border-color:rgba(23,24,21,.15) !important;
+  box-shadow:0 8px 24px rgba(23,24,21,.045) !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+
+/* The homepage research card is also static, with readable text on paper. */
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small.project-research,
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small.project-research:hover,
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small.project-research:focus-within {
+  background:#FFFCF7 !important;
+  background-color:#FFFCF7 !important;
+  background-image:none !important;
+  color:#171815 !important;
+  border-color:rgba(23,24,21,.15) !important;
+  box-shadow:0 8px 24px rgba(23,24,21,.045) !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small.project-research :is(h1,h2,h3,p,span,small,time,.project-tag,.project-foot) {
+  color:#171815 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small.project-research .project-tag,
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small.project-research .project-foot span {
+  color:#55534D !important;
+}
+
+/* Projects page: one light panel and readable ink for every case study.
+   Remove obsolete fourth/fifth-card dark and yellow exceptions. */
+body[data-page="work"] .project-detail:nth-of-type(4),
+body[data-page="work"] .project-detail:nth-of-type(5),
+body[data-page="work"] .project-detail:nth-of-type(6) {
+  background:#FFFCF7 !important;
+  background-color:#FFFCF7 !important;
+  background-image:none !important;
+  color:#171815 !important;
+}
+body[data-page="work"] .project-detail:nth-of-type(4) :is(h1,h2,h3,h4,p,span,small,strong,em,time,label) {
+  color:#171815 !important;
+  opacity:1 !important;
+}
+body[data-page="work"] .project-detail:nth-of-type(4) .project-detail-head h2,
+body[data-page="work"] .project-detail:nth-of-type(4) .project-detail-copy p,
+body[data-page="work"] .project-detail:nth-of-type(4) .project-metrics strong {
+  color:#171815 !important;
+}
+body[data-page="work"] .project-detail:nth-of-type(4) :is(.project-tag,.project-note,.project-metrics span) {
+  color:#55534D !important;
+}
