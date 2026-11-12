@@ -8023,3 +8023,23 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,*::-webk
   background:#C95430 !important;
   background-clip:padding-box !important;
 }
+
+
+/* Resume tabs: suppress pointer-hover decoration only; keep keyboard focus visible. */
+@media (hover:hover) and (pointer:fine) {
+  html[data-site-theme="light"] body[data-page="resume"] .resume-content > .resume-section > .resume-section-summary:hover:not(:focus-visible) {
+    border:0 !important;
+    border-color:transparent !important;
+    outline:none !important;
+    outline-offset:0 !important;
+    box-shadow:none !important;
+    transform:none !important;
+    filter:none !important;
+  }
+  html[data-site-theme="light"] body[data-page="resume"] .resume-content > .resume-section > .resume-section-summary:hover:not(:focus-visible)::before,
+  html[data-site-theme="light"] body[data-page="resume"] .resume-content > .resume-section > .resume-section-summary:hover:not(:focus-visible)::after {
+    border:0 !important;
+    outline:none !important;
+    box-shadow:none !important;
+  }
+}
