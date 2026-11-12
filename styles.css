@@ -7072,3 +7072,184 @@ body[data-page="work"] .project-detail:nth-of-type(4) .project-metrics strong {
 body[data-page="work"] .project-detail:nth-of-type(4) :is(.project-tag,.project-note,.project-metrics span) {
   color:#55534D !important;
 }
+
+/* 12 Nov 2026 — static information cards, consistent ink, and a theme-aware portrait frame. */
+
+/* Research & Experience entries are informational, not hover controls. */
+html[data-site-theme="light"] body.home-page #about .experience-item,
+html[data-site-theme="light"] body.home-page #about .experience-item:is(:hover,:focus-within) {
+  background:var(--surface) !important;
+  background-color:var(--surface) !important;
+  background-image:none !important;
+  color:var(--text) !important;
+  border-color:var(--line) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body.home-page #about .experience-item h4 {
+  color:var(--text) !important;
+}
+html[data-site-theme="light"] body.home-page #about .experience-item p {
+  color:var(--muted) !important;
+}
+html[data-site-theme="light"] body.home-page #about .experience-item .experience-date {
+  color:var(--muted-soft) !important;
+}
+html[data-site-theme="light"] body.home-page #about .experience-item .experience-point {
+  background:var(--accent) !important;
+  box-shadow:none !important;
+}
+
+/* Informational cards stay still; their links and buttons keep their own states. */
+html[data-site-theme="light"] body.home-page .featured-section .featured-card,
+html[data-site-theme="light"] body.home-page .featured-section .featured-card:is(:hover,:focus-within) {
+  background:var(--surface) !important;
+  background-color:var(--surface) !important;
+  color:var(--text) !important;
+  border-color:var(--line) !important;
+  box-shadow:0 8px 24px rgba(23,24,21,.045) !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small,
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small:is(:hover,:focus-within) {
+  background:var(--surface) !important;
+  background-color:var(--surface) !important;
+  background-image:none !important;
+  color:var(--text) !important;
+  border-color:var(--line) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small :is(h1,h2,h3,h4,p,span,small,time,strong) {
+  color:var(--text) !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small :is(p,.project-tag,.project-foot span) {
+  color:var(--muted) !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card-small :is(a) {
+  color:var(--accent) !important;
+}
+
+/* All non-interactive card surfaces remain unchanged under the pointer. */
+html[data-site-theme="light"] body :is(
+  .project-card,.project-card-small,.project-feature,.project-detail,
+  .featured-card,.context-card,.interest-tile,.education-card,
+  .experience-card,.experience-item,.skill-card
+):is(:hover,:focus-within) {
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail:nth-of-type(n+4),
+html[data-site-theme="light"] body[data-page="work"] .project-detail:nth-of-type(n+4):is(:hover,:focus-within) {
+  background:var(--surface) !important;
+  background-color:var(--surface) !important;
+  background-image:none !important;
+  color:var(--text) !important;
+  border-color:var(--line) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail:nth-of-type(n+4) :is(h1,h2,h3,h4,h5,h6,strong) {
+  color:var(--text) !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail:nth-of-type(n+4) :is(p,small,li,time,.project-tag,.project-note,.project-metrics span) {
+  color:var(--muted) !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .skill-card,
+html[data-site-theme="light"] body[data-page="work"] .skill-card:is(:hover,:focus-within) {
+  background:var(--surface) !important;
+  background-color:var(--surface) !important;
+  color:var(--text) !important;
+  border-color:var(--line) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .skill-card h3 {
+  color:var(--text) !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .skill-card p {
+  color:var(--muted) !important;
+}
+
+/* Resume accordion rows stay neutral; keyboard focus remains clearly visible. */
+html[data-site-theme="light"] body .resume-section-summary,
+html[data-site-theme="light"] body .resume-section-summary:hover {
+  background:var(--surface-soft) !important;
+  background-color:var(--surface-soft) !important;
+  color:var(--text) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body .resume-section-summary :is(h2,h3,span,.resume-section-number,.resume-section-toggle),
+html[data-site-theme="light"] body .resume-section-summary:hover :is(h2,h3,span,.resume-section-number,.resume-section-toggle) {
+  color:var(--text) !important;
+  background:transparent !important;
+}
+html[data-site-theme="light"] body .resume-section-summary:focus-visible {
+  outline:2px solid var(--accent) !important;
+  outline-offset:3px !important;
+}
+html[data-site-theme="light"] body .resume-section-toggle {
+  background:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+
+/* Keep the portrait in the existing hero visual grid cell, with a frame using theme tokens. */
+html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+  grid-area:visual !important;
+  justify-self:center !important;
+  align-self:center !important;
+  display:block !important;
+  position:relative !important;
+  box-sizing:border-box !important;
+  width:min(380px,100%) !important;
+  max-width:100% !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:9px !important;
+  border:1px solid var(--line) !important;
+  border-radius:26px !important;
+  outline:0 !important;
+  background:var(--surface) !important;
+  background-color:var(--surface) !important;
+  background-image:none !important;
+  box-shadow:0 14px 36px rgba(23,24,21,.09) !important;
+  transform:none !important;
+  filter:none !important;
+  clip-path:none !important;
+  object-fit:contain !important;
+  object-position:center top !important;
+  transition:none !important;
+}
+@media(max-width:850px) {
+  html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+    width:min(310px,76vw) !important;
+    margin:0 auto 26px !important;
+    border-radius:23px !important;
+  }
+}
+@media(max-width:640px) {
+  html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+    width:min(280px,78vw) !important;
+    margin:0 auto 22px !important;
+    padding:7px !important;
+    border-radius:21px !important;
+  }
+}
