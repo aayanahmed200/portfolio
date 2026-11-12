@@ -7715,3 +7715,55 @@ html[data-site-theme="light"] body.not-found-page .error-project-link:hover {
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce) {
   .site-cursor {display:none !important;}
 }
+
+
+/* 12 Nov 2026 — 2D mouse mascot cursor and final live-photo frame. */
+.site-cursor {
+  position:fixed;
+  z-index:100000;
+  top:0;
+  left:0;
+  width:44px;
+  height:50px;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-9px,-8px) rotate(-7deg);
+  transform-origin:30% 28%;
+  transition:opacity .12s ease,transform .16s cubic-bezier(.2,.8,.2,1);
+  will-change:left,top,transform;
+}
+.site-cursor-mouse {
+  display:block;
+  width:44px;
+  height:50px;
+  overflow:visible;
+  filter:drop-shadow(2px 3px 0 rgba(23,24,21,.12));
+}
+.site-cursor.is-visible {opacity:1;}
+.site-cursor.is-hover {
+  transform:translate(-9px,-8px) rotate(5deg) scale(1.13);
+}
+.site-cursor.is-down {
+  transform:translate(-9px,-8px) rotate(-12deg) scale(.9);
+}
+.site-cursor.is-text-entry {opacity:0 !important;}
+@media(hover:hover) and (pointer:fine) {
+  body.has-custom-cursor,body.has-custom-cursor * {cursor:none !important;}
+  body.has-custom-cursor :is(input,textarea,[contenteditable="true"]) {cursor:text !important;}
+}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce) {
+  .site-cursor {display:none !important;}
+}
+
+/* The supplied 2026 school-event portrait uses the button-like orange offset shadow. */
+html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+  border:1px solid #171815 !important;
+  border-radius:26px !important;
+  padding:9px !important;
+  background:#FFFCF5 !important;
+  box-shadow:6px 6px 0 #E9673B !important;
+  object-fit:cover !important;
+  object-position:center 42% !important;
+  filter:none !important;
+  transition:none !important;
+}
