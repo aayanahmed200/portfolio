@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
   refresh();
 });
 
-/* Light-only page loader and same-site page transitions. */
+/* Faster page entrance and same-site navigation without waiting for every font/image. */
 document.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('site-page-loader');
   if (!loader) return;
@@ -247,34 +247,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const showLoader = () => loader.classList.add('is-visible');
   const hideLoader = () => loader.classList.remove('is-visible');
 
-  const waitForPageAssets = async () => {
-    const windowLoaded = document.readyState === 'complete'
+  const waitForLeadVisual = async () => {
+    const leadImage = document.querySelector('img.hero-portrait');
+    const imageReady = !leadImage || leadImage.complete
       ? Promise.resolve()
-      : new Promise(resolve => window.addEventListener('load', resolve, { once: true }));
+      : new Promise(resolve => {
+          leadImage.addEventListener('load', resolve, { once: true });
+          leadImage.addEventListener('error', resolve, { once: true });
+        });
+    const safetyLimit = new Promise(resolve => window.setTimeout(resolve, 550));
 
-    const fontsReady = document.fonts && document.fonts.ready
-      ? document.fonts.ready.catch(() => {})
-      : Promise.resolve();
-
-    const eagerImages = Array.from(document.images).filter(img =>
-      img.loading !== 'lazy' || img.fetchPriority === 'high' || img.hasAttribute('fetchpriority')
-    );
-    const imagesReady = Promise.all(eagerImages.map(img => new Promise(resolve => {
-      const finish = async () => {
-        try { if (img.decode) await img.decode(); } catch (_) {}
-        resolve();
-      };
-      if (img.complete) { finish(); return; }
-      img.addEventListener('load', finish, { once: true });
-      img.addEventListener('error', resolve, { once: true });
-    })));
-
-    await Promise.all([windowLoaded, fontsReady, imagesReady]);
-    hideLoader();
+    await Promise.race([imageReady, safetyLimit]);
+    window.requestAnimationFrame(() => window.requestAnimationFrame(hideLoader));
   };
 
   showLoader();
-  waitForPageAssets();
+  waitForLeadVisual();
 
   document.addEventListener('click', event => {
     const link = event.target.closest && event.target.closest('a[href]');
@@ -290,6 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     event.preventDefault();
     showLoader();
-    window.setTimeout(() => window.location.assign(url.href), 90);
+    window.setTimeout(() => window.location.assign(url.href), 45);
   });
 });

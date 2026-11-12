@@ -7253,3 +7253,92 @@ html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
     border-radius:21px !important;
   }
 }
+
+
+/* 12 Nov 2026 — warm portrait frame, legible project arrows, and focused heading-strip hovers. */
+
+/* Orange project actions always use dark ink for the arrow itself. */
+html[data-site-theme="light"] body.home-page .project-grid :is(.project-arrow-link,.project-foot a) {
+  background:#E9673B !important;
+  background-color:#E9673B !important;
+  color:#171815 !important;
+  border:1px solid #171815 !important;
+  box-shadow:3px 3px 0 #171815 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid :is(.project-arrow-link,.project-foot a) :is(span,svg,path) {
+  color:#171815 !important;
+  fill:currentColor !important;
+  stroke:currentColor !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid :is(.project-arrow-link,.project-foot a):is(:hover,:focus-visible) {
+  background:#F1D77F !important;
+  background-color:#F1D77F !important;
+  color:#171815 !important;
+  border-color:#171815 !important;
+  box-shadow:4px 4px 0 #171815 !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid :is(.project-arrow-link,.project-foot a):is(:hover,:focus-visible) :is(span,svg,path) {
+  color:#171815 !important;
+  fill:currentColor !important;
+  stroke:currentColor !important;
+}
+
+/* A subtle orange glow around the higher-resolution portrait, without a hover effect. */
+html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+  border-color:rgba(233,103,59,.34) !important;
+  box-shadow:
+    0 16px 38px rgba(233,103,59,.27),
+    0 5px 14px rgba(23,24,21,.07) !important;
+}
+
+/* Resume: only the accordion heading bars change colour on hover. */
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary,
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:hover {
+  background:var(--surface-soft) !important;
+  background-color:var(--surface-soft) !important;
+  color:var(--text) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  transition:background-color .18s ease,color .18s ease !important;
+}
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:hover {
+  background:#BCE8ED !important;
+  background-color:#BCE8ED !important;
+}
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:is(:hover,:focus-visible) :is(h2,h3,span,.resume-section-number,.resume-section-toggle) {
+  color:#171815 !important;
+  background:transparent !important;
+}
+
+/* Projects: hover is restricted to the title strips, not the project bodies. */
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head {
+  width:100% !important;
+  padding:11px 14px !important;
+  margin:0 0 16px !important;
+  border-radius:14px !important;
+  background:transparent !important;
+  transition:background-color .18s ease !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head > :first-child {
+  flex:1 1 auto !important;
+  min-width:0 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head:hover {
+  background:#BCE8ED !important;
+  background-color:#BCE8ED !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head :is(h2,h3) {
+  color:var(--text) !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head .project-tag {
+  color:var(--muted) !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head:hover :is(h2,h3,.project-tag) {
+  color:#171815 !important;
+}
+
+/* Shorter loader: wait only for the lead portrait, or a small safety timeout. */
+.site-page-loader {
+  transition:opacity .14s ease,visibility .14s ease,background-color .18s ease !important;
+}
