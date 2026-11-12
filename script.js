@@ -19,23 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     else link.removeAttribute('aria-current');
   });
 
-  // A small pixel mouse companion, fixed to the viewport so it follows across the whole tab.
-  const mouse = document.querySelector('.pixel-mouse');
-  if (mouse && !reduceMotion && matchMedia('(pointer:fine)').matches) {
-    let targetX=-60,targetY=-60,x=-60,y=-60,raf=0;
-    const animate=()=>{
-      x+=(targetX-x)*.22; y+=(targetY-y)*.22;
-      mouse.style.transform='translate3d('+x+'px,'+y+'px,0)';
-      if(Math.abs(targetX-x)+Math.abs(targetY-y)>.4) raf=requestAnimationFrame(animate); else raf=0;
-    };
-    window.addEventListener('pointermove',e=>{
-      targetX=e.clientX+15; targetY=e.clientY+14; mouse.classList.add('is-visible');
-      if(!raf) raf=requestAnimationFrame(animate);
-    },{passive:true});
-    window.addEventListener('pointerleave',()=>mouse.classList.remove('is-visible'));
-    document.addEventListener('visibilitychange',()=>{if(document.hidden) mouse.classList.remove('is-visible');});
-  }
-
   // Night Shift: a compact maze with walls, a cheese checkpoint, and an exit.
   const maze=document.querySelector('[data-maze-board]');
   if(maze){
@@ -281,61 +264,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.setTimeout(() => window.location.assign(url.href), 45);
   });
 });
-
-
-/* Simple orange sketched pointer cursor. Native cursor stays visible until this is ready. */
-(() => {
-  const startCursor = () => {
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    if (document.querySelector('.site-cursor')) return;
-
-    const cursor = document.createElement('div');
-    cursor.className = 'site-cursor';
-    cursor.setAttribute('aria-hidden', 'true');
-    cursor.innerHTML = `
-      <svg class="site-cursor-sketch" viewBox="0 0 30 38" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M3.2 2.8 C2.7 2.5 2.2 2.9 2.3 3.8 L3.2 34.2 C3.2 35.2 4 35.5 4.8 34.7 L12.4 26.4 L18.2 36.3 C18.7 37.2 19.4 37.4 20.3 36.9 L24 34.8 C24.9 34.3 25.1 33.5 24.6 32.7 L18.8 22.4 L27.3 20.8 C28.5 20.6 28.7 19.6 27.5 18.9 Z"
-          fill="#FFFCF5" stroke="#E9673B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    `;
-    document.body.appendChild(cursor);
-
-    const interactive = 'a,button,[role="button"],summary,input,textarea,select';
-    const move = (x, y) => {
-      cursor.style.setProperty('left', x + 'px', 'important');
-      cursor.style.setProperty('top', y + 'px', 'important');
-      cursor.classList.add('is-visible');
-      document.body.classList.add('has-custom-cursor');
-    };
-
-    document.addEventListener('mousemove', event => move(event.clientX, event.clientY), {passive:true});
-    document.addEventListener('pointermove', event => {
-      if (event.pointerType === 'mouse') move(event.clientX, event.clientY);
-    }, {passive:true});
-
-    document.addEventListener('mouseover', event => {
-      const target = event.target && event.target.closest ? event.target : null;
-      cursor.classList.toggle('is-hover', Boolean(target && target.closest(interactive)));
-      cursor.classList.toggle('is-text-entry', Boolean(target && target.closest('input,textarea,[contenteditable="true"]')));
-    });
-
-    document.addEventListener('mousedown', () => cursor.classList.add('is-down'));
-    document.addEventListener('mouseup', () => cursor.classList.remove('is-down'));
-    document.addEventListener('mouseleave', () => {
-      cursor.classList.remove('is-visible','is-hover','is-down');
-      document.body.classList.remove('has-custom-cursor');
-    });
-    document.addEventListener('mouseenter', () => {
-      if (cursor.style.left && cursor.style.top) {
-        cursor.classList.add('is-visible');
-        document.body.classList.add('has-custom-cursor');
-      }
-    });
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', startCursor, {once:true});
-  } else {
-    startCursor();
-  }
-})();
