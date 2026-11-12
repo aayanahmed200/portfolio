@@ -6941,3 +6941,40 @@ html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
     margin-bottom:22px !important;
   }
 }
+
+
+/* Only controls receive hover feedback. Page sections remain visually still. */
+html[data-site-theme="light"] body :is(
+  section,.section,.work-section,.featured-section,.about-section,.contact-section,
+  .resume-section,.resume-section-body
+):is(:hover,:focus-within) {
+  transform:none !important;
+  filter:none !important;
+  box-shadow:none !important;
+}
+/* About cards stay visually unchanged; links and buttons keep their own hover. */
+html[data-site-theme="light"] body #about :is(.context-card,.education-card,.experience-card),
+html[data-site-theme="light"] body #about :is(.context-card,.education-card,.experience-card):is(:hover,:focus-within) {
+  background:#FFFEFA !important;
+  background-color:#FFFEFA !important;
+  color:#171815 !important;
+  border-color:rgba(23,24,21,.15) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+}
+/* Resume summaries open on click, but never recolour on hover or focus. */
+html[data-site-theme="light"] body .resume-section-summary:is(:hover,:focus,:focus-visible) {
+  background:#EAE5DA !important;
+  background-color:#EAE5DA !important;
+  color:#171815 !important;
+  border-color:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  outline:none !important;
+}
+html[data-site-theme="light"] body .resume-section-summary:is(:hover,:focus,:focus-visible) * {
+  color:#171815 !important;
+  background:transparent !important;
+}
