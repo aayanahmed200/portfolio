@@ -283,56 +283,59 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* A simple, hand-sketched orange pointer cursor. */
-document.addEventListener('DOMContentLoaded', () => {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+/* Simple orange sketched pointer cursor. Native cursor stays visible until this is ready. */
+(() => {
+  const startCursor = () => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (document.querySelector('.site-cursor')) return;
 
-  const cursor = document.createElement('div');
-  cursor.className = 'site-cursor';
-  cursor.setAttribute('aria-hidden', 'true');
-  cursor.innerHTML = `
-    <svg class="site-cursor-sketch" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M4.1 3.2 C3.9 2.1 2.1 2.5 2.2 4.1 L3.1 34.8 C3.2 36.1 4.4 36.2 5.3 35.2 L13.5 26.8 L19.5 37.4 C20.2 38.7 21.2 38.9 22.4 38.2 L26 36.2 C27.2 35.5 27.4 34.5 26.7 33.3 L20.9 22.8 L29.1 21.2 C31 20.8 31.2 19 29.4 18 Z"
-        fill="#FFFCF5" stroke="#E9673B" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M5.4 6.1 L6.1 31.1 L13.8 23.2 M22.2 25.1 L27.7 20.2"
-        fill="none" stroke="#E9673B" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity=".78"/>
-      <path d="M17.4 28.7 L22.2 36.9"
-        fill="none" stroke="#E9673B" stroke-width="1.25" stroke-linecap="round" opacity=".8"/>
-    </svg>
-  `;
-  document.body.appendChild(cursor);
-  document.body.classList.add('has-custom-cursor');
+    const cursor = document.createElement('div');
+    cursor.className = 'site-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    cursor.innerHTML = `
+      <svg class="site-cursor-sketch" viewBox="0 0 30 38" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3.2 2.8 C2.7 2.5 2.2 2.9 2.3 3.8 L3.2 34.2 C3.2 35.2 4 35.5 4.8 34.7 L12.4 26.4 L18.2 36.3 C18.7 37.2 19.4 37.4 20.3 36.9 L24 34.8 C24.9 34.3 25.1 33.5 24.6 32.7 L18.8 22.4 L27.3 20.8 C28.5 20.6 28.7 19.6 27.5 18.9 Z"
+          fill="#FFFCF5" stroke="#E9673B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+    document.body.appendChild(cursor);
 
-  const selector = [
-    'a','button','[role="button"]','.project-card','.project-card-small',
-    '.project-detail','.featured-card','.resume-section-summary',
-    '.error-home-link','.error-project-link'
-  ].join(',');
+    const interactive = 'a,button,[role="button"],summary,input,textarea,select';
+    const move = (x, y) => {
+      cursor.style.left = x + 'px';
+      cursor.style.top = y + 'px';
+      cursor.classList.add('is-visible');
+      document.body.classList.add('has-custom-cursor');
+    };
 
-  document.addEventListener('pointermove', event => {
-    if (event.pointerType !== 'mouse') return;
-    cursor.style.left = event.clientX + 'px';
-    cursor.style.top = event.clientY + 'px';
-    cursor.classList.add('is-visible');
-  }, { passive:true });
+    document.addEventListener('mousemove', event => move(event.clientX, event.clientY), {passive:true});
+    document.addEventListener('pointermove', event => {
+      if (event.pointerType === 'mouse') move(event.clientX, event.clientY);
+    }, {passive:true});
 
-  document.addEventListener('pointerover', event => {
-    if (event.pointerType && event.pointerType !== 'mouse') return;
-    const target = event.target && event.target.closest ? event.target : null;
-    cursor.classList.toggle('is-hover', Boolean(target && target.closest(selector)));
-    cursor.classList.toggle('is-text-entry', Boolean(target && target.closest('input,textarea,[contenteditable="true"]')));
-  });
+    document.addEventListener('mouseover', event => {
+      const target = event.target && event.target.closest ? event.target : null;
+      cursor.classList.toggle('is-hover', Boolean(target && target.closest(interactive)));
+      cursor.classList.toggle('is-text-entry', Boolean(target && target.closest('input,textarea,[contenteditable="true"]')));
+    });
 
-  document.addEventListener('pointerout', event => {
-    const next = event.relatedTarget && event.relatedTarget.closest ? event.relatedTarget : null;
-    cursor.classList.toggle('is-hover', Boolean(next && next.closest(selector)));
-    cursor.classList.toggle('is-text-entry', Boolean(next && next.closest('input,textarea,[contenteditable="true"]')));
-    if (!event.relatedTarget) cursor.classList.remove('is-visible','is-hover','is-down','is-text-entry');
-  });
+    document.addEventListener('mousedown', () => cursor.classList.add('is-down'));
+    document.addEventListener('mouseup', () => cursor.classList.remove('is-down'));
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-visible','is-hover','is-down');
+      document.body.classList.remove('has-custom-cursor');
+    });
+    document.addEventListener('mouseenter', () => {
+      if (cursor.style.left && cursor.style.top) {
+        cursor.classList.add('is-visible');
+        document.body.classList.add('has-custom-cursor');
+      }
+    });
+  };
 
-  document.addEventListener('pointerdown', event => {
-    if (event.pointerType === 'mouse') cursor.classList.add('is-down');
-  });
-  document.addEventListener('pointerup', () => cursor.classList.remove('is-down'));
-  document.addEventListener('pointercancel', () => cursor.classList.remove('is-down'));
-});
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startCursor, {once:true});
+  } else {
+    startCursor();
+  }
+})();
