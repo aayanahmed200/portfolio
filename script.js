@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* Small 2D mouse mascot cursor: decorative only, never intercepts clicks. */
+/* A simple, hand-sketched orange pointer cursor. */
 document.addEventListener('DOMContentLoaded', () => {
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
@@ -291,21 +291,13 @@ document.addEventListener('DOMContentLoaded', () => {
   cursor.className = 'site-cursor';
   cursor.setAttribute('aria-hidden', 'true');
   cursor.innerHTML = `
-    <svg class="site-cursor-mouse" viewBox="0 0 52 58" width="44" height="50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M35 43 C42 47 46 44 48 39 C49 36 47 34 44 35" fill="none" stroke="#36415A" stroke-width="2.6" stroke-linecap="round"/>
-      <path d="M11 19 C4 11 7 3 14 4 C20 5 22 12 21 19Z" fill="#FFFCF5" stroke="#171815" stroke-width="2"/>
-      <path d="M32 18 C34 8 42 4 46 10 C49 16 44 22 38 24Z" fill="#FFFCF5" stroke="#171815" stroke-width="2"/>
-      <path d="M12 15 C9 10 12 7 15 9 C17 10 17 13 16 16Z" fill="#E9673B"/>
-      <path d="M38 16 C40 11 43 10 44 13 C45 16 42 18 39 19Z" fill="#E9673B"/>
-      <ellipse cx="27" cy="31" rx="18" ry="19" fill="#FFFCF5" stroke="#171815" stroke-width="2.2"/>
-      <ellipse cx="20" cy="28" rx="2" ry="2.6" fill="#171815"/>
-      <ellipse cx="34" cy="28" rx="2" ry="2.6" fill="#171815"/>
-      <ellipse cx="27" cy="35" rx="6.2" ry="4.4" fill="#F5C9BC"/>
-      <ellipse cx="27" cy="33.5" rx="2.4" ry="1.7" fill="#E9673B" stroke="#171815" stroke-width=".8"/>
-      <path d="M27 35.2 Q24 39 20.5 37 M27 35.2 Q30 39 33.5 37" fill="none" stroke="#171815" stroke-width="1.25" stroke-linecap="round"/>
-      <path d="M10 33 L3.5 30.5 M10 37 L3 37 M43 33 L50 30.5 M43 37 L50 37" fill="none" stroke="#36415A" stroke-width="1.4" stroke-linecap="round"/>
-      <path d="M19 48 Q27 44 35 48 L31 54 L25 52.5Z" fill="#BCE8ED" stroke="#171815" stroke-width="1.5" stroke-linejoin="round"/>
-      <path d="M22 48 L24 53" stroke="#E9673B" stroke-width="1.5" stroke-linecap="round"/>
+    <svg class="site-cursor-sketch" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4.1 3.2 C3.9 2.1 2.1 2.5 2.2 4.1 L3.1 34.8 C3.2 36.1 4.4 36.2 5.3 35.2 L13.5 26.8 L19.5 37.4 C20.2 38.7 21.2 38.9 22.4 38.2 L26 36.2 C27.2 35.5 27.4 34.5 26.7 33.3 L20.9 22.8 L29.1 21.2 C31 20.8 31.2 19 29.4 18 Z"
+        fill="#FFFCF5" stroke="#E9673B" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5.4 6.1 L6.1 31.1 L13.8 23.2 M22.2 25.1 L27.7 20.2"
+        fill="none" stroke="#E9673B" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity=".78"/>
+      <path d="M17.4 28.7 L22.2 36.9"
+        fill="none" stroke="#E9673B" stroke-width="1.25" stroke-linecap="round" opacity=".8"/>
     </svg>
   `;
   document.body.appendChild(cursor);
