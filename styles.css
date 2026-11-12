@@ -7342,3 +7342,83 @@ html[data-site-theme="light"] body[data-page="work"] .project-detail-head:hover 
 .site-page-loader {
   transition:opacity .14s ease,visibility .14s ease,background-color .18s ease !important;
 }
+
+
+/* 12 Nov 2026 — hard orange portrait-frame shadow and full-entry hover states. */
+
+/* The portrait frame uses the same crisp offset-shadow language as the buttons, not a glow. */
+html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+  border:1px solid #171815 !important;
+  background:var(--surface) !important;
+  background-color:var(--surface) !important;
+  box-shadow:6px 6px 0 #E9673B !important;
+  filter:none !important;
+  transition:none !important;
+}
+
+/* Resume: no visible outline on pointer hover; accordion behaviour is unchanged. */
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:hover,
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:focus:hover {
+  outline:none !important;
+  outline-offset:0 !important;
+  box-shadow:none !important;
+}
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:hover::before,
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:hover::after {
+  outline:none !important;
+}
+
+/* Projects: the entire project entry changes surface, not just its title strip. */
+html[data-site-theme="light"] body[data-page="work"] .project-detail,
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover {
+  box-sizing:border-box !important;
+  padding:22px 22px 28px !important;
+  margin:0 0 16px !important;
+  border:1px solid var(--line) !important;
+  border-radius:18px !important;
+  background:var(--surface) !important;
+  background-color:var(--surface) !important;
+  background-image:none !important;
+  box-shadow:none !important;
+  transition:background-color .18s ease,border-color .18s ease !important;
+  transform:none !important;
+  filter:none !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover {
+  background:#BCE8ED !important;
+  background-color:#BCE8ED !important;
+  border-color:rgba(23,24,21,.24) !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail .project-detail-head,
+html[data-site-theme="light"] body[data-page="work"] .project-detail .project-detail-head:hover {
+  width:auto !important;
+  padding:0 !important;
+  margin:0 0 16px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .project-detail-head :is(h2,h3,.project-tag),
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .project-detail-copy :is(p,.project-note),
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .project-metrics :is(strong,span) {
+  color:#171815 !important;
+  opacity:1 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .project-actions :is(a,span,svg,path),
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover > .button-primary {
+  color:#171815 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .project-actions > a.button-primary,
+html[data-site-theme="light"] body[data-page="work"] .project-detail:hover > a.button-primary {
+  background:#E9673B !important;
+  border-color:#171815 !important;
+  box-shadow:3px 3px 0 #171815 !important;
+}
+@media(max-width:640px) {
+  html[data-site-theme="light"] body[data-page="work"] .project-detail {
+    padding:18px 16px 22px !important;
+    border-radius:15px !important;
+  }
+}
