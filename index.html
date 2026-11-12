@@ -12,56 +12,60 @@
   <link rel="icon" href="/favicon.svg?v=20261109-clean" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css?v=20261112-still-sections-no-frame">
 
+  
   <style id="homepage-final-visual-fixes">
-    /* Keep the About section's page background exactly the same on hover. */
+    /* The uploaded portrait is shown directly, with no frame or effects. */
+    body.home-page .hero > .hero-portrait {
+      display:block !important;
+      position:relative !important;
+      width:min(310px,76vw) !important;
+      height:auto !important;
+      max-width:100% !important;
+      margin:0 auto 28px !important;
+      padding:0 !important;
+      border:0 !important;
+      border-radius:0 !important;
+      background:transparent !important;
+      box-shadow:none !important;
+      transform:none !important;
+      filter:none !important;
+      object-fit:contain !important;
+      object-position:center !important;
+    }
+    /* About section and its cards stay visually still; only their links/buttons react. */
     #about.about-section,
     #about.about-section:hover,
     #about.about-section:focus-within,
     #about .about-grid,
-    #about .about-grid:hover {
-      background: #F5F3EE !important;
-      background-color: #F5F3EE !important;
-      background-image: none !important;
-      box-shadow: none !important;
-    }
+    #about .about-grid:hover,
     #about .about-details-grid,
     #about .about-details-grid:hover,
     #about .about-details-grid:focus-within {
-      background: #FFFEFA !important;
-      background-color: #FFFEFA !important;
-      color: #171815 !important;
+      background:#F5F3EE !important;
+      background-color:#F5F3EE !important;
+      background-image:none !important;
+      box-shadow:none !important;
+      transform:none !important;
+      filter:none !important;
+      border-color:transparent !important;
     }
-    #about .about-details-grid:hover :is(h1,h2,h3,h4,h5,h6,p,span,small,strong,em,a,li) {
-      color: inherit !important;
+    #about :is(.context-card,.education-card,.experience-card),
+    #about :is(.context-card,.education-card,.experience-card):hover,
+    #about :is(.context-card,.education-card,.experience-card):focus-within {
+      background:#FFFEFA !important;
+      background-color:#FFFEFA !important;
+      color:#171815 !important;
+      transform:none !important;
+      box-shadow:none !important;
+      filter:none !important;
+      border-color:rgba(23,24,21,.15) !important;
     }
-    /* Remove the decorative frame around the homepage portrait. */
-    body.home-page .hero .hero-orb,
-    html[data-site-theme="light"] body.home-page .hero .hero-orb {
-      width: min(310px, 76vw) !important;
-      height: auto !important;
-      min-height: 0 !important;
-      aspect-ratio: auto !important;
-      padding: 0 !important;
-      border: 0 !important;
-      border-radius: 0 !important;
-      background: transparent !important;
-      background-image: none !important;
-      box-shadow: none !important;
-      transform: none !important;
-      overflow: visible !important;
-    }
-    body.home-page .hero .hero-orb img,
-    html[data-site-theme="light"] body.home-page .hero .hero-orb img {
-      display: block !important;
-      width: 100% !important;
-      height: auto !important;
-      aspect-ratio: auto !important;
-      border: 0 !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
-      object-fit: contain !important;
+    #about :is(.context-card,.education-card,.experience-card):hover :is(h1,h2,h3,h4,h5,h6,p,span,small,strong,em,a,time,li),
+    #about :is(.context-card,.education-card,.experience-card):focus-within :is(h1,h2,h3,h4,h5,h6,p,span,small,strong,em,a,time,li) {
+      color:inherit !important;
     }
   </style>
+
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aayan Ahmed">
@@ -102,7 +106,7 @@
     ]
   }
   </script>
-  <link rel="preload" as="image" href="/assets/aayan-portrait.jpg?v=20261112" type="image/jpeg">
+  <link rel="preload" as="image" href="/assets/aayan-portrait.jpg?v=20261112-uploaded" type="image/jpeg">
 </head>
 <body class="home-page">
 <div class="site-page-loader is-visible" id="site-page-loader" aria-hidden="true"><span class="page-loader-spinner" aria-hidden="true"></span></div>
@@ -118,7 +122,7 @@
 
   <main>
     <section class="hero container" id="top">
-      <div class="hero-orb"><img src="/assets/aayan-portrait.jpg?v=20261112" alt="Aayan at a school event" width="960" height="1280" loading="eager" fetchpriority="high" decoding="async"></div>
+      <img class="hero-portrait" src="/assets/aayan-portrait.jpg?v=20261112-uploaded" alt="Aayan at a school event" width="960" height="1280" loading="eager" fetchpriority="high" decoding="async">
       <p class="hero-kicker">Lahore, Pakistan <span class="kicker-separator">—</span> A-Level student <span class="kicker-separator">·</span> 2026—27</p>
       <h1>Hi there,<br><span class="hero-name">I am Aayan<span class="accent-period">.</span></span></h1>
       <p class="hero-copy">A student, researcher and builder exploring artificial intelligence, education and technology — turning ambitious ideas into useful projects with real-world purpose.</p>
