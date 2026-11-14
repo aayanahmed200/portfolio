@@ -44,6 +44,22 @@
       "destination": "/index.html"
     },
     {
+      "source": "/resume",
+      "destination": "/experience.html"
+    },
+    {
+      "source": "/facts",
+      "destination": "/facts.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/projects.html"
+    },
+    {
+      "source": "/experience",
+      "destination": "/experience.html"
+    },
+    {
       "source": "/:path+\\.html",
       "destination": "/:path+.html"
     },
