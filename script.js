@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       player={x:nx,y:ny};moves++;
       if(player.x===7&&player.y===1&&!cheese){cheese=true;status.textContent='Cheese collected. Now find the exit in the bottom-right corner.';}
       if(player.x===7&&player.y===7){
-        if(cheese){done=true;status.textContent='Escaped in '+moves+' moves. Nicely navigated.';if(!best||moves<best){best=moves;bestEl.textContent=String(best);sessionStorage.setItem('night-shift-best',String(best));}}
+        if(cheese){done=true;status.textContent='Escaped in '+moves+' moves. Nicely navigated.';if(!best||moves<best){best=moves;bestEl.textContent=String(best);saveBest(moves);}}
         else status.textContent='The door is locked. Find the cheese first.';
       }
       draw();
@@ -249,9 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
           leadImage.addEventListener('load', resolve, { once: true });
           leadImage.addEventListener('error', resolve, { once: true });
         });
-    const safetyLimit = new Promise(resolve => window.setTimeout(resolve, 550));
 
-    await Promise.race([imageReady, safetyLimit]);
+    await imageReady;
+    if (leadImage && leadImage.naturalWidth > 0 && typeof leadImage.decode === 'function') {
+      await leadImage.decode().catch(() => {});
+    }
     window.requestAnimationFrame(() => window.requestAnimationFrame(hideLoader));
   };
 
@@ -261,12 +263,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', event => {
     const link = event.target.closest && event.target.closest('a[href]');
     if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey ||
-        event.shiftKey || event.altKey || link.target === '_blank' ||
+        event.shiftKey || event.altKey || (link.target && link.target !== '_self') ||
         link.hasAttribute('download')) return;
 
     let url;
     try { url = new URL(link.href, window.location.href); } catch (_) { return; }
     if (url.origin !== window.location.origin) return;
+    // Let same-page anchors scroll natively; reloading here breaks section navigation.
     if (url.pathname === window.location.pathname &&
         url.search === window.location.search) return;
 
