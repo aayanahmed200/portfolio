@@ -8878,3 +8878,25 @@ html[data-site-theme="light"] body .contact-section .email-pill:is(:hover, :focu
     transition: none !important;
   }
 }
+
+/* Four-item fixed menu: size to its contents after removing the social shortcuts. */
+html[data-site-theme="light"] body .site-nav {
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: calc(100vw - 24px) !important;
+  justify-content: center !important;
+  gap: clamp(15px, 2vw, 24px) !important;
+  padding-inline: clamp(15px, 2vw, 24px) !important;
+}
+@media (max-width: 640px) {
+  html[data-site-theme="light"] body .site-nav {
+    gap: 13px !important;
+    padding-inline: 14px !important;
+  }
+}
+@media (max-width: 380px) {
+  html[data-site-theme="light"] body .site-nav {
+    gap: 10px !important;
+    padding-inline: 11px !important;
+  }
+}
