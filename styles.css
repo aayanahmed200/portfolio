@@ -8357,3 +8357,212 @@ html[data-site-theme="light"] body.home-page .context-card h3 {
     padding:22px 0 !important;
   }
 }
+
+/* 14 Nov 2026 — one shared action style and one hover colour across every page. */
+:root {
+  --action-fill: #E9673B;
+  --action-hover-fill: #F1D77F;
+  --action-ink: #171815;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .resume-chapter-nav a,
+  .experience-heading > a,
+  .repo-links a,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter
+) {
+  background: var(--action-fill) !important;
+  background-color: var(--action-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border: 1px solid var(--action-ink) !important;
+  border-radius: 999px !important;
+  box-shadow: 3px 3px 0 var(--action-ink) !important;
+  text-decoration: none !important;
+  transition:
+    background-color .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .resume-chapter-nav a,
+  .experience-heading > a,
+  .repo-links a,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter
+):is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .resume-chapter-nav a,
+  .experience-heading > a,
+  .repo-links a,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter
+):is(:hover, :focus-visible, :active) :is(span, strong, small, svg, path) {
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+html[data-site-theme="light"] body :is(.social-circle, button:not(:disabled), [role="button"]):is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+html[data-site-theme="light"] body .social-circle {
+  border: 1px solid var(--action-ink) !important;
+  box-shadow: 3px 3px 0 var(--action-ink) !important;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+html[data-site-theme="light"] body .site-nav .nav-link:is(:hover, :focus-visible) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+html[data-site-theme="light"] body .site-nav .nav-link:is(:hover, :focus-visible) :is(span, svg, path) {
+  color: var(--action-ink) !important;
+  fill: currentColor !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .resume-chapter-nav a,
+  .experience-heading > a,
+  .repo-links a,
+  .social-circle,
+  button:not(:disabled),
+  [role="button"]
+):focus-visible {
+  outline: 3px solid var(--action-ink) !important;
+  outline-offset: 3px !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a:is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover, :focus-within) :is(.project-arrow-link, .project-foot a):is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card > a:is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border: 1px solid var(--action-ink) !important;
+  border-radius: 999px !important;
+  padding: 7px 12px !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+html[data-site-theme="light"] body.featured-section .featured-card > a:is(:hover, :focus-visible, :active) :is(span, svg, path) {
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  fill: currentColor !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-site-theme="light"] body :is(
+    .hero-button,
+    .button-primary,
+    .project-actions > a,
+    .project-arrow-link,
+    .project-foot a,
+    .text-link,
+    .email-pill,
+    .error-home-link,
+    .error-project-link,
+    .resume-chapter-nav a,
+    .experience-heading > a,
+    .repo-links a,
+    .social-circle,
+    button:not(:disabled),
+    [role="button"]
+  ) {
+    transition: none !important;
+  }
+}
