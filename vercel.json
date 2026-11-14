@@ -40,16 +40,8 @@
   ],
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/:path+\\.html",
-      "destination": "/:path+.html"
-    },
-    {
-      "source": "/:path+",
-      "destination": "/:path+.html"
+      "source": "/resume",
+      "destination": "/experience"
     }
   ]
 }

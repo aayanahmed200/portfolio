@@ -8167,3 +8167,443 @@ html[data-site-theme="light"] body.home-page .featured-section .featured-grid > 
 
 
 /* Native emoji glyphs stay sharp at every display scale; no raster sprite. */
+
+
+/* 14 Nov 2026 — recruiter navigation, proof links and accessible contact details. */
+.nav-social{display:inline-grid!important;place-items:center!important;width:24px!important;height:30px!important;flex:0 0 24px!important;padding:0!important}
+.nav-social svg{display:block!important;width:17px!important;height:17px!important}
+.site-nav{gap:clamp(11px,1.8vw,25px)!important}
+.project-foot-links{display:inline-flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important}
+.project-foot a.project-foot-source{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:auto!important;height:auto!important;min-height:34px!important;flex:0 0 auto!important;padding:7px 11px!important;border-radius:999px!important;font-size:9px!important;line-height:1.2!important;white-space:nowrap!important}
+.contact-email{display:inline-flex!important;align-items:center!important;margin-top:15px!important;color:#171815!important;font-size:clamp(13px,1.5vw,16px)!important;font-weight:700!important;text-decoration:underline!important;text-decoration-color:#E9673B!important;text-decoration-thickness:2px!important;text-underline-offset:5px!important;overflow-wrap:anywhere!important}
+.contact-email:hover{color:#B84C2C!important}
+.resume-impact-list{display:grid!important;gap:8px!important;margin:10px 0 0!important;padding-left:19px!important;color:#46433E!important;font-size:12px!important;line-height:1.85!important}
+.resume-impact-list li{padding-left:3px!important}
+.resume-impact-list li::marker{color:#C9502E!important}
+.project-note{color:#5B5751!important;font-size:11px!important;line-height:1.8!important}
+@media(max-width:640px){.site-nav{gap:9px!important;min-height:54px!important;padding:0 13px!important}.nav-link{font-size:11px!important}.nav-social{width:20px!important;flex-basis:20px!important}.nav-social svg{width:15px!important;height:15px!important}.project-foot{align-items:flex-start!important;flex-wrap:wrap!important}.project-foot-links{justify-content:flex-start!important}.project-foot a.project-foot-source{min-height:32px!important;padding:6px 9px!important}}
+@media(max-width:380px){.site-nav{gap:7px!important;padding:0 10px!important}.nav-link{font-size:10px!important}.nav-social{width:18px!important;flex-basis:18px!important}}
+
+
+/* 14 Nov 2026 — quieter hero, more prominent experience, and compact recognition. */
+html[data-site-theme="light"] body.home-page .hero {
+  min-height:88svh !important;
+  grid-template-columns:minmax(0,1.2fr) minmax(220px,.65fr) !important;
+  grid-template-rows:min-content min-content min-content min-content !important;
+  grid-template-areas:"kicker visual" "title visual" "copy visual" "button visual" !important;
+  column-gap:clamp(30px,5vw,68px) !important;
+  padding:136px 0 68px !important;
+}
+html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+  width:min(230px,100%) !important;
+  margin:0 !important;
+  padding:6px !important;
+  border-radius:20px !important;
+  object-fit:cover !important;
+  object-position:center 42% !important;
+}
+html[data-site-theme="light"] body.home-page .hero h1 {
+  font-size:clamp(70px,8.2vw,112px) !important;
+  line-height:.92 !important;
+  letter-spacing:-.055em !important;
+}
+html[data-site-theme="light"] body.home-page .hero-kicker {
+  margin:0 0 20px !important;
+  font-size:9px !important;
+  letter-spacing:.13em !important;
+}
+html[data-site-theme="light"] body.home-page .hero-copy {
+  max-width:610px !important;
+  margin-top:19px !important;
+  font-size:clamp(13px,1.15vw,15px) !important;
+  line-height:1.8 !important;
+}
+html[data-site-theme="light"] body.home-page .hero-button {margin-top:27px !important;}
+@media(max-width:850px) {
+  html[data-site-theme="light"] body.home-page .hero {
+    min-height:0 !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    grid-template-rows:auto !important;
+    grid-template-areas:"kicker" "title" "copy" "visual" "button" !important;
+    row-gap:0 !important;
+    padding:132px 0 64px !important;
+  }
+  html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+    width:min(174px,48vw) !important;
+    margin:24px auto 0 !important;
+    border-radius:17px !important;
+  }
+  html[data-site-theme="light"] body.home-page .hero h1 {
+    font-size:clamp(58px,10vw,84px) !important;
+  }
+}
+@media(max-width:640px) {
+  html[data-site-theme="light"] body.home-page .hero {padding:118px 0 58px !important;}
+  html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+    width:min(146px,42vw) !important;
+    margin-top:20px !important;
+    padding:5px !important;
+  }
+}
+html[data-site-theme="light"] body.home-page .project-card-small {
+  display:flex !important;
+  flex-direction:column !important;
+  min-height:278px !important;
+  padding:25px !important;
+}
+html[data-site-theme="light"] body.home-page .project-card-small .small-card-content {
+  flex:1 1 auto !important;
+  padding:18px 0 16px !important;
+}
+html[data-site-theme="light"] body.home-page .project-card-small .project-proof {
+  margin:13px 0 0 !important;
+  padding-top:10px !important;
+  border-top:1px solid rgba(23,24,21,.11) !important;
+  color:#55534D !important;
+  font-size:10px !important;
+  font-weight:700 !important;
+  line-height:1.55 !important;
+}
+html[data-site-theme="light"] body.home-page .project-card-small .project-foot {
+  margin-top:auto !important;
+  padding-top:12px !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section {
+  padding:55px 0 64px !important;
+  border-top:1px solid var(--line) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .section-heading {margin-bottom:20px !important;}
+html[data-site-theme="light"] body.home-page .featured-section .section-heading h2 {
+  font-size:clamp(38px,5vw,56px) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:26px !important;
+  align-items:start !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card,
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:is(:hover,:focus-within) {
+  display:flex !important;
+  flex-direction:column !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  padding:17px 0 8px !important;
+  border:0 !important;
+  border-top:1px solid var(--line) !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  transition:none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card .article-kicker {
+  margin:13px 0 7px !important;
+  font-size:8px !important;
+  letter-spacing:.12em !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card h3 {
+  margin:0 0 8px !important;
+  font-size:clamp(21px,2vw,27px) !important;
+  line-height:1.05 !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card p:not(.article-kicker) {
+  font-size:11px !important;
+  line-height:1.7 !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card > a {
+  align-self:flex-start !important;
+  margin-top:13px !important;
+  padding:0 0 3px !important;
+  border:0 !important;
+  border-bottom:1px solid rgba(233,103,59,.5) !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  color:#B84C2C !important;
+  box-shadow:none !important;
+  font-size:10px !important;
+}
+html[data-site-theme="light"] body.home-page .about-details-grid {
+  grid-template-columns:minmax(0,1fr) !important;
+}
+html[data-site-theme="light"] body.home-page .about-grid {
+  grid-template-columns:minmax(0,1fr) !important;
+  margin-top:17px !important;
+}
+html[data-site-theme="light"] body.home-page .context-card {
+  min-height:0 !important;
+  padding:26px 30px !important;
+}
+html[data-site-theme="light"] body.home-page .context-card h3 {
+  margin:10px 0 16px !important;
+  font-size:clamp(30px,4vw,40px) !important;
+}
+@media(max-width:900px) {
+  html[data-site-theme="light"] body.home-page .featured-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:22px !important;
+  }
+}
+@media(max-width:620px) {
+  html[data-site-theme="light"] body.home-page .featured-grid {
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:12px !important;
+  }
+  html[data-site-theme="light"] body.home-page .featured-grid > .featured-card {padding:14px 0 9px !important;}
+  html[data-site-theme="light"] body.home-page .project-card-small {
+    min-height:0 !important;
+    padding:22px 0 !important;
+  }
+}
+
+/* 14 Nov 2026 — one shared action style and one hover colour across every page. */
+:root {
+  --action-fill: #E9673B;
+  --action-hover-fill: #F1D77F;
+  --action-ink: #171815;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .resume-chapter-nav a,
+  .experience-heading > a,
+  .repo-links a,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter
+) {
+  background: var(--action-fill) !important;
+  background-color: var(--action-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border: 1px solid var(--action-ink) !important;
+  border-radius: 999px !important;
+  box-shadow: 3px 3px 0 var(--action-ink) !important;
+  text-decoration: none !important;
+  transition:
+    background-color .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .resume-chapter-nav a,
+  .experience-heading > a,
+  .repo-links a,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  button:not(:disabled),
+  [role="button"]
+):is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .resume-chapter-nav a,
+  .experience-heading > a,
+  .repo-links a,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  button:not(:disabled),
+  [role="button"]
+):is(:hover, :focus-visible, :active) :is(span, strong, small, svg, path) {
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+html[data-site-theme="light"] body button:not(:disabled),
+html[data-site-theme="light"] body [role="button"] {
+  background: var(--action-fill) !important;
+  background-color: var(--action-fill) !important;
+  color: var(--action-ink) !important;
+  border: 1px solid var(--action-ink) !important;
+  border-radius: 999px !important;
+  box-shadow: 3px 3px 0 var(--action-ink) !important;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+html[data-site-theme="light"] body :is(.social-circle):is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+html[data-site-theme="light"] body .social-circle {
+  border: 1px solid var(--action-ink) !important;
+  box-shadow: 3px 3px 0 var(--action-ink) !important;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+html[data-site-theme="light"] body .site-nav .nav-link:is(:hover, :focus-visible) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+html[data-site-theme="light"] body .site-nav .nav-link:is(:hover, :focus-visible) :is(span, svg, path) {
+  color: var(--action-ink) !important;
+  fill: currentColor !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .resume-chapter-nav a,
+  .experience-heading > a,
+  .repo-links a,
+  .social-circle,
+  button:not(:disabled),
+  [role="button"]
+):focus-visible {
+  outline: 3px solid var(--action-ink) !important;
+  outline-offset: 3px !important;
+}
+/* A parent card being hovered must not override the actual button hover. */
+html[data-site-theme="light"] body[data-page="work"] .project-detail:is(:hover, :focus-within) .project-actions > a:is(:hover, :focus-visible, :active),
+html[data-site-theme="light"] body[data-page="work"] .project-detail:is(:hover, :focus-within) > a:is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover, :focus-within) :is(.project-arrow-link, .project-foot a):is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+/* Feature cards stay still; only their actual article links react. */
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card:is(:hover, :focus-within) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: var(--line) !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:is(:hover, :focus-visible, :active) {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 7px 12px !important;
+  border: 1px solid var(--action-ink) !important;
+  border-radius: 999px !important;
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+  text-decoration: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:is(:hover, :focus-visible, :active) :is(span, svg, path) {
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+html[data-site-theme="light"] body.not-found-page :is(.error-home-link, .error-project-link):is(:hover, :focus-visible, :active) {
+  background: var(--action-hover-fill) !important;
+  background-color: var(--action-hover-fill) !important;
+  color: var(--action-ink) !important;
+  -webkit-text-fill-color: var(--action-ink) !important;
+  border-color: var(--action-ink) !important;
+  box-shadow: 4px 4px 0 var(--action-ink) !important;
+  transform: translate(-1px, -1px) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-site-theme="light"] body :is(
+    .hero-button,
+    .button-primary,
+    .project-actions > a,
+    .project-arrow-link,
+    .project-foot a,
+    .text-link,
+    .email-pill,
+    .error-home-link,
+    .error-project-link,
+    .resume-chapter-nav a,
+    .experience-heading > a,
+    .repo-links a,
+    .social-circle,
+    button:not(:disabled),
+    [role="button"]
+  ) {
+    transition: none !important;
+  }
+}
