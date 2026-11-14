@@ -1,87 +1,46 @@
-# Aayan Ahmed — Personal Portfolio
+# Aayan Ahmed — Portfolio
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-**Repository:** [aayanahmed200/portfolio](https://github.com/aayanahmed200/portfolio)
+A responsive portfolio built with semantic HTML, shared CSS, and vanilla JavaScript.
 
-## Overview
+**Live site:** https://aayanahmed200.vercel.app
 
-A lightweight, responsive portfolio built with semantic HTML, shared CSS, and vanilla JavaScript.
+## Pages
 
-**Live site:** https://aayanahmed200.vercel.app  
-**Profile:** https://github.com/aayanahmed200
+- `/` — Introduction, projects, research, recognition, and contact.
+- `/projects` — Project case studies and technical details.
+- `/experience` — Experience, research, awards, leadership, and skills.
+- `/resume` — Alias for `/experience`.
+- `/facts` — Personal interests and milestones.
+- Unknown routes — Custom `404.html` page.
+- `/miscellaneous` — Redirects to `/facts`.
 
-## Pages and routes
+## Design and technology
 
-| Route | File | Content |
-|---|---|---|
-| `/` | `index.html` | Introduction, selected projects, research and experience, recognition, and contact |
-| `/projects` | `projects.html` | Project write-ups, links to source repositories, and technical toolkit |
-| `/experience` | `experience.html` | Education, research, experience, awards, leadership, and skills |
-| `/resume` | Alias for `/experience` | Convenient résumé route |
-| `/facts` | `facts.html` | Personal interests and milestones |
-| Unknown routes | `404.html` | Custom not-found page |
-
-The old `/miscellaneous` route redirects visitors to `/facts`.
-
-## Design
-
-The site uses a warm light palette and an editorial layout:
-
-- Paper background: `#F4F2ED`
-- Surface: `#FFFDF8`
-- Ink: `#171815`
-- Orange accent: `#E9673B`
-- Pastel cyan: `#BCE8ED`
-- Shared button hover: soft yellow `#F1D77F`
-
-Typography uses DM Sans and Instrument Serif. The fixed navigation, responsive page layouts, restrained transitions, and shared button states are defined in `styles.css`.
-
-## Technology
-
-- Semantic HTML pages with one shared stylesheet and vanilla JavaScript.
-- No front-end framework or npm dependency installation.
-- `script.js` handles navigation state, reveal animations, small page interactions, and the page-transition loader.
-- `analytics-init.js` initializes Vercel Web Analytics.
-- The portrait is assembled from source fragments by `.portrait-hd-parts/assemble.mjs`.
+- Warm light palette: paper `#F4F2ED`, surface `#FFFDF8`, ink `#171815`, orange `#E9673B`, and soft-yellow button hover `#F1D77F`.
+- DM Sans and Instrument Serif typography, fixed navigation, responsive layouts, and restrained transitions.
+- Semantic HTML, one shared stylesheet, and vanilla JavaScript. No front-end framework or package installation is required to serve the site.
+- `script.js` handles navigation, reveals, page interactions, and the page-transition loader. `analytics-init.js` initializes Vercel Web Analytics.
 
 ## Run locally
-
-From the repository root:
 
 ```bash
 node .portrait-hd-parts/assemble.mjs
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000.
+Open http://localhost:8000. Node.js is only needed for the portrait assembly step; any static file server can serve the site.
 
-The portrait assembly step uses Node.js. The local server can be any static-file server.
+## Deployment and search
 
-## Deployment
+Vercel serves the repository root as a static site. `vercel.json` enables clean URLs and maps `/resume` to the experience page. The site includes page-specific metadata, canonical URLs, Open Graph and Twitter tags, structured data, `robots.txt`, `sitemap.xml`, and a Google Search Console verification file.
 
-Vercel serves the repository root as a static site. The current `vercel.json` runs:
+## Project notes
 
-```bash
-node .portrait-hd-parts/assemble.mjs
-```
-
-It enables clean URLs and maps `/resume` to the experience page.
-
-## SEO and indexing
-
-- Page-specific titles and meta descriptions.
-- Canonical URLs, Open Graph and Twitter metadata.
-- Person and WebSite structured data on the homepage.
-- `robots.txt` and `sitemap.xml`.
-- Google Search Console HTML verification file at the site root.
-
-## Project accuracy
-
-Project statuses are described as they currently stand: Arthic is in early access with its AI mentor in development; Zariya is in development; RemiChain is a prototype; and the checked-in retinopathy pilot results are synthetic mock outputs, not real model-accuracy results.
+Project statuses are described accurately: Arthic is in early access with its AI mentor in development; Zariya is in development; RemiChain is a prototype; and the checked-in retinopathy pilot uses synthetic data and mock predictions, not real model-accuracy results.
 
 ## Links
 
-- [Portfolio](https://aayanahmed200.vercel.app)
+- [Live portfolio](https://aayanahmed200.vercel.app)
 - [LinkedIn](https://linkedin.com/in/aayanahmed20)
-- [GitHub](https://github.com/aayanahmed200)
