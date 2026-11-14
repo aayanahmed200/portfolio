@@ -9467,3 +9467,95 @@ html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary {
     transition: none !important;
   }
 }
+
+
+/* 14 Nov 2026 — Featured In links: equal, fixed-size buttons with no hover resizing. */
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a,
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:link,
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:visited {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  flex: 0 0 148px !important;
+  width: 148px !important;
+  min-width: 148px !important;
+  max-width: 148px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  margin: 16px 0 4px !important;
+  padding: 0 14px !important;
+  gap: 8px !important;
+  overflow: visible !important;
+  border: 1px solid var(--cta-ink) !important;
+  border-radius: 999px !important;
+  background: var(--cta-rest) !important;
+  background-color: var(--cta-rest) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  box-shadow: 4px 4px 0 var(--cta-ink) !important;
+  font-family: inherit !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: .01em !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transform: none !important;
+  transition:
+    background-color .24s cubic-bezier(.2,.7,.2,1),
+    color .24s cubic-bezier(.2,.7,.2,1),
+    border-color .24s cubic-bezier(.2,.7,.2,1),
+    box-shadow .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:is(:hover, :focus-visible) {
+  width: 148px !important;
+  min-width: 148px !important;
+  max-width: 148px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 0 14px !important;
+  gap: 8px !important;
+  background: var(--cta-hover) !important;
+  background-color: var(--cta-hover) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 5px 5px 0 var(--cta-ink) !important;
+  transform: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:active {
+  width: 148px !important;
+  min-width: 148px !important;
+  max-width: 148px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 0 14px !important;
+  transform: none !important;
+  box-shadow: 3px 3px 0 var(--cta-ink) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a > span {
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  transform: none !important;
+  transition: color .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:is(:hover, :focus-visible) > span {
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a {
+    transition: none !important;
+  }
+}
