@@ -10,8 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const navLinks = document.querySelectorAll('[data-nav]');
-  const path = window.location.pathname;
-  const current = path.includes('experience') ? 'resume' : path.includes('facts') ? 'facts' : path.includes('projects') ? 'projects' : 'home';
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const current =
+    path === '/resume' || path === '/experience' || path.endsWith('/experience.html') ? 'resume' :
+    path === '/facts' || path.endsWith('/facts.html') ? 'facts' :
+    path === '/projects' || path.endsWith('/projects.html') ? 'projects' : 'home';
   navLinks.forEach(link => {
     const active = link.dataset.nav === current;
     link.classList.toggle('is-active', active);
