@@ -9228,3 +9228,242 @@ html[data-site-theme="light"] body[data-page="resume"] .resume-content > .resume
     transition: none !important;
   }
 }
+
+
+/* 14 Nov 2026 — clean, proportional brand icons and stable, smooth button motion. */
+html[data-site-theme="light"] body.home-page .contact-section .social-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+}
+html[data-site-theme="light"] body.home-page .contact-section a.social-circle {
+  display: inline-grid !important;
+  place-items: center !important;
+  box-sizing: border-box !important;
+  width: 46px !important;
+  min-width: 46px !important;
+  max-width: 46px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  max-height: 46px !important;
+  flex: 0 0 46px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  border: 1px solid var(--cta-ink) !important;
+  border-radius: 50% !important;
+  background: var(--cta-rest) !important;
+  background-color: var(--cta-rest) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  box-shadow: 4px 4px 0 var(--cta-ink) !important;
+  transform: translateY(0) scale(1) !important;
+  transition:
+    background-color .24s cubic-bezier(.2,.7,.2,1),
+    color .24s cubic-bezier(.2,.7,.2,1),
+    border-color .24s cubic-bezier(.2,.7,.2,1),
+    box-shadow .24s cubic-bezier(.2,.7,.2,1),
+    transform .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+html[data-site-theme="light"] body.home-page .contact-section a.social-circle:is(:hover, :focus-visible) {
+  background: var(--cta-hover) !important;
+  background-color: var(--cta-hover) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 5px 5px 0 var(--cta-ink) !important;
+  transform: translateY(-2px) scale(1) !important;
+}
+html[data-site-theme="light"] body.home-page .contact-section a.social-circle:active {
+  transform: translateY(0) scale(1) !important;
+  box-shadow: 3px 3px 0 var(--cta-ink) !important;
+}
+html[data-site-theme="light"] body.home-page .contact-section a.social-circle svg {
+  display: block !important;
+  width: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  max-height: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  fill: currentColor !important;
+  stroke: none !important;
+  color: currentColor !important;
+  transform: none !important;
+  flex: 0 0 22px !important;
+}
+html[data-site-theme="light"] body.home-page .contact-section a.social-circle svg path {
+  fill: currentColor !important;
+  stroke: none !important;
+  color: currentColor !important;
+}
+
+/* Stable sizing: hover never scales, squeezes, wraps or changes button padding. */
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  a.social-circle,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  [data-misc-filter],
+  [data-maze-reset],
+  [data-maze-move],
+  button:not(:disabled),
+  [role="button"]
+) {
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+  transform: translateY(0) scale(1) !important;
+  transition:
+    background-color .24s cubic-bezier(.2,.7,.2,1),
+    color .24s cubic-bezier(.2,.7,.2,1),
+    border-color .24s cubic-bezier(.2,.7,.2,1),
+    box-shadow .24s cubic-bezier(.2,.7,.2,1),
+    transform .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  a.social-circle,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  [data-misc-filter],
+  [data-maze-reset],
+  [data-maze-move],
+  button:not(:disabled),
+  [role="button"]
+):is(:hover, :focus-visible) {
+  transform: translateY(-2px) scale(1) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  a.social-circle,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  [data-misc-filter],
+  [data-maze-reset],
+  [data-maze-move],
+  button:not(:disabled),
+  [role="button"]
+):active {
+  transform: translateY(0) scale(1) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  button:not(:disabled),
+  [role="button"]
+) {
+  white-space: nowrap !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  button:not(:disabled),
+  [role="button"]
+) :is(span, strong, small, svg, path) {
+  transform: none !important;
+  transition: color .24s cubic-bezier(.2,.7,.2,1), fill .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+
+/* Keep nav and resume accordion interactions smooth without converting them into CTAs. */
+html[data-site-theme="light"] body .site-nav .nav-link {
+  transition: background-color .24s cubic-bezier(.2,.7,.2,1), color .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary {
+  transition: background-color .24s cubic-bezier(.2,.7,.2,1), color .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-site-theme="light"] body :is(
+    a.hero-button, a.button-primary, .project-actions > a, a.project-arrow-link,
+    .project-foot a, a.text-link, a.email-pill, a.error-home-link, a.error-project-link,
+    .experience-heading > a, .featured-card > a, .resume-chapter-nav a, .repo-links a,
+    a.social-circle, button:not(:disabled), [role="button"]
+  ) {
+    transition: none !important;
+  }
+}
