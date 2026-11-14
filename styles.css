@@ -9932,3 +9932,66 @@ html[data-site-theme="light"] body :is(
     transition: none !important;
   }
 }
+
+
+/* 14 Nov 2026 — varied, muted category tag colours and clearer title spacing. */
+html[data-site-theme="light"] body .project-tags {
+  gap: 7px !important;
+  margin-bottom: 14px !important;
+}
+html[data-site-theme="light"] body .project-tag-chip:nth-child(6n + 1) {
+  background: #FCE8DF !important;
+  border-color: #E8B9A7 !important;
+  color: #934A32 !important;
+}
+html[data-site-theme="light"] body .project-tag-chip:nth-child(6n + 2) {
+  background: #E5ECF7 !important;
+  border-color: #BFCCE2 !important;
+  color: #4B6386 !important;
+}
+html[data-site-theme="light"] body .project-tag-chip:nth-child(6n + 3) {
+  background: #E5F0E6 !important;
+  border-color: #C0D5C2 !important;
+  color: #486A4C !important;
+}
+html[data-site-theme="light"] body .project-tag-chip:nth-child(6n + 4) {
+  background: #F0E9F6 !important;
+  border-color: #D3C2E1 !important;
+  color: #72568A !important;
+}
+html[data-site-theme="light"] body .project-tag-chip:nth-child(6n + 5) {
+  background: #F7E8ED !important;
+  border-color: #E5C0CA !important;
+  color: #8D4D60 !important;
+}
+html[data-site-theme="light"] body .project-tag-chip:nth-child(6n) {
+  background: #E8EEF0 !important;
+  border-color: #C7D3D8 !important;
+  color: #52666D !important;
+}
+html[data-site-theme="light"] body .project-tag-chip:is(:hover,:focus-within) {
+  filter: none !important;
+  transform: none !important;
+}
+html[data-site-theme="light"] body.home-page .project-card .project-meta-row {
+  margin-bottom: 13px !important;
+}
+html[data-site-theme="light"] body.home-page .project-card .project-meta-row + .small-card-content h3,
+html[data-site-theme="light"] body.home-page .project-card .project-meta-row + h3 {
+  margin-top: 0 !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head .project-meta-row {
+  margin-bottom: 14px !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head h2 {
+  margin-top: 0 !important;
+}
+@media (max-width: 620px) {
+  html[data-site-theme="light"] body .project-tags {
+    gap: 6px !important;
+    margin-bottom: 12px !important;
+  }
+  html[data-site-theme="light"] body[data-page="work"] .project-detail-head .project-meta-row {
+    margin-bottom: 12px !important;
+  }
+}
