@@ -9147,6 +9147,8 @@ html[data-site-theme="light"] body.home-page .featured-section .featured-grid > 
   background-color: transparent !important;
   background-image: none !important;
   color: var(--text) !important;
+  min-height: 0 !important;
+  padding: 17px 0 8px !important;
   border: 0 !important;
   border-top: 1px solid var(--line) !important;
   border-radius: 0 !important;
