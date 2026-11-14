@@ -9709,3 +9709,106 @@ html[data-site-theme="light"] body :is(
     transition: none !important;
   }
 }
+
+
+/* 14 Nov 2026 — project categories are compact, quiet tags rather than metadata strings. */
+html[data-site-theme="light"] body.home-page .project-meta-row,
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head .project-meta-row {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px 10px !important;
+}
+html[data-site-theme="light"] body :is(.project-meta-row, .project-tags) .project-tags {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+}
+html[data-site-theme="light"] body .project-tags {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin: 0 !important;
+}
+html[data-site-theme="light"] body .project-tag-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  min-height: 23px !important;
+  box-sizing: border-box !important;
+  padding: 5px 9px !important;
+  border: 1px solid rgba(135,148,178,.56) !important;
+  border-radius: 999px !important;
+  background: rgba(135,148,178,.09) !important;
+  color: #526078 !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: .105em !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+html[data-site-theme="light"] body .project-tag-chip:is(:hover,:focus-within) {
+  background: rgba(135,148,178,.09) !important;
+  border-color: rgba(135,148,178,.56) !important;
+  color: #526078 !important;
+  transform: none !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail-head .project-year {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 23px !important;
+  padding: 5px 9px !important;
+  border: 1px solid rgba(233,103,59,.4) !important;
+  border-radius: 999px !important;
+  background: rgba(233,103,59,.07) !important;
+  color: #B84C2C !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  letter-spacing: .09em !important;
+  line-height: 1 !important;
+}
+html[data-site-theme="light"] body.home-page .context-card {
+  max-width: 900px !important;
+  margin-inline: auto !important;
+  padding: 32px 38px !important;
+}
+html[data-site-theme="light"] body.home-page .context-card h3 {
+  max-width: 19ch !important;
+  margin: 12px 0 18px !important;
+  font-size: clamp(27px, 3.4vw, 38px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.035em !important;
+}
+html[data-site-theme="light"] body.home-page .context-card p {
+  max-width: 72ch !important;
+  margin: 0 0 12px !important;
+  font-size: 13px !important;
+  line-height: 1.85 !important;
+}
+html[data-site-theme="light"] body.home-page .context-signoff {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: 22px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid rgba(23,24,21,.13) !important;
+}
+@media (max-width: 620px) {
+  html[data-site-theme="light"] body.home-page .context-card {
+    padding: 24px 20px !important;
+  }
+  html[data-site-theme="light"] body.home-page .context-card h3 {
+    font-size: clamp(25px, 7vw, 32px) !important;
+  }
+  html[data-site-theme="light"] body.home-page .context-card p {
+    font-size: 12px !important;
+  }
+}
