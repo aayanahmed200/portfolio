@@ -9559,3 +9559,40 @@ html[data-site-theme="light"] body.home-page .featured-section .featured-grid > 
     transition: none !important;
   }
 }
+
+
+/* 14 Nov 2026 — arrow glyphs stay transparent inside every CTA. */
+html[data-site-theme="light"] body a:is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .experience-heading > a,
+  .featured-card > a
+) > span[aria-hidden="true"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  line-height: inherit !important;
+  transform: none !important;
+}
