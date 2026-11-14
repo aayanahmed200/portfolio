@@ -8705,6 +8705,7 @@ html[data-site-theme="light"] body.home-page .about-details-grid .experience-ite
 /* Shared normal state: the same orange pill, ink border and offset shadow as Email me. */
 html[data-site-theme="light"] body :is(
   .hero-button,
+  .social-circle,
   .button-primary,
   .project-actions > a,
   .project-arrow-link,
@@ -8741,6 +8742,7 @@ html[data-site-theme="light"] body :is(
 }
 html[data-site-theme="light"] body :is(
   .hero-button,
+  .social-circle,
   .button-primary,
   .project-actions > a,
   .project-arrow-link,
@@ -8771,6 +8773,7 @@ html[data-site-theme="light"] body :is(
 }
 html[data-site-theme="light"] body :is(
   .hero-button,
+  .social-circle,
   .button-primary,
   .project-actions > a,
   .project-arrow-link,
@@ -8798,6 +8801,7 @@ html[data-site-theme="light"] body :is(
 }
 html[data-site-theme="light"] body :is(
   .hero-button,
+  .social-circle,
   .button-primary,
   .project-actions > a,
   .project-arrow-link,
