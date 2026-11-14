@@ -30,6 +30,3 @@ python3 -m http.server 8000
 
 Open `http://localhost:8000`. Node.js is only required for the portrait assembly step; any static file server can serve the site.
 
-## Notes and limitations
-
-Vercel serves the repository root as a static site. `vercel.json` enables clean URLs and maps `/resume` to the experience page. Project statuses are described accurately: Arthic is in early access with its AI mentor in development; Zariya is in development; RemiChain is a prototype; and the checked-in retinopathy pilot uses synthetic data and mock predictions, not real model-accuracy results.
