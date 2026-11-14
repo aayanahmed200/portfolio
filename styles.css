@@ -8607,3 +8607,270 @@ html[data-site-theme="light"] body.not-found-page :is(.error-home-link, .error-p
     transition: none !important;
   }
 }
+
+
+/* 14 Nov 2026 — restore the earlier homepage structure and make action buttons match Email me. */
+html[data-site-theme="light"] body.home-page .hero > .hero-portrait {
+  width: min(280px, 78vw) !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section {
+  padding: 86px 0 94px !important;
+  border-top: 1px solid var(--line) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .section-heading {
+  margin-bottom: 38px !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .section-heading h2 {
+  font-size: clamp(48px, 6vw, 72px) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  min-height: 285px !important;
+  padding: 25px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 22px !important;
+  background: var(--surface) !important;
+  background-image: none !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:nth-child(2),
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:nth-child(2):is(:hover, :focus-within) {
+  background: #F1D77F !important;
+  background-color: #F1D77F !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:is(:hover, :focus-within) {
+  background: var(--surface) !important;
+  background-color: var(--surface) !important;
+  border-color: var(--line) !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card :is(h3, p, span, time) {
+  color: var(--text) !important;
+  opacity: 1 !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card h3 {
+  margin: 6px 0 12px !important;
+  font-size: clamp(27px, 2.5vw, 36px) !important;
+  line-height: 1.04 !important;
+}
+html[data-site-theme="light"] body.home-page .featured-grid > .featured-card p:not(.article-kicker) {
+  color: #46433E !important;
+  font-size: 12px !important;
+  line-height: 1.85 !important;
+}
+html[data-site-theme="light"] body.home-page .about-details-grid {
+  grid-template-columns: minmax(220px, .72fr) minmax(0, 1.7fr) !important;
+  gap: 20px !important;
+  margin-top: 20px !important;
+}
+html[data-site-theme="light"] body.home-page .about-details-grid > .experience-card {
+  min-width: 0 !important;
+  padding: 26px 28px !important;
+}
+html[data-site-theme="light"] body.home-page .about-details-grid .experience-heading h3 {
+  font-size: clamp(30px, 3vw, 39px) !important;
+}
+html[data-site-theme="light"] body.home-page .about-details-grid .experience-track {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 38px 16px !important;
+  margin-top: 36px !important;
+}
+html[data-site-theme="light"] body.home-page .about-details-grid .experience-item h4 {
+  font-size: 21px !important;
+}
+html[data-site-theme="light"] body.home-page .about-details-grid .experience-item p {
+  font-size: 10px !important;
+}
+:root {
+  --site-action-rest: #DF633B;
+  --site-action-hover: #F1D77F;
+  --site-action-ink: #171815;
+}
+/* Shared normal state: the same orange pill, ink border and offset shadow as Email me. */
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  .misc-filter,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  button:not(:disabled),
+  [role="button"]
+) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  background: var(--site-action-rest) !important;
+  background-color: var(--site-action-rest) !important;
+  color: var(--site-action-ink) !important;
+  -webkit-text-fill-color: var(--site-action-ink) !important;
+  border: 1px solid var(--site-action-ink) !important;
+  border-radius: 999px !important;
+  box-shadow: 4px 4px 0 var(--site-action-ink) !important;
+  text-decoration: none !important;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  .misc-filter,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  button:not(:disabled),
+  [role="button"]
+):is(:hover, :focus-visible, :active) {
+  background: var(--site-action-hover) !important;
+  background-color: var(--site-action-hover) !important;
+  color: var(--site-action-ink) !important;
+  -webkit-text-fill-color: var(--site-action-ink) !important;
+  border-color: var(--site-action-ink) !important;
+  box-shadow: 6px 6px 0 var(--site-action-ink) !important;
+  transform: translate(-2px, -2px) !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  .misc-filter,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  button:not(:disabled),
+  [role="button"]
+):is(:hover, :focus-visible, :active) :is(span, strong, small, svg, path) {
+  color: var(--site-action-ink) !important;
+  -webkit-text-fill-color: var(--site-action-ink) !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+html[data-site-theme="light"] body :is(
+  .hero-button,
+  .button-primary,
+  .project-actions > a,
+  .project-arrow-link,
+  .project-foot a,
+  .text-link,
+  .email-pill,
+  .error-home-link,
+  .error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  .misc-filter,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  button:not(:disabled),
+  [role="button"]
+):focus-visible {
+  outline: 3px solid var(--site-action-ink) !important;
+  outline-offset: 3px !important;
+}
+html[data-site-theme="light"] body .project-foot a.project-foot-source {
+  min-height: 46px !important;
+  height: auto !important;
+  width: auto !important;
+  flex: 0 1 auto !important;
+  padding: 10px 17px !important;
+}
+html[data-site-theme="light"] body .project-foot a:not(.project-foot-source) {
+  width: auto !important;
+  min-width: 46px !important;
+  height: 46px !important;
+  flex: 0 0 auto !important;
+  padding: 0 14px !important;
+}
+html[data-site-theme="light"] body .contact-section .email-pill {
+  background: var(--site-action-rest) !important;
+  background-color: var(--site-action-rest) !important;
+  box-shadow: 4px 4px 0 var(--site-action-ink) !important;
+}
+html[data-site-theme="light"] body .contact-section .email-pill:is(:hover, :focus-visible, :active) {
+  background: var(--site-action-hover) !important;
+  background-color: var(--site-action-hover) !important;
+  box-shadow: 6px 6px 0 var(--site-action-ink) !important;
+  transform: translate(-2px, -2px) !important;
+}
+@media (max-width: 900px) {
+  html[data-site-theme="light"] body.home-page .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  html[data-site-theme="light"] body.home-page .about-details-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+@media (max-width: 620px) {
+  html[data-site-theme="light"] body.home-page .featured-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  html[data-site-theme="light"] body.home-page .about-details-grid .experience-track {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-site-theme="light"] body :is(
+    .hero-button, .button-primary, .project-actions > a, .project-arrow-link,
+    .project-foot a, .text-link, .email-pill, .error-home-link, .error-project-link,
+    .experience-heading > a, .featured-card > a, .resume-chapter-nav a,
+    .repo-links a, .misc-filter, .game-action, .game-action-soft,
+    .game-action-muted, .game-reset, button:not(:disabled), [role="button"]
+  ) {
+    transition: none !important;
+  }
+}
