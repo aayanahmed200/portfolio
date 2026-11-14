@@ -10000,3 +10000,18 @@ html[data-site-theme="light"] body[data-page="work"] .project-detail-head h2 {
 html[data-site-theme="light"] body.home-page #nishaan .heading-accent {
   color:#D95F35 !important;
 }
+
+/* 14 Nov 2026 — keep project tags and their date on the same vertical axis. */
+html[data-site-theme="light"] body .project-meta-row > .project-tags {
+  margin:0 !important;
+  align-self:center !important;
+}
+html[data-site-theme="light"] body .project-meta-row > .project-year {
+  display:inline-flex !important;
+  align-items:center !important;
+  align-self:center !important;
+  min-height:23px !important;
+  margin:0 !important;
+  line-height:1 !important;
+  box-sizing:border-box !important;
+}
