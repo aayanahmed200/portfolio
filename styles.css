@@ -8167,3 +8167,19 @@ html[data-site-theme="light"] body.home-page .featured-section .featured-grid > 
 
 
 /* Native emoji glyphs stay sharp at every display scale; no raster sprite. */
+
+
+/* 14 Nov 2026 — recruiter navigation, proof links and accessible contact details. */
+.nav-social{display:inline-grid!important;place-items:center!important;width:24px!important;height:30px!important;flex:0 0 24px!important;padding:0!important}
+.nav-social svg{display:block!important;width:17px!important;height:17px!important}
+.site-nav{gap:clamp(11px,1.8vw,25px)!important}
+.project-foot-links{display:inline-flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important}
+.project-foot a.project-foot-source{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:auto!important;height:auto!important;min-height:34px!important;flex:0 0 auto!important;padding:7px 11px!important;border-radius:999px!important;font-size:9px!important;line-height:1.2!important;white-space:nowrap!important}
+.contact-email{display:inline-flex!important;align-items:center!important;margin-top:15px!important;color:#171815!important;font-size:clamp(13px,1.5vw,16px)!important;font-weight:700!important;text-decoration:underline!important;text-decoration-color:#E9673B!important;text-decoration-thickness:2px!important;text-underline-offset:5px!important;overflow-wrap:anywhere!important}
+.contact-email:hover{color:#B84C2C!important}
+.resume-impact-list{display:grid!important;gap:8px!important;margin:10px 0 0!important;padding-left:19px!important;color:#46433E!important;font-size:12px!important;line-height:1.85!important}
+.resume-impact-list li{padding-left:3px!important}
+.resume-impact-list li::marker{color:#C9502E!important}
+.project-note{color:#5B5751!important;font-size:11px!important;line-height:1.8!important}
+@media(max-width:640px){.site-nav{gap:9px!important;min-height:54px!important;padding:0 13px!important}.nav-link{font-size:11px!important}.nav-social{width:20px!important;flex-basis:20px!important}.nav-social svg{width:15px!important;height:15px!important}.project-foot{align-items:flex-start!important;flex-wrap:wrap!important}.project-foot-links{justify-content:flex-start!important}.project-foot a.project-foot-source{min-height:32px!important;padding:6px 9px!important}}
+@media(max-width:380px){.site-nav{gap:7px!important;padding:0 10px!important}.nav-link{font-size:10px!important}.nav-social{width:18px!important;flex-basis:18px!important}}
