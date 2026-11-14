@@ -7480,23 +7480,6 @@ html[data-site-theme="light"] body[data-page="work"] .project-detail:hover .proj
   opacity:1 !important;
 }
 
-/* Swap the two Arthic CTA hover treatments: the website button gets the GitHub style,
-   and the GitHub button gets the orange website-button style. */
-html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a.button-primary:hover {
-  background:#171815 !important;
-  background-color:#171815 !important;
-  color:#FFFFFF !important;
-  border-color:#171815 !important;
-  box-shadow:3px 3px 0 #E9673B !important;
-}
-html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a.text-link:hover {
-  background:#E9673B !important;
-  background-color:#E9673B !important;
-  color:#171815 !important;
-  border-color:#171815 !important;
-  box-shadow:3px 3px 0 #171815 !important;
-}
-
 /* Pointer hover on Resume headings never draws an outline. */
 html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:hover,
 html[data-site-theme="light"] body[data-page="resume"] .resume-section-summary:focus:hover,
@@ -8045,34 +8028,7 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover,*::-webk
 }
 
 
-/* 13 Nov 2026 — matching whole-card colour hovers for Featured In and the technical toolkit. */
-html[data-site-theme="light"] body.home-page .featured-grid > .featured-card {
-  border:1px solid var(--line) !important;
-  box-shadow:none !important;
-  transform:none !important;
-  transition:background-color .18s ease,border-color .18s ease !important;
-}
-html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:nth-child(1):is(:hover,:focus-within) {
-  background:#FBE1D7 !important; background-color:#FBE1D7 !important; border-color:#171815 !important;
-}
-html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:nth-child(2):is(:hover,:focus-within) {
-  background:#DCEAF8 !important; background-color:#DCEAF8 !important; border-color:#171815 !important;
-}
-html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:nth-child(3):is(:hover,:focus-within) {
-  background:#F6EBC9 !important; background-color:#F6EBC9 !important; border-color:#171815 !important;
-}
-html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:is(:hover,:focus-within) {
-  color:#171815 !important; box-shadow:none !important; transform:none !important; filter:none !important;
-}
-html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:is(:hover,:focus-within) :is(h3,p,span,time) {
-  color:#171815 !important; opacity:1 !important;
-}
-html[data-site-theme="light"] body.home-page .featured-grid > .featured-card:is(:hover,:focus-within) > a {
-  display:inline-flex !important; align-items:center !important; gap:8px !important;
-  padding:8px 13px !important; border:1px solid #171815 !important; border-radius:999px !important;
-  background:#E9673B !important; color:#171815 !important;
-  box-shadow:3px 3px 0 #171815 !important; text-decoration:none !important;
-}
+/* Featured cards are intentionally static; see the final shared-control audit below. */
 html[data-site-theme="light"] body[data-page="work"] .skills > .skill-card {
   border:1px solid transparent !important;
   box-shadow:none !important; transform:none !important; filter:none !important;
@@ -8898,5 +8854,375 @@ html[data-site-theme="light"] body .site-nav {
   html[data-site-theme="light"] body .site-nav {
     gap: 10px !important;
     padding-inline: 11px !important;
+  }
+}
+
+
+/* 14 Nov 2026 — definitive control audit: one Email-me CTA style, no parent-hover overrides. */
+:root {
+  --cta-rest: #DF633B;
+  --cta-hover: #F1D77F;
+  --cta-ink: #171815;
+}
+
+/* Every real call-to-action shares the same normal state. */
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  a.social-circle,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  [data-misc-filter],
+  [data-maze-reset],
+  [data-maze-move],
+  button:not(:disabled),
+  [role="button"]
+) {
+  background: var(--cta-rest) !important;
+  background-color: var(--cta-rest) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border: 1px solid var(--cta-ink) !important;
+  border-radius: 999px !important;
+  box-shadow: 4px 4px 0 var(--cta-ink) !important;
+  text-decoration: none !important;
+  transition:
+    background-color .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease !important;
+}
+
+/* Hover, keyboard focus and pressed states use the same yellow fill and dark ink.
+   The arrow glyph inherits the same ink as the button label. */
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  a.social-circle,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  [data-misc-filter],
+  [data-maze-reset],
+  [data-maze-move],
+  button:not(:disabled),
+  [role="button"]
+):is(:hover, :focus-visible, :active) {
+  background: var(--cta-hover) !important;
+  background-color: var(--cta-hover) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 6px 6px 0 var(--cta-ink) !important;
+  transform: translate(-2px, -2px) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  a.social-circle,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  [data-misc-filter],
+  [data-maze-reset],
+  [data-maze-move],
+  button:not(:disabled),
+  [role="button"]
+):is(:hover, :focus-visible, :active) * {
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  a.social-circle,
+  .arcade-sound-toggle,
+  .arcade-back,
+  .arcade-secondary,
+  .arcade-call-button,
+  .arcade-card-link,
+  .game-action,
+  .game-action-soft,
+  .game-action-muted,
+  .game-reset,
+  .misc-filter,
+  [data-misc-filter],
+  [data-maze-reset],
+  [data-maze-move],
+  button:not(:disabled),
+  [role="button"]
+) :is(svg, svg *, path) {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+  color: currentColor !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  .resume-chapter-nav a,
+  .repo-links a,
+  a.social-circle,
+  button:not(:disabled),
+  [role="button"]
+):focus-visible {
+  outline: 3px solid var(--cta-ink) !important;
+  outline-offset: 3px !important;
+}
+
+/* Project-page cards may change tint on hover, but their CTAs never inherit that tint. */
+html[data-site-theme="light"] body[data-page="work"] .project-detail .project-actions > a,
+html[data-site-theme="light"] body[data-page="work"] .project-detail > a.button-primary {
+  background: var(--cta-rest) !important;
+  background-color: var(--cta-rest) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border: 1px solid var(--cta-ink) !important;
+  box-shadow: 4px 4px 0 var(--cta-ink) !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail .project-actions > a:is(:hover, :focus-visible, :active),
+html[data-site-theme="light"] body[data-page="work"] .project-detail > a.button-primary:is(:hover, :focus-visible, :active) {
+  background: var(--cta-hover) !important;
+  background-color: var(--cta-hover) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 6px 6px 0 var(--cta-ink) !important;
+  transform: translate(-2px, -2px) !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail .project-actions > a:is(:hover, :focus-visible, :active) *,
+html[data-site-theme="light"] body[data-page="work"] .project-detail > a.button-primary:is(:hover, :focus-visible, :active) * {
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+}
+
+/* Explicit Arthic override: both Visit Arthic and GitHub Repository now match every other CTA. */
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a.button-primary,
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a.text-link {
+  background: var(--cta-rest) !important;
+  background-color: var(--cta-rest) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border: 1px solid var(--cta-ink) !important;
+  box-shadow: 4px 4px 0 var(--cta-ink) !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a.button-primary:is(:hover, :focus-visible, :active),
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a.text-link:is(:hover, :focus-visible, :active) {
+  background: var(--cta-hover) !important;
+  background-color: var(--cta-hover) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 6px 6px 0 var(--cta-ink) !important;
+  transform: translate(-2px, -2px) !important;
+}
+html[data-site-theme="light"] body[data-page="work"] .project-detail#arthic .project-actions > a:is(:hover, :focus-visible, :active) * {
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+}
+
+/* Homepage project links keep the orange face even while the surrounding project card is hovered. */
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover, :focus-within) :is(.project-arrow-link, .project-foot a) {
+  background: var(--cta-rest) !important;
+  background-color: var(--cta-rest) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 4px 4px 0 var(--cta-ink) !important;
+  transform: none !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover, :focus-within) :is(.project-arrow-link, .project-foot a):is(:hover, :focus-visible, :active) {
+  background: var(--cta-hover) !important;
+  background-color: var(--cta-hover) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 6px 6px 0 var(--cta-ink) !important;
+  transform: translate(-2px, -2px) !important;
+}
+html[data-site-theme="light"] body.home-page .project-grid > .project-card:is(:hover, :focus-within) :is(.project-arrow-link, .project-foot a):is(:hover, :focus-visible, :active) * {
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+}
+
+/* Featured In is editorial content, not a hover target. Keep its heading and cards unchanged;
+   only the actual Read article / Read issue links get the shared button treatment. */
+html[data-site-theme="light"] body.home-page .featured-section,
+html[data-site-theme="light"] body.home-page .featured-section:is(:hover, :focus-within) {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .section-heading,
+html[data-site-theme="light"] body.home-page .featured-section .section-heading:is(:hover, :focus-within),
+html[data-site-theme="light"] body.home-page .featured-section .section-heading h2,
+html[data-site-theme="light"] body.home-page .featured-section .section-heading h2:is(:hover, :focus-visible) {
+  background: transparent !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card,
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card:is(:hover, :focus-within) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--text) !important;
+  border: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card :is(h3, p, span, time),
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card:is(:hover, :focus-within) :is(h3, p, span, time) {
+  color: var(--text) !important;
+  opacity: 1 !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 14px !important;
+  padding: 9px 15px !important;
+  border: 1px solid var(--cta-ink) !important;
+  border-radius: 999px !important;
+  background: var(--cta-rest) !important;
+  background-color: var(--cta-rest) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  box-shadow: 4px 4px 0 var(--cta-ink) !important;
+  text-decoration: none !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:is(:hover, :focus-visible, :active) {
+  background: var(--cta-hover) !important;
+  background-color: var(--cta-hover) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 6px 6px 0 var(--cta-ink) !important;
+  transform: translate(-2px, -2px) !important;
+}
+html[data-site-theme="light"] body.home-page .featured-section .featured-grid > .featured-card > a:is(:hover, :focus-visible, :active) * {
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+}
+
+/* Contact button and icon links stay on the exact same orange/yellow system. */
+html[data-site-theme="light"] body.home-page .contact-section .email-pill,
+html[data-site-theme="light"] body.home-page .contact-section .social-circle {
+  background: var(--cta-rest) !important;
+  background-color: var(--cta-rest) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 4px 4px 0 var(--cta-ink) !important;
+}
+html[data-site-theme="light"] body.home-page .contact-section .email-pill:is(:hover, :focus-visible, :active),
+html[data-site-theme="light"] body.home-page .contact-section .social-circle:is(:hover, :focus-visible, :active) {
+  background: var(--cta-hover) !important;
+  background-color: var(--cta-hover) !important;
+  color: var(--cta-ink) !important;
+  -webkit-text-fill-color: var(--cta-ink) !important;
+  border-color: var(--cta-ink) !important;
+  box-shadow: 6px 6px 0 var(--cta-ink) !important;
+  transform: translate(-2px, -2px) !important;
+}
+
+/* The resume accordion summaries are section toggles, not CTAs; keep their existing pastel tabs. */
+html[data-site-theme="light"] body[data-page="resume"] .resume-content > .resume-section > .resume-section-summary:is(:hover, :focus-visible) {
+  box-shadow: none !important;
+  transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-site-theme="light"] body :is(
+    a.hero-button, a.button-primary, .project-actions > a, a.project-arrow-link,
+    .project-foot a, a.text-link, a.email-pill, a.error-home-link, a.error-project-link,
+    .experience-heading > a, .featured-card > a, .resume-chapter-nav a, .repo-links a,
+    a.social-circle, button:not(:disabled), [role="button"]
+  ) {
+    transition: none !important;
   }
 }
