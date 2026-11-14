@@ -8,11 +8,11 @@ A responsive personal portfolio built with semantic HTML, shared CSS, and vanill
 
 ## Overview
 
-The site brings together an introduction, selected projects, recognition, research and experience, a resume, personal facts, and contact information. It uses a light editorial design with fixed navigation and restrained interactions.
+The site brings together an introduction, projects, recognition, research and experience, a resume, personal facts, and contact information.
 
 ## Highlights
 
-- Home page with projects, Featured In, About, research and experience, and contact.
+- Homepage with projects, Featured In, About, research and experience, and contact.
 - Separate project case studies and resume pages, plus a personal Facts page.
 - Responsive layouts, custom 404 page, accessible navigation, and page transitions.
 - Search metadata, structured data, canonical URLs, sitemap, and robots directives.
@@ -28,5 +28,9 @@ node .portrait-hd-parts/assemble.mjs
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000`. Node.js is only required for the portrait assembly step; any static file server can serve the site.
+Open `http://localhost:8000`.
+
+## Notes and limitations
+
+Node.js is only required for the portrait assembly step. After the site assets are present, any static file server can serve the portfolio.
 
