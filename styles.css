@@ -9596,3 +9596,116 @@ html[data-site-theme="light"] body a:is(
   line-height: inherit !important;
   transform: none !important;
 }
+
+
+/* 14 Nov 2026 — arrow-bearing CTAs use the transparent blue-outline treatment. */
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a
+) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #171815 !important;
+  -webkit-text-fill-color: #171815 !important;
+  border: 1px solid #8794B2 !important;
+  border-color: #8794B2 !important;
+  box-shadow: none !important;
+  transform: translateY(0) scale(1) !important;
+  transition:
+    background-color .24s cubic-bezier(.2,.7,.2,1),
+    color .24s cubic-bezier(.2,.7,.2,1),
+    border-color .24s cubic-bezier(.2,.7,.2,1),
+    box-shadow .24s cubic-bezier(.2,.7,.2,1),
+    transform .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a
+):is(:hover, :focus-visible) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #171815 !important;
+  -webkit-text-fill-color: #171815 !important;
+  border-color: #8794B2 !important;
+  box-shadow: none !important;
+  transform: translateY(-2px) scale(1) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a
+):active {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: #8794B2 !important;
+  box-shadow: none !important;
+  transform: translateY(0) scale(1) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a
+) > span[aria-hidden="true"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #E9673B !important;
+  -webkit-text-fill-color: #E9673B !important;
+  box-shadow: none !important;
+  line-height: 1 !important;
+  transform: none !important;
+  transition: color .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-site-theme="light"] body :is(
+    a.hero-button, a.button-primary, .project-actions > a, a.project-arrow-link,
+    .project-foot a, a.text-link, a.email-pill, a.error-home-link, a.error-project-link,
+    .experience-heading > a, .featured-card > a
+  ) {
+    transition: none !important;
+  }
+}
