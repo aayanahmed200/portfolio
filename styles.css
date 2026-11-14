@@ -9812,3 +9812,123 @@ html[data-site-theme="light"] body.home-page .context-signoff {
     font-size: 12px !important;
   }
 }
+
+
+/* Restore the original solid CTA style: orange base, yellow hover, dark ink. */
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  a.social-circle
+) {
+  background: #DF633B !important;
+  background-color: #DF633B !important;
+  background-image: none !important;
+  color: #171815 !important;
+  -webkit-text-fill-color: #171815 !important;
+  border: 1px solid #171815 !important;
+  border-color: #171815 !important;
+  border-radius: 999px !important;
+  box-shadow: 4px 4px 0 #171815 !important;
+  text-decoration: none !important;
+  transform: translateY(0) scale(1) !important;
+  transition:
+    background-color .24s cubic-bezier(.2,.7,.2,1),
+    color .24s cubic-bezier(.2,.7,.2,1),
+    border-color .24s cubic-bezier(.2,.7,.2,1),
+    box-shadow .24s cubic-bezier(.2,.7,.2,1),
+    transform .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  a.social-circle
+):is(:hover, :focus-visible) {
+  background: #F1D77F !important;
+  background-color: #F1D77F !important;
+  background-image: none !important;
+  color: #171815 !important;
+  -webkit-text-fill-color: #171815 !important;
+  border-color: #171815 !important;
+  box-shadow: 6px 6px 0 #171815 !important;
+  transform: translateY(-2px) scale(1) !important;
+}
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a,
+  a.social-circle
+):active {
+  background: #F1D77F !important;
+  background-color: #F1D77F !important;
+  color: #171815 !important;
+  -webkit-text-fill-color: #171815 !important;
+  box-shadow: 3px 3px 0 #171815 !important;
+  transform: translateY(0) scale(1) !important;
+}
+/* Arrow glyphs have no separate box or fill; they sit cleanly beside the label. */
+html[data-site-theme="light"] body :is(
+  a.hero-button,
+  a.button-primary,
+  .project-actions > a,
+  a.project-arrow-link,
+  .project-foot a,
+  a.text-link,
+  a.email-pill,
+  a.error-home-link,
+  a.error-project-link,
+  .experience-heading > a,
+  .featured-card > a
+) > span[aria-hidden="true"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #171815 !important;
+  -webkit-text-fill-color: #171815 !important;
+  box-shadow: none !important;
+  line-height: 1 !important;
+  transform: none !important;
+  transition: color .24s cubic-bezier(.2,.7,.2,1) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-site-theme="light"] body :is(
+    a.hero-button, a.button-primary, .project-actions > a, a.project-arrow-link,
+    .project-foot a, a.text-link, a.email-pill, a.error-home-link, a.error-project-link,
+    .experience-heading > a, .featured-card > a, a.social-circle
+  ) {
+    transition: none !important;
+  }
+}
