@@ -9995,3 +9995,8 @@ html[data-site-theme="light"] body[data-page="work"] .project-detail-head h2 {
     margin-bottom: 12px !important;
   }
 }
+
+/* 14 Nov 2026 — keep the Nishaan Education title accent unchanged on homepage hover. */
+html[data-site-theme="light"] body.home-page #nishaan .heading-accent {
+  color:#D95F35 !important;
+}
