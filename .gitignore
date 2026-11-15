@@ -1,0 +1,21 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const yearNode = document.createElement('span');
+  yearNode.textContent = new Date().getFullYear();
+
+  const footerText = document.querySelector('.footer-label');
+  if (footerText) {
+    footerText.textContent = `Aayan Ahmed • ${yearNode.textContent}`;
+  }
+});
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion) {
+  document.querySelectorAll('.project-card, .cert-item, .button, .repo-list a').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      el.style.transform = 'translateY(-2px)';
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translateY(0)';
+    });
+  });
+}

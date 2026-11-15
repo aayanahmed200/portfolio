@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#91b8c0"/><stop offset=".58" stop-color="#d8d9c5"/><stop offset="1" stop-color="#f4dfba"/></linearGradient>
+ <linearGradient id="sun" x2="0" y2="1"><stop stop-color="#fff8d9" stop-opacity=".9"/><stop offset="1" stop-color="#fff8d9" stop-opacity="0"/></linearGradient>
+ <linearGradient id="sand" x2="0" y2="1"><stop stop-color="#e4bc93"/><stop offset="1" stop-color="#b87963"/></linearGradient>
+ <filter id="mist"><feGaussianBlur stdDeviation="15"/></filter>
+</defs>
+<rect width="960" height="440" fill="url(#sky)"/>
+<circle cx="735" cy="106" r="130" fill="url(#sun)" filter="url(#mist)"/>
+<path d="M0 250 98 188 210 211 313 143 422 206 544 126 650 205 758 145 960 214V440H0Z" fill="#b5b99f" opacity=".65"/>
+<path d="M0 288 122 223 239 265 350 188 483 264 601 194 741 260 863 205 960 247V440H0Z" fill="#d8d4b4" opacity=".8"/>
+<g fill="#758b7e" opacity=".72">
+ <path d="M634 252V108l16-17 6-47 9-28 10 28 8 47 18 17v144Z"/>
+ <path d="M626 111 674 65l45 46-10 18h-72Z"/>
+ <path d="M671 16h8v12h-8Z"/>
+</g>
+<g fill="#9a9c7d" opacity=".7">
+ <path d="M106 321v-74l10-12 8 12v74Z"/><path d="M92 252h52v10H92Z"/>
+ <path d="M170 333v-52l16-18 15 18v52Z"/><path d="M154 282h63v10h-63Z"/>
+ <path d="M792 314v-66l13-14 13 14v66Z"/><path d="M779 250h53v10h-53Z"/>
+</g>
+<path d="M0 317Q164 259 315 326T633 321T960 286V440H0Z" fill="#dfbd96"/>
+<path d="M0 365Q173 302 337 359T648 361T960 324V440H0Z" fill="url(#sand)"/>
+<path d="M0 408Q185 349 357 396T671 391T960 358V440H0Z" fill="#c98f76"/>
+<g fill="#f7e9c7" opacity=".75"><circle cx="202" cy="119" r="4"/><circle cx="259" cy="90" r="2"/><circle cx="829" cy="166" r="3"/><circle cx="878" cy="131" r="2"/></g>
+<g fill="#f4d77d"><circle cx="427" cy="217" r="5"/><circle cx="450" cy="187" r="3"/><circle cx="472" cy="224" r="4"/></g>
+<g fill="none" stroke="#f8e5ae" stroke-width="3" opacity=".8"><path d="M420 237q22-38 44-3"/><path d="M447 178q8-20 17 0"/></g>
+</svg>
