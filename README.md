@@ -39,4 +39,4 @@ This repository is the source for the portfolio website; it does not contain a b
 
 ## License
 
-No license file is included, so this repository does not grant permission to reuse or redistribute its contents.
+The portfolio's software source code and associated technical documentation are licensed under the MIT License. See [LICENSE](LICENSE) for the full text. Personal photographs, portrait images, original artwork, logos, wordmarks and other branding are excluded; see [ASSET-RIGHTS.md](ASSET-RIGHTS.md).
