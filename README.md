@@ -1,36 +1,42 @@
 # Aayan Ahmed — Portfolio
 
-**[Live portfolio](https://aayanahmed200.vercel.app)**
+A static personal website with project work, experience, a resume and personal interests.
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
-
-A responsive personal portfolio built with semantic HTML, shared CSS, and vanilla JavaScript.
+**[Open the portfolio](https://aayanahmed200.vercel.app)**
 
 ## Overview
 
-The site brings together an introduction, projects, recognition, research and experience, a resume, personal facts, and contact information.
+The site presents an introduction, selected projects, research and experience, a resume, personal facts and contact details. It includes a project overview, a custom 404 page and responsive navigation.
 
-## Highlights
+## Repository contents
 
-- Homepage with projects, Featured In, About, research and experience, and contact.
-- Separate project case studies and resume pages, plus a personal Facts page.
-- Responsive layouts, custom 404 page, accessible navigation, and page transitions.
-- Search metadata, structured data, canonical URLs, sitemap, and robots directives.
+- `index.html` — homepage.
+- `projects.html` — project summaries and links to the projects.
+- `experience.html` — resume and experience.
+- `facts.html` and `miscellaneous.html` — personal interests and additional content.
+- `404.html` — custom not-found page.
+- `styles.css` and `script.js` — shared layout, styling and interactions.
+- `assets/` — images, icons and project artwork.
+- `vercel.json` — clean URL configuration, redirects and response headers.
 
 ## Technology
 
-Semantic HTML, CSS, vanilla JavaScript, Vercel Web Analytics, and Vercel static hosting.
+Semantic HTML, CSS and vanilla JavaScript. The site is deployed as static files on Vercel and uses Vercel Web Analytics.
 
 ## Run locally
 
+For a preview that follows the clean URLs configured in `vercel.json`, use the Vercel CLI:
+
 ```bash
-node .portrait-hd-parts/assemble.mjs
-python3 -m http.server 8000
+npx vercel dev
 ```
 
-Open `http://localhost:8000`.
+A basic static server can also serve the HTML files, but it does not reproduce Vercel's extensionless routes. Open the individual `.html` files directly when using a basic server.
 
-## Notes and limitations
+## Scope and limitations
 
-Node.js is only required for the portrait assembly step. After the site assets are present, any static file server can serve the portfolio.
+This repository is the source for the portfolio website; it does not contain a backend application or user account system. Some content links to external projects and services, which are maintained separately.
 
+## License
+
+No license file is included, so this repository does not grant permission to reuse or redistribute its contents.

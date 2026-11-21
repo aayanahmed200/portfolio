@@ -1,5 +1,4 @@
 {
-  "buildCommand": "node .portrait-hd-parts/assemble.mjs",
   "outputDirectory": ".",
   "trailingSlash": false,
   "cleanUrls": true,
