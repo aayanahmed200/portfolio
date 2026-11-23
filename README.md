@@ -1,4 +1,4 @@
-# Aayan Ahmed — Portfolio
+# Aayan Ahmed - Portfolio
 
 **[Live portfolio](https://aayanahmed200.vercel.app)**
 
@@ -17,6 +17,16 @@ The site brings together an introduction, projects, recognition, research and ex
 - Responsive layouts, custom 404 page, accessible navigation, and page transitions.
 - Search metadata, structured data, canonical URLs, sitemap, and robots directives.
 
+## Repository contents
+
+- `index.html` - the homepage; `projects.html`, `experience.html`, `facts.html` and `miscellaneous.html` are the inner pages.
+- `styles.css` - the single shared stylesheet for every page.
+- `script.js` - navigation, page transitions and shared interaction; `arcade.js` and `arcade3d.js` power the interactive extras.
+- `analytics-init.js` - Vercel Web Analytics.
+- `assets/` and `public/` - images, the portrait, icons and static files.
+- `.portrait-hd-parts/` - the high-resolution portrait split into committed parts, with `assemble.mjs` to rebuild it.
+- `vercel.json`, `robots.txt`, `sitemap.xml` - hosting configuration and crawler files.
+
 ## Technology
 
 Semantic HTML, CSS, vanilla JavaScript, Vercel Web Analytics, and Vercel static hosting.
@@ -33,4 +43,3 @@ Open `http://localhost:8000`.
 ## Notes and limitations
 
 Node.js is only required for the portrait assembly step. After the site assets are present, any static file server can serve the portfolio.
-
