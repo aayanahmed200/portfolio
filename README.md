@@ -1,43 +1,54 @@
 # Aayan Ahmed — Portfolio
 
-**Live:** [aayanahmed200.vercel.app](https://aayanahmed200.vercel.app)
+> A responsive personal portfolio presenting my projects, research and experience, background, and contact information.
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+**Live portfolio:** [aayanahmed200.vercel.app](https://aayanahmed200.vercel.app/)
 
-A responsive personal portfolio built with semantic HTML, shared CSS, and vanilla JavaScript.
+[![HTML5](https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
 ## Overview
 
-The site brings together an introduction, projects, recognition, research and experience, a resume, personal facts, and contact information.
+This repository contains my static personal website. It introduces me and brings together project case studies, recognition, research and experience, a resume, personal facts, and contact links.
 
-## How it was made
+## Key features
 
-Hand-written HTML, CSS and JavaScript with no framework and no build step. Every page shares one stylesheet and a small script for navigation, page transitions and the interactive pieces, so a change to the layout lands everywhere at once.
+- Homepage with project highlights, Featured In, About, and contact sections.
+- Dedicated project case-study, experience/resume, and personal-facts pages.
+- Responsive layouts, shared navigation, custom 404 page, and page-transition effects.
+- Search metadata, structured data, canonical URLs, sitemap, robots directives, and Vercel Web Analytics.
+- Browser-based interactive elements stored in the repository's JavaScript files.
 
-The portrait is stored in the repository as base64 fragments, which a small Node script decodes into the WebP the pages load, so the image ships without a separate asset host. Pages carry search metadata, structured data, canonical URLs, a sitemap and robots directives, and the whole thing is served as static files from Vercel with Vercel Web Analytics for traffic.
+## Implementation
 
-## Highlights
+The site uses hand-written semantic HTML, shared CSS, and vanilla JavaScript. It has no frontend framework or package-manager build step. Vercel serves the static files and runs a small Node.js build command that assembles a verified WebP portrait from source fragments before deployment.
 
-- Homepage with projects, Featured In, About, research and experience, and contact.
-- Separate project case studies and resume pages, plus a personal Facts page.
-- Responsive layouts, custom 404 page, accessible navigation, and page transitions.
-- Search metadata, structured data, canonical URLs, sitemap, and robots directives.
+The pages share `styles.css` and `script.js` for visual styling and browser behaviour. SEO metadata is included in the HTML, with a sitemap and robots policy at the repository root.
 
-## Repository contents
+## Repository structure
 
-- `index.html` — the homepage.
-- `projects.html`, `experience.html`, `facts.html`, `miscellaneous.html` — the other pages.
-- `404.html` — the not-found page.
-- `styles.css`, `script.js`, `analytics-init.js` — the shared stylesheet, page behaviour and the analytics snippet.
-- `arcade.js`, `arcade3d.js` — the browser-only interactive pieces.
-- `assets/` — portraits, scene art and the images the pages reference.
-- `.portrait-hd-parts/` — the base64 portrait fragments and the script that assembles them.
-- `robots.txt`, `sitemap.xml`, `vercel.json` — crawling, the sitemap and the Vercel project config.
+- `index.html` — homepage.
+- `projects.html`, `experience.html`, `facts.html`, and `miscellaneous.html` — supporting pages.
+- `404.html` — custom not-found page.
+- `styles.css`, `script.js`, and `analytics-init.js` — shared styles, interactions, and analytics setup.
+- `arcade.js` and `arcade3d.js` — browser-based interactive experiences.
+- `assets/` — portrait, illustrations, and other page assets.
+- `.portrait-hd-parts/` — build-time portrait fragments and the assembly script.
+- `robots.txt`, `sitemap.xml`, and `vercel.json` — crawling policy, sitemap, and Vercel configuration.
 
-## Notes and limitations
+## Run locally
 
-The site is static, so there is no server to render anything per visitor; every page is the file in the repository. Node.js is only needed for the portrait assembly step, and once the assets are in place any static file server can serve the portfolio.
+Serve the repository root with any static web server. For example:
+
+```bash
+python -m http.server 8000
+```
+
+Then open [http://localhost:8000](http://localhost:8000). Vercel runs the portrait assembly command defined in `vercel.json` during deployment.
+
+## Status and limitations
+
+This is a static website: pages are delivered as files and there is no server-side user account or per-visitor rendering layer. The Node.js portrait assembly script is part of the Vercel build process; the site itself can be served as static files once its assets are present.
 
 ## License
 
-MIT
+MIT. See [LICENSE](LICENSE).
