@@ -10015,3 +10015,23 @@ html[data-site-theme="light"] body .project-meta-row > .project-year {
   line-height:1 !important;
   box-sizing:border-box !important;
 }
+
+
+/* Featured In desktop layout: three equal columns, then two/tablet and one/mobile. */
+@media (min-width: 901px) {
+  html[data-site-theme="light"] body.home-page .featured-section .featured-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+  }
+}
+@media (max-width: 900px) {
+  html[data-site-theme="light"] body.home-page .featured-section .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 620px) {
+  html[data-site-theme="light"] body.home-page .featured-section .featured-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
