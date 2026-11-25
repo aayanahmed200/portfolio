@@ -10,7 +10,7 @@
 
 This repository contains my static personal website. It introduces me and brings together project case studies, recognition, research and experience, a resume, personal facts, and contact links.
 
-## Key features
+## Highlights
 
 - Homepage with project highlights, Featured In, About, and contact sections.
 - Dedicated project case-study, experience/resume, and personal-facts pages.
