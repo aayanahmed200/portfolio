@@ -35,16 +35,6 @@ The pages share `styles.css` and `script.js` for visual styling and browser beha
 - `.portrait-hd-parts/` — build-time portrait fragments and the assembly script.
 - `robots.txt`, `sitemap.xml`, and `vercel.json` — crawling policy, sitemap, and Vercel configuration.
 
-## Run locally
-
-Serve the repository root with any static web server. For example:
-
-```bash
-python -m http.server 8000
-```
-
-Then open [http://localhost:8000](http://localhost:8000). Vercel runs the portrait assembly command defined in `vercel.json` during deployment.
-
 ## Status and limitations
 
 This is a static website: pages are delivered as files and there is no server-side user account or per-visitor rendering layer. The Node.js portrait assembly script is part of the Vercel build process; the site itself can be served as static files once its assets are present.
